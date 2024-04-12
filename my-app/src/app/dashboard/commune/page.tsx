@@ -1,14 +1,16 @@
-import styles from '@/app/ui/dashboard.module.css';
-import BarChart from '@/app/ui/dashboard/penvaluechart';
+
+import communeData from '@/app/lib/data';
 import ChartBox from '@/app/ui/dashboard/chartbox';
+import CommuneDropdown from '@/app/ui/dashboard/communedropdown';
 
 
 
 
 export default function Page({ children }: { children: React.ReactNode }) {
-
+  console.log(communeData.technologies)
   return (
     <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
+      
       <div className="w-full flex-none md:w-150"> {/* Size of boxes */}
       <ChartBox />
       </div>
