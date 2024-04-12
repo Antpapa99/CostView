@@ -1,15 +1,46 @@
-import communeData from "./data";'@/app/lib/data';
+'use server';
+import { fetchCommune } from '@/app/lib/data';
 
 /* let penCost = (installationer/möjliga installationer)*100
 Alternativkostnad = (möjliga installationer-installationer)*Arlig_besparing_per_installation_SEK
 Total kostnad = (möjliga installationer-installationer) * Kostnad_per_installation
 
 */
+export async function getCommuneData() {
+    const commune = await fetchCommune();
+    return commune;
 
-const penCostArrayCalculator = communeData.technologies.map(tech => ({
-    name: tech.tech_name, // Assuming the technology name is stored in a property named "name"
-    penCost: (tech["Antal_installationer"] / tech["Mojliga_installationer"]) * 100
-}));
+};
+
+/* definerar hur variablerna i objekten ska defineras i typescript */
+interface PenCostData {
+    communeName: string;
+    techName: string;
+    penCost: number;
+}
+
+export async function calculatePenetrationCost(communeData: any[]): Promise<PenCostData[]> {
+    const penCostArrayCalculator: PenCostData[] = []; /* Här defineras det som en lista eftersom vi samlar olika kommuners penettrationsgrad */
+
+    communeData.forEach(commune => {
+        const communeName: string = commune.commune_name; 
+        const technologies: any[] = commune.technologies; /* Här defineras det som en lista eftersom det finns fler en teknologi objekt i varje kommun */
+
+        technologies.forEach(tech => {
+            const penCost = (tech["Antal_installationer"] / tech["Mojliga_installationer"]) * 100;
+            penCostArrayCalculator.push({
+                communeName: communeName,
+                techName: tech.tech_name,
+                penCost: penCost,
+            });
+        });
+    });
+
+    return penCostArrayCalculator;
+}
+
+/* const communeData = await getCommuneData();
+const penCostArrayCalculator = await calculatePenetrationCost(communeData);
 
 const alternativkostnadCalculator = communeData.technologies.map(tech => ({
     name: tech.tech_name, // Assuming the technology name is stored in a property named "name"
@@ -19,8 +50,8 @@ const alternativkostnadCalculator = communeData.technologies.map(tech => ({
 const totalkostnadCalculator = communeData.technologies.map(tech => ({
     name: tech.tech_name, // Assuming the technology name is stored in a property named "name"
     totalkostnad: (tech["Mojliga_installationer"] - tech["Antal_installationer"] * tech["Kostnad_per_installation"])
-}));
+})); */
 
 // Export the costs
-export default {penCostArrayCalculator, alternativkostnadCalculator, totalkostnadCalculator};
+
 
