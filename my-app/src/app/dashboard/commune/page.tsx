@@ -1,3 +1,4 @@
+import { fetchCommune } from '@/app/lib/data';
 import penCostArrayCalculator  from '@/app/lib/utils';
 import alternativkostnadCalculator  from '@/app/lib/utils';
 import totalkostnadCalculator  from '@/app/lib/utils';
@@ -7,9 +8,7 @@ import ChartBox from '@/app/ui/dashboard/chartbox';
 
 
 export default function Page({ children }: { children: React.ReactNode }) {
-  console.log(penCostArrayCalculator)
-  console.log(alternativkostnadCalculator)
-  console.log(totalkostnadCalculator)
+  fetchCommune();
   return (
     <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
       
