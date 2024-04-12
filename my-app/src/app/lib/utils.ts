@@ -17,6 +17,9 @@ interface PenCostData {
     communeName: string;
     techName: string;
     penCost: number;
+    alternativCost: number;
+    totalKostnad: number;
+
 }
 
 export async function calculatePenetrationCost(communeData: any[]): Promise<PenCostData[]> {
@@ -28,30 +31,19 @@ export async function calculatePenetrationCost(communeData: any[]): Promise<PenC
 
         technologies.forEach(tech => {
             const penCost = (tech["Antal_installationer"] / tech["Mojliga_installationer"]) * 100;
+            const alternativCost = (tech["Mojliga_installationer"] - tech["Antal_installationer"] * tech["Arlig_besparing_per_installation_SEK"])
+            const totalKostnad = (tech["Mojliga_installationer"] - tech["Antal_installationer"] * tech["Kostnad_per_installation"])
             penCostArrayCalculator.push({
                 communeName: communeName,
                 techName: tech.tech_name,
                 penCost: penCost,
+                alternativCost: alternativCost,
+                totalKostnad: totalKostnad,
             });
         });
     });
 
     return penCostArrayCalculator;
 }
-
-/* const communeData = await getCommuneData();
-const penCostArrayCalculator = await calculatePenetrationCost(communeData);
-
-const alternativkostnadCalculator = communeData.technologies.map(tech => ({
-    name: tech.tech_name, // Assuming the technology name is stored in a property named "name"
-    alternativCost: (tech["Mojliga_installationer"] - tech["Antal_installationer"] * tech["Arlig_besparing_per_installation_SEK"])
-}));
-
-const totalkostnadCalculator = communeData.technologies.map(tech => ({
-    name: tech.tech_name, // Assuming the technology name is stored in a property named "name"
-    totalkostnad: (tech["Mojliga_installationer"] - tech["Antal_installationer"] * tech["Kostnad_per_installation"])
-})); */
-
-// Export the costs
 
 
