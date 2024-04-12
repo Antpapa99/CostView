@@ -1,5 +1,7 @@
 import styles from '@/app/ui/dashboard.module.css';
+import BarChart from '@/app/ui/dashboard/penvaluechart';
 import ChartBox from '@/app/ui/dashboard/chartbox';
+
 
 
 

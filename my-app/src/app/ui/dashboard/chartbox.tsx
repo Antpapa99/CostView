@@ -1,17 +1,16 @@
+import ChartComponent from './penvaluechart';
 
 export default function ChartBox() {
     return (
       <>
         <section className="flex my-10 px4 gap-20">
         <div className="w-[400px] h-[300px] bg-gray-700 rounded">
-            <p> Hello world</p>
+          <ChartComponent />
         </div>
-        <div className="w-[400px] h-[300px] bg-gray-700 rounded">
-        <p> Hello world</p>
+        <div className="w-[400px] h-[300px] bg-gray-700 rounded" >
         </div>
         </section>
         <section className="flex my-10 px4 gap-3">
-        <p> SLIDER HERE</p>
         </section>
         <section className="flex my-10 px4 gap-20">
         <div className="w-[400px] h-[300px] bg-gray-700 rounded"></div>
