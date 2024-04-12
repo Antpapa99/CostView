@@ -5,13 +5,6 @@ import { fetchCommune } from '@/app/lib/data';
 Alternativkostnad = (möjliga installationer-installationer)*Arlig_besparing_per_installation_SEK
 Total kostnad = (möjliga installationer-installationer) * Kostnad_per_installation
 
-*/
-export async function getCommuneData() {
-    const commune = await fetchCommune();
-    return commune;
-
-};
-
 /* definerar hur variablerna i objekten ska defineras i typescript */
 interface PenCostData {
     communeName: string;
