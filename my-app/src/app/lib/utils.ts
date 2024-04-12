@@ -31,8 +31,8 @@ export async function calculatePenetrationCost(communeData: any[]): Promise<PenC
 
         technologies.forEach(tech => {
             const penCost = (tech["Antal_installationer"] / tech["Mojliga_installationer"]) * 100;
-            const alternativCost = (tech["Mojliga_installationer"] - tech["Antal_installationer"] * tech["Arlig_besparing_per_installation_SEK"])
-            const totalKostnad = (tech["Mojliga_installationer"] - tech["Antal_installationer"] * tech["Kostnad_per_installation"])
+            const alternativCost = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * tech["Arlig_besparing_per_installation_SEK"])
+            const totalKostnad = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * tech["Kostnad_per_installation"])
             penCostArrayCalculator.push({
                 communeName: communeName,
                 techName: tech.tech_name,
