@@ -1,13 +1,15 @@
-
-import communeData from '@/app/lib/data';
+import penCostArrayCalculator  from '@/app/lib/utils';
+import alternativkostnadCalculator  from '@/app/lib/utils';
+import totalkostnadCalculator  from '@/app/lib/utils';
 import ChartBox from '@/app/ui/dashboard/chartbox';
-import CommuneDropdown from '@/app/ui/dashboard/communedropdown';
 
 
 
 
 export default function Page({ children }: { children: React.ReactNode }) {
-  console.log(communeData.technologies)
+  console.log(penCostArrayCalculator)
+  console.log(alternativkostnadCalculator)
+  console.log(totalkostnadCalculator)
   return (
     <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
       
