@@ -6,7 +6,7 @@ Alternativkostnad = (möjliga installationer-installationer)*Arlig_besparing_per
 Total kostnad = (möjliga installationer-installationer) * Kostnad_per_installation
 
 /* definerar hur variablerna i objekten ska defineras i typescript */
-interface PenCostData {
+interface CommuneCostData {
     communeName: string;
     techName: string;
     penCost: number;
@@ -15,8 +15,8 @@ interface PenCostData {
 
 }
 
-export async function calculatePenetrationCost(communeData: any[]): Promise<PenCostData[]> {
-    const penCostArrayCalculator: PenCostData[] = []; /* Här defineras det som en lista eftersom vi samlar olika kommuners penettrationsgrad */
+export async function calculateCostAllCommunes(communeData: any[]): Promise<CommuneCostData[]> {
+    const communeCostArrayCalculator: CommuneCostData[] = []; /* Här defineras det som en lista eftersom vi samlar olika kommuners penettrationsgrad */
 
     communeData.forEach(commune => {
         const communeName: string = commune.commune_name; 
@@ -26,7 +26,7 @@ export async function calculatePenetrationCost(communeData: any[]): Promise<PenC
             const penCost = (tech["Antal_installationer"] / tech["Mojliga_installationer"]) * 100;
             const alternativCost = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * tech["Arlig_besparing_per_installation_SEK"])
             const totalKostnad = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * tech["Kostnad_per_installation"])
-            penCostArrayCalculator.push({
+            communeCostArrayCalculator.push({
                 communeName: communeName,
                 techName: tech.tech_name,
                 penCost: penCost,
@@ -36,7 +36,30 @@ export async function calculatePenetrationCost(communeData: any[]): Promise<PenC
         });
     });
 
-    return penCostArrayCalculator;
+    return communeCostArrayCalculator;
+}
+
+
+
+export async function calculateCostSpecificCommune(communeData: any[string]): Promise<CommuneCostData[]> {
+    const communeCostArrayCalculator: CommuneCostData[] = []; /* Här defineras det som en lista eftersom vi samlar olika kommuners penettrationsgrad */
+    const communeName: string = communeData.commune_name; 
+    const technologies: any[] = communeData.technologies; /* Här defineras det som en lista eftersom det finns fler en teknologi objekt i varje kommun */
+
+        technologies.forEach(tech => {
+            const penCost = (tech["Antal_installationer"] / tech["Mojliga_installationer"]) * 100;
+            const alternativCost = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * tech["Arlig_besparing_per_installation_SEK"])
+            const totalKostnad = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * tech["Kostnad_per_installation"])
+            communeCostArrayCalculator.push({
+                communeName: communeName,
+                techName: tech.tech_name,
+                penCost: penCost,
+                alternativCost: alternativCost,
+                totalKostnad: totalKostnad,
+        });
+    });
+
+    return communeCostArrayCalculator;
 }
 
 

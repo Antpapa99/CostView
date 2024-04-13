@@ -17,5 +17,23 @@ export async function fetchCommune() {
     }
   }
 
+  
+
+  export async function fetchSpecificCommune(communeName: string) {Promise<string>
+    // Tar bor caching
+    noStore();
+    try {
+  
+      const response = await fetch(`https://tig335-alternativkostnader.onrender.com/commune/${communeName}`);
+      const communeData = await response.json();
+      
+  
+      return communeData;
+    } catch (error) {
+      console.error('API Error:', error);
+      throw new Error('Inhämtning av datan från datafångaren misslyckades');
+    }
+  }
+
 
 
