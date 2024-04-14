@@ -3,13 +3,14 @@ import { fetchCommune, fetchSpecificCommune } from '@/app/lib/data';
 import { calculateCostAllCommunes, calculateCostSpecificCommune }  from '@/app/lib/utils';
 
 import ChartBox from '@/app/ui/dashboard/chartbox';
+import AltCostChart from '@/app/ui/dashboard/charts/altcostchart';
 import { useState, useEffect } from 'react';
 
 // CommuneData variablen tar in data från fetchcommune();
 // penetrationCost variablen tar in communeData variabeln och räkner utan penetrationsgraden
 async function getCommuneCost() {
   
-  const communeData = await fetchSpecificCommune('Ale-kommun'); // Assuming getCommuneData returns the necessary data
+  const communeData = await fetchSpecificCommune('Bjurholms-kommun'); // Assuming getCommuneData returns the necessary data
   const communeCost = await calculateCostSpecificCommune(communeData);
   return communeCost;
 }
@@ -23,8 +24,8 @@ export default function Page({ children }: { children: React.ReactNode }) {
   useEffecten hooken tar en funktion som argument som kommer att aktiveras efter rendering i DOM */
   useEffect(() => {
     const fetchCommuneCost = async () => { /* Async är där så att webbsidan inte aktivera funktionen innan fetchingen är färdig */
-      const penCost = await getCommuneCost(); /* Await vänter när den första funktionen är färdig med sitt syfte */
-      setCommuneCost(penCost); /*denna variablen unppdatera sidan med det nya */
+      const Cost = await getCommuneCost(); /* Await vänter när den första funktionen är färdig med sitt syfte */
+      setCommuneCost(Cost); /*denna variablen unppdatera sidan med det nya */
     };
 
     fetchCommuneCost(); /* säger till att funktionen körs på DOM, alltså sidan uppdateras */

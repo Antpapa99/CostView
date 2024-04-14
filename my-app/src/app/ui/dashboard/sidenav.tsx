@@ -4,22 +4,22 @@ export default function SideNav() {
       <div className="flex h-full flex-col px-3 py-4 md:px-2">
           <div className="w-32 text-white md:w-40"></div>
         <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
-          <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block">
-            <button className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3 left-0 top-0 mt-4">
+          <div className="bg-gray-800 hidden h-auto w-full grow rounded-md bg-gray-50 md:block"> {/* Ändrar färgen på sidebaren */}
+            <button className="bg-gray-800 text-white flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3 left-0 top-0 mt-4">
               <Link href="/dashboard/commune">Kommun</Link>
             </button>
-            <button className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3 left-0 top-0 mt-4">
+            <button className="bg-gray-800 text-white flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3 left-0 top-0 mt-4">
               <Link href="/dashboard/nationell">Nationell</Link>
             </button>
-            <button className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3 left-0 top-0 mt-4">
+            <button className=" bg-gray-800 text-white flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3 left-0 top-0 mt-4">
               <Link href="/dashboard/jamforelse">Jämförelse</Link>
             </button>
-            <button className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3 left-0 top-0 mt-4">
+            <button className=" bg-gray-800 text-white flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3 left-0 top-0 mt-4">
               <Link href="https://tig335-alternativkostnader.onrender.com">Till Datafångaren</Link>
             </button>
           </div>
           <form>
-            <button className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">
+            <button className="bg-gray-800 text-white flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">
             </button>
           </form>
         </div>
