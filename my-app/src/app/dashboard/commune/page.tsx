@@ -4,13 +4,16 @@ import { calculateCostAllCommunes, calculateCostSpecificCommune }  from '@/app/l
 
 import ChartBox from '@/app/ui/dashboard/chartbox';
 import AltCostChart from '@/app/ui/dashboard/charts/altcostchart';
+import CommuneDropdownItem from '@/app/ui/dashboard/communedropdown';
+import DropdownItem from '@/app/ui/dashboard/communedropdown';
 import { useState, useEffect } from 'react';
-
+import { kommuner } from '@/app/ui/dashboard/communedropdown';
 // CommuneData variablen tar in data från fetchcommune();
 // penetrationCost variablen tar in communeData variabeln och räkner utan penetrationsgraden
 async function getCommuneCost() {
+
   
-  const communeData = await fetchSpecificCommune('Bjurholms-kommun'); // Assuming getCommuneData returns the necessary data
+  const communeData = await fetchSpecificCommune('Ale-kommun'); // Assuming getCommuneData returns the necessary data
   const communeCost = await calculateCostSpecificCommune(communeData);
   return communeCost;
 }
@@ -34,7 +37,6 @@ export default function Page({ children }: { children: React.ReactNode }) {
   console.log(communeCost);
   return (
     <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
-      
       <div className="w-full flex-none md:w-150"> {/* Size of boxes */}
       <ChartBox />
       </div>
