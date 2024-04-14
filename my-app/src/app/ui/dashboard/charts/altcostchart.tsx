@@ -48,15 +48,16 @@ export default function AltCostChart() {
       fetchCommuneCost(); /* säger till att funktionen körs på DOM, alltså sidan uppdateras */
     }, []);
 
+    const backgroundColor = ['rgba(186, 0, 0, 0.7',
+    'rgba(184, 186, 0, 0.7)', 'rgba(0, 186, 176, 0.7)', 'rgba(80, 0, 186, 0.7)', 'rgba(33, 186, 0, 0.7)']
+
     const chartData = {
         labels: communeCost.map(data => data.techName), // Tänk map som en foreach
         datasets: [
             {
                 label: "Alternativ kostnad",
                 data: communeCost.map(data => data.alternativCost),
-                backgroundColor: ['rgba(23, 37, 84, 0.5)',
-                'rgba(255, 1, 132, 0.5)'],
-                borderColor: 'rgba(255, 99, 132, 1)',
+                backgroundColor: backgroundColor,
                 borderWidth: 1
             }
         ]
