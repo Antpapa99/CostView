@@ -1,6 +1,7 @@
 import AltCostChart from "./charts/altcostchart";
 import CommuneDropdownItem from "./communedropdown";
-import { kommuner } from './communedropdown'; 
+import { kommuner } from './communedropdown';
+import PenValueChart from "./charts/penvaluechart"; 
 
 export default function ChartBox() {
   return (
@@ -15,7 +16,7 @@ export default function ChartBox() {
             <AltCostChart />
           </div>
           <div className="w-1/2 bg-gray-700 rounded p-2">
-          <AltCostChart />
+          <PenValueChart />
           </div>
         </div>
         <div className="flex flex-row gap-5">
