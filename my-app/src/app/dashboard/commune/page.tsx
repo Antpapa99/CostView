@@ -1,6 +1,6 @@
 'use client';
 import { fetchCommune, fetchSpecificCommune } from '@/app/lib/data';
-import { calculateCostAllCommunes, calculateCostSpecificCommune, getCommuneCost }  from '@/app/lib/utils';
+import { calculateCostAllCommunes, calculateCostSpecificCommune, getSpecficCommuneCost }  from '@/app/lib/utils';
 import ChartBox from '@/app/ui/dashboard/chartbox';
 import AltCostChart from '@/app/ui/dashboard/charts/altcostchart';
 import CommuneDropdownItem from '@/app/ui/dashboard/communedropdown';
@@ -10,6 +10,7 @@ import { kommuner } from '@/app/ui/dashboard/communedropdown';
 // CommuneData variablen tar in data från fetchcommune();
 // penetrationCost variablen tar in communeData variabeln och räkner utan penetrationsgraden
 
+const CommuneName = 'Bjurholms-kommun'
 
 export default function Page({ children }: { children: React.ReactNode }) {
   // State används för att hantera data som ändras över tid i en react komponent vilket är det över
@@ -20,7 +21,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
   useEffecten hooken tar en funktion som argument som kommer att aktiveras efter rendering i DOM */
   useEffect(() => {
     const fetchCommuneCost = async () => { /* Async är där så att webbsidan inte aktivera funktionen innan fetchingen är färdig */
-      const Cost = await getCommuneCost(); /* Await vänter när den första funktionen är färdig med sitt syfte */
+      const Cost = await getSpecficCommuneCost(CommuneName); /* Await vänter när den första funktionen är färdig med sitt syfte */
       setCommuneCost(Cost); /*denna variablen unppdatera sidan med det nya */
     };
 

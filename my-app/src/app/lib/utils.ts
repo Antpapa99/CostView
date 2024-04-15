@@ -65,9 +65,8 @@ export async function calculateCostSpecificCommune(communeData: any[string]): Pr
     return communeCostArrayCalculator;
 }
 
-export async function getCommuneCost() {
-  
-    const communeData = await fetchSpecificCommune('Bjurholms-kommun'); // Assuming getCommuneData returns the necessary data
+export async function getSpecficCommuneCost(communeName: any[string]) {
+    const communeData = await fetchSpecificCommune(communeName); // Assuming getCommuneData returns the necessary data
     const communeCost = await calculateCostSpecificCommune(communeData);
     return communeCost;
   }
