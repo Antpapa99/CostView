@@ -128,5 +128,49 @@ export async function calculateNationalAverage(communeData: any[]): Promise<Comm
     return nationalAverages;
 }
 
+interface CommuneCostAvgData {
+    communeName: string;
+    techName: string;
+    penCost: number;
+    alternativCost: number;
+    totalKostnad: number;
 
+}
+
+export async function calculateAvgPerCommune(communeData: any[string]): Promise<CommuneCostAvgData[]> {
+    const communeAvgArrayCalculator: CommuneCostData[] = []; /* Här defineras det som en lista eftersom vi samlar olika kommuners penettrationsgrad */
+    const communeName: string = communeData.commune_name; 
+    const technologies: any[] = communeData.technologies; /* Här defineras det som en lista eftersom det finns fler en teknologi objekt i varje kommun */
+    let totalPenCost = 0;
+    let totalAlternativCost = 0;
+
+    technologies.forEach(tech => {
+        const penCost = (tech["Antal_installationer"] / tech["Mojliga_installationer"]) * 100;
+        const alternativCost = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * tech["Arlig_besparing_per_installation_SEK"]);
+        totalPenCost += penCost;
+        totalAlternativCost += alternativCost;
+    });
+
+    const averagePenCost = totalPenCost / technologies.length;
+    const averageAlternativCost = totalAlternativCost / technologies.length;
+
+    communeAvgArrayCalculator.push({
+        communeName: communeName,
+        techName: "Combined",
+        penCost: averagePenCost,
+        alternativCost: averageAlternativCost,
+        totalKostnad: 0, // You can set this to 0 or calculate if needed
+    });
+
+    return  communeAvgArrayCalculator;
+}
+    
+
+export async function getSpecficCommuneAvg(communeName: any[string]) {
+    const communeData = await fetchSpecificCommune(communeName);
+    console.log(communeData, "line 198") // Assuming getCommuneData returns the necessary data
+    const communeAverage = await calculateAvgPerCommune(communeData);
+    console.log(communeAverage, "line 200")
+    return communeAverage;
+  }
 

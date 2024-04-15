@@ -4,7 +4,7 @@ import AltCostChart from "../charts/altcostchart";
 import CommuneDropdownItem from "./communedropdown";
 import PenValueChart from "../charts/penvaluechart"; 
 import TotalCostChart from "../charts/normalcostchart"; 
-import NationalAvgAltCostChart from "../charts/nationalavgchart";
+import CommuneAvgAltCostChart from "../charts/communeavgchart";
 
 export default function ChartBox() {
   const [selectedCommune, setSelectedCommune] = useState('');
@@ -15,21 +15,15 @@ export default function ChartBox() {
   
   return (
     <>
-  <div className="flex justify-center"> {/* Container for centering */}
-    <section className="flex flex-col my-1 px1 gap-5">
-      <div className="flex flex-col gap-1">
+  <div className="flex justify-center outline-4"> {/* Container for centering */}
+    <section className="flex flex-col my-1 px1 gap-5 outline-4">
         <CommuneDropdownItem onCommuneChange={handleCommuneChange}/>
-      </div>
-      <div className="flex flex-row gap-5">
-        <div className="w-1/2 bg-gray-700 rounded p-2">
-          <AltCostChart communeName={selectedCommune}/>
-        </div>
+      <div className="flex flex-row gap-5 outline-4 grow">  
+          <CommuneAvgAltCostChart communeName={selectedCommune}/>
       </div>
     </section>
-  </div>
-  <div className="flex justify-center"> {/* Container for centering */}
-    <section className="flex flex-col my-1 px1 gap-5">
-      <div className="flex flex-row gap-5">
+  </div> {/* Container for centering */}
+    <section className="flex justify-center flex-row my-1 px1 gap-5 grow">
         <div className="w-1/2 bg-gray-700 p-2 h-full">
           <AltCostChart communeName={selectedCommune}/>
         </div>
@@ -38,10 +32,8 @@ export default function ChartBox() {
         </div>
         <div className="w-1/2 bg-gray-700 p-2 h-full">
           <PenValueChart communeName={selectedCommune}/>
-        </div>
       </div>
     </section>
-  </div>
 </>
   );
 };
