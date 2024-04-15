@@ -38,7 +38,7 @@ export const options = {
         datalabels: {
            display: true,
            color: 'white',
-           formatter: (value) => { // Custom formatter function to add "%" and remove decimals
+           formatter: (value: number) => { // runda av och lägg till %
             return value.toFixed(0) + '%';
         }
         }
