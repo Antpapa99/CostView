@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import useSWR, { Fetcher } from 'swr';
 
 
-export default function CommuneDropdownItem({ onCommuneChange }){
+export default function CommuneDropdownItem({ onCommuneChange }: { onCommuneChange: Function }){
     const [kommuner, setKommuner] = useState([]);
     useEffect(() => {
         const getCommuneList = async () => {

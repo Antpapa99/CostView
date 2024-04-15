@@ -4,6 +4,7 @@ import AltCostChart from "./charts/altcostchart";
 
 import PenValueChart from "./charts/penvaluechart"; 
 import CommuneDropdownItem from "./communedropdown";
+import TotalCostChart from "./charts/normalcostchart";
 
 export default function ChartBox() {
   const [selectedCommune, setSelectedCommune] = useState('');
@@ -29,7 +30,7 @@ export default function ChartBox() {
         </div>
         <div className="flex flex-row gap-5">
           <div className="w-1/2 bg-gray-700 p-2 h-full">
-          
+          <TotalCostChart communeName={selectedCommune} />
           </div>
           <div className="w-1/2 bg-gray-700 p-2 h-full">
           

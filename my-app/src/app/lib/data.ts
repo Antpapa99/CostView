@@ -3,11 +3,9 @@ import { unstable_noStore as noStore } from 'next/cache';
 import { unstable_serialize } from 'swr';
 
 export async function fetchCommune() {
-    // Tar bor caching
-    noStore();
     try {
   
-      const response = await fetch(`https://tig335-alternativkostnader.onrender.com/commune/`);
+      const response = await fetch(`https://tig335-alternativkostnader.onrender.com/commune/`, { cache: 'force-cache' });
       const communeData = await response.json();
 
       
@@ -23,11 +21,9 @@ export async function fetchCommune() {
   
 
   export async function fetchSpecificCommune(communeName: string) {Promise<string>
-    // Tar bor caching
-    noStore();
     try {
   
-      const response = await fetch(`https://tig335-alternativkostnader.onrender.com/commune/${communeName}`);
+      const response = await fetch(`https://tig335-alternativkostnader.onrender.com/commune/${communeName}`, { cache: 'force-cache' });
       const communeData = await response.json();
       
   

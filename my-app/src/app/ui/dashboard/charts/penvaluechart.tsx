@@ -47,7 +47,7 @@ export const options = {
 
 
 
-export default function PenValueChart({ communeName }) {
+export default function PenValueChart({ communeName }: { communeName: string }) {
     // State används för att hantera data som ändras över tid i en react komponent vilket är det över
     // Genom att ge penetrationCost, setPenetrationCost tuples en useState så kan UI uppdatera
     const [communeCost, setCommuneCost] = useState<any[]>([]); 
