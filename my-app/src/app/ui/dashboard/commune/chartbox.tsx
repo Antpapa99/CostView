@@ -15,25 +15,35 @@ export default function ChartBox() {
   
   return (
     <>
-  <div className="flex justify-center outline-4"> {/* Container for centering */}
-    <section className="flex flex-col my-1 px1 gap-5 outline-4">
+    <section className="justify-center">
+      <div className="">
         <CommuneDropdownItem onCommuneChange={handleCommuneChange}/>
-      <div className="flex flex-row gap-5 outline-4 grow">  
-          <CommuneAvgAltCostChart communeName={selectedCommune}/>
       </div>
     </section>
-  </div> {/* Container for centering */}
-    <section className="flex justify-center flex-row my-1 px1 gap-5 grow">
-        <div className="w-1/2 bg-gray-700 p-2 h-full">
-          <AltCostChart communeName={selectedCommune}/>
+      <section>
+        <div className="flex m-4 gap-2">
+          <div className="flex-1 px-2 justify-center w-16 bg-gray-700 shadow rounded max-h-200px">
+            <div className="">
+            <CommuneAvgAltCostChart communeName={selectedCommune}/>
+            </div>
+          </div>
+          <div className="flex-1 px-2 justify-center w-16  bg-gray-700 shadow rounded max-h-300px">
+            <div className="">
+            </div>
+          </div>
         </div>
-        <div className="w-1/2 bg-gray-700 p-2 h-full">
-          <TotalCostChart communeName={selectedCommune}/>
+      </section>
+      <section className="flex my-4 px-4 gap-3">
+        <div className="w-1/2 h-[300px] bg-gray-700 rounded">
+        <PenValueChart communeName={selectedCommune}/>
         </div>
-        <div className="w-1/2 bg-gray-700 p-2 h-full">
-          <PenValueChart communeName={selectedCommune}/>
-      </div>
-    </section>
-</>
+        <div className="w-1/2 h-[300px] bg-gray-700 rounded">
+        <TotalCostChart communeName={selectedCommune}/>
+        </div>
+        <div className="w-1/2 h-[300px] bg-gray-700 rounded">
+        <AltCostChart communeName={selectedCommune}/>
+        </div>
+      </section>
+    </>
   );
 };
