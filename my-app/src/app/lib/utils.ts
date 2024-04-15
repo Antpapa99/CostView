@@ -1,5 +1,5 @@
 'use server';
-import { fetchCommune } from '@/app/lib/data';
+import { fetchCommune, fetchSpecificCommune } from '@/app/lib/data';
 
 /* let penCost = (installationer/möjliga installationer)*100
 Alternativkostnad = (möjliga installationer-installationer)*Arlig_besparing_per_installation_SEK
@@ -14,6 +14,8 @@ interface CommuneCostData {
     totalKostnad: number;
 
 }
+
+/* kalkylerar alla kommuner på en gång */
 
 export async function calculateCostAllCommunes(communeData: any[]): Promise<CommuneCostData[]> {
     const communeCostArrayCalculator: CommuneCostData[] = []; /* Här defineras det som en lista eftersom vi samlar olika kommuners penettrationsgrad */
@@ -40,6 +42,7 @@ export async function calculateCostAllCommunes(communeData: any[]): Promise<Comm
 }
 
 
+/* Är en kalkylator för specifika kommuner */
 
 export async function calculateCostSpecificCommune(communeData: any[string]): Promise<CommuneCostData[]> {
     const communeCostArrayCalculator: CommuneCostData[] = []; /* Här defineras det som en lista eftersom vi samlar olika kommuners penettrationsgrad */
@@ -62,4 +65,10 @@ export async function calculateCostSpecificCommune(communeData: any[string]): Pr
     return communeCostArrayCalculator;
 }
 
+export async function getCommuneCost() {
+  
+    const communeData = await fetchSpecificCommune('Bjurholms-kommun'); // Assuming getCommuneData returns the necessary data
+    const communeCost = await calculateCostSpecificCommune(communeData);
+    return communeCost;
+  }
 

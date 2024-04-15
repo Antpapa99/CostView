@@ -1,7 +1,6 @@
 'use client';
 import { fetchCommune, fetchSpecificCommune } from '@/app/lib/data';
-import { calculateCostAllCommunes, calculateCostSpecificCommune }  from '@/app/lib/utils';
-
+import { calculateCostAllCommunes, calculateCostSpecificCommune, getCommuneCost }  from '@/app/lib/utils';
 import ChartBox from '@/app/ui/dashboard/chartbox';
 import AltCostChart from '@/app/ui/dashboard/charts/altcostchart';
 import CommuneDropdownItem from '@/app/ui/dashboard/communedropdown';
@@ -10,13 +9,7 @@ import { useState, useEffect } from 'react';
 import { kommuner } from '@/app/ui/dashboard/communedropdown';
 // CommuneData variablen tar in data från fetchcommune();
 // penetrationCost variablen tar in communeData variabeln och räkner utan penetrationsgraden
-async function getCommuneCost() {
 
-  
-  const communeData = await fetchSpecificCommune('Ale-kommun'); // Assuming getCommuneData returns the necessary data
-  const communeCost = await calculateCostSpecificCommune(communeData);
-  return communeCost;
-}
 
 export default function Page({ children }: { children: React.ReactNode }) {
   // State används för att hantera data som ändras över tid i en react komponent vilket är det över

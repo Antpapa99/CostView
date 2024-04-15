@@ -11,7 +11,7 @@ import {
     Legend,
 } from 'chart.js/auto';
 import { fetchSpecificCommune } from '@/app/lib/data';
-import { calculateCostSpecificCommune } from '@/app/lib/utils';
+import { calculateCostSpecificCommune, getCommuneCost } from '@/app/lib/utils';
 const barColors = ["#1f77b4", "#ff7f0e", "#2ca02c"]
 
 ChartJS.register (
@@ -22,13 +22,6 @@ ChartJS.register (
     Tooltip,
     Legend,
 )
-
-async function getCommuneCost() {
-  
-    const communeData = await fetchSpecificCommune('Bjurholms-kommun'); // Assuming getCommuneData returns the necessary data
-    const communeCost = await calculateCostSpecificCommune(communeData);
-    return communeCost;
-  }
 
 
 
