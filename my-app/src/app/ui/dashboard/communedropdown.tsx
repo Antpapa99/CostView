@@ -308,10 +308,9 @@ function urlCommuneName(kommun: string) {
 
 interface CommuneDropdownItemProps {
     kommuner: string[];
-    onCommuneSelect: string;
 }
 
-export default function CommuneDropdownItem({kommuner, onCommuneSelect }: CommuneDropdownItemProps){
+export default function CommuneDropdownItem({kommuner }: CommuneDropdownItemProps){
 
     return(
     <select className="text-white bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring focus:border-blue-300">
