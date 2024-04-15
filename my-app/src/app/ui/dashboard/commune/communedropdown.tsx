@@ -12,7 +12,7 @@ export default function CommuneDropdownItem({ onCommuneChange }: { onCommuneChan
             setKommuner(await data)
         }
         getCommuneList()
-    })
+    }, [])
 
     const handleCommuneChange = (event: any) => {
         const selectedKommun = event.target.value;
