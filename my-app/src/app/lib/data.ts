@@ -8,6 +8,8 @@ export async function fetchCommune() {
   
       const response = await fetch(`https://tig335-alternativkostnader.onrender.com/commune/`);
       const communeData = await response.json();
+
+      
       
   
       return communeData;

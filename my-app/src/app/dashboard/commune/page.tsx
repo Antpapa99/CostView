@@ -1,16 +1,13 @@
 'use client';
 import { fetchCommune, fetchSpecificCommune } from '@/app/lib/data';
-import { calculateCostAllCommunes, calculateCostSpecificCommune, getSpecficCommuneCost }  from '@/app/lib/utils';
+import { getSpecficCommuneCost }  from '@/app/lib/utils';
 import ChartBox from '@/app/ui/dashboard/chartbox';
-import AltCostChart from '@/app/ui/dashboard/charts/altcostchart';
-import CommuneDropdownItem from '@/app/ui/dashboard/communedropdown';
-import DropdownItem from '@/app/ui/dashboard/communedropdown';
 import { useState, useEffect } from 'react';
-import { kommuner } from '@/app/ui/dashboard/communedropdown';
+
 // CommuneData variablen tar in data från fetchcommune();
 // penetrationCost variablen tar in communeData variabeln och räkner utan penetrationsgraden
 
-const CommuneName = 'Bjurholms-kommun'
+const CommuneName = 'test'
 
 export default function Page({ children }: { children: React.ReactNode }) {
   // State används för att hantera data som ändras över tid i en react komponent vilket är det över

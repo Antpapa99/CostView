@@ -24,7 +24,7 @@ ChartJS.register (
 )
 
 
-const CommuneName = 'Bjurholms-kommun'
+
 
 export default function AltCostChart() {
     // State används för att hantera data som ändras över tid i en react komponent vilket är det över
@@ -35,7 +35,7 @@ export default function AltCostChart() {
     useEffecten hooken tar en funktion som argument som kommer att aktiveras efter rendering i DOM */
     useEffect(() => {
       const fetchCommuneCost = async () => { /* Async är där så att webbsidan inte aktivera funktionen innan fetchingen är färdig */
-        const penCost = await getSpecficCommuneCost(CommuneName); /* Await vänter när den första funktionen är färdig med sitt syfte */
+        const penCost = await getSpecficCommuneCost("test"); /* Await vänter när den första funktionen är färdig med sitt syfte */
         setCommuneCost(penCost); /*denna variablen unppdatera sidan med det nya */
       };
   
