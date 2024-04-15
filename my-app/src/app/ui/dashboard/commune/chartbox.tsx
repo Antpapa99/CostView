@@ -1,12 +1,11 @@
 'use client';
 import { useState } from "react";
-import AltCostChart from "./charts/altcostchart";
-
-import PenValueChart from "./charts/penvaluechart"; 
+import AltCostChart from "../charts/altcostchart"; 
 import CommuneDropdownItem from "./communedropdown";
 import { kommuner } from './communedropdown';
-import PenValueChart from "./charts/penvaluechart"; 
-import NationalAvgAltCostChart from "./charts/nationalavgchart";
+import PenValueChart from "../charts/penvaluechart"; 
+import TotalCostChart from "../charts/normalcostchart"; 
+import NationalAvgAltCostChart from "../charts/nationalavgchart";
 
 export default function ChartBox() {
   const [selectedCommune, setSelectedCommune] = useState('');
@@ -35,6 +34,7 @@ export default function ChartBox() {
           <NationalAvgAltCostChart />
           </div>
           <div className="w-1/2 bg-gray-700 p-2 h-full">
+          <TotalCostChart communeName={selectedCommune}/>
           
           </div>
         </div>
