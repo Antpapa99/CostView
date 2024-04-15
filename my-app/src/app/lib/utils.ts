@@ -72,5 +72,61 @@ export async function getSpecficCommuneCost(communeName: any[string]) {
     const communeCost = await calculateCostSpecificCommune(communeData);
     return communeCost;
   }
+  
+export async function calculateNationalAverage(communeData: any[]): Promise<CommuneCostData[]> {
+    const techAverages: any = {};
+    
+    communeData.forEach(commune => {
+        const technologies: any[] = commune.technologies;
+
+        technologies.forEach(tech => {
+            // Check if any of the values are -1, if so, ignore them
+            if (
+                tech["Mojliga_installationer"] !== -1 &&
+                tech["Antal_installationer"] !== -1 &&
+                tech["Arlig_besparing_per_installation_SEK"] !== -1 &&
+                tech["Kostnad_per_installation"] !== -1
+            ) {
+                // If the techName is not yet in techAverages, initialize it
+                if (!techAverages[tech.tech_name]) {
+                    techAverages[tech.tech_name] = {
+                        Mojliga_installationer_sum: 0,
+                        Antal_installationer_sum: 0,
+                        Arlig_besparing_per_installation_SEK_sum: 0,
+                        Kostnad_per_installation_sum: 0,
+                        count: 0,
+                    };
+                }
+                
+                // Add values to the sums
+                techAverages[tech.tech_name].Mojliga_installationer_sum += tech["Mojliga_installationer"];
+                techAverages[tech.tech_name].Antal_installationer_sum += tech["Antal_installationer"];
+                techAverages[tech.tech_name].Arlig_besparing_per_installation_SEK_sum += tech["Arlig_besparing_per_installation_SEK"];
+                techAverages[tech.tech_name].Kostnad_per_installation_sum += tech["Kostnad_per_installation"];
+                techAverages[tech.tech_name].count++;
+            }
+        });
+    });
+
+    // Calculate averages
+    const nationalAverages: any[] = [];
+    Object.keys(techAverages).forEach(techName => {
+        const avgData = techAverages[techName];
+        const penCost = (avgData.Antal_installationer_sum / avgData.Mojliga_installationer_sum) * 100;
+        const alternativCost = ((avgData.Mojliga_installationer_sum - avgData.Antal_installationer_sum) * (avgData.Arlig_besparing_per_installation_SEK_sum / avgData.count));
+        const totalKostnad = ((avgData.Mojliga_installationer_sum - avgData.Antal_installationer_sum) * (avgData.Kostnad_per_installation_sum / avgData.count));
+        
+        const average = {
+            techName: techName,
+            penCost: penCost,
+            alternativCost: alternativCost,
+            totalKostnad: totalKostnad,
+        };
+        nationalAverages.push(average);
+    });
+
+    return nationalAverages;
+}
+
 
 
