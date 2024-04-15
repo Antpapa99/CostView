@@ -47,7 +47,7 @@ export const options = {
 
 
 
-export default function PenValueChart() {
+export default function PenValueChart({ communeName }) {
     // State används för att hantera data som ändras över tid i en react komponent vilket är det över
     // Genom att ge penetrationCost, setPenetrationCost tuples en useState så kan UI uppdatera
     const [communeCost, setCommuneCost] = useState<any[]>([]); 
@@ -56,12 +56,12 @@ export default function PenValueChart() {
     useEffecten hooken tar en funktion som argument som kommer att aktiveras efter rendering i DOM */
     useEffect(() => {
       const fetchCommuneCost = async () => { /* Async är där så att webbsidan inte aktivera funktionen innan fetchingen är färdig */
-        const penCost = await getSpecficCommuneCost('test'); /* Await vänter när den första funktionen är färdig med sitt syfte */
+        const penCost = await getSpecficCommuneCost(communeName); /* Await vänter när den första funktionen är färdig med sitt syfte */
         setCommuneCost(penCost); /*denna variablen unppdatera sidan med det nya */
       };
   
       fetchCommuneCost(); /* säger till att funktionen körs på DOM, alltså sidan uppdateras */
-    }, []);
+    }, [communeName]);
 
     const backgroundColor = ['rgba(186, 0, 0, 0.7',
     'rgba(184, 186, 0, 0.7)', 'rgba(0, 186, 176, 0.7)', 'rgba(80, 0, 186, 0.7)', 'rgba(33, 186, 0, 0.7)']
