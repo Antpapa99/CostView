@@ -308,21 +308,13 @@ function urlCommuneName(kommun: string) {
 
 interface CommuneDropdownItemProps {
     kommuner: string[];
-    onCommuneSelect: string[];
+    onCommuneSelect: string;
 }
 
 export default function CommuneDropdownItem({kommuner, onCommuneSelect }: CommuneDropdownItemProps){
-    const [selectedCommune, setSelectedCommune] = useState('');
-    const handleCommuneChange = (event) => {
-        const selectedValue = event.target.value;
-        setSelectedCommune(selectedValue);
-        onCommuneSelect(selectedValue);
-    };
 
     return(
-    <select className="text-white bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring focus:border-blue-300"
-    value={selectedCommune}
-    onChange={handleCommuneChange}>
+    <select className="text-white bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring focus:border-blue-300">
         {kommuner.map((kommun: string, index ) => {
             return <option key = {index} value = {urlCommuneName(kommun)} className="text-gray-800 bg-white">{kommun}</option>
         })}
