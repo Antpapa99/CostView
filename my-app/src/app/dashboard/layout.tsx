@@ -1,7 +1,10 @@
 import SideNav from '@/app/ui/dashboard/sidenav';
 
+interface PageProps {
+  children: React.ReactNode;
+}
 
-export default function Layout({ children }) {
+export default function Layout({ children }: PageProps) {
   return (
     <div className="bg-gray-800 flex h-screen flex-col md:flex-row md:overflow-hidden">
       <div className="bg-gray-700 w-full flex-none md:w-64">

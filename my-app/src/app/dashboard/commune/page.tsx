@@ -4,8 +4,11 @@ import { getSpecficCommuneCost }  from '@/app/lib/utils';
 import ChartBox from '@/app/ui/dashboard/commune/chartbox';
 import { useState, useEffect } from 'react';
 
+interface PageProps {
+  children: React.ReactNode;
+}
 
-export default function Page({ children }) {
+export default function Page({ children }: PageProps) {
   return (
     <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
       <div className="w-full flex-none md:w-150"> {/* Size of boxes */}
