@@ -1,8 +1,6 @@
 'use client';
-import { fetchCommune, fetchSpecificCommune } from '@/app/lib/data';
-import { getSpecficCommuneCost }  from '@/app/lib/utils';
 import ChartBox from '@/app/ui/dashboard/commune/chartbox';
-import { useState, useEffect } from 'react';
+import React from 'react';
 
 
 export default function Page({ children }: { children: React.ReactNode }) {
