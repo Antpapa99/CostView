@@ -4,10 +4,6 @@ import { getSpecficCommuneCost }  from '@/app/lib/utils';
 import ChartBox from '@/app/ui/dashboard/commune/chartbox';
 import { useState, useEffect } from 'react';
 
-// CommuneData variablen tar in data från fetchcommune();
-// penetrationCost variablen tar in communeData variabeln och räkner utan penetrationsgraden
-
-const CommuneName = 'test'
 
 export default function Page({ children }: { children: React.ReactNode }) {
   return (

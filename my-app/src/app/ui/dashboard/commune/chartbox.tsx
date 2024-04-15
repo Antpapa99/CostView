@@ -2,7 +2,6 @@
 import { useState } from "react";
 import AltCostChart from "../charts/altcostchart"; 
 import CommuneDropdownItem from "./communedropdown";
-import { kommuner } from './communedropdown';
 import PenValueChart from "../charts/penvaluechart"; 
 import TotalCostChart from "../charts/normalcostchart"; 
 import NationalAvgAltCostChart from "../charts/nationalavgchart";
