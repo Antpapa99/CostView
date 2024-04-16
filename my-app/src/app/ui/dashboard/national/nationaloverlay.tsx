@@ -1,6 +1,6 @@
 'use client';
 import NationalAvgAltCostChart from "@/app/ui/dashboard/charts/nationalavgchart";
-import NationalScatterPlt from "../charts/nationalscattarplot";
+import NationalScatterPlt from "../charts/scatterplot/nationalscattarplot";
 
 export default function NationalOverlay() {
   return (

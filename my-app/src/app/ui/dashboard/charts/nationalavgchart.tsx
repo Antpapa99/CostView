@@ -58,10 +58,12 @@ export default function NationalAvgAltCostChart() {
     
 
     return (
-        <div className = "NationalAvgAltCostChart">
-            <Bar 
-            data={chartData}
-            /> 
+        <div className="flex justify-center">
+            <div className="flex-grow">
+                <Bar 
+                    data={chartData}
+                /> 
+            </div>
         </div>
-    )
-};
+    );
+}

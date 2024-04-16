@@ -18,18 +18,10 @@ export default function ChartBox() {
     <section className="flex m-2 gap-2">
       <div className="flex-1 px-1 bg-red-700 ">
       </div>
-      <div className="flex-1 px-1 bg-red-700 ">
-      </div>
-      <div className="flex-1 px-1 bg-red-700 ">
-      </div>
-      <div className="flex-1 px-2 justify-center w-16 bg-gray-700">
+      <div className="flex-1 px-2 justify-center w-16 bg-gray-700 max-w-100px">
             <div className="flex-1 px-2 justify-center">
               <CommuneDropdownItem onCommuneChange={handleCommuneChange}/></div>
           </div>
-          <div className="flex-1 px-1 bg-red-700 ">
-      </div>
-      <div className="flex-1 px-1 bg-red-700 ">
-      </div>
       <div className="flex-1 px-1 bg-red-700 ">
       </div>
     </section>
@@ -50,7 +42,7 @@ export default function ChartBox() {
           </div>
         </div>
       </section>
-      <section className="flex my-4 px-4 gap-3">
+      <section className="flex flex-grow my-4 px-4 gap-3">
         <div className="w-1/2 h-[550px] bg-gray-700 rounded">
         <PenValueChart communeName={selectedCommune}/>
         </div>
