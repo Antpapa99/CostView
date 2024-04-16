@@ -6,7 +6,7 @@ interface PageProps {
 
 export default function Layout({ children }: PageProps) {
   return (
-    <div className="bg-gray-800 flex h-screen flex-col md:flex-row md:overflow-hidden">
+    <div className="bg-white flex h-screen flex-col md:flex-row md:overflow-hidden">
       <div className="bg-gray-700 w-full flex-none md:w-64">
         <SideNav  />
       </div>
