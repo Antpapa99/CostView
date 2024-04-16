@@ -1,7 +1,7 @@
 'use client';
 import { fetchCommune, fetchSpecificCommune } from '@/app/lib/data';
 import { getSpecficCommuneCost }  from '@/app/lib/utils';
-import ChartBox from '@/app/ui/dashboard/commune/chartbox';
+import ChartBox from '@/app/ui/dashboard/commune/communeoverlay';
 import { useState, useEffect } from 'react';
 
 interface PageProps {
