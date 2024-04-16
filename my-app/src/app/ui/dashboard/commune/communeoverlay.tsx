@@ -49,7 +49,7 @@ export default function ChartBox() {
         <div className="w-1/2 h-[550px] bg-gray-700 rounded">
         <TotalCostChart communeName={selectedCommune}/>
         </div>
-        <div className="w-1/2 h-[550px] bg-gray-700 rounded">
+        <div className="w-1/2 h-[550px] bg-gray-700 rounded ">
         <AltCostChart communeName={selectedCommune}/>
         </div>
       </section>

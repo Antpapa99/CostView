@@ -79,7 +79,7 @@ export default function CommuneAvgAltCostChart({ communeName }: { communeName: s
     
     console.log(chartData, "Line 57");
     return (
-        <div className = "CommuneAvgAltCostChart">
+        <div className = "flex-1 h-full">
             <Bar 
             data={chartData}
             options = {options}

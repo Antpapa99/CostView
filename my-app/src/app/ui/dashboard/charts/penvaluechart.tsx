@@ -79,7 +79,7 @@ export default function PenValueChart({ communeName }: { communeName: string }) 
     }
 
     return (
-        <div className = "PenValueChart">
+        <div className = "flex-1 h-full">
             <Bar 
             data={chartData}
             options = {options}

@@ -60,9 +60,10 @@ export default function AltCostChart({ communeName }: { communeName: string }) {
     
 
     return (
-        <div className = "AltCostChart">
-            <Bar 
-            data={chartData}
-            /> </div>
+        <div className = "flex-1 h-full">
+        <Bar 
+        data={chartData}
+        />
+        </div>
     )
 };
