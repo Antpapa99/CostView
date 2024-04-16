@@ -6,13 +6,6 @@ export default function NationalOverlay() {
   return (
     <>
       <section className="flex flex-col my-1 px1 gap-5">
-        <div className="flex flex-col gap-1">
-        <NationalScatterPlt />        </div>
-        <div className="flex flex-row gap-5">
-
-          <div className="w-1/2 bg-gray-700 rounded p-2">          </div>
-          <div className="w-1/2 bg-gray-700 rounded p-2">          </div>
-        </div>
         <div className="flex flex-row gap-5">
           <div className="w-1/2 bg-gray-700 p-2 h-full">
           <NationalAvgAltCostChart />
