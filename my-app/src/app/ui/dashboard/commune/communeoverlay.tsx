@@ -31,7 +31,7 @@ export default function ChartBox() {
             <div className="">
             </div>
           </div>
-          <div className="flex-1 px-2 justify-center w-16 bg-gray-700 shadow rounded max-h-200px">
+          <div className="flex-1 px-2 justify-center w-16 bg-gray-700 shadow rounded max-h-200px"> 
             <div className="">
             <CommuneAvgAltCostChart communeName={selectedCommune}/>
             </div>
@@ -42,7 +42,7 @@ export default function ChartBox() {
           </div>
         </div>
       </section>
-      <section className="flex flex-grow my-4 px-4 gap-3">
+      <section className="flex flex-grow my-4 px-4 gap-3"> {/*Dem tre nedra lådorna */}
         <div className="w-1/2 h-[550px] bg-gray-700 rounded">
         <PenValueChart communeName={selectedCommune}/>
         </div>
