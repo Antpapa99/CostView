@@ -33,7 +33,7 @@ export default function ChartBox() {
         <TotalCostChart communeName={selectedCommune}/>
       </div>
     </section>
-    <div className="flex justify-center bg-blue-100 items-center rounded">
+    <div className="flex justify-center flex-wrap h-100 bg-blue-100 rounded">
         <PenValueChart communeName={selectedCommune}/> {/* Adjusted flex-grow */}
       </div>
   </>

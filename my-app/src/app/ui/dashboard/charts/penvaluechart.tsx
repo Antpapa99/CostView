@@ -182,10 +182,14 @@ const backgroundColor = communeCost.map(data => {
         },
         scales: {
             y: {
+                border: {
+                    display: false,
+                  },
                 beginAtZero: false,
                 grid: {
                     display:false,
                     drawBorder:false,
+                    
                 },
                 ticks: {
                     color: "blue",
@@ -194,6 +198,9 @@ const backgroundColor = communeCost.map(data => {
                 }
             },
             x: {
+                border: {
+                    display: false,
+                  },
                 grace: 0,
                 beginAtZero: true,
                 grid: {
@@ -216,11 +223,18 @@ const backgroundColor = communeCost.map(data => {
 
 
     return (
-        <div className = "flex w-1/2">
-            <Bar 
+        <>
+      <div className="relative flex flex-col min-w-0 break-words bg-white w-1/2 mb-3 my-3 shadow-lg rounded">
+        <div className="p-4 flex-auto">
+        <Bar 
             data={chartData}
             options = {options}
             plugins = {plugins}
-            /> </div>
+            /> 
+          
+        </div>
+      </div>
+    </>
     )
 };
+
