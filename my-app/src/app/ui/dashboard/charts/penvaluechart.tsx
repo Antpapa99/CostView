@@ -100,7 +100,7 @@ const backgroundColor = communeCost.map(data => {
                 borderWidth: 1,
                 borderSkipped: false,
                 borderRadius: 5,
-                barPercentage: 0.2,
+                barPercentage: 0.5,
                 categoryPercentage: 0.8,
                 datalabels: {
                     color: "white",
@@ -146,17 +146,18 @@ const backgroundColor = communeCost.map(data => {
 
                 // valuetext
 
-                const fontSizeDatapoint = 15;
+                /* const fontSizeDatapoint = 15;
                 ctx.font = `bolder ${fontSizeDatapoint}px sans-serif`;
-                ctx.fillStyle ='rgba(102, 102, 102, 1)'; /* progress bar colour */
+                ctx.fillStyle ='rgba(102, 102, 102, 1)'; /* progress bar colour 
                 ctx.textAlign = 'right';
                 ctx.textBaseline = 'middle';
 
-                ctx.fillText(datapoint, right, y.getPixelForValue(index) - fontSizeDatapoint - 5);
+                ctx.fillText(datapoint, right, y.getPixelForValue(index) - fontSizeDatapoint - 5); */
 
                 
 
                 // bg color progress bar
+                ctx.fillStyle ='rgba(102, 102, 102, 1)'
                 ctx.beginPath();
                 ctx.fillStyle = data.datasets[0].borderColor[index];
                 ctx.fillRect(left, y.getPixelForValue(index) - barHeight/2, width, barHeight);
@@ -210,12 +211,12 @@ const backgroundColor = communeCost.map(data => {
         responsive: true
       };
       // våra plugins
-      const plugins = [progressBar, floatingLabels];
+      const plugins = [progressBar];
 
 
 
     return (
-        <div className = "flex-1 h-full">
+        <div className = "flex-1 h-full w-1/2">
             <Bar 
             data={chartData}
             options = {options}
