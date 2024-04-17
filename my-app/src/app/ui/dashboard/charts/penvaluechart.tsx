@@ -216,7 +216,7 @@ const backgroundColor = communeCost.map(data => {
 
 
     return (
-        <div className = "flex h-full w-1/2">
+        <div className = "flex w-1/2">
             <Bar 
             data={chartData}
             options = {options}
