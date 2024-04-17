@@ -5,6 +5,7 @@ import CommuneDropdownItem from "./communedropdown";
 import PenValueChart from "../charts/penvaluechart"; 
 import TotalCostChart from "../charts/normalcostchart"; 
 import CommuneAvgAltCostChart from "../charts/communeavgchart";
+import SavingsPotetialChart from "../charts/savingspotetialchart";
 
 export default function ChartBox() {
   const [selectedCommune, setSelectedCommune] = useState('');
@@ -37,6 +38,12 @@ export default function ChartBox() {
       <section className="flex flex-grow my-4 px-4 md:flex-row gap-3"> {/*Dem tre nedra lådorna */}
         <div className="flex justify-center w-full h-full bg-blue-100 items-center rounded">
         <PenValueChart communeName={selectedCommune}/>
+        </div>
+        <div className="w-1/2 h-[550px] bg-gray-700 rounded">
+        <TotalCostChart communeName={selectedCommune}/>
+        </div>
+        <div className="w-1/2 h-[550px] bg-gray-700 rounded">
+        <SavingsPotetialChart communeName={selectedCommune}/>
         </div>
       </section>
       

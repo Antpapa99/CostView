@@ -1,6 +1,6 @@
 'use server';
 import { fetchCommune, fetchSpecificCommune } from '@/app/lib/data';
-
+import * as fs from 'fs';
 /* let penCost = (installationer/möjliga installationer)*100
 Alternativkostnad = (möjliga installationer-installationer)*Arlig_besparing_per_installation_SEK
 Total kostnad = (möjliga installationer-installationer) * Kostnad_per_installation
@@ -66,7 +66,7 @@ export async function calculateCostSpecificCommune(communeData: any[string]): Pr
             const mojligaInstallationer = tech["Mojliga_installationer"];
 
             let penCost = 0;
-            if (antalInstallationer > -1 || mojligaInstallationer > -1) {
+            if (antalInstallationer > -1 || mojligaInstallationer > -1) { //kanske ska vara större än 0 så det inte blir /0
                 penCost = (antalInstallationer / mojligaInstallationer) * 100;
             } else {
                 penCost = 0;
@@ -194,3 +194,47 @@ export async function getSpecficCommuneAvg(communeName: any[string]) {
     return communeAverage;
   }
 
+
+
+  export async function calculateSavingPotential(communeData: any[]): Promise<any[]> {
+    // Läs kostnadsdata från omslutning2022.json
+    const costData = JSON.parse(fs.readFileSync('omslutning2022.json', 'utf-8'));
+  
+    const savingPotentialArray: any[] = [];
+    
+    communeData.forEach(commune => {  
+      const communeName: string = commune.communeName;
+  
+      // Hitta matchande kostnad för den aktuella kommunen
+      const communeCost = costData.find((data: { commune_name: string; }) => data.commune_name === communeName);
+      if (!communeCost) {
+        console.error(`Cost data not found for commune: ${communeName}`);
+        return; // Hoppa över om kostnadsdata inte hittas
+      }
+  
+      const cost: number = communeCost.cost;
+  
+      // Beräkna totala alternativa kostnader för kommunen
+      let totalAlternativCost = 0;
+      communeData.forEach(commune => {
+        totalAlternativCost += commune.alternativCost;
+      });
+  
+      // Beräkna besparingspotentialen med hjälp av formeln
+      const savingPotential = (totalAlternativCost / (cost * 1000)) * 100;
+      
+      // Pusha besparingspotentialen tillsammans med kommunens namn, men endast om den inte redan finns i arrayen
+      if (!savingPotentialArray.some(item => item.communeName === communeName)) {
+        savingPotentialArray.push({
+          communeName: communeName,
+          savingPotential: savingPotential,
+          cost: cost * 1000,
+          totalAlternativCost: totalAlternativCost,
+        });
+      }
+    });
+    
+    // Returnera hela savingPotentialArray
+    return savingPotentialArray;
+  }
+  
