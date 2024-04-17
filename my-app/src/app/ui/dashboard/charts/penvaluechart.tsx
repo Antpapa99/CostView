@@ -59,6 +59,7 @@ export default function PenValueChart({ communeName }: { communeName: string }) 
                 label: "Penetrationsgrad",
                 data: communeCost.map(data => data.penCost),
                 backgroundColor: backgroundColor,
+                borderColor: 'rgba(239, 239, 240, 07)',
                 borderWidth: 1,
                 borderSkipped: false,
                 borderRadius: 5,
@@ -102,7 +103,7 @@ export default function PenValueChart({ communeName }: { communeName: string }) 
 
                 // bg color progress bar
                 ctx.beginPath();
-                ctx.fillStyle = data.datasets[0].backgroundColor[index];
+                ctx.fillStyle = data.datasets[0].borderColor[index];
                 ctx.fillRect(left, y.getPixelForValue(index) - barHeight/2, width, barHeight);
                 
 
@@ -127,9 +128,11 @@ export default function PenValueChart({ communeName }: { communeName: string }) 
                 },
                 ticks: {
                     display: false,
+                    
                 }
             },
             x: {
+                grace: 0,
                 beginAtZero: true,
                 grid: {
                     display:false,
@@ -137,12 +140,17 @@ export default function PenValueChart({ communeName }: { communeName: string }) 
                 },
                 ticks: {
                     display: true,
-                }
-            }
-        }
+                },
+                suggestedMin: 0,
+                suggestedMax: 100,
+            },
+        },
+        responsive: true
       };
       // våra plugins
       const plugins = [progressBar];
+
+
 
     return (
         <div className = "flex-1 h-full">
