@@ -60,7 +60,7 @@ export default function AltCostChart({ communeName }: { communeName: string }) {
     
 
     return (
-        <div className = "flex-1 h-full">
+        <div className = "flex justify-center h-full w-1/2 items-center">
         <Bar 
         data={chartData}
         />

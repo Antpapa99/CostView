@@ -28,11 +28,18 @@ export default function ChartBox() {
       <section>
       </section>
       <section className="flex flex-grow my-4 px-4 md:flex-row gap-3"> {/*Dem tre nedra lådorna */}
-        <div className="w-full h-full bg-blue-100 rounded">
-        <PenValueChart communeName={selectedCommune}/>
+        <div className="flex-1 justify-center bg-blue-100 rounded">
+          <AltCostChart communeName = {selectedCommune}/>
         
         </div>
+        
       </section>
+      <section className="flex flex-grow my-4 px-4 md:flex-row gap-3"> {/*Dem tre nedra lådorna */}
+        <div className="flex justify-center w-full h-full bg-blue-100 items-center rounded">
+        <PenValueChart communeName={selectedCommune}/>
+        </div>
+      </section>
+      
     </>
   );
 };

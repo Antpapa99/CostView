@@ -202,7 +202,7 @@ const backgroundColor = communeCost.map(data => {
                 },
                 ticks: {
                     color: "black",
-                    display: true,
+                    display: false,
                 },
                 suggestedMin: 0,
                 suggestedMax: 100,
@@ -216,7 +216,7 @@ const backgroundColor = communeCost.map(data => {
 
 
     return (
-        <div className = "flex-1 h-full w-1/2">
+        <div className = "flex h-full w-1/2">
             <Bar 
             data={chartData}
             options = {options}
