@@ -12,7 +12,7 @@ import {
     plugins,
 } from 'chart.js/auto';
 import { fetchSpecificCommune } from '@/app/lib/data';
-import { calculateCostSpecificCommune, getSpecficCommuneCost } from '@/app/lib/utils';
+import { calculateCostSpecificCommune, getSpecficCommuneAvg, getSpecficCommuneCost } from '@/app/lib/utils';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { DataLabel } from '@syncfusion/ej2-react-charts';
 import colorGradient from 'javascript-color-gradient';
@@ -49,43 +49,96 @@ export default function PenValueChart({ communeName }: { communeName: string }) 
       fetchCommuneCost(); /* säger till att funktionen körs på DOM, alltså sidan uppdateras */
     }, [communeName]);
 
-    const backgroundColor = ['rgba(186, 0, 0, 0.7',
-    'rgba(184, 186, 0, 0.7)', 'rgba(0, 186, 176, 0.7)', 'rgba(80, 0, 186, 0.7)', 'rgba(33, 186, 0, 0.7)']
+    const [communeAverage, setCommuneAverage] = useState<any[]>([]);
+    console.log(communeName, "Line 29 CommuneAVGCOSTCHART") // State för att hålla det nationella genomsnittet
+
+    useEffect(() => {
+        const fetchcommuneAverage = async () => { /* Async är där så att webbsidan inte aktivera funktionen innan fetchingen är färdig */
+          const AvgCost = await getSpecficCommuneAvg(communeName);
+          console.log(AvgCost, 'Avg LOG') /* Await vänter när den första funktionen är färdig med sitt syfte */
+          setCommuneAverage(AvgCost); /*denna variablen unppdatera sidan med det nya */
+        };
+    
+        fetchcommuneAverage(); /* säger till att funktionen körs på DOM, alltså sidan uppdateras */
+      }, [communeName]);
+
+
+function generateGradientColor(penCost: number) {
+    // Färgen baserat på procent
+    const percentage = penCost / 100;
+    
+    // Tar in färgerna
+    const red = Math.round(255 * (1 - percentage));
+    const green = Math.round(255 * percentage);
+    
+    // generarar färgen koderna
+    return `rgba(${red}, ${green}, 0, 0.7)`;
+}
+
+// Create the backgroundColor array dynamically based on penCost values
+const backgroundColor = communeCost.map(data => {
+    // If penCost is 0, return dark red, if penCost is 100, return dark green
+    if (data.penCost === 0) {
+        return 'rgba(186, 0, 0, 0.7)'; // Dark red
+    } else if (data.penCost === 100) {
+        return 'rgba(0, 186, 0, 0.7)'; // Dark green
+    } else {
+        // Generate gradient color based on penCost value
+        return generateGradientColor(data.penCost);
+    }
+});
+    
 
     const chartData = {
         labels: communeCost.map(data => data.techName), // Tänk map som en foreach
         datasets: [
             {
                 label: "Penetrationsgrad",
-                data: communeCost.map(data => data.penCost),
+                data: communeCost.map(data => data.penCost.toFixed(2)),
                 backgroundColor: backgroundColor,
                 borderColor: 'rgba(239, 239, 240, 07)',
                 borderWidth: 1,
                 borderSkipped: false,
                 borderRadius: 5,
                 barPercentage: 0.2,
-                categoryPercentage: 0.8
+                categoryPercentage: 0.8,
+                datalabels: {
+                    color: "white",
+                    font: {
+                        weight: "bold",
+                    },
+                    align: 'right',
+                    formatter: function(value: string, context: any) {
+                        return value + "%"; // Aligns the labels to the right of the data bars
+                }
             }
-        ]
+        },
+    ]
+}
+
+    // floating labels
+    const floatingLabels = {
+
     }
 
     // Progressbar plugin block
     const progressBar = {
         id: 'progressBar',
-        beforeDatasetsDraw(chart: any, args, pluginOptions) {
-            const {ctx, data, chartArea: {top, bottom, left, right, width, height}, scales: {x, y}} = chart;
+        beforeDatasetsDraw(chart: any, args: any, pluginOptions: any) {
+            const {ctx, data, chartArea: {top, bottom, left, right, center, width, height}, scales: {x, y}} = chart;
 
             ctx.save();
 
             const barHeight = height / y.ticks.length * data.datasets[0].barPercentage * 
             data.datasets[0].categoryPercentage;
+            
 
             //labeltext
 
-            data.datasets[0].data.forEach((datapoint, index) => {
+            data.datasets[0].data.forEach((datapoint: number, index: number) => {
                 const fontSizeLabel = 12;
                 ctx.font = `${fontSizeLabel}px sans-serif`;
-                ctx.fillStyle ='rgba(102, 102, 102, 1)';
+                ctx.fillStyle ='rgba(0, 0, 0, 1)'; /* text colour */
                 ctx.textAlign = 'left';
                 ctx.textBaseline = 'middle';
 
@@ -93,21 +146,25 @@ export default function PenValueChart({ communeName }: { communeName: string }) 
 
                 // valuetext
 
-                const fontSizeDaapoint = 15;
-                ctx.font = `bolder ${fontSizeDaapoint}px sans-serif`;
-                ctx.fillStyle ='rgba(102, 102, 102, 1)';
+                const fontSizeDatapoint = 15;
+                ctx.font = `bolder ${fontSizeDatapoint}px sans-serif`;
+                ctx.fillStyle ='rgba(102, 102, 102, 1)'; /* progress bar colour */
                 ctx.textAlign = 'right';
                 ctx.textBaseline = 'middle';
 
-                ctx.fillText(datapoint, right, y.getPixelForValue(index) - fontSizeDaapoint - 5);
+                ctx.fillText(datapoint, right, y.getPixelForValue(index) - fontSizeDatapoint - 5);
+
+                
 
                 // bg color progress bar
                 ctx.beginPath();
                 ctx.fillStyle = data.datasets[0].borderColor[index];
                 ctx.fillRect(left, y.getPixelForValue(index) - barHeight/2, width, barHeight);
+            
                 
 
-            })
+            });
+            
         }
     }
 
@@ -116,8 +173,11 @@ export default function PenValueChart({ communeName }: { communeName: string }) 
         indexAxis: 'y' as 'y',
         plugins: {
             legend: {
-                display: false
-            }
+                display: false,
+            },
+            datalabels: {
+                display: true,
+             },
         },
         scales: {
             y: {
@@ -127,6 +187,7 @@ export default function PenValueChart({ communeName }: { communeName: string }) 
                     drawBorder:false,
                 },
                 ticks: {
+                    color: "blue",
                     display: false,
                     
                 }
@@ -139,6 +200,7 @@ export default function PenValueChart({ communeName }: { communeName: string }) 
                     drawBorder:false,
                 },
                 ticks: {
+                    color: "black",
                     display: true,
                 },
                 suggestedMin: 0,
@@ -148,7 +210,7 @@ export default function PenValueChart({ communeName }: { communeName: string }) 
         responsive: true
       };
       // våra plugins
-      const plugins = [progressBar];
+      const plugins = [progressBar, floatingLabels];
 
 
 

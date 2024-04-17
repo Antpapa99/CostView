@@ -28,12 +28,15 @@ export async function calculateCostAllCommunes(communeData: any[]): Promise<Comm
             const antalInstallationer = tech["Antal_installationer"];
             const mojligaInstallationer = tech["Mojliga_installationer"];
 
-            let penCost = 0;
+            let penCost: number = 0;
             if (antalInstallationer > -1 || mojligaInstallationer > -1) {
-                penCost = (antalInstallationer / mojligaInstallationer) * 100;
+                penCost = ((antalInstallationer / mojligaInstallationer) * 100);
             } else {
                 penCost = 0;
             }
+
+
+
 
             const alternativCost = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * tech["Arlig_besparing_per_installation_SEK"])
             const totalKostnad = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * tech["Kostnad_per_installation"])
