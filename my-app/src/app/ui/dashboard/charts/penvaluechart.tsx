@@ -171,6 +171,7 @@ const backgroundColor = communeCost.map(data => {
 
     //våra options
     const options = {
+        maintainAspectRatio: false, 
         indexAxis: 'y' as 'y',
         plugins: {
             legend: {
@@ -224,14 +225,13 @@ const backgroundColor = communeCost.map(data => {
 
     return (
         <>
-      <div className="relative flex flex-col min-w-0 break-words bg-white w-1/2 mb-3 my-3 shadow-lg rounded">
+      <div className="relative flex flex-col min-w-0 h-auto break-words bg-white w-1/2 mb-3 my-3 shadow-lg rounded">
         <div className="p-4 flex-auto">
         <Bar 
             data={chartData}
             options = {options}
             plugins = {plugins}
             /> 
-          
         </div>
       </div>
     </>
