@@ -62,18 +62,20 @@ export default function ScatterPlot() {
       console.log(alternativCost.map(data =>
         data.penCost))
     
-    const nationalCommuneAverageData = alternativCost.map(data => ({ x: data.penCost, y: data.alternativCost }));
-
-    const nationalCommuneName = alternativCost.map(data => (data.communeName));
+        const nationalCommuneAverageData = alternativCost.map(data => ({
+            x: data.penCost,
+            y: data.alternativCost,
+            communeName: data.communeName
+        }));
         
     console.log(nationalCommuneAverageData , "Line 84")
 
       const chartData: any = {
         datasets: [{
           
-            label: nationalCommuneName,
+            label: "Commune",
           
-          data: nationalCommuneAverageData,
+          data: nationalCommuneAverageData ,
           
          backgroundColor: 'rgb(255, 99, 132)'
         }],
