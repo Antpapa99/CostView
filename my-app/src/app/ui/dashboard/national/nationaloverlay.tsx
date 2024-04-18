@@ -1,6 +1,7 @@
 'use client';
 import NationalAvgAltCostChart from "@/app/ui/dashboard/charts/nationalavgchart";
 import NationalScatterPlt from "../charts/scatterplot/nationalscattarplot";
+import ScatterPlot from "../charts/scatterplot/nationalscattarplot";
 
 export default function NationalOverlay() {
   return (
@@ -10,7 +11,8 @@ export default function NationalOverlay() {
           <div className="w-1/2 bg-gray-700 p-2 h-full">
           <NationalAvgAltCostChart />
           </div>
-          <div className="w-1/2 bg-gray-700 p-2 h-full">          
+          <div className="w-1/2 bg-gray-700 p-2 h-full">
+          <ScatterPlot  />        
           </div>
         </div>
       </section>

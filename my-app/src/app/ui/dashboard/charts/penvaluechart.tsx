@@ -11,11 +11,8 @@ import {
     Legend,
     plugins,
 } from 'chart.js/auto';
-import { fetchSpecificCommune } from '@/app/lib/data';
 import { calculateCostSpecificCommune, getSpecficCommuneAvg, getSpecficCommuneCost } from '@/app/lib/utils';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { DataLabel } from '@syncfusion/ej2-react-charts';
-import colorGradient from 'javascript-color-gradient';
 
 const barColors = ["#1f77b4", "#ff7f0e", "#2ca02c"]
 
@@ -89,7 +86,7 @@ const backgroundColor = communeCost.map(data => {
 });
     
 
-    const chartData = {
+    const chartData: any = {
         labels: communeCost.map(data => data.techName), // Tänk map som en foreach
         datasets: [
             {
@@ -130,7 +127,7 @@ const backgroundColor = communeCost.map(data => {
             ctx.save();
 
             const barHeight = height / y.ticks.length * data.datasets[0].barPercentage * 
-            data.datasets[0].categoryPercentage;
+            data.datasets[0].categoryPercentage -1;
             
 
             //labeltext
@@ -170,7 +167,7 @@ const backgroundColor = communeCost.map(data => {
     }
 
     //våra options
-    const options = {
+    const options: any = {
         maintainAspectRatio: false, 
         indexAxis: 'y' as 'y',
         plugins: {
