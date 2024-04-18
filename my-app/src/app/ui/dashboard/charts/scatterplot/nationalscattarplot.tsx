@@ -15,8 +15,6 @@ import { calculateAvgPerCommune, calculateCostAllCommunes, calculateCostSpecific
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { fetchCommune } from '@/app/lib/data';
 
-const barColors = ["#1f77b4", "#ff7f0e", "#2ca02c"]
-
 ChartJS.register (
     CategoryScale,
     LinearScale,
@@ -38,7 +36,7 @@ export default function ScatterPlot() {
             try {
                 const communeData = fetchCommune();
                 console.log(communeData, "line 50")
-                const communePlot = await calculateAvgPerCommune(await communeData);
+                const communePlot = await calculateCostAllCommunes(await communeData);
                 console.log(communePlot, "line 56")
                 setAlternativCost(communePlot);
             } catch (error) {
@@ -65,13 +63,15 @@ export default function ScatterPlot() {
         data.penCost))
     
     const nationalCommuneAverageData = alternativCost.map(data => ({ x: data.penCost, y: data.alternativCost }));
+
+    const nationalCommuneName = alternativCost.map(data => (data.communeName));
         
     console.log(nationalCommuneAverageData , "Line 84")
 
       const chartData: any = {
         datasets: [{
           
-            label: "Test",
+            label: nationalCommuneName,
           
           data: nationalCommuneAverageData,
           
