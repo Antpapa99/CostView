@@ -25,8 +25,6 @@ ChartJS.register (
 )
 
 
-
-
 export default function SavingsPotetialChart({ communeName }: { communeName: string }) {
     // State används för att hantera data som ändras över tid i en react komponent vilket är det över
     // Genom att ge penetrationCost, setPenetrationCost tuples en useState så kan UI uppdatera
@@ -48,11 +46,7 @@ export default function SavingsPotetialChart({ communeName }: { communeName: str
     
     const backgroundColor = ['rgba(186, 0, 0, 0.7',
     'rgba(184, 186, 0, 0.7)', 'rgba(0, 186, 176, 0.7)', 'rgba(80, 0, 186, 0.7)', 'rgba(33, 186, 0, 0.7)']
-
-
     
-    
-
     const options = {
         indexAxis: 'y',
         elements: {
@@ -63,7 +57,7 @@ export default function SavingsPotetialChart({ communeName }: { communeName: str
             datalabels: {
                display: true,
                color: 'white',
-               formatter: (value, context) => {
+               formatter: (value: any, context: { dataset: { label: string; }; }) => {
                     if (context.dataset.label === "Total Alternativ Cost") {
                         // Om det är datalabel för "Total Alternativ Cost"
                         return savingsPotential[0]["savingPotential"].toFixed(0) + '%'; // Kontrollera om det finns ett värde för savingPotential innan du formaterar det
@@ -97,8 +91,6 @@ export default function SavingsPotetialChart({ communeName }: { communeName: str
     }
     
     
-    
-
     
     return (
         <div className = "SavingsPotetialChart">

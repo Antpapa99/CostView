@@ -39,7 +39,12 @@ export async function calculateCostAllCommunes(communeData: any[]): Promise<Comm
 
 
             const alternativCost = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * tech["Arlig_besparing_per_installation_SEK"])
-            const totalKostnad = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * tech["Kostnad_per_installation"])
+            let totalKostnad = 0;
+            
+            if(tech["Kostnad_per_installation"] >= 0){
+                totalKostnad = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * tech["Kostnad_per_installation"])
+            }
+
             communeCostArrayCalculator.push({
                 communeName: communeName,
                 techName: tech.tech_name,
@@ -72,7 +77,14 @@ export async function calculateCostSpecificCommune(communeData: any[string]): Pr
                 penCost = 0;
             }
             const alternativCost = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * tech["Arlig_besparing_per_installation_SEK"])
-            const totalKostnad = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * tech["Kostnad_per_installation"])
+            let totalKostnad = 0;
+
+            if(tech["Kostnad_per_installation"] >= 0){
+                totalKostnad = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * tech["Kostnad_per_installation"])
+            }
+            
+    
+            
             communeCostArrayCalculator.push({
                 communeName: communeName,
                 techName: tech.tech_name,
