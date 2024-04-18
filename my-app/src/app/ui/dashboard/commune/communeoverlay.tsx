@@ -37,7 +37,6 @@ export default function ChartBox() {
         <PenValueChart communeName={selectedCommune}/> {/* Adjusted flex-grow */}
       </div>
       <div className="flex justify-center h-96 bg-blue-100 rounded gap-3">
-        <PenValueChart communeName={selectedCommune}/> {/* Adjusted flex-grow */}
       </div>
       
   </>

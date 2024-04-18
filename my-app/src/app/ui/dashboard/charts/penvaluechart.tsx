@@ -99,7 +99,7 @@ const backgroundColor = communeCost.map(data => {
                 borderColor: 'rgba(239, 239, 240, 07)',
                 borderWidth: 1,
                 borderSkipped: false,
-                borderRadius: 5,
+                borderRadius: 0,
                 barPercentage: 0.5,
                 categoryPercentage: 0.8,
                 datalabels: {
