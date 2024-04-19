@@ -34,5 +34,3 @@ export async function fetchCommune() {
       throw new Error('Inhämtning av datan från datafångaren misslyckades');
     }
   }
-
- 
