@@ -30,7 +30,7 @@ export default function AltCostChart({ communeName }: { communeName: string }) {
     // State används för att hantera data som ändras över tid i en react komponent vilket är det över
     // Genom att ge penetrationCost, setPenetrationCost tuples en useState så kan UI uppdatera
     const [communeCost, setCommuneCost] = useState<any[]>([]); 
-    console.log(communeName)
+    console.log("Alt cost chart hereeeeee!!!");
     /* UseEffect hook som du ser här nere kan användas för att utföra data  fetching eller ändringar i DOM, 
     useEffecten hooken tar en funktion som argument som kommer att aktiveras efter rendering i DOM */
     useEffect(() => {
@@ -45,6 +45,7 @@ export default function AltCostChart({ communeName }: { communeName: string }) {
     const backgroundColor = ['rgba(186, 0, 0, 0.7',
     'rgba(184, 186, 0, 0.7)', 'rgba(0, 186, 176, 0.7)', 'rgba(80, 0, 186, 0.7)', 'rgba(33, 186, 0, 0.7)']
 
+    
     const chartData = {
         labels: communeCost.map(data => data.techName), // Tänk map som en foreach
         datasets: [
