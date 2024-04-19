@@ -1,5 +1,5 @@
 'use client';
-import { fetchCommune, fetchOmslutning, fetchSpecificCommune } from '@/app/lib/data';
+import { fetchCommune, fetchSpecificCommune } from '@/app/lib/data';
 import { getSpecficCommuneCost }  from '@/app/lib/utils';
 import ChartBox from '@/app/ui/dashboard/commune/communeoverlay';
 import { useSearchParams } from 'next/navigation';
@@ -11,7 +11,6 @@ interface PageProps {
 }
 
 export default function Page({ children }: PageProps) {
-  console.log(fetchOmslutning);
   return (
     
     <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
