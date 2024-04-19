@@ -11,9 +11,10 @@ import {
     Legend,
     plugins,
 } from 'chart.js/auto';
-import { calculateAvgPerCommune, calculateCostAllCommunes, calculateCostSpecificCommune, calculateNationalAverage, calculateSavingPotential, getSpecficCommuneAvg, getSpecficCommuneCost } from '@/app/lib/utils';
+import { calculateAvgAllCommunes, calculateAvgPerCommune, calculateCostAllCommunes, calculateCostSpecificCommune, calculateNationalAverage, calculateSavingPotential, getSpecficCommuneAvg, getSpecficCommuneCost } from '@/app/lib/utils';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { fetchCommune } from '@/app/lib/data';
+import { reverse } from 'dns';
 
 ChartJS.register (
     CategoryScale,
@@ -36,7 +37,8 @@ export default function ScatterPlot() {
             try {
                 const communeData = fetchCommune();
                 console.log(communeData, "line 50")
-                const communePlot = await calculateCostAllCommunes(await communeData);
+                const nationalCostData = await calculateCostAllCommunes(await communeData);
+                const communePlot = await calculateAvgAllCommunes(nationalCostData);
                 console.log(communePlot, "line 56")
                 setAlternativCost(communePlot);
             } catch (error) {
@@ -49,16 +51,43 @@ export default function ScatterPlot() {
 
   
 
-    const options = {
-        options: {
-          scales: {
-            x: {
+    const options: any = {
+      scales: {
+          x: {
               type: 'linear',
               position: 'bottom'
-            }
+          },
+          y: {
+            reverse: true
+          },
+      },
+      plugins: {
+          tooltip: {
+              callbacks: {
+                  // Använd en callback-funktion för att anpassa tooltip-titeln
+                  title: function(tooltipItems: any[]) {
+                      // tooltipItems är en array av datapunkter (det kan finnas flera datapunkter i en tooltip)
+                      const tooltipItem = tooltipItems[0]; // Välj den första datapunkten
+                      const dataPoint = tooltipItem.dataset.data[tooltipItem.dataIndex];
+                      
+                      // Returnera communeName som tooltip-titel
+                      return dataPoint.communeName;
+                  },
+                  // Använd en callback-funktion för att anpassa tooltip-texten
+                  label: function(tooltipItem: { dataset: { data: { [x: string]: any; }; }; dataIndex: string | number; }) {
+                      const dataPoint = tooltipItem.dataset.data[tooltipItem.dataIndex];
+                      
+                      // Returnera texten med penCost och alternativCost
+                      return `genomsnitlig penetration: ${Math.round(dataPoint.x)}%, Total alternativkostnad: ${Math.round(dataPoint.y)}kr`;
+                  }
+              }
+          },
+          datalabels: {
+              display: false // Om du vill dölja datalabels
           }
-        }
-      };
+      }
+  };
+  
 
 
       console.log(alternativCost.map(data =>
