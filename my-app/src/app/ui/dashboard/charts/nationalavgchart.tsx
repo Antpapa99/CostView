@@ -44,7 +44,7 @@ export default function NationalAvgAltCostChart() {
     const backgroundColor = ['rgba(186, 0, 0, 0.7',
     'rgba(184, 186, 0, 0.7)', 'rgba(0, 186, 176, 0.7)', 'rgba(80, 0, 186, 0.7)', 'rgba(33, 186, 0, 0.7)']
 
-    const chartData = {
+    const natAltAvg = {
         labels: nationalAverage.map(data => data.techName), // Använd techName från det nationella genomsnittet för labels
         datasets: [
             {
@@ -52,16 +52,53 @@ export default function NationalAvgAltCostChart() {
                 data: nationalAverage.map(data => data.alternativCost), // Använd alternativCost från det nationella genomsnittet för data
                 backgroundColor: backgroundColor,
                 borderWidth: 1
-            }
+            },
+            
+        ]
+    };
+
+    const natPenAvg = {
+        labels: nationalAverage.map(data => data.techName), // Använd techName från det nationella genomsnittet för labels
+        datasets: [
+            {
+                label: "Nationell penetration grad",
+                data: nationalAverage.map(data => data.penCost), // Använd alternativCost från det nationella genomsnittet för data
+                backgroundColor: backgroundColor,
+                borderWidth: 1
+            },
+            
+        ]
+    };
+
+    const natSavingAvg = {
+        labels: nationalAverage.map(data => data.techName), // Använd techName från det nationella genomsnittet för labels
+        datasets: [
+            {
+                label: "Nationell alternativ kostnad",
+                data: nationalAverage.map(data => data.alternativCost), // Använd alternativCost från det nationella genomsnittet för data
+                backgroundColor: backgroundColor,
+                borderWidth: 1
+            },
+            
         ]
     };
     
 
     return (
-        <div className="flex justify-center">
+        <div className="flex justify-center flex-col gap-6">
             <div className="flex-grow">
                 <Bar 
-                    data={chartData}
+                    data={natAltAvg}
+                /> 
+            </div>
+            <div className="flex-grow">
+                <Bar 
+                    data={natPenAvg}
+                /> 
+            </div>
+            <div className="flex-grow">
+                <Bar 
+                    data={natPenAvg}
                 /> 
             </div>
         </div>
