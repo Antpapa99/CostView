@@ -51,20 +51,39 @@ export default function ScatterPlot() {
   
 
     const options: any = {
-        scales: {
+      scales: {
           x: {
-            type: 'linear',
-            position: 'bottom'
-            }
-        },
-        plugins: {
-          datalabels: {
-             display: false,
-
+              type: 'linear',
+              position: 'bottom'
           }
-       }
-        
-      };
+      },
+      plugins: {
+          tooltip: {
+              callbacks: {
+                  // Använd en callback-funktion för att anpassa tooltip-titeln
+                  title: function(tooltipItems: any[]) {
+                      // tooltipItems är en array av datapunkter (det kan finnas flera datapunkter i en tooltip)
+                      const tooltipItem = tooltipItems[0]; // Välj den första datapunkten
+                      const dataPoint = tooltipItem.dataset.data[tooltipItem.dataIndex];
+                      
+                      // Returnera communeName som tooltip-titel
+                      return dataPoint.communeName;
+                  },
+                  // Använd en callback-funktion för att anpassa tooltip-texten
+                  label: function(tooltipItem: { dataset: { data: { [x: string]: any; }; }; dataIndex: string | number; }) {
+                      const dataPoint = tooltipItem.dataset.data[tooltipItem.dataIndex];
+                      
+                      // Returnera texten med penCost och alternativCost
+                      return `penCost: ${dataPoint.x}, alternativCost: ${dataPoint.y}`;
+                  }
+              }
+          },
+          datalabels: {
+              display: false // Om du vill dölja datalabels
+          }
+      }
+  };
+  
 
 
       console.log(alternativCost.map(data =>
