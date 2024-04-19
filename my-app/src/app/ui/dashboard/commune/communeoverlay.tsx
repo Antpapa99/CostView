@@ -28,14 +28,14 @@ export default function ChartBox() {
     </section>
     <section className="flex flex-grow my-4 px-4 md:flex-row gap-3"> {/*Dem tre nedra lådorna */}
       <div className="flex-1 w-full h-full bg-blue-100 items-center rounded">
-        <SavingsPotetialChart communeName={selectedCommune}/>
+      {selectedCommune && <SavingsPotetialChart communeName={selectedCommune}/>}
       </div>
       <div className="flex-1 h-full bg-blue-100 items-center rounded">
-        <TotalCostChart communeName={selectedCommune}/>
+      {selectedCommune && <TotalCostChart communeName={selectedCommune}/>}
       </div>
     </section>
     <div className="flex justify-center h-96 bg-blue-100 rounded gap-3">
-        <PenValueChart communeName={selectedCommune}/> {/* Adjusted flex-grow */}
+    {selectedCommune &&  <PenValueChart communeName={selectedCommune}/> }
       </div>
       <div className="flex justify-center h-96 bg-blue-100 rounded gap-3">
       </div>

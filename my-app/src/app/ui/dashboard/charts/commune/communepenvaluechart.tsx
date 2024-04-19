@@ -107,8 +107,9 @@ const backgroundColor = communeCost.map(data => {
                     align: 'right',
                     formatter: function(value: string, context: any) {
                         return value + "%"; // Aligns the labels to the right of the data bars
-                }
-            }
+                },
+                stack: "stack1"
+            },
         },
     ]
 }
