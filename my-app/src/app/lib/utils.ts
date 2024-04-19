@@ -108,8 +108,8 @@ export async function calculateCostSpecificCommune(communeData: any[string], nat
                 totalKostnad: totalKostnad,
                 besparing: arligBesparing,
         });
+        console.log(communeCostArrayCalculator, "el finale")
     });
-    console.log(communeCostArrayCalculator, "el finale")
     return communeCostArrayCalculator;
 }
 

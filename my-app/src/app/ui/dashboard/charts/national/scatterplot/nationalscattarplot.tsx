@@ -47,6 +47,7 @@ export default function ScatterPlot() {
 
     },[])
 
+  
 
     const options = {
         options: {
@@ -58,6 +59,7 @@ export default function ScatterPlot() {
           }
         }
       };
+
 
       console.log(alternativCost.map(data =>
         data.penCost))
