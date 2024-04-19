@@ -1,11 +1,8 @@
 'use client';
-import { fetchCommune, fetchSpecificCommune } from '@/app/lib/data';
-import { getSpecficCommuneCost }  from '@/app/lib/utils';
 import ChartBox from '@/app/ui/dashboard/commune/communeoverlay';
-import { useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation'
 import CommuneDropdownItem from '@/app/ui/dashboard/commune/communedropdown';
+import "@/app/globals.css";
 
 interface PageProps {
   children: React.ReactNode;
@@ -15,7 +12,7 @@ export default function Page({ children }: PageProps) {
   const [selectedCommune, setSelectedCommune] = useState();
   const handleCommuneChange = (kommun: any) => {
     setSelectedCommune(kommun)};
-    
+
   return (
     
     <div className="flex h-screen flex-col md:flex-col md:overflow-hidden">
