@@ -27,6 +27,7 @@ export default function CommuneDropdownItem({ onCommuneChange }: { onCommuneChan
                 {kommuner.map((item: any, index: any) => (
                 <option key={index} value={item.commune_name}>{item.display_name}</option>
             ))}
+            
     </select>
     </div>
     )

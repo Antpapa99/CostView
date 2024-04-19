@@ -73,7 +73,7 @@ export default function ScatterPlot() {
       const chartData: any = {
         datasets: [{
           
-            label: "Commune",
+            label: "Kommun",
           
           data: nationalCommuneAverageData ,
           

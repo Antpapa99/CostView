@@ -250,3 +250,4 @@ export async function getSpecficCommuneAvg(communeName: any[string]) {
     return savingPotentialArray;
   }
   
+  
