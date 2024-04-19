@@ -12,6 +12,7 @@ interface CommuneCostData {
     penCost: number;
     alternativCost: number;
     totalKostnad: number;
+    besparing: number;
 
 }
 
@@ -37,7 +38,6 @@ export async function calculateCostAllCommunes(communeData: any[]): Promise<Comm
 
 
 
-
             const alternativCost = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * tech["Arlig_besparing_per_installation_SEK"])
             let totalKostnad = 0;
             
@@ -51,6 +51,7 @@ export async function calculateCostAllCommunes(communeData: any[]): Promise<Comm
                 penCost: penCost,
                 alternativCost: alternativCost,
                 totalKostnad: totalKostnad,
+                besparing: 0,
             });
         });
     });
@@ -61,39 +62,54 @@ export async function calculateCostAllCommunes(communeData: any[]): Promise<Comm
 
 /* Är en kalkylator för specifika kommuner */
 
-export async function calculateCostSpecificCommune(communeData: any[string]): Promise<CommuneCostData[]> {
+export async function calculateCostSpecificCommune(communeData: any[string], nationalData: any[]): Promise<any[]>  {
     const communeCostArrayCalculator: CommuneCostData[] = []; /* Här defineras det som en lista eftersom vi samlar olika kommuners penettrationsgrad */
     const communeName: string = communeData.commune_name; 
-    const technologies: any[] = communeData.technologies; /* Här defineras det som en lista eftersom det finns fler en teknologi objekt i varje kommun */
+    const technologies: any[] = communeData.technologies; /* Här defineras det som en lista eftersom det finns fler en teknologi objekt i varje kommun */  
 
-        technologies.forEach(tech => {
+        technologies.forEach(async tech => {
             const antalInstallationer = tech["Antal_installationer"];
             const mojligaInstallationer = tech["Mojliga_installationer"];
+            let arligBesparing = 0
+
+            if(tech["Arlig_besparing_per_installation_SEK"] < 0){
+                const nationaldata = await calculateNationalAverage(nationalData);
+                nationaldata.forEach(element => {
+                    if(element.techName == tech.tech_name){
+                        arligBesparing = element.besparing;
+                    }
+                });            
+            }
+            else{
+                arligBesparing = tech["Arlig_besparing_per_installation_SEK"]
+            }
+
+            console.log(tech.tech_name, arligBesparing);
 
             let penCost = 0;
-            if (antalInstallationer > -1 || mojligaInstallationer > -1) { //kanske ska vara större än 0 så det inte blir /0
+            
+            if (antalInstallationer > 0 || mojligaInstallationer > 0) { //kanske ska vara större än 0 så det inte blir /0
                 penCost = (antalInstallationer / mojligaInstallationer) * 100;
             } else {
                 penCost = 0;
             }
-            const alternativCost = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * tech["Arlig_besparing_per_installation_SEK"])
+            const alternativCost = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * arligBesparing)
             let totalKostnad = 0;
 
             if(tech["Kostnad_per_installation"] >= 0){
                 totalKostnad = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * tech["Kostnad_per_installation"])
-            }
-            
-    
-            
+            }           
+
             communeCostArrayCalculator.push({
                 communeName: communeName,
                 techName: tech.tech_name,
                 penCost: penCost,
                 alternativCost: alternativCost,
                 totalKostnad: totalKostnad,
+                besparing: arligBesparing,
         });
     });
-
+    console.log(communeCostArrayCalculator, "el finale")
     return communeCostArrayCalculator;
 }
 
@@ -101,7 +117,8 @@ export async function calculateCostSpecificCommune(communeData: any[string]): Pr
     
 export async function getSpecficCommuneCost(communeName: any[string]) {
     const communeData = await fetchSpecificCommune(communeName); // Assuming getCommuneData returns the necessary data
-    const communeCost = await calculateCostSpecificCommune(communeData);
+    const nationalData = await fetchCommune();
+    const communeCost = await calculateCostSpecificCommune(communeData, nationalData);
     return communeCost;
   }
   
@@ -147,16 +164,18 @@ export async function calculateNationalAverage(communeData: any[]): Promise<Comm
         const penCost = (avgData.Antal_installationer_sum / avgData.Mojliga_installationer_sum) * 100;
         const alternativCost = ((avgData.Mojliga_installationer_sum - avgData.Antal_installationer_sum) * (avgData.Arlig_besparing_per_installation_SEK_sum / avgData.count));
         const totalKostnad = ((avgData.Mojliga_installationer_sum - avgData.Antal_installationer_sum) * (avgData.Kostnad_per_installation_sum / avgData.count));
-        
+        const avgBesparing = avgData.Arlig_besparing_per_installation_SEK_sum/avgData.count
+
         const average = {
             techName: techName,
             penCost: penCost,
             alternativCost: alternativCost,
             totalKostnad: totalKostnad,
+            besparing: avgBesparing,  
         };
         nationalAverages.push(average);
     });
-
+    
     return nationalAverages;
 }
 
@@ -192,6 +211,7 @@ export async function calculateAvgPerCommune(communeData: any[string]): Promise<
         penCost: averagePenCost,
         alternativCost: averageAlternativCost,
         totalKostnad: 0, // You can set this to 0 or calculate if needed
+        besparing: 0,
     });
 
     return  communeAvgArrayCalculator;
