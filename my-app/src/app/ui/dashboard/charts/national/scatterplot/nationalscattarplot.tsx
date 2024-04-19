@@ -14,6 +14,7 @@ import {
 import { calculateAvgAllCommunes, calculateAvgPerCommune, calculateCostAllCommunes, calculateCostSpecificCommune, calculateNationalAverage, calculateSavingPotential, getSpecficCommuneAvg, getSpecficCommuneCost } from '@/app/lib/utils';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { fetchCommune } from '@/app/lib/data';
+import { reverse } from 'dns';
 
 ChartJS.register (
     CategoryScale,
@@ -55,7 +56,10 @@ export default function ScatterPlot() {
           x: {
               type: 'linear',
               position: 'bottom'
-          }
+          },
+          y: {
+            reverse: true
+          },
       },
       plugins: {
           tooltip: {
@@ -74,7 +78,7 @@ export default function ScatterPlot() {
                       const dataPoint = tooltipItem.dataset.data[tooltipItem.dataIndex];
                       
                       // Returnera texten med penCost och alternativCost
-                      return `penCost: ${dataPoint.x}, alternativCost: ${dataPoint.y}`;
+                      return `genomsnitlig penetration: ${Math.round(dataPoint.x)}%, Total alternativkostnad: ${Math.round(dataPoint.y)}kr`;
                   }
               }
           },
