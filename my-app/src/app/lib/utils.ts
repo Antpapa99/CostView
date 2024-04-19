@@ -230,7 +230,8 @@ export async function getSpecficCommuneAvg(communeName: any[string]) {
 
   export async function calculateSavingPotential(communeData: any[]): Promise<any[]> {
     // Läs kostnadsdata från omslutning2022.json
-    const costData = await JSON.parse(await fs.readFile(process.cwd() + '/src/app/lib/omslutning2022.json', 'utf-8'));
+    const file = await fs.readFile(process.cwd() + '/src/app/lib/omslutning2022.json', 'utf-8');
+    const costData = JSON.parse(file);
   
     const savingPotentialArray: any[] = [];
     
