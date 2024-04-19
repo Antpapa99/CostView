@@ -6,6 +6,7 @@ import Page from "@/app/dashboard/commune/page"
 import Link from "next/link";
 import router from "next/router";
 import { selectedPageCommune } from "./lib/utils";
+import { getServerSideData } from "./lib/data";
 
 
 export default function Home() {
@@ -16,6 +17,8 @@ export default function Home() {
   console.log(selectedCommune)
   const router: any = useRouter()
   const communeUrl: string = '/dashboard/commune'
+  const data = getServerSideData()
+  console.log(data)
  
 
   return (

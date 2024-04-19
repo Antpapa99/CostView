@@ -1,5 +1,5 @@
 'use server';
-import { fetchCommune, fetchSpecificCommune } from '@/app/lib/data';
+import { fetchCommune, fetchSpecificCommune, getServerSideData } from '@/app/lib/data';
 import { promises as fs } from "fs";
 /* let penCost = (installationer/möjliga installationer)*100
 Alternativkostnad = (möjliga installationer-installationer)*Arlig_besparing_per_installation_SEK
@@ -230,8 +230,8 @@ export async function getSpecficCommuneAvg(communeName: any[string]) {
 
   export async function calculateSavingPotential(communeData: any[]): Promise<any[]> {
     // Läs kostnadsdata från omslutning2022.json
-    const file = await fs.readFile(process.cwd() + '/src/app/lib/omslutning2022.json', 'utf-8');
-    const costData = JSON.parse(file);
+    const rawData = await getServerSideData();
+    const costData = rawData;
   
     const savingPotentialArray: any[] = [];
     

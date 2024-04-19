@@ -34,3 +34,7 @@ export async function fetchCommune() {
       throw new Error('Inhämtning av datan från datafångaren misslyckades');
     }
   }
+
+  export async function getServerSideData(){
+    const staticData = await import('../../../data/omslutning2022.json').then((res) => res.default);
+    return staticData }
