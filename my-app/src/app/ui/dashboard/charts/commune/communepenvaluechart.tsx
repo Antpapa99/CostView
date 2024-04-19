@@ -46,18 +46,6 @@ export default function PenValueChart({ communeName }: { communeName: any }) {
       fetchCommuneCost(); /* säger till att funktionen körs på DOM, alltså sidan uppdateras */
     }, [communeName]);
 
-    const [communeAverage, setCommuneAverage] = useState<any[]>([]);
-    console.log(communeName, "Line 29 CommuneAVGCOSTCHART") // State för att hålla det nationella genomsnittet
-
-    useEffect(() => {
-        const fetchcommuneAverage = async () => { /* Async är där så att webbsidan inte aktivera funktionen innan fetchingen är färdig */
-          const AvgCost = await getSpecficCommuneAvg(communeName);
-          console.log(AvgCost, 'Avg LOG') /* Await vänter när den första funktionen är färdig med sitt syfte */
-          setCommuneAverage(AvgCost); /*denna variablen unppdatera sidan med det nya */
-        };
-    
-        fetchcommuneAverage(); /* säger till att funktionen körs på DOM, alltså sidan uppdateras */
-      }, [communeName]);
 
 
 function generateGradientColor(penCost: number) {
