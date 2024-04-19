@@ -1,11 +1,11 @@
 'use client';
 import { SetStateAction, useState } from "react";
-import AltCostChart from "../charts/altcostchart"; 
+import AltCostChart from "../charts/commune/altcostchart"; 
 import CommuneDropdownItem from "./communedropdown";
-import PenValueChart from "../charts/penvaluechart"; 
-import TotalCostChart from "../charts/normalcostchart"; 
-import CommuneAvgAltCostChart from "../charts/communeavgchart";
-import SavingsPotetialChart from "../charts/savingspotetialchart";
+import PenValueChart from "../charts/commune/communepenvaluechart"; 
+import TotalCostChart from "../charts/commune/communenormalcostchart"; 
+import CommuneAvgAltCostChart from "../charts/commune/communeavgchart";
+import SavingsPotetialChart from "../charts/commune/communesavingspotetialchart";
 import { useRouter } from "next/router";
 import { useSearchParams } from "next/navigation";
 

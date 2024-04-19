@@ -249,5 +249,7 @@ export async function getSpecficCommuneAvg(communeName: any[string]) {
     // Returnera hela savingPotentialArray
     return savingPotentialArray;
   }
+
+  
   
   
