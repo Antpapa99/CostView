@@ -84,11 +84,16 @@ export default function ScatterPlot() {
     console.log(chartData.datasets, "line 188")
 
     return (
-        <Scatter
-        data = {chartData}
-        options = {options} 
-        
-        />
+      <>
+      <div className="relative flex w-full flex-row min-w-0 h-auto break-words bg-white  mb-3 my-3 shadow-lg rounded">
+        <div className="p-4 flex-auto">
+        <Scatter 
+            data={chartData}
+            options = {options}
+            /> 
+        </div>
+      </div>
+    </>
     )
 
 }

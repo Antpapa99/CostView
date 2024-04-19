@@ -7,16 +7,13 @@ import NationalAvgPenGradeChart from "../charts/national/nationalavgpenchart";
 export default function NationalOverlay() {
   return (
     <>
-      <section className="flex flex-col my-1 px1 gap-5">
-        <div className="flex flex-row gap-5">
-          
-          <div className="w-1/2 bg-gray-700 p-2">
+      <section className="flex flex-row my-1 px1 gap-5">    
+          <div className="flex h-96 w-full bg-blue-100 rounded gap-3">
           <NationalAvgPenGradeChart />
           </div>
-          <div className="w-1/2 bg-gray-700 p-2 h-full">
+          <div className="flex h-96 w-full bg-blue-100 rounded gap-3">
           <ScatterPlot  />        
           </div>
-        </div>
       </section>
     </>
   );

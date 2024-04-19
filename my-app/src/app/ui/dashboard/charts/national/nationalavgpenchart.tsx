@@ -170,10 +170,10 @@ export default function NationalAvgPenGradeChart() {
       };
       // våra plugins
       const plugins = [progressBar];
-
+//flex relative
     return (
         <>
-      <div className="relative flex flex-col min-w-0 h-auto break-words bg-white w-1/2 mb-3 my-3 shadow-lg rounded">
+      <div className="relative flex min-w-0 w-full h-auto break-words bg-white mb-3 my-3 shadow-lg rounded">
         <div className="p-4 flex-auto">
         <Bar 
             data={chartData}
