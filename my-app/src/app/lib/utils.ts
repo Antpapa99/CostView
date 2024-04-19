@@ -111,12 +111,13 @@ export async function calculateCostSpecificCommune(communeData: any[string], nat
             } else {
                 penCost = 0;
             }
+            
             const alternativCost = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * arligBesparing)
             let totalKostnad = 0;
 
             if(tech["Kostnad_per_installation"] >= 0){
                 totalKostnad = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * tech["Kostnad_per_installation"])
-            }           
+            }          
 
             communeCostArrayCalculator.push({
                 communeName: communeName,
@@ -171,6 +172,7 @@ export async function calculateNationalAverage(communeData: any[]): Promise<Comm
                 techAverages[tech.tech_name].Arlig_besparing_per_installation_SEK_sum += tech["Arlig_besparing_per_installation_SEK"];
                 techAverages[tech.tech_name].Kostnad_per_installation_sum += tech["Kostnad_per_installation"];
                 techAverages[tech.tech_name].count++;
+                console.log(tech.tech_name, techAverages[tech.tech_name].Mojliga_installationer_sum, techAverages[tech.tech_name].Antal_installationer_sum, "LINE 195 TEST")
             }
         });
     });
@@ -179,7 +181,7 @@ export async function calculateNationalAverage(communeData: any[]): Promise<Comm
     const nationalAverages: any[] = [];
     Object.keys(techAverages).forEach(techName => {
         const avgData = techAverages[techName];
-        const penCost = (avgData.Antal_installationer_sum / avgData.Mojliga_installationer_sum) * 100;
+        const penCost = ((avgData.Antal_installationer_sum / avgData.Mojliga_installationer_sum) * 100) //Du kan ha glömt att ta med delat med avgData.count eftersom 
         const alternativCost = ((avgData.Mojliga_installationer_sum - avgData.Antal_installationer_sum) * (avgData.Arlig_besparing_per_installation_SEK_sum / avgData.count));
         const totalKostnad = ((avgData.Mojliga_installationer_sum - avgData.Antal_installationer_sum) * (avgData.Kostnad_per_installation_sum / avgData.count));
         const avgBesparing = avgData.Arlig_besparing_per_installation_SEK_sum/avgData.count
@@ -192,6 +194,7 @@ export async function calculateNationalAverage(communeData: any[]): Promise<Comm
             besparing: avgBesparing,  
         };
         nationalAverages.push(average);
+        
     });
     
     return nationalAverages;
@@ -259,7 +262,6 @@ export async function calculateAvgAllCommunes(communeData: any[string]): Promise
             totalKostnad: 0, // You can set this to 0 or calculate if needed
             besparing: 0,
         });
-        console.log(communeAvgArrayCalculator, "nya tag------------------------------------");        
     })
     
     return  communeAvgArrayCalculator;
