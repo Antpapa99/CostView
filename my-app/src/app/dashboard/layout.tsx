@@ -1,4 +1,5 @@
 import SideNav from '@/app/ui/dashboard/sidenav';
+import "@/app/globals.css";
 
 interface PageProps {
   children: React.ReactNode;

@@ -172,7 +172,6 @@ export async function calculateNationalAverage(communeData: any[]): Promise<Comm
                 techAverages[tech.tech_name].Arlig_besparing_per_installation_SEK_sum += tech["Arlig_besparing_per_installation_SEK"];
                 techAverages[tech.tech_name].Kostnad_per_installation_sum += tech["Kostnad_per_installation"];
                 techAverages[tech.tech_name].count++;
-                console.log(tech.tech_name, techAverages[tech.tech_name].Mojliga_installationer_sum, techAverages[tech.tech_name].Antal_installationer_sum, "LINE 195 TEST")
             }
         });
     });

@@ -1,4 +1,5 @@
 import NationalOverlay from '@/app/ui/dashboard/national/nationaloverlay';
+import "@/app/globals.css";
 
 
 export default function Page({ children }: { children: React.ReactNode }) {
