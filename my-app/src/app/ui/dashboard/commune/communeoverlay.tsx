@@ -1,5 +1,5 @@
 'use client';
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 import AltCostChart from "../charts/altcostchart"; 
 import CommuneDropdownItem from "./communedropdown";
 import PenValueChart from "../charts/penvaluechart"; 
@@ -9,7 +9,11 @@ import SavingsPotetialChart from "../charts/savingspotetialchart";
 import { useRouter } from "next/router";
 import { useSearchParams } from "next/navigation";
 
-export default function ChartBox({selectedCommune}: any) {
+export default function ChartBox() {
+  const [selectedCommune, setSelectedCommune] = useState();
+  const handleCommuneChange = (kommun: any) => {
+    setSelectedCommune(kommun)};
+  
   
   return (
     <>
@@ -17,6 +21,7 @@ export default function ChartBox({selectedCommune}: any) {
       <div className="flex-1 px-1 bg-red-700"></div>
       <div className="flex-1 px-2 justify-center md:w-auto bg-blue-100">
         <div className="flex-1 h-full px-2 justify-center">
+          <CommuneDropdownItem onCommuneChange={handleCommuneChange} />
         </div>
       </div>
       <div className="flex-1 px-1 bg-red-700"></div>

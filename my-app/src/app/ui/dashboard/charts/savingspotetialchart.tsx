@@ -25,7 +25,7 @@ ChartJS.register (
 )
 
 
-export default function SavingsPotetialChart({ communeName }: { communeName: string }) {
+export default function SavingsPotetialChart({ communeName }: { communeName: any }) {
     // State används för att hantera data som ändras över tid i en react komponent vilket är det över
     // Genom att ge penetrationCost, setPenetrationCost tuples en useState så kan UI uppdatera
     const [savingsPotential, setCommuneCost] = useState<any[]>([]); 
