@@ -355,10 +355,3 @@ export async function getSpecficCommuneAvg(communeName: any[string]) {
 
 
   /* Vår dataFiltering för att visa top10 osv eller om man vill välja mellan 5 kommuner osv WIP*/
-  export async function ComparisonCommuneData({alternativCost}: any) {
-    console.log(alternativCost, "ComparisonCommuneData")
-    const event = 'Top10';
-    if (event == 'Top10') {
-        return alternativCost.sort((a, b) => parseFloat(b.penCost) - parseFloat(a.penCost));
-    }
-}

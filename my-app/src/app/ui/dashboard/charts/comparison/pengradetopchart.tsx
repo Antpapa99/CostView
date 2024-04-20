@@ -30,6 +30,8 @@ ChartJS.register(
 
 export default function PenGradeTopChart({dataFilter}: any) {
 
+    console.log(dataFilter, "Line 33 pentopgradechart")
+
     function generateGradientColor(penCost: number) {
         // Färgen baserat på procent
         const percentage = penCost / 100;

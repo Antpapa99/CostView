@@ -6,6 +6,7 @@ import "@/app/globals.css";
 import PenGradeTopChart from '@/app/ui/dashboard/charts/comparison/pengradetopchart';
 import ComparisonOverlay from '@/app/ui/dashboard/comparison/comparisonoverlay';
 import { getCommuneAvg } from '@/app/lib/utils';
+import { ComparisonCommuneData } from '@/app/ui/dashboard/comparison/comparisonbuttons';
 
 interface PageProps {
   children: React.ReactNode;
@@ -27,8 +28,13 @@ export default function Page({ children }: PageProps) {
         fetchCommuneAlternativCost();
     }, []); // Empty dependency array to run the effect only once when the component mounts
 
+    const [changedData, setDataChange] = useState();
+    const handleDataChange = (alternativCost: any) => {
+        setDataChange(alternativCost)};
+
     return (
         <div className="flex h-screen flex-col md:flex-col md:overflow-hidden">
+            <ComparisonCommuneData alternativCost = {alternativCost} onDataChange={handleDataChange} />
             <div className="w-full flex-none md:w-150"> {/* Size of boxes */}
                 <ComparisonOverlay alternativCost={alternativCost} />
             </div>
