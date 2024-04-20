@@ -132,7 +132,9 @@ export async function calculateCostSpecificCommune(communeData: any[string], nat
     return communeCostArrayCalculator;
 }
 
-
+/*
+    Data pipelinen för att få kostnader kring en specifik kommun
+  */
     
 export async function getSpecficCommuneCost(communeName: any[string]) {
     const communeData = await fetchSpecificCommune(communeName); // Assuming getCommuneData returns the necessary data
@@ -140,6 +142,11 @@ export async function getSpecficCommuneCost(communeName: any[string]) {
     const communeCost = await calculateCostSpecificCommune(communeData, nationalData);
     return communeCost;
   }
+
+  /*
+    Få nationella värden
+  */
+
   
 export async function calculateNationalAverage(communeData: any[]): Promise<CommuneCostData[]> {
     const techAverages: any = {};
@@ -208,6 +215,10 @@ interface CommuneCostAvgData {
 
 }
 
+/*
+    Få medel från en specific kommun
+  */
+
 export async function calculateAvgPerCommune(communeData: any[string]): Promise<CommuneCostAvgData[]> {
     const communeAvgArrayCalculator: CommuneCostData[] = []; /* Här defineras det som en lista eftersom vi samlar olika kommuners penettrationsgrad */
     const communeName: string = communeData.commune_name; 
@@ -235,6 +246,10 @@ export async function calculateAvgPerCommune(communeData: any[string]): Promise<
 
     return  communeAvgArrayCalculator;
 }
+
+/*
+    Få medel från alla kommuner
+  */
 
 export async function calculateAvgAllCommunes(communeData: any[string]): Promise<any[]> {
     const communeAvgArrayCalculator: any[] = [];
@@ -265,6 +280,9 @@ export async function calculateAvgAllCommunes(communeData: any[string]): Promise
     return  communeAvgArrayCalculator;
 }
 
+/*
+    Data piplinen för at få medel från alla kommuner
+  */
 
 export async function getCommuneAvg() {
     const communeData  = fetchCommune();
@@ -274,6 +292,9 @@ export async function getCommuneAvg() {
     return completeData;
   }
     
+  /*
+    data pipelinen för att få medelkostnader kring en specific kommun
+  */
 
 export async function getSpecficCommuneAvg(communeName: any[string]) {
     const communeData = await fetchSpecificCommune(communeName);
@@ -281,6 +302,9 @@ export async function getSpecficCommuneAvg(communeName: any[string]) {
     return communeAverage;
   }
 
+  /*
+    Detta är för att beräkna besparingspotential kalkyr 
+  */
 
 
   export async function calculateSavingPotential(communeData: any[]): Promise<any[]> {
@@ -327,4 +351,14 @@ export async function getSpecficCommuneAvg(communeName: any[string]) {
   }
   
   
-  
+
+
+
+  /* Vår dataFiltering för att visa top10 osv eller om man vill välja mellan 5 kommuner osv WIP*/
+  export default function ComparisonCommuneData({alternativCost}: any) {
+    console.log(alternativCost, "ComparisonCommuneData")
+    const event = 'Top10';
+    if (event == 'Top10') {
+        return alternativCost.sort((a, b) => parseFloat(b.penCost) - parseFloat(a.penCost));
+    }
+}
