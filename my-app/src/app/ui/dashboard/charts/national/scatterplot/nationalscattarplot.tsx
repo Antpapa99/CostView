@@ -52,6 +52,7 @@ export default function ScatterPlot() {
   
 
     const options: any = {
+        maintainAspectRatio: false,
       scales: {
           x: {
               type: 'linear',
@@ -116,8 +117,8 @@ export default function ScatterPlot() {
 
     return (
       <>
-      <div className="relative flex w-full flex-row min-w-0 h-auto break-words bg-white  mb-3 my-3 shadow-lg rounded">
-        <div className="p-4 flex-auto">
+      <div className="w-full h-full break-words bg-white mb-3 my-3 shadow-lg rounded">
+        <div className="p-4 flex-auto h-full">
         <Scatter 
             data={chartData}
             options = {options}

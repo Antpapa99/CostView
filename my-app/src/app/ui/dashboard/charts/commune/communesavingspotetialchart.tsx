@@ -48,6 +48,7 @@ export default function SavingsPotetialChart({ communeName }: { communeName: any
     'rgba(184, 186, 0, 0.7)', 'rgba(0, 186, 176, 0.7)', 'rgba(80, 0, 186, 0.7)', 'rgba(33, 186, 0, 0.7)']
     
     const options: any = {
+        maintainAspectRatio: false,
         indexAxis: 'y',
         elements: {
           bar: {},
@@ -93,7 +94,7 @@ export default function SavingsPotetialChart({ communeName }: { communeName: any
     
     
     return (
-        <div className = "SavingsPotetialChart">
+        <div className = "flex h-96">
             <Bar 
             data={chartData}
             options = {options}

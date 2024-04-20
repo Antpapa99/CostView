@@ -9,10 +9,10 @@ import {
     Title,
     Tooltip,
     Legend,
-    plugins,
 } from 'chart.js/auto';
 import { calculateCostSpecificCommune, getSpecficCommuneAvg, getSpecficCommuneCost } from '@/app/lib/utils';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+
 
 const barColors = ["#1f77b4", "#ff7f0e", "#2ca02c"]
 
@@ -24,6 +24,7 @@ ChartJS.register (
     Title,
     Tooltip,
     Legend,
+    
 )
 
   
@@ -72,6 +73,8 @@ const backgroundColor = communeCost.map(data => {
         return generateGradientColor(data.penCost);
     }
 });
+
+
     
 
     const chartData: any = {
@@ -159,14 +162,14 @@ const backgroundColor = communeCost.map(data => {
     const options: any = {
         maintainAspectRatio: false, 
         indexAxis: 'y' as 'y',
-        plugins: {
-            legend: {
+        plugins: 
+            {legend: {
                 display: false,
-            },
-            datalabels: {
+                },
+                datalabels: {
                 display: true,
-             },
-        },
+                 },
+            },
         scales: {
             y: {
                 border: {

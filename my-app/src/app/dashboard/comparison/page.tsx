@@ -28,7 +28,7 @@ export default function Page({ children }: PageProps) {
         fetchCommuneAlternativCost();
     }, []); // Empty dependency array to run the effect only once when the component mounts
 
-    const [changedData, setDataChange] = useState();
+    const [changedData, setDataChange] = useState<any[]>([]);
     const handleDataChange = (alternativCost: any) => {
         setDataChange(alternativCost)};
 

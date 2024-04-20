@@ -22,10 +22,10 @@ export default function ChartBox({selectedCommune}: any ) {
       <div className="flex-1 px-1 bg-red-700"></div>
     </section>
     <section className="flex flex-grow my-4 px-4 md:flex-row gap-3"> {/*Dem tre nedra lådorna */}
-      <div className="flex-1 w-full h-full bg-blue-100 items-center rounded">
+      <div className="flex-1 w-full h-96 bg-blue-100 items-center rounded">
       {selectedCommune && <SavingsPotetialChart communeName={selectedCommune}/>}
       </div>
-      <div className="flex-1 h-full bg-blue-100 items-center rounded">
+      <div className="flex-1 h-96 bg-blue-100 items-center rounded">
       {selectedCommune && <TotalCostChart communeName={selectedCommune}/>}
       </div>
     </section>

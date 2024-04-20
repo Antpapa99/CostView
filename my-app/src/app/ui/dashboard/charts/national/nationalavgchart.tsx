@@ -82,13 +82,17 @@ export default function NationalAvgAltCostChart() {
             
         ]
     };
+
+    const options: any = {
+        maintainAspectRatio: false}
     
 
     return (
-        <div className="flex justify-center flex-col gap-6">
-            <div className="flex-grow">
+        <div className= "w-full h-96 break-words bg-white mb-3 my-3 shadow-lg rounded">
+            <div className="h-96">
                 <Bar 
                     data={natAltAvg}
+                    options={options}
                 /> 
             </div>
         </div>

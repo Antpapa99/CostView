@@ -57,7 +57,7 @@ export default function TotalCostChart({ communeName }: { communeName: any }) {
     
 
     return (
-        <div className = "flex-1 h-full">
+        <div className = "flex-1 h-96">
             <Bar 
             data={chartData}
             /> </div>
