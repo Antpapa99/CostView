@@ -5,10 +5,6 @@ import { getCommuneAvg } from "@/app/lib/utils";
 import { ComparisonCommuneData } from "./comparisonbuttons";
 
 export default function ComparisonOverlay({alternativCost}: any) {
-    const [dataFilter, setSelectedData] = useState(alternativCost);
-
-    console.log(alternativCost, "Comparisonoverlay");
-
     return (
       <>
         <section className="flex flex-col w-full my-4 px-4 md:flex-row gap-3">
