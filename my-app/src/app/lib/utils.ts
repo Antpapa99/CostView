@@ -223,13 +223,12 @@ export async function calculateAvgPerCommune(communeData: any[string]): Promise<
     });
 
     const averagePenCost = totalPenCost / technologies.length;
-    const averageAlternativCost = totalAlternativCost / technologies.length;
 
     communeAvgArrayCalculator.push({
         communeName: communeName,
         techName: "Combined",
         penCost: averagePenCost,
-        alternativCost: averageAlternativCost,
+        alternativCost: totalAlternativCost,
         totalKostnad: 0, // You can set this to 0 or calculate if needed
         besparing: 0,
     });
@@ -265,13 +264,20 @@ export async function calculateAvgAllCommunes(communeData: any[string]): Promise
     
     return  communeAvgArrayCalculator;
 }
+
+
+export async function getCommuneAvg() {
+    const communeData  = fetchCommune();
+    const nationalCostData =  calculateCostAllCommunes(await communeData);
+    const communePlot  = calculateAvgAllCommunes(await nationalCostData);
+    const completeData = communePlot
+    return completeData;
+  }
     
 
 export async function getSpecficCommuneAvg(communeName: any[string]) {
     const communeData = await fetchSpecificCommune(communeName);
-    console.log(communeData, "line 198") // Assuming getCommuneData returns the necessary data
     const communeAverage = await calculateAvgPerCommune(communeData);
-    console.log(communeAverage, "line 200")
     return communeAverage;
   }
 
