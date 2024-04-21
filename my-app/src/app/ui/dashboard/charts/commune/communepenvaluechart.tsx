@@ -214,7 +214,7 @@ const backgroundColor = communeCost.map(data => {
 
     return (
         <>
-      <div className="relative flex flex-col min-w-0 h-auto break-words bg-blue-300 w-1/2 mb-3 my-3 shadow-lg rounded outline-solid outline-2 outline-offset-2">
+      <div className="relative flex flex-col min-w-0 h-auto break-words bg-white w-1/2 mb-3 my-3 shadow-lg rounded outline-solid outline-2 outline-offset-2">
         <div className="p-4 flex-auto">
         <Bar
             data={chartData}
