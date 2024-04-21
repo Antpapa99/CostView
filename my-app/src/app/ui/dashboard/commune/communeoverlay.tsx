@@ -14,25 +14,25 @@ export default function ChartBox({selectedCommune}: any ) {
   return (
     <>
     <section className="flex m-2 gap-2">
-      <div className="flex-1 px-1 bg-red-700"></div>
-      <div className="flex-1 px-2 justify-center md:w-auto bg-blue-100">
+      <div className="flex-1 px-1 bg-blue-200"></div>
+      <div className="flex-1 px-2 justify-center md:w-auto bg-white">
         <div className="flex-1 h-full px-2 justify-center">
         </div>
       </div>
-      <div className="flex-1 px-1 bg-red-700"></div>
+      <div className="flex-1 px-1 bg-blue-200"></div>
     </section>
     <section className="flex flex-grow my-4 px-4 md:flex-row gap-3"> {/*Dem tre nedra lådorna */}
-      <div className="flex-1 w-full h-96 bg-blue-100 items-center rounded">
+      <div className="flex-1 w-full h-96  bg-blue-200 items-center rounded">
       {selectedCommune && <SavingsPotetialChart communeName={selectedCommune}/>}
       </div>
-      <div className="flex-1 h-96 bg-blue-100 items-center rounded">
+      <div className="flex-1 h-96   bg-blue-200 items-center rounded">
       {selectedCommune && <TotalCostChart communeName={selectedCommune}/>}
       </div>
     </section>
-    <div className="flex justify-center h-96 bg-blue-100 rounded gap-3">
+    <div className="flex justify-center h-96   bg-blue-200 rounded gap-3">
     {selectedCommune &&  <PenValueChart communeName={selectedCommune}/> }
       </div>
-      <div className="flex justify-center h-96 bg-blue-100 rounded gap-3">
+      <div className="flex justify-center h-96  bg-blue-200 rounded gap-3">
       </div>
       
   </>
