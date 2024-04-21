@@ -157,9 +157,9 @@ export async function calculateNationalAverage(communeData: any[]): Promise<Comm
         technologies.forEach(tech => {
             // Check if any of the values are -1, if so, ignore them
             if (
-                tech["Mojliga_installationer"] !== -1 &&
-                tech["Antal_installationer"] !== -1 &&
-                tech["Arlig_besparing_per_installation_SEK"] !== -1 &&
+                tech["Mojliga_installationer"] !== -1 ||
+                tech["Antal_installationer"] !== -1 ||
+                tech["Arlig_besparing_per_installation_SEK"] !== -1 ||
                 tech["Kostnad_per_installation"] !== -1
             ) {
                 // If the techName is not yet in techAverages, initialize it

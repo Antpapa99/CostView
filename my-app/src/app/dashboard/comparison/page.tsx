@@ -36,7 +36,7 @@ export default function Page({ children }: PageProps) {
         <div className="flex h-screen flex-col md:flex-col md:overflow-hidden">
             <ComparisonCommuneData alternativCost = {alternativCost} onDataChange={handleDataChange} />
             <div className="w-full flex-none md:w-150"> {/* Size of boxes */}
-                <ComparisonOverlay alternativCost={changedData} />
+            {changedData && <ComparisonOverlay alternativCost={changedData} /> }
             </div>
             <div className="grow p-6 md:overflow-y-auto md:p-12">{children}</div>
         </div>
