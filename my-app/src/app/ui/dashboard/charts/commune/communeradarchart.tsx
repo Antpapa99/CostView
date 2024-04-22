@@ -10,8 +10,9 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js/auto';
-import { calculateCostSpecificCommune, getSpecficCommuneAvg, getSpecficCommuneCost } from '@/app/lib/utils';
+import { calculateCostSpecificCommune, calculateNationalAverage, getSpecficCommuneAvg, getSpecficCommuneCost } from '@/app/lib/utils';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { fetchCommune } from '@/app/lib/data';
 
 
 const barColors = ["#1f77b4", "#ff7f0e", "#2ca02c"]
@@ -47,32 +48,22 @@ export default function CommuneRadarChart({ communeName }: { communeName: any })
       fetchCommuneCost(); /* säger till att funktionen körs på DOM, alltså sidan uppdateras */
     }, [communeName]);
 
+    const [nationalAverage, setNationalAverage] = useState<any[]>([]); // State för att hålla det nationella genomsnittet
 
-
-function generateGradientColor(penCost: number) {
-    // Färgen baserat på procent
-    const percentage = penCost / 100;
+    useEffect(() => {
+        const fetchNationalAverage = async () => {
+            try {
+                const communeData = await fetchCommune(); // Hämta datan för alla kommuner
+                const nationalAvgData = await calculateNationalAverage(communeData); // Beräkna det nationella genomsnittet
+                setNationalAverage(nationalAvgData); // Uppdatera state med det nationella genomsnittet
+            } catch (error) {
+                console.error('Error fetching national average:', error);
+            }
+        };
     
-    // Tar in färgerna
-    const red = Math.round(255 * (1 - percentage));
-    const green = Math.round(255 * percentage);
-    
-    // generarar färgen koderna
-    return `rgba(${red}, ${green}, 0, 0.7)`;
-}
+        fetchNationalAverage(); // Köra funktionen för att hämta det nationella genomsnittet
+    }, []);
 
-// Create the backgroundColor array dynamically based on penCost values
-const backgroundColor = communeCost.map(data => {
-    // If penCost is 0, return dark red, if penCost is 100, return dark green
-    if (data.penCost === 0) {
-        return 'rgba(186, 0, 0, 0.7)'; // Dark red
-    } else if (data.penCost === 100) {
-        return 'rgba(0, 186, 0, 0.7)'; // Dark green
-    } else {
-        // Generate gradient color based on penCost value
-        return generateGradientColor(data.penCost);
-    }
-});
 
 
     
@@ -83,8 +74,8 @@ const backgroundColor = communeCost.map(data => {
             {
                 label: "Penetrationsgrad",
                 data: communeCost.map(data => data.penCost.toFixed(2)),
-                backgroundColor: backgroundColor,
-                borderColor: 'rgba(239, 239, 240, 07)',
+                backgroundColor: 'rgba(27, 163, 156, 0.7)',
+                borderColor: 'rgba(27, 163, 156)',
                 borderWidth: 1,
                 borderSkipped: false,
                 borderRadius: 0,
@@ -99,10 +90,32 @@ const backgroundColor = communeCost.map(data => {
                     formatter: function(value: string, context: any) {
                         return value + "%"; // Aligns the labels to the right of the data bars
                 },
-                stack: "stack1"
+                
+                
             },
         },
-    ]
+        {
+            label: "Nationell genomsnittlig penetrationsgrad",
+            data: nationalAverage.map(data => data.penCost.toFixed(2)),
+            backgroundColor: 'rgba(196, 77, 86, 0.7)',
+            borderColor: 'rgba(196, 77, 86)',
+            borderWidth: 1,
+            borderSkipped: false,
+            borderRadius: 0,
+            barPercentage: 0.5,
+            categoryPercentage: 0.8,
+            datalabels: {
+                color: "white",
+                font: {
+                    weight: "bold",
+                },
+                align: 'right',
+                formatter: function(value: string, context: any) {
+                    return value + "%"; // Aligns the labels to the right of the data bars
+            },
+        }
+    },
+]
 }
 
    
@@ -110,14 +123,25 @@ const backgroundColor = communeCost.map(data => {
 
     //våra options
     const options: any = {
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
+        scales: {
+            r: {
+                angleLines: {
+                    display: false
+                },
+                //suggestedMin: 0,
+                //suggestedMax: 100,
+                //steps: 1
+            }
+        }
+    
     }
 
 
     return (
         <>
-      <div className="relative flex flex-col min-w-0 h-auto break-words bg-white w-1/2 mb-3 my-3 shadow-lg rounded outline-solid outline-2 outline-offset-2">
-        <div className="p-4 flex-auto">
+      <div className="relative flex flex-col h-auto break-words bg-white w-full mb-3 my-3 shadow-lg rounded outline-solid outline-2 outline-offset-2">
+        <div className="p-4 flex-auto w-full">
         <Radar
             data={chartData}
             options = {options}

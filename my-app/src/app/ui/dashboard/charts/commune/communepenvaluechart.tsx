@@ -88,7 +88,29 @@ const backgroundColor = communeCost.map(data => {
                 label: "Penetrationsgrad",
                 data: communeCost.map(data => data.penCost.toFixed(2)),
                 backgroundColor: backgroundColor,
-                borderColor: 'rgba(239, 239, 240, 07)',
+                borderColor: 'rgba(239, 239, 240, 0.7)',
+                borderWidth: 1,
+                borderSkipped: false,
+                borderRadius: 0,
+                barPercentage: 0.5,
+                categoryPercentage: 0.8,
+                datalabels: {
+                    color: "white",
+                    font: {
+                        weight: "bold",
+                    },
+                    align: 'right',
+                    formatter: function(value: string, context: any) {
+                        return value + "%"; // Aligns the labels to the right of the data bars
+                },
+                stack: "stack1"
+            },
+        },
+            {
+                label: "Potentiel",
+                data: communeCost.map(data => data.oppositePenGrade.toFixed(2)),
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                borderColor: 'rgba(0, 0, 0, 0.1)',
                 borderWidth: 1,
                 borderSkipped: false,
                 borderRadius: 0,
@@ -114,7 +136,7 @@ const backgroundColor = communeCost.map(data => {
 
     }
 
-    // Progressbar plugin block
+    /* Progressbar plugin block
     const progressBar = {
         id: 'progressBar',
         beforeDatasetsDraw(chart: any, args: any, pluginOptions: any) {
@@ -132,10 +154,10 @@ const backgroundColor = communeCost.map(data => {
                 const fontSizeLabel = 12;
                 ctx.font = `${fontSizeLabel}px sans-serif`;
                 ctx.fillStyle ='rgba(0, 0, 0, 1)'; /* text colour */
-                ctx.textAlign = 'left';
-                ctx.textBaseline = 'middle';
+            //    ctx.textAlign = 'left';
+           //     ctx.textBaseline = 'middle';
 
-                ctx.fillText(data.labels[index], left, y.getPixelForValue(index) - fontSizeLabel - 5);
+            //    ctx.fillText(data.labels[index], left, y.getPixelForValue(index) - fontSizeLabel - 5);
 
                 // valuetext
 
@@ -145,7 +167,7 @@ const backgroundColor = communeCost.map(data => {
                 ctx.textAlign = 'right';
                 ctx.textBaseline = 'middle';
 
-                ctx.fillText(datapoint, right, y.getPixelForValue(index) - fontSizeDatapoint - 5); */
+                ctx.fillText(datapoint, right, y.getPixelForValue(index) - fontSizeDatapoint - 5); 
 
                 
 
@@ -161,6 +183,7 @@ const backgroundColor = communeCost.map(data => {
             
         }
     }
+    */
 
     //våra options
     const options: any = {
@@ -176,6 +199,7 @@ const backgroundColor = communeCost.map(data => {
             },
         scales: {
             y: {
+                stacked: true,
                 border: {
                     display: false,
                   },
@@ -190,8 +214,10 @@ const backgroundColor = communeCost.map(data => {
                     display: false,
                     
                 }
+                
             },
             x: {
+                stacked: true,
                 border: {
                     display: false,
                   },
@@ -212,7 +238,7 @@ const backgroundColor = communeCost.map(data => {
         responsive: true
       };
       // våra plugins
-      const plugins = [progressBar];
+      const plugins = [];
 
 
 

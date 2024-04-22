@@ -24,14 +24,13 @@ export default function PerCapitaCard({ communeName }: { communeName: any } ) {
     console.log(perCapita)
     
     return (
-        <div className="flex h-full w-full flex-grow gap-2">
-          <div className="flex-1 px-2 bg-blue-200 shadow rounded h-300px">
-            <div className="">
-              <p className="text-gray-900 justify-center font-bold">Besparing per person</p>
-              <p className="py-4 font-bold"></p>
-              <p className="text-green-900">{perCapita}kr</p>
-            </div>
+      <div className="flex items-center justify-center bg-gradient-to-r from-blue-200 to-blue-400 h-full w-full">
+        <div className="flex-1 px-2 h-auto ">
+          <div className="flex flex-col items-center justify-center h-full">
+            <p className="text-gray-900 text-lg font-semibold mb-4">Alternativkostnad per person</p>
+            <p className="text-4xl font-bold text-green-900">{perCapita} kr</p>
           </div>
         </div>
+      </div>
     )
 }

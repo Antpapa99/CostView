@@ -10,6 +10,7 @@ interface CommuneCostData {
     communeName: string;
     techName: string,
     penCost: number,
+    oppositePenGrade: number,
     alternativCost: number,
     totalKostnad: number,
     besparing: number 
@@ -105,11 +106,14 @@ export async function calculateCostSpecificCommune(communeData: any[string], nat
             console.log(tech.tech_name, arligBesparing);
 
             let penCost = 0;
+            let oppositePenGrade = 0;
             
             if (antalInstallationer > 0 || mojligaInstallationer > 0) { //kanske ska vara större än 0 så det inte blir /0
                 penCost = (antalInstallationer / mojligaInstallationer) * 100;
+                oppositePenGrade = ((mojligaInstallationer - antalInstallationer) / mojligaInstallationer) * 100;
             } else {
                 penCost = 0;
+                oppositePenGrade = 100;
             }
             
             const alternativCost = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * arligBesparing)
@@ -123,6 +127,7 @@ export async function calculateCostSpecificCommune(communeData: any[string], nat
                 communeName: communeName,
                 techName: tech.tech_name,
                 penCost: penCost,
+                oppositePenGrade: oppositePenGrade,
                 alternativCost: alternativCost,
                 totalKostnad: totalKostnad,
                 besparing: arligBesparing,
@@ -223,23 +228,28 @@ export async function calculateAvgPerCommune(communeData: any[string]): Promise<
     const communeAvgArrayCalculator: CommuneCostData[] = []; /* Här defineras det som en lista eftersom vi samlar olika kommuners penettrationsgrad */
     const communeName: string = communeData.commune_name; 
     const technologies: any[] = communeData.technologies; /* Här defineras det som en lista eftersom det finns fler en teknologi objekt i varje kommun */
-    let totalPenCost = 0;
+    let total_install = 0;
+    let total_possible = 0;
     let totalAlternativCost = 0;
 
     technologies.forEach(tech => {
-        const penCost = (tech["Antal_installationer"] / tech["Mojliga_installationer"]) * 100;
+        const tech_install = tech["Antal_installationer"]
+        const tech_possible = tech["Mojliga_installationer"]
         const alternativCost = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * tech["Arlig_besparing_per_installation_SEK"]);
-        totalPenCost += penCost;
+        total_install += tech_install;
+        total_possible += tech_possible
         totalAlternativCost += alternativCost;
     });
 
-    const averagePenCost = totalPenCost / technologies.length;
+    const averagePenCost = (total_install / total_possible) * 100;
+    const averageOppositePenGrade = (100 - averagePenCost)
 
     communeAvgArrayCalculator.push({
         communeName: communeName,
         techName: "Combined",
         penCost: averagePenCost,
         alternativCost: totalAlternativCost,
+        oppositePenGrade: averageOppositePenGrade, 
         totalKostnad: 0, // You can set this to 0 or calculate if needed
         besparing: 0,
     });
@@ -253,6 +263,7 @@ export async function calculateAvgPerCommune(communeData: any[string]): Promise<
 
 export async function calculateAvgAllCommunes(communeData: any[string]): Promise<any[]> {
     const communeAvgArrayCalculator: any[] = [];
+    
     communeData.forEach((commune: { communeName: string; technologies: any[]; }) => {
 
         const communeName: string = commune.communeName; 
@@ -388,4 +399,5 @@ export async function getSpecficCommuneAvg(communeName: any[string]) {
 
 
 
-  /* Vår dataFiltering för att visa top10 osv eller om man vill välja mellan 5 kommuner osv WIP*/
+  /* Besparings kalkylator för specifika tekonologier i en kommun*/
+ 
