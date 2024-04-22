@@ -8,18 +8,28 @@ import CommuneAvgAltCostChart from "../charts/commune/communeavgchart";
 import SavingsPotetialChart from "../charts/commune/communesavingspotetialchart";
 import { useRouter } from "next/router";
 import { useSearchParams } from "next/navigation";
+import PerCapitaCard from "./percapitacard";
 
 export default function ChartBox({selectedCommune}: any ) {
   
   return (
     <>
-    <section className="flex m-2 gap-2">
-      <div className="flex-1 px-1 bg-blue-200"></div>
-      <div className="flex-1 px-2 justify-center md:w-auto bg-white">
+    <section className="flex flex-grow h-44 m-2 gap-2">
+    <div className="flex-1 px-1 bg-blue-200"></div>
+      <div className="flex-1 flex-grow px-2 justify-center md:w-auto bg-white">
+      {selectedCommune && <PerCapitaCard communeName={selectedCommune}/>}
         <div className="flex-1 h-full px-2 justify-center">
         </div>
       </div>
       <div className="flex-1 px-1 bg-blue-200"></div>
+      <div className="flex-1 px-1 bg-blue-200"></div>
+      <div className="flex-1 px-2 justify-center md:w-auto bg-white">
+        <div className="flex-1 h-full px-2 justify-center">
+
+        </div>
+      </div>
+      <div className="flex-1 px-1 bg-blue-200"></div>
+  
     </section>
     <section className="flex flex-grow my-4 px-4 md:flex-row gap-3"> {/*Dem tre nedra lådorna */}
       <div className="flex-1 w-full h-96  bg-blue-200 items-center rounded">

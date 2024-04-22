@@ -35,6 +35,10 @@ export async function fetchCommune() {
     }
   }
 
-  export async function getServerSideData(){
+  export async function getServerSideOmslutningData(){
     const staticData = await import('../../../data/omslutning2022.json').then((res) => res.default);
+    return staticData }
+  
+  export async function getServerSideKommunpopgruppData(){
+    const staticData = await import('../../../data/kommunpopgrupp.json').then((res) => res.default);
     return staticData }

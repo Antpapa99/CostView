@@ -1,5 +1,5 @@
 'use server';
-import { fetchCommune, fetchSpecificCommune, getServerSideData } from '@/app/lib/data';
+import { fetchCommune, fetchSpecificCommune, getServerSideData, getServerSideKommunpopgruppData, getServerSideOmslutningData } from '@/app/lib/data';
 import { promises as fs } from "fs";
 /* let penCost = (installationer/möjliga installationer)*100
 Alternativkostnad = (möjliga installationer-installationer)*Arlig_besparing_per_installation_SEK
@@ -309,8 +309,11 @@ export async function getSpecficCommuneAvg(communeName: any[string]) {
 
   export async function calculateSavingPotential(communeData: any[]): Promise<any[]> {
     // Läs kostnadsdata från omslutning2022.json
-    const rawData = await getServerSideData();
-    const costData = rawData;
+    const rawData = await moreCommuneData();
+    let costData = rawData
+    
+    console.log(costData, "Looks correct")
+
   
     const savingPotentialArray: any[] = [];
     
@@ -325,6 +328,8 @@ export async function getSpecficCommuneAvg(communeName: any[string]) {
       }
   
       const cost: number = communeCost.cost;
+      const population: number = communeCost.population;
+    
   
       // Beräkna totala alternativa kostnader för kommunen
       let totalAlternativCost = 0;
@@ -342,15 +347,44 @@ export async function getSpecficCommuneAvg(communeName: any[string]) {
           savingPotential: savingPotential,
           cost: cost * 1000,
           totalAlternativCost: totalAlternativCost,
+          population: population,
+          perCapita: totalAlternativCost/population
         });
       }
-    });
-    
+      console.log(savingPotentialArray, "The final line to see if the data is correct")
+    });    
     // Returnera hela savingPotentialArray
     return savingPotentialArray;
   }
   
   
+  /* Data kombinering av skr data */
+  export async function moreCommuneData() {
+    const popData = await getServerSideKommunpopgruppData();
+    const costData = await getServerSideOmslutningData()
+    const combinedArray: any = [];
+    
+    costData.forEach(commune => {
+    const communeName: string = commune.commune_name;
+    // Hitta matchande kostnad för den aktuella kommunen
+    const communePopCost = (popData).find((data: { commune_name: string; }) => data.commune_name === communeName);
+    if (!communePopCost) {
+      console.error(`Cost data not found for commune: ${communeName}`);
+      return; // Hoppa över om kostnadsdata inte hittas
+    } 
+    const population: number = communePopCost.population;
+   
+    if (!combinedArray.some((item: { communeName: string; }) => item.communeName === communeName)) {
+        combinedArray.push({
+          commune_name: communeName,
+          cost: commune.cost,
+          population: population,
+        });
+      }
+    })
+    console.log(combinedArray, "The final line to see if the data is correct population data") 
+    return combinedArray 
+}
 
 
 

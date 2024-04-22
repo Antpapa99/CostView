@@ -1,502 +1,1452 @@
 [
   {
-    "commune_name": "Upplands Väsby",
-    "population": "47200",
+    "commune_name": "Upplands-Vasby",
+    "population": 47200,
     "group": "Pendlingskommun nära storstad"
   },
   {
     "commune_name": "Vallentuna",
-    "population": "34100",
+    "population": 34100,
     "group": "Pendlingskommun nära storstad"
   },
   {
-    "commune_name": "Österåker",
-    "population": "46600",
+    "commune_name": "Osteraker",
+    "population": 46600,
     "group": "Pendlingskommun nära storstad"
   },
   {
-    "commune_name": "Värmdö",
-    "population": "45600",
+    "commune_name": "Varmdo",
+    "population": 45600,
     "group": "Pendlingskommun nära storstad"
   },
   {
-    "commune_name": "Järfälla",
-    "population": "81300",
+    "commune_name": "Jarfalla",
+    "population": 81300,
     "group": "Pendlingskommun nära storstad"
   },
   {
-    "commune_name": "Ekerö",
-    "population": "28900",
+    "commune_name": "Ekero",
+    "population": 28900,
     "group": "Pendlingskommun nära storstad"
   },
   {
     "commune_name": "Huddinge",
-    "population": "113200",
+    "population": 113200,
     "group": "Pendlingskommun nära storstad"
   },
   {
     "commune_name": "Botkyrka",
-    "population": "94800",
+    "population": 94800,
     "group": "Pendlingskommun nära storstad"
   },
   {
     "commune_name": "Salem",
-    "population": "17000",
+    "population": 17000,
     "group": "Pendlingskommun nära storstad"
   },
   {
     "commune_name": "Haninge",
-    "population": "93700",
+    "population": 93700,
     "group": "Pendlingskommun nära storstad"
   },
   {
-    "commune_name": "Tyresö",
-    "population": "48700",
+    "commune_name": "Tyreso",
+    "population": 48700,
     "group": "Pendlingskommun nära storstad"
   },
   {
     "commune_name": "Upplands-Bro",
-    "population": "30200",
+    "population": 30200,
     "group": "Pendlingskommun nära storstad"
   },
   {
     "commune_name": "Nykvarn",
-    "population": "11200",
+    "population": 11200,
     "group": "Pendlingskommun nära större stad"
   },
   {
-    "commune_name": "Täby",
-    "population": "72800",
+    "commune_name": "Taby",
+    "population": 72800,
     "group": "Pendlingskommun nära storstad"
   },
   {
     "commune_name": "Danderyd",
-    "population": "32700",
+    "population": 32700,
     "group": "Pendlingskommun nära storstad"
   },
   {
     "commune_name": "Sollentuna",
-    "population": "74000",
+    "population": 74000,
     "group": "Pendlingskommun nära storstad"
   },
   {
     "commune_name": "Stockholm",
-    "population": "975600",
+    "population": 975600,
     "group": "Storstäder"
   },
   {
-    "commune_name": "Södertälje",
-    "population": "100100",
+    "commune_name": "Sodertalje",
+    "population": 100100,
     "group": "Större stad"
   },
   {
     "commune_name": "Nacka",
-    "population": "106500",
+    "population": 106500,
     "group": "Pendlingskommun nära storstad"
   },
   {
     "commune_name": "Sundbyberg",
-    "population": "52800",
+    "population": 52800,
     "group": "Pendlingskommun nära storstad"
   },
   {
     "commune_name": "Solna",
-    "population": "83200",
+    "population": 83200,
     "group": "Pendlingskommun nära storstad"
   },
   {
-    "commune_name": "Lidingö",
-    "population": "48000",
+    "commune_name": "Lidingo",
+    "population": 48000,
     "group": "Pendlingskommun nära storstad"
   },
   {
     "commune_name": "Vaxholm",
-    "population": "11900",
+    "population": 11900,
     "group": "Pendlingskommun nära storstad"
   },
   {
-    "commune_name": "Norrtälje",
-    "population": "63700",
+    "commune_name": "Norrtalje",
+    "population": 63700,
     "group": "Mindre stad/tätort"
   },
   {
     "commune_name": "Sigtuna",
-    "population": "49500",
+    "population": 49500,
     "group": "Pendlingskommun nära storstad"
   },
   {
-    "commune_name": "Nynäshamn",
-    "population": "28800",
+    "commune_name": "Nynashamn",
+    "population": 28800,
     "group": "Pendlingskommun nära storstad"
   },
   {
-    "commune_name": "Håbo",
-    "population": "22000",
+    "commune_name": "Habo",
+    "population": 22000,
     "group": "Pendlingskommun nära storstad"
   },
   {
-    "commune_name": "Älvkarleby",
-    "population": "9500",
+    "commune_name": "Alvkarleby",
+    "population": 9500,
     "group": "Pendlingskommun nära större stad"
   },
   {
     "commune_name": "Knivsta",
-    "population": "19100",
+    "population": 19100,
     "group": "Pendlingskommun nära större stad"
   },
   {
     "commune_name": "Heby",
-    "population": "14100",
+    "population": 14100,
     "group": "Pendlingskommun nära större stad"
   },
   {
     "commune_name": "Tierp",
-    "population": "21300",
+    "population": 21300,
     "group": "Pendlingskommun nära större stad"
   },
   {
     "commune_name": "Uppsala",
-    "population": "233800",
+    "population": 233800,
     "group": "Större stad"
   },
   {
-    "commune_name": "Enköping",
-    "population": "46200",
+    "commune_name": "Enkoping",
+    "population": 46200,
     "group": "Pendlingskommun nära större stad"
   },
   {
-    "commune_name": "Östhammar",
-    "population": "22300",
+    "commune_name": "Osthammar",
+    "population": 22300,
     "group": "Lågpendlingskommun nära större stad"
   },
   {
-    "commune_name": "Vingåker",
-    "population": "9100",
+    "commune_name": "Vingaker",
+    "population": 9100,
     "group": "Pendlingskommun nära mindre tätort"
   },
   {
     "commune_name": "Gnesta",
-    "population": "11400",
+    "population": 11400,
     "group": "Pendlingskommun nära större stad"
   },
   {
-    "commune_name": "Nyköping",
-    "population": "57100",
+    "commune_name": "Nykoping",
+    "population": 57100,
     "group": "Mindre stad/tätort"
   },
   {
-    "commune_name": "Oxelösund",
-    "population": "12000",
+    "commune_name": "Oxelosund",
+    "population": 12000,
     "group": "Pendlingskommun nära mindre tätort"
   },
   {
     "commune_name": "Flen",
-    "population": "16400",
+    "population": 16400,
     "group": "Pendlingskommun nära mindre tätort"
   },
   {
     "commune_name": "Katrineholm",
-    "population": "34800",
+    "population": 34800,
     "group": "Mindre stad/tätort"
   },
   {
     "commune_name": "Eskilstuna",
-    "population": "107000",
+    "population": 107000,
     "group": "Större stad"
   },
   {
-    "commune_name": "Strängnäs",
-    "population": "37300",
+    "commune_name": "Strangnas",
+    "population": 37300,
     "group": "Pendlingskommun nära större stad"
   },
   {
     "commune_name": "Trosa",
-    "population": "14300",
+    "population": 14300,
     "group": "Pendlingskommun nära större stad"
   },
   {
-    "commune_name": "Ödeshög",
-    "population": "5300",
+    "commune_name": "Odeshog",
+    "population": 5300,
     "group": "Pendlingskommun nära mindre tätort"
   },
   {
     "commune_name": "Ydre",
-    "population": "3700",
+    "population": 3700,
     "group": "Pendlingskommun nära mindre tätort"
   },
   {
     "commune_name": "Kinda",
-    "population": "10000",
+    "population": 10000,
     "group": "Pendlingskommun nära större stad"
   },
   {
     "commune_name": "Boxholm",
-    "population": "5400",
+    "population": 5400,
     "group": "Pendlingskommun nära mindre tätort"
   },
   {
-    "commune_name": "Åtvidaberg",
-    "population": "11400",
+    "commune_name": "Atvidaberg",
+    "population": 11400,
     "group": "Pendlingskommun nära större stad"
   },
   {
-    "commune_name": "Finspång",
-    "population": "21800",
+    "commune_name": "Finspang",
+    "population": 21800,
     "group": "Lågpendlingskommun nära större stad"
   },
   {
     "commune_name": "Valdemarsvik",
-    "population": "7700",
+    "population": 7700,
     "group": "Pendlingskommun nära större stad"
   },
   {
-    "commune_name": "Linköping",
-    "population": "164600",
+    "commune_name": "Linkoping",
+    "population": 164600,
     "group": "Större stad"
   },
   {
-    "commune_name": "Norrköping",
-    "population": "143500",
+    "commune_name": "Norrkoping",
+    "population": 143500,
     "group": "Större stad"
   },
   {
-    "commune_name": "Söderköping",
-    "population": "14600",
+    "commune_name": "Soderkoping",
+    "population": 14600,
     "group": "Pendlingskommun nära större stad"
   },
   {
     "commune_name": "Motala",
-    "population": "43600",
+    "population": 43600,
     "group": "Lågpendlingskommun nära större stad"
   },
   {
     "commune_name": "Vadstena",
-    "population": "7400",
+    "population": 7400,
     "group": "Pendlingskommun nära mindre tätort"
   },
   {
-    "commune_name": "Mjölby",
-    "population": "28000",
+    "commune_name": "Mjolby",
+    "population": 28000,
     "group": "Pendlingskommun nära större stad"
   },
   {
     "commune_name": "Aneby",
-    "population": "6800",
+    "population": 6800,
     "group": "Pendlingskommun nära större stad"
   },
   {
-    "commune_name": "Gnosjö",
-    "population": "9600",
+    "commune_name": "Gnosjo",
+    "population": 9600,
     "group": "Pendlingskommun nära mindre tätort"
   },
   {
-    "commune_name": "Mullsjö",
-    "population": "7400",
+    "commune_name": "Mullsjo",
+    "population": 7400,
     "group": "Pendlingskommun nära större stad"
   },
   {
     "commune_name": "Habo",
-    "population": "12600",
+    "population": 12600,
     "group": "Pendlingskommun nära större stad"
   },
   {
     "commune_name": "Gislaved",
-    "population": "29600",
+    "population": 29600,
     "group": "Landsbygdskommun"
   },
   {
     "commune_name": "Vaggeryd",
-    "population": "14500",
+    "population": 14500,
     "group": "Pendlingskommun nära större stad"
   },
   {
-    "commune_name": "Jönköping",
-    "population": "142400",
+    "commune_name": "Jonkoping",
+    "population": 142400,
     "group": "Större stad"
   },
   {
-    "commune_name": "Nässjö",
-    "population": "31600",
+    "commune_name": "Nassjo",
+    "population": 31600,
     "group": "Lågpendlingskommun nära större stad"
   },
   {
-    "commune_name": "Värnamo",
-    "population": "34500",
+    "commune_name": "Varnamo",
+    "population": 34500,
     "group": "Mindre stad/tätort"
   },
   {
-    "commune_name": "Sävsjö",
-    "population": "11700",
+    "commune_name": "Savsjo",
+    "population": 11700,
     "group": "Pendlingskommun nära mindre tätort"
   },
   {
     "commune_name": "Vetlanda",
-    "population": "27500",
+    "population": 27500,
     "group": "Landsbygdskommun"
   },
   {
-    "commune_name": "Eksjö",
-    "population": "17800",
+    "commune_name": "Eksjo",
+    "population": 17800,
     "group": "Pendlingskommun nära mindre tätort"
   },
   {
-    "commune_name": "Tranås",
-    "population": "18900",
+    "commune_name": "Tranas",
+    "population": 18900,
     "group": "Landsbygdskommun"
   },
   {
     "commune_name": "Uppvidinge",
-    "population": "9500",
+    "population": 9500,
     "group": "Lågpendlingskommun nära större stad"
   },
   {
     "commune_name": "Lessebo",
-    "population": "8700",
+    "population": 8700,
     "group": "Pendlingskommun nära större stad"
   },
   {
     "commune_name": "Tingsryd",
-    "population": "12400",
+    "population": 12400,
     "group": "Lågpendlingskommun nära större stad"
   },
   {
     "commune_name": "Alvesta",
-    "population": "20200",
+    "population": 20200,
     "group": "Pendlingskommun nära större stad"
   },
   {
-    "commune_name": "Älmhult",
-    "population": "17900",
+    "commune_name": "Almhult",
+    "population": 17900,
     "group": "Pendlingskommun nära mindre tätort"
   },
   {
     "commune_name": "Markaryd",
-    "population": "10400",
+    "population": 10400,
     "group": "Pendlingskommun nära mindre tätort"
   },
   {
-    "commune_name": "Växjö",
-    "population": "94900",
+    "commune_name": "Vaxjo",
+    "population": 94900,
     "group": "Större stad"
   },
   {
     "commune_name": "Ljungby",
-    "population": "28400",
+    "population": 28400,
     "group": "Mindre stad/tätort"
   },
   {
-    "commune_name": "Högsby",
-    "population": "5700",
+    "commune_name": "Hogsby",
+    "population": 5700,
     "group": "Pendlingskommun nära mindre tätort"
   },
   {
-    "commune_name": "Torsås",
-    "population": "7100",
+    "commune_name": "Torsas",
+    "population": 7100,
     "group": "Pendlingskommun nära större stad"
   },
   {
-    "commune_name": "Mörbylånga",
-    "population": "15500",
+    "commune_name": "Morbylanga",
+    "population": 15500,
     "group": "Pendlingskommun nära större stad"
   },
   {
     "commune_name": "Hultsfred",
-    "population": "14100",
+    "population": 14100,
     "group": "Pendlingskommun nära mindre tätort"
   },
   {
-    "commune_name": "Mönsterås",
-    "population": "13300",
+    "commune_name": "Monsteras",
+    "population": 13300,
     "group": "Pendlingskommun nära mindre tätort"
   },
   {
     "commune_name": "Emmaboda",
-    "population": "9400",
+    "population": 9400,
     "group": "Pendlingskommun nära mindre tätort"
   },
   {
     "commune_name": "Kalmar",
-    "population": "70300",
+    "population": 70300,
     "group": "Större stad"
   },
   {
     "commune_name": "Nybro",
-    "population": "20300",
+    "population": 20300,
     "group": "Lågpendlingskommun nära större stad"
   },
   {
     "commune_name": "Oskarshamn",
-    "population": "27100",
+    "population": 27100,
     "group": "Mindre stad/tätort"
   },
   {
-    "commune_name": "Västervik",
-    "population": "36700",
+    "commune_name": "Vastervik",
+    "population": 36700,
     "group": "Mindre stad/tätort"
   },
   {
     "commune_name": "Vimmerby",
-    "population": "15700",
+    "population": 15700,
     "group": "Landsbygdskommun"
   },
   {
     "commune_name": "Borgholm",
-    "population": "10800",
+    "population": 10800,
     "group": "Landsbygdskommun med besöksnäring"
   },
   {
     "commune_name": "Gotland",
-    "population": "60100",
+    "population": 60100,
     "group": "Mindre stad/tätort"
   },
   {
-    "commune_name": "Olofström",
-    "population": "13300",
+    "commune_name": "Olofstrom",
+    "population": 13300,
     "group": "Pendlingskommun nära mindre tätort"
   },
   {
     "commune_name": "Karlskrona",
-    "population": "66500",
+    "population": 66500,
     "group": "Mindre stad/tätort"
   },
   {
     "commune_name": "Ronneby",
-    "population": "29400",
+    "population": 29400,
     "group": "Pendlingskommun nära mindre tätort"
   },
   {
     "commune_name": "Karlshamn",
-    "population": "32400",
+    "population": 32400,
     "group": "Mindre stad/tätort"
   },
   {
-    "commune_name": "Sölvesborg",
-    "population": "17500",
+    "commune_name": "Solvesborg",
+    "population": 17500,
     "group": "Pendlingskommun nära större stad"
   },
   {
-    "commune_name": "Svalöv",
-    "population": "14300",
+    "commune_name": "Svalov",
+    "population": 14300,
     "group": "Pendlingskommun nära större stad"
   },
   {
     "commune_name": "Staffanstorp",
-    "population": "25900",
+    "population": 25900,
     "group": "Pendlingskommun nära storstad"
   },
   {
-    "commune_name": "Burlöv",
-    "population": "19300",
+    "commune_name": "Burlov",
+    "population": 19300,
     "group": "Pendlingskommun nära storstad"
   },
   {
     "commune_name": "Vellinge",
-    "population": "36900",
+    "population": 36900,
     "group": "Pendlingskommun nära storstad"
   },
   {
-    "commune_name": "Östra Göinge",
-    "population": "15000",
+    "commune_name": "Ostra-Goinge",
+    "population": 15000,
     "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Orkelljunga",
+    "population": 10500,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Bjuv",
+    "population": 15700,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Kavlinge",
+    "population": 32000,
+    "group": "Pendlingskommun nära storstad"
+  },
+  {
+    "commune_name": "Lomma",
+    "population": 24900,
+    "group": "Pendlingskommun nära storstad"
+  },
+  {
+    "commune_name": "Svedala",
+    "population": 22700,
+    "group": "Pendlingskommun nära storstad"
+  },
+  {
+    "commune_name": "Skurup",
+    "population": 16000,
+    "group": "Pendlingskommun nära storstad"
+  },
+  {
+    "commune_name": "Sjobo",
+    "population": 19400,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Horby",
+    "population": 15700,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Hoor",
+    "population": 16800,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Tomelilla",
+    "population": 13700,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Bromolla",
+    "population": 12800,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Osby",
+    "population": 13200,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Perstorp",
+    "population": 7500,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Klippan",
+    "population": 17700,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Astorp",
+    "population": 16100,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Bastad",
+    "population": 15400,
+    "group": "Landsbygdskommun med besöksnäring"
+  },
+  {
+    "commune_name": "Malmo",
+    "population": 347900,
+    "group": "Storstäder"
+  },
+  {
+    "commune_name": "Lund",
+    "population": 125900,
+    "group": "Större stad"
+  },
+  {
+    "commune_name": "Landskrona",
+    "population": 46300,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Helsingborg",
+    "population": 149300,
+    "group": "Större stad"
+  },
+  {
+    "commune_name": "Hoganas",
+    "population": 27200,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Eslov",
+    "population": 34100,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Ystad",
+    "population": 31000,
+    "group": "Mindre stad/tätort"
+  },
+  {
+    "commune_name": "Trelleborg",
+    "population": 45900,
+    "group": "Pendlingskommun nära storstad"
+  },
+  {
+    "commune_name": "Kristianstad",
+    "population": 86200,
+    "group": "Större stad"
+  },
+  {
+    "commune_name": "Simrishamn",
+    "population": 19200,
+    "group": "Landsbygdskommun med besöksnäring"
+  },
+  {
+    "commune_name": "Angelholm",
+    "population": 42900,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Hassleholm",
+    "population": 52000,
+    "group": "Lågpendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Hylte",
+    "population": 10600,
+    "group": "Lågpendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Halmstad",
+    "population": 103800,
+    "group": "Större stad"
+  },
+  {
+    "commune_name": "Laholm",
+    "population": 26000,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Falkenberg",
+    "population": 46100,
+    "group": "Mindre stad/tätort"
+  },
+  {
+    "commune_name": "Varberg",
+    "population": 65400,
+    "group": "Mindre stad/tätort"
+  },
+  {
+    "commune_name": "Kungsbacka",
+    "population": 84900,
+    "group": "Pendlingskommun nära storstad"
+  },
+  {
+    "commune_name": "Harryda",
+    "population": 38200,
+    "group": "Pendlingskommun nära storstad"
+  },
+  {
+    "commune_name": "Partille",
+    "population": 39500,
+    "group": "Pendlingskommun nära storstad"
+  },
+  {
+    "commune_name": "Ockero",
+    "population": 12900,
+    "group": "Pendlingskommun nära storstad"
+  },
+  {
+    "commune_name": "Stenungsund",
+    "population": 27000,
+    "group": "Pendlingskommun nära storstad"
+  },
+  {
+    "commune_name": "Tjorn",
+    "population": 16100,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Orust",
+    "population": 15300,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Sotenas",
+    "population": 9100,
+    "group": "Landsbygdskommun med besöksnäring"
+  },
+  {
+    "commune_name": "Munkedal",
+    "population": 10600,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Tanum",
+    "population": 12900,
+    "group": "Landsbygdskommun med besöksnäring"
+  },
+  {
+    "commune_name": "Dals-Ed",
+    "population": 4800,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Fargelanda",
+    "population": 6700,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Ale",
+    "population": 31900,
+    "group": "Pendlingskommun nära storstad"
+  },
+  {
+    "commune_name": "Lerum",
+    "population": 43000,
+    "group": "Pendlingskommun nära storstad"
+  },
+  {
+    "commune_name": "Vargarda",
+    "population": 11900,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Bollebygd",
+    "population": 9500,
+    "group": "Pendlingskommun nära storstad"
+  },
+  {
+    "commune_name": "Grastorp",
+    "population": 5700,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Essunga",
+    "population": 5700,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Karlsborg",
+    "population": 7000,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Gullspang",
+    "population": 5200,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Tranemo",
+    "population": 11900,
+    "group": "Lågpendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Bengtsfors",
+    "population": 9600,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Mellerud",
+    "population": 9300,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Lilla-Edet",
+    "population": 14300,
+    "group": "Pendlingskommun nära storstad"
+  },
+  {
+    "commune_name": "Mark",
+    "population": 34900,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Svenljunga",
+    "population": 10800,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Herrljunga",
+    "population": 9400,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Vara",
+    "population": 16100,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Gotene",
+    "population": 13200,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Tibro",
+    "population": 11300,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Toreboda",
+    "population": 9300,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Goteborg",
+    "population": 583100,
+    "group": "Storstäder"
+  },
+  {
+    "commune_name": "Molndal",
+    "population": 69900,
+    "group": "Pendlingskommun nära storstad"
+  },
+  {
+    "commune_name": "Kungalv",
+    "population": 47100,
+    "group": "Pendlingskommun nära storstad"
+  },
+  {
+    "commune_name": "Lysekil",
+    "population": 14400,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Uddevalla",
+    "population": 56800,
+    "group": "Lågpendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Stromstad",
+    "population": 13200,
+    "group": "Landsbygdskommun med besöksnäring"
+  },
+  {
+    "commune_name": "Vanersborg",
+    "population": 39600,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Trollhattan",
+    "population": 59200,
+    "group": "Större stad"
+  },
+  {
+    "commune_name": "Alingsas",
+    "population": 41600,
+    "group": "Pendlingskommun nära storstad"
+  },
+  {
+    "commune_name": "Boras",
+    "population": 113700,
+    "group": "Större stad"
+  },
+  {
+    "commune_name": "Ulricehamn",
+    "population": 24700,
+    "group": "Lågpendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Amal",
+    "population": 12400,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Mariestad",
+    "population": 24500,
+    "group": "Mindre stad/tätort"
+  },
+  {
+    "commune_name": "Lidkoping",
+    "population": 40300,
+    "group": "Mindre stad/tätort"
+  },
+  {
+    "commune_name": "Skara",
+    "population": 18700,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Skovde",
+    "population": 56800,
+    "group": "Mindre stad/tätort"
+  },
+  {
+    "commune_name": "Hjo",
+    "population": 9200,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Tidaholm",
+    "population": 12800,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Falkoping",
+    "population": 33200,
+    "group": "Mindre stad/tätort"
+  },
+  {
+    "commune_name": "Kil",
+    "population": 12100,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Eda",
+    "population": 8600,
+    "group": "Landsbygdskommun med besöksnäring"
+  },
+  {
+    "commune_name": "Torsby",
+    "population": 11500,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Storfors",
+    "population": 4000,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Hammaro",
+    "population": 16700,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Munkfors",
+    "population": 3700,
+    "group": "Lågpendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Forshaga",
+    "population": 11500,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Grums",
+    "population": 9000,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Arjang",
+    "population": 10000,
+    "group": "Landsbygdskommun med besöksnäring"
+  },
+  {
+    "commune_name": "Sunne",
+    "population": 13300,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Karlstad",
+    "population": 94800,
+    "group": "Större stad"
+  },
+  {
+    "commune_name": "Kristinehamn",
+    "population": 24200,
+    "group": "Lågpendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Filipstad",
+    "population": 10500,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Hagfors",
+    "population": 11500,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Arvika",
+    "population": 25900,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Saffle",
+    "population": 15400,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Lekeberg",
+    "population": 8500,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Laxa",
+    "population": 5700,
+    "group": "Lågpendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Hallsberg",
+    "population": 16000,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Degerfors",
+    "population": 9600,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Hallefors",
+    "population": 6900,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Ljusnarsberg",
+    "population": 4700,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Orebro",
+    "population": 156400,
+    "group": "Större stad"
+  },
+  {
+    "commune_name": "Kumla",
+    "population": 21900,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Askersund",
+    "population": 11500,
+    "group": "Lågpendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Karlskoga",
+    "population": 30300,
+    "group": "Mindre stad/tätort"
+  },
+  {
+    "commune_name": "Nora",
+    "population": 10700,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Lindesberg",
+    "population": 23700,
+    "group": "Lågpendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Skinnskatteberg",
+    "population": 4400,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Surahammar",
+    "population": 10100,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Kungsor",
+    "population": 8700,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Hallstahammar",
+    "population": 16400,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Norberg",
+    "population": 5700,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Vasteras",
+    "population": 155600,
+    "group": "Större stad"
+  },
+  {
+    "commune_name": "Sala",
+    "population": 22900,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Fagersta",
+    "population": 13300,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Koping",
+    "population": 26100,
+    "group": "Lågpendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Arboga",
+    "population": 14000,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Vansbro",
+    "population": 6800,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Malung-Salen",
+    "population": 10200,
+    "group": "Landsbygdskommun med besöksnäring"
+  },
+  {
+    "commune_name": "Gagnef",
+    "population": 10400,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Leksand",
+    "population": 15800,
+    "group": "Landsbygdskommun med besöksnäring"
+  },
+  {
+    "commune_name": "Rattvik",
+    "population": 11000,
+    "group": "Landsbygdskommun med besöksnäring"
+  },
+  {
+    "commune_name": "Orsa",
+    "population": 6900,
+    "group": "Landsbygdskommun med besöksnäring"
+  },
+  {
+    "commune_name": "Alvdalen",
+    "population": 7000,
+    "group": "Landsbygdskommun med besöksnäring"
+  },
+  {
+    "commune_name": "Smedjebacken",
+    "population": 10900,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Mora",
+    "population": 20500,
+    "group": "Landsbygdskommun med besöksnäring"
+  },
+  {
+    "commune_name": "Falun",
+    "population": 59500,
+    "group": "Mindre stad/tätort"
+  },
+  {
+    "commune_name": "Borlange",
+    "population": 52400,
+    "group": "Större stad"
+  },
+  {
+    "commune_name": "Sater",
+    "population": 11200,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Hedemora",
+    "population": 15500,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Avesta",
+    "population": 23100,
+    "group": "Mindre stad/tätort"
+  },
+  {
+    "commune_name": "Ludvika",
+    "population": 26600,
+    "group": "Mindre stad/tätort"
+  },
+  {
+    "commune_name": "Ockelbo",
+    "population": 5900,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Hofors",
+    "population": 9600,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Ovanaker",
+    "population": 11700,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Nordanstig",
+    "population": 9500,
+    "group": "Pendlingskommun nära mindre tätort"
+  },
+  {
+    "commune_name": "Ljusdal",
+    "population": 18900,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Gavle",
+    "population": 102900,
+    "group": "Större stad"
+  },
+  {
+    "commune_name": "Sandviken",
+    "population": 39300,
+    "group": "Lågpendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Soderhamn",
+    "population": 25500,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Bollnas",
+    "population": 26800,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Hudiksvall",
+    "population": 37500,
+    "group": "Mindre stad/tätort"
+  },
+  {
+    "commune_name": "Ange",
+    "population": 9200,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Timra",
+    "population": 18000,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Harnosand",
+    "population": 25100,
+    "group": "Mindre stad/tätort"
+  },
+  {
+    "commune_name": "Sundsvall",
+    "population": 99400,
+    "group": "Större stad"
+  },
+  {
+    "commune_name": "Kramfors",
+    "population": 18100,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Solleftea",
+    "population": 18900,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Ornskoldsvik",
+    "population": 55800,
+    "group": "Mindre stad/tätort"
+  },
+  {
+    "commune_name": "Ragunda",
+    "population": 5200,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Bracke",
+    "population": 6200,
+    "group": "Lågpendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Krokom",
+    "population": 15100,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Stromsund",
+    "population": 11500,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Are",
+    "population": 12000,
+    "group": "Landsbygdskommun med besöksnäring"
+  },
+  {
+    "commune_name": "Berg",
+    "population": 7100,
+    "group": "Lågpendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Harjedalen",
+    "population": 10100,
+    "group": "Landsbygdskommun med besöksnäring"
+  },
+  {
+    "commune_name": "Ostersund",
+    "population": 64000,
+    "group": "Större stad"
+  },
+  {
+    "commune_name": "Nordmaling",
+    "population": 7100,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Bjurholm",
+    "population": 2400,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Vindeln",
+    "population": 5500,
+    "group": "Lågpendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Robertsfors",
+    "population": 6700,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Norsjo",
+    "population": 3900,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Mala",
+    "population": 3000,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Storuman",
+    "population": 5800,
+    "group": "Landsbygdskommun med besöksnäring"
+  },
+  {
+    "commune_name": "Sorsele",
+    "population": 2400,
+    "group": "Landsbygdskommun med besöksnäring"
+  },
+  {
+    "commune_name": "Dorotea",
+    "population": 2500,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Vannas",
+    "population": 9000,
+    "group": "Pendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Vilhelmina",
+    "population": 6500,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Asele",
+    "population": 2800,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Umea",
+    "population": 130200,
+    "group": "Större stad"
+  },
+  {
+    "commune_name": "Lycksele",
+    "population": 12300,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Skelleftea",
+    "population": 72800,
+    "group": "Mindre stad/tätort"
+  },
+  {
+    "commune_name": "Arvidsjaur",
+    "population": 6100,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Arjeplog",
+    "population": 2700,
+    "group": "Landsbygdskommun med besöksnäring"
+  },
+  {
+    "commune_name": "Jokkmokk",
+    "population": 4900,
+    "group": "Landsbygdskommun med besöksnäring"
+  },
+  {
+    "commune_name": "Overkalix",
+    "population": 3300,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Kalix",
+    "population": 15800,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Overtornea",
+    "population": 4200,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Pajala",
+    "population": 6000,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Gallivare",
+    "population": 17500,
+    "group": "Landsbygdskommun med besöksnäring"
+  },
+  {
+    "commune_name": "Alvsbyn",
+    "population": 8100,
+    "group": "Lågpendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Lulea",
+    "population": 78500,
+    "group": "Större stad"
+  },
+  {
+    "commune_name": "Pitea",
+    "population": 42200,
+    "group": "Mindre stad/tätort"
+  },
+  {
+    "commune_name": "Boden",
+    "population": 28100,
+    "group": "Lågpendlingskommun nära större stad"
+  },
+  {
+    "commune_name": "Haparanda",
+    "population": 9600,
+    "group": "Landsbygdskommun"
+  },
+  {
+    "commune_name": "Kiruna",
+    "population": 22700,
+    "group": "Mindre stad/tätort"
   }
 ]
