@@ -123,7 +123,7 @@ const backgroundColor = communeCost.map(data => {
                     },
                     align: 'right',
                     formatter: function(value: string, context: any) {
-                        return value + "%"; // Aligns the labels to the right of the data bars
+                        return value + "%"; // Vill försöka få in potentiel besparing som label här
                 },
                 stack: "stack1"
             },
@@ -235,7 +235,7 @@ const backgroundColor = communeCost.map(data => {
                 suggestedMax: 100,
             },
         },
-        responsive: true
+        responsive: true,
       };
       // våra plugins
       const plugins = [];
