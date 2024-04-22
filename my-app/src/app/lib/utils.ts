@@ -1,5 +1,5 @@
 'use server';
-import { fetchCommune, fetchSpecificCommune, getServerSideData, getServerSideKommunpopgruppData, getServerSideOmslutningData } from '@/app/lib/data';
+import { fetchCommune, fetchSpecificCommune, getServerSideKommunpopgruppData, getServerSideOmslutningData } from '@/app/lib/data';
 import { promises as fs } from "fs";
 /* let penCost = (installationer/möjliga installationer)*100
 Alternativkostnad = (möjliga installationer-installationer)*Arlig_besparing_per_installation_SEK

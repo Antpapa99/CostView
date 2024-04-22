@@ -94,7 +94,7 @@ export default function SavingsPotetialChart({ communeName }: { communeName: any
     
     
     return (
-        <div className = "flex h-96 bg-white">
+        <div className = "flex items-center h-auto mb-3 my-10 mx-3 bg-white">
             <Bar 
             data={chartData}
             options = {options}

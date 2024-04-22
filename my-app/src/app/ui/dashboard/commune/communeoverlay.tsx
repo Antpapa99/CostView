@@ -9,6 +9,7 @@ import SavingsPotetialChart from "../charts/commune/communesavingspotetialchart"
 import { useRouter } from "next/router";
 import { useSearchParams } from "next/navigation";
 import PerCapitaCard from "./percapitacard";
+import CommuneRadarChart from "../charts/commune/communeradarchart";
 
 export default function ChartBox({selectedCommune}: any ) {
   
@@ -31,19 +32,23 @@ export default function ChartBox({selectedCommune}: any ) {
       <div className="flex-1 px-1 bg-blue-200"></div>
   
     </section>
-    <section className="flex flex-grow my-4 px-4 md:flex-row gap-3"> {/*Dem tre nedra lådorna */}
-      <div className="flex-1 w-full h-96  bg-blue-200 items-center rounded">
+    <section className="flex my-4 px-4 md:flex-row gap-3"> {/*Dem tre nedra lådorna */}
+      <div className="flex-1 w-full items-center h-56  bg-blue-200 rounded">
       {selectedCommune && <SavingsPotetialChart communeName={selectedCommune}/>}
       </div>
-      <div className="flex-1 h-96   bg-blue-200 items-center rounded">
+      <div className="flex-1 h-56   bg-blue-200 items-center rounded">
       {selectedCommune && <TotalCostChart communeName={selectedCommune}/>}
       </div>
     </section>
-    <div className="flex justify-center h-96   bg-blue-200 rounded gap-3">
+    <section className= "flex my-4 px-4 md:flex-row gap-3"> 
+    <div className="flex h-96 w-full bg-blue-200 rounded gap-3">
     {selectedCommune &&  <PenValueChart communeName={selectedCommune}/> }
+    </div>
+      <div className="flex justify-center h-96 w-full  bg-blue-200 rounded gap-3">
+      {selectedCommune &&  <CommuneRadarChart communeName={selectedCommune}/> }
+
       </div>
-      <div className="flex justify-center h-96  bg-blue-200 rounded gap-3">
-      </div>
+    </section>
       
   </>
   );
