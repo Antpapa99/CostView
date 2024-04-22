@@ -31,12 +31,19 @@ export default function Page({ children }: PageProps) {
     const [changedData, setDataChange] = useState<any[]>([]);
     const handleDataChange = (alternativCost: any) => {
         setDataChange(alternativCost)};
+    
+    let data;
+    if (changedData.length > 1){
+        data = changedData
+    } else {
+        data = alternativCost
+    }
 
     return (
         <div className="flex h-screen flex-col md:flex-col md:overflow-hidden">
             <ComparisonCommuneData alternativCost = {alternativCost} onDataChange={handleDataChange} />
             <div className="w-full flex-none md:w-150"> {/* Size of boxes */}
-            {changedData && <ComparisonOverlay alternativCost={changedData} /> }
+            <ComparisonOverlay alternativCost={data} />
             </div>
             <div className="grow p-6 md:overflow-y-auto md:p-12">{children}</div>
         </div>
