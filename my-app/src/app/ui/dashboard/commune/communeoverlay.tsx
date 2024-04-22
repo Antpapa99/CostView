@@ -16,13 +16,13 @@ export default function ChartBox({selectedCommune}: any ) {
   return (
     <>
     <section className="flex flex-grow h-44 m-2 gap-2">
-    <div className="flex-1 px-1 bg-blue-200"></div>
+    <div className="flex-1 px-1 bg-blue-200">Teknik med mest gains</div>
       <div className="flex-1 flex-grow px-2 justify-center md:w-auto bg-white">
       {selectedCommune && <PerCapitaCard communeName={selectedCommune}/>}
         <div className="flex-1 h-full px-2 justify-center">
         </div>
       </div>
-      <div className="flex-1 px-1 bg-blue-200"></div>
+      <div className="flex-1 px-1 bg-blue-200"> Besparing per person och hur mycket Potentiel</div>
       <div className="flex-1 px-1 bg-blue-200"></div>
       <div className="flex-1 px-2 justify-center md:w-auto bg-white">
         <div className="flex-1 h-full px-2 justify-center">
