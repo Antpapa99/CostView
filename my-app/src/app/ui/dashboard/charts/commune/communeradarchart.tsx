@@ -129,7 +129,7 @@ export default function CommuneRadarChart({ communeName }: { communeName: any })
                 angleLines: {
                     display: false
                 },
-                //suggestedMin: 0,
+                suggestedMin: 0,
                 //suggestedMax: 100,
                 //steps: 1
             }

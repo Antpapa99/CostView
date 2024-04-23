@@ -136,7 +136,6 @@ const backgroundColor = communeCost.map(data => {
 
     }
 
-    /* Progressbar plugin block
     const progressBar = {
         id: 'progressBar',
         beforeDatasetsDraw(chart: any, args: any, pluginOptions: any) {
@@ -154,16 +153,16 @@ const backgroundColor = communeCost.map(data => {
                 const fontSizeLabel = 12;
                 ctx.font = `${fontSizeLabel}px sans-serif`;
                 ctx.fillStyle ='rgba(0, 0, 0, 1)'; /* text colour */
-            //    ctx.textAlign = 'left';
-           //     ctx.textBaseline = 'middle';
+               ctx.textAlign = 'left';
+                ctx.textBaseline = 'middle';
 
-            //    ctx.fillText(data.labels[index], left, y.getPixelForValue(index) - fontSizeLabel - 5);
+            ctx.fillText(data.labels[index], left, y.getPixelForValue(index) - fontSizeLabel - 5);
 
                 // valuetext
 
-                /* const fontSizeDatapoint = 15;
+                 const fontSizeDatapoint = 15;
                 ctx.font = `bolder ${fontSizeDatapoint}px sans-serif`;
-                ctx.fillStyle ='rgba(102, 102, 102, 1)'; /* progress bar colour 
+                ctx.fillStyle ='rgba(102, 102, 102, 1)';   
                 ctx.textAlign = 'right';
                 ctx.textBaseline = 'middle';
 
@@ -183,7 +182,7 @@ const backgroundColor = communeCost.map(data => {
             
         }
     }
-    */
+    
 
     //våra options
     const options: any = {
@@ -238,14 +237,14 @@ const backgroundColor = communeCost.map(data => {
         responsive: true,
       };
       // våra plugins
-      const plugins = [];
+      const plugins = [progressBar];
 
 
 
     return (
         <>
       <div className="relative flex flex-col flex-grow w-auto h-auto break-words bg-white mb-3 my-3 mx-3 shadow-lg rounded outline-solid outline-2 outline-offset-2">
-        <div className="p-4 flex-grow">
+        <div className="p-4 flex-grow h-auto">
         <Bar
             data={chartData}
             options = {options}
