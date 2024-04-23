@@ -243,9 +243,9 @@ const backgroundColor = communeCost.map(data => {
 
     return (
         <>
-      <div className="relative flex flex-col flex-grow w-auto h-auto break-words bg-white mb-3 my-3 mx-3 shadow-lg rounded outline-solid outline-2 outline-offset-2">
-        <div className="p-4 flex-grow pt-10">
-        <Bar className = "mb-3 my-3 mx-3"
+      <div className="relative flex flex-col flex-grow w-full h-auto break-words bg-white mb-3 my-3 mx-3 shadow-lg rounded">
+        <div className="w-full">
+        <Bar className = "pt-5 w-full"
             data={chartData}
             options = {options}
             plugins = {plugins}
