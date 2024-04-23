@@ -166,7 +166,7 @@ const backgroundColor = communeCost.map(data => {
                 ctx.textAlign = 'right';
                 ctx.textBaseline = 'middle';
 
-                ctx.fillText(datapoint, right, y.getPixelForValue(index) - fontSizeDatapoint - 5); 
+                //ctx.fillText(datapoint, right, y.getPixelForValue(index) - fontSizeDatapoint - 5); 
 
                 
 
@@ -244,8 +244,8 @@ const backgroundColor = communeCost.map(data => {
     return (
         <>
       <div className="relative flex flex-col flex-grow w-auto h-auto break-words bg-white mb-3 my-3 mx-3 shadow-lg rounded">
-        <div className="w-full h-auto pt-3">
-        <Bar className = "w-full h-auto"
+        <div className="w-full h-96">
+        <Bar className = "w-full mt-3"
             data={chartData}
             options = {options}
             plugins = {plugins}
