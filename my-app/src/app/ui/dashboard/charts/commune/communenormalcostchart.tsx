@@ -46,7 +46,7 @@ export default function TotalCostChart({ communeName }: { communeName: any }) {
         labels: communeCost.map(data => data.techName), // Tänk map som en foreach
         datasets: [
             {
-                label: "Kostnad för att uppnå 100% penetration",
+                label: "Kostnad för breddinförande",
                 data: communeCost.map(data => data.totalKostnad),
                 backgroundColor: backgroundColor,
                 borderWidth: 1

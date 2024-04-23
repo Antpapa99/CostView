@@ -3,4 +3,4 @@ async function getCommune(commune_name: string) {
     return res.json()
   }
 
-console.log(getCommune('Ale-kommun'));
+//console.log(getCommune('Ale-kommun'));
