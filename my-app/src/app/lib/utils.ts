@@ -213,6 +213,59 @@ export async function calculateNationalAverage(communeData: any[]): Promise<Comm
     return nationalAverages;
 }
 
+export async function calculateNationalAvgPenetration(communeData: any[]): Promise<CommuneCostData[]> {
+    const techAverages: any = {};
+    let sumPen = 0;
+    let techCount = 0;
+
+    communeData.forEach(commune => {
+        const technologies: any[] = commune.technologies;
+
+        technologies.forEach(tech => {
+            // Check if any of the values are -1, if so, ignore them
+            if (
+                tech["Mojliga_installationer"] !== -1 ||
+                tech["Antal_installationer"] !== -1 ||
+                tech["Arlig_besparing_per_installation_SEK"] !== -1 ||
+                tech["Kostnad_per_installation"] !== -1
+            ) {
+                // If the techName is not yet in techAverages, initialize it
+                if (!techAverages[tech.tech_name]) {
+                    techAverages[tech.tech_name] = {
+                        Mojliga_installationer_sum: 0,
+                        Antal_installationer_sum: 0,
+                    };
+                }
+                
+                // Add values to the sums
+                techAverages[tech.tech_name].Mojliga_installationer_sum += tech["Mojliga_installationer"];
+                techAverages[tech.tech_name].Antal_installationer_sum += tech["Antal_installationer"];
+            }
+        });
+    });
+
+    // Calculate averages
+    const nationalAverages: any[] = [];
+    Object.keys(techAverages).forEach(techName => {
+        const avgData = techAverages[techName];
+        const penCost = ((avgData.Antal_installationer_sum / avgData.Mojliga_installationer_sum) * 100) //Du kan ha glömt att ta med delat med avgData.count eftersom 
+        techCount += 1;
+        sumPen += penCost;
+    });
+
+    const average = {
+        techName: "Genomsnittlig penetration",
+        penCost: sumPen/techCount,
+        alternativCost: 0,
+        totalAlternativCost: 0,
+        totalKostnad: 0,
+        besparing: 0,  
+    };
+
+    nationalAverages.push(average);
+    return nationalAverages;
+}
+
 interface CommuneCostAvgData {
     communeName: string;
     techName: string;

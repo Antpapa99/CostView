@@ -1,5 +1,5 @@
 import { fetchCommune } from "@/app/lib/data";
-import { calculateNationalAverage } from "@/app/lib/utils";
+import { calculateNationalAverage, calculateNationalAvgPenetration } from "@/app/lib/utils";
 import { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 
@@ -10,8 +10,11 @@ export default function NationalAvgPenGradeChart() {
         const fetchNationalAverage = async () => {
             try {
                 const communeData = await fetchCommune(); // Hämta datan för alla kommuner
-                const nationalAvgData = await calculateNationalAverage(communeData); // Beräkna det nationella genomsnittet
+                const nationalAvgData = await calculateNationalAverage(communeData);
+                const avgPenData = await calculateNationalAvgPenetration(communeData);
+                nationalAvgData.push(avgPenData[0]);  // Beräkna det nationella genomsnittet
                 setNationalAverage(nationalAvgData); // Uppdatera state med det nationella genomsnittet
+                
             } catch (error) {
                 console.error('Error fetching national average:', error);
             }
