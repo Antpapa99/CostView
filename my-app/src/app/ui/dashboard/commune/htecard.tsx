@@ -19,15 +19,16 @@ export default function HteCard({ communeName }: { communeName: any } ) {
       fetchCommuneCost(); /* säger till att funktionen körs på DOM, alltså sidan uppdateras */
     }, [communeName]);
 
-    let rawHTE: any = savingsPotential.map(data => (data.totalAlternativCost.toFixed(2)))
-    const HTE = (rawHTE/322).toFixed(2)
+    let rawHTE: any = savingsPotential.map(data => (data.totalAlternativCost))
+    let HTE: any = rawHTE/322
+    const realHTE = (HTE/2080).toFixed(2)
     
     return (
       <div className="flex items-center justify-center bg-gradient-to-r from-blue-200 to-blue-400 h-full w-full">
         <div className="flex-1 px-2 h-auto ">
           <div className="flex flex-col items-center justify-center h-full">
             <p className="text-gray-900 text-lg font-semibold mb-4">HTE</p>
-            <p className="text-4xl font-bold text-green-900">{HTE}</p>
+            <p className="text-4xl font-bold text-green-900">{realHTE}</p>
           </div>
         </div>
       </div>
