@@ -30,7 +30,6 @@ export default function AltCostChart({ communeName }: { communeName: string }) {
     // State används för att hantera data som ändras över tid i en react komponent vilket är det över
     // Genom att ge penetrationCost, setPenetrationCost tuples en useState så kan UI uppdatera
     const [communeCost, setCommuneCost] = useState<any[]>([]); 
-    console.log("Alt cost chart hereeeeee!!!");
     /* UseEffect hook som du ser här nere kan användas för att utföra data  fetching eller ändringar i DOM, 
     useEffecten hooken tar en funktion som argument som kommer att aktiveras efter rendering i DOM */
     useEffect(() => {

@@ -42,12 +42,10 @@ export const options = {
 
 export default function CommuneAvgAltCostChart({ communeName }: { communeName: string }) {
     const [communeAverage, setCommuneAverage] = useState<any[]>([]);
-    console.log(communeName, "Line 29 CommuneAVGCOSTCHART") // State för att hålla det nationella genomsnittet
 
     useEffect(() => {
         const fetchcommuneAverage = async () => { /* Async är där så att webbsidan inte aktivera funktionen innan fetchingen är färdig */
           const AvgCost = await getSpecficCommuneAvg(communeName);
-          console.log(AvgCost, 'Avg LOG') /* Await vänter när den första funktionen är färdig med sitt syfte */
           setCommuneAverage(AvgCost); /*denna variablen unppdatera sidan med det nya */
         };
     
@@ -57,7 +55,6 @@ export default function CommuneAvgAltCostChart({ communeName }: { communeName: s
     const backgroundColor = ['rgba(186, 0, 0, 0.7',
     'rgba(184, 186, 0, 0.7)', 'rgba(0, 186, 176, 0.7)', 'rgba(80, 0, 186, 0.7)', 'rgba(33, 186, 0, 0.7)']
 
-    console.log(communeAverage, "Line 43");
 
     const chartData = {
         labels: communeAverage.map(data => data.techName), // Använd techName från det nationella genomsnittet för labels
@@ -77,7 +74,7 @@ export default function CommuneAvgAltCostChart({ communeName }: { communeName: s
         ]
     };
     
-    console.log(chartData, "Line 57");
+    
     return (
         <div className = "flex-1 h-full">
             <Bar 

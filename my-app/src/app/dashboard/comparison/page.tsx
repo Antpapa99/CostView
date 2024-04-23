@@ -40,9 +40,9 @@ export default function Page({ children }: PageProps) {
     }
 
     return (
-        <div className="flex h-screen flex-col md:flex-col md:overflow-hidden">
+        <div className="flex h-screen flex-col md:flex-col md:overflow-hidden bg-black">
             <ComparisonCommuneData alternativCost = {alternativCost} onDataChange={handleDataChange} />
-            <div className="w-full flex-none md:w-150"> {/* Size of boxes */}
+            <div className="w-full h-full flex-none md:w-150 bg-black"> {/* Size of boxes */}
             <ComparisonOverlay alternativCost={data} />
             </div>
             <div className="grow p-6 md:overflow-y-auto md:p-12">{children}</div>

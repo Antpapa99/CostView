@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 import { useSearchParams } from "next/navigation";
 import PerCapitaCard from "./percapitacard";
 import CommuneRadarChart from "../charts/commune/communeradarchart";
-import HteCard from "./HTECard";
+import HteCard from "./htecard";
 
 export default function ChartBox({selectedCommune}: any ) {
   

@@ -7,11 +7,25 @@ import { ComparisonCommuneData } from "./comparisonbuttons";
 export default function ComparisonOverlay({alternativCost}: any) {
     return (
       <>
-        <section className="flex flex-col w-full my-4 px-4 md:flex-row gap-3">
-            <div className="flex justify-center w-full h-dvh bg-blue-100 rounded gap-3">
-           <PenGradeTopChart dataFilter = {alternativCost} /> 
-            </div>
+      <section className="flex flex-grow flex-col h-screen m-2 gap-2"> 
+        <section className="flex flex-grow flex-row h-screen m-2 gap-2">
+          <div className="flex-1 flex-grow px-2 justify-center md:w-auto bg-white">
+
+          </div>
+          <div className="flex-1 flex-grow px-2 justify-center md:w-auto bg-white">
+
+          </div>
         </section>
+        <section className="flex flex-row h-screen m-2 gap-2">
+          <div className="flex-1 flex-grow px-2 justify-center md:w-auto bg-white">
+
+          </div>
+          <div className="flex-1 flex-grow px-2 justify-center md:w-auto bg-white">
+
+          </div>
+        </section>
+        </section>
+        
       </>
     );
 }

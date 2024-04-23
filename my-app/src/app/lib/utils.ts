@@ -103,7 +103,6 @@ export async function calculateCostSpecificCommune(communeData: any[string], nat
                 arligBesparing = tech["Arlig_besparing_per_installation_SEK"]
             }
 
-            console.log(tech.tech_name, arligBesparing);
 
             let penCost = 0;
             let oppositePenGrade = 0;
@@ -132,7 +131,6 @@ export async function calculateCostSpecificCommune(communeData: any[string], nat
                 totalKostnad: totalKostnad,
                 besparing: arligBesparing,
         });
-        console.log(communeCostArrayCalculator, "el finale")
     });
     return communeCostArrayCalculator;
 }
@@ -378,7 +376,6 @@ export async function getSpecficCommuneAvg(communeName: any[string]) {
     const rawData = await moreCommuneData();
     let costData = rawData
     
-    console.log(costData, "Looks correct")
 
   
     const savingPotentialArray: any[] = [];
@@ -417,7 +414,6 @@ export async function getSpecficCommuneAvg(communeName: any[string]) {
           perCapita: totalAlternativCost/population
         });
       }
-      console.log(savingPotentialArray, "The final line to see if the data is correct")
     });    
     // Returnera hela savingPotentialArray
     return savingPotentialArray;
@@ -448,7 +444,6 @@ export async function getSpecficCommuneAvg(communeName: any[string]) {
         });
       }
     })
-    console.log(combinedArray, "The final line to see if the data is correct population data") 
     return combinedArray 
 }
 

@@ -27,7 +27,7 @@ export default function HteCard({ communeName }: { communeName: any } ) {
       <div className="flex items-center justify-center bg-gradient-to-r from-blue-200 to-blue-400 h-full w-full">
         <div className="flex-1 px-2 h-auto ">
           <div className="flex flex-col items-center justify-center h-full">
-            <p className="text-gray-900 text-lg font-semibold mb-4">HTE</p>
+            <p className="text-gray-900 text-lg font-semibold mb-4">Sparad HTE</p>
             <p className="text-4xl font-bold text-green-900">{realHTE}</p>
           </div>
         </div>
