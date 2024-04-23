@@ -171,7 +171,7 @@ const backgroundColor = communeCost.map(data => {
                 
 
                 // bg color progress bar
-                ctx.fillStyle ='rgba(102, 102, 102, 1)'
+                ctx.fillStyle ='rgba(102, 102, 102, 0)'
                 ctx.beginPath();
                 ctx.fillStyle = data.datasets[0].borderColor[index];
                 ctx.fillRect(left, y.getPixelForValue(index) - barHeight/2, width, barHeight);
@@ -244,8 +244,8 @@ const backgroundColor = communeCost.map(data => {
     return (
         <>
       <div className="relative flex flex-col flex-grow w-auto h-auto break-words bg-white mb-3 my-3 mx-3 shadow-lg rounded outline-solid outline-2 outline-offset-2">
-        <div className="p-4 flex-grow h-96">
-        <Bar
+        <div className="p-4 flex-grow pt-10">
+        <Bar className = "mb-3 my-3 mx-3"
             data={chartData}
             options = {options}
             plugins = {plugins}
