@@ -123,7 +123,7 @@ const backgroundColor = communeCost.map(data => {
                     },
                     align: 'right',
                     formatter: function(value: string, context: any) {
-                        return value + "%"; // Vill försöka få in potentiel besparing som label här
+                        return communeCost[context.dataIndex].alternativCost; // Vill försöka få in potentiel besparing som label här
                 },
                 stack: "stack1"
             },
@@ -243,9 +243,9 @@ const backgroundColor = communeCost.map(data => {
 
     return (
         <>
-      <div className="relative flex flex-col flex-grow w-full h-auto break-words bg-white mb-3 my-3 mx-3 shadow-lg rounded">
-        <div className="w-full">
-        <Bar className = "pt-5 w-full"
+      <div className="relative flex flex-col flex-grow w-auto h-auto break-words bg-white mb-3 my-3 mx-3 shadow-lg rounded">
+        <div className="w-full h-auto pt-3">
+        <Bar className = "w-full h-auto"
             data={chartData}
             options = {options}
             plugins = {plugins}
