@@ -41,10 +41,10 @@ export default function ChartBox({selectedCommune}: any ) {
       </div>
     </section>
     <section className= "flex my-4 px-4 md:flex-row gap-3"> 
-    <div className="flex h-96 w-full bg-blue-200 rounded gap-3">
+    <div className="flex h-105 w-full bg-blue-200 rounded gap-3">
     {selectedCommune &&  <PenValueChart communeName={selectedCommune}/> }
     </div>
-      <div className="flex justify-center h-96 w-full  bg-blue-200 rounded gap-3">
+      <div className="flex justify-center h-105 w-full  bg-blue-200 rounded gap-3">
       {selectedCommune &&  <CommuneRadarChart communeName={selectedCommune}/> }
 
       </div>
