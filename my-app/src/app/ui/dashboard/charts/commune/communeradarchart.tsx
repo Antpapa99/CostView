@@ -88,7 +88,7 @@ export default function CommuneRadarChart({ communeName }: { communeName: any })
                     },
                     align: 'right',
                     formatter: function(value: string, context: any) {
-                        return value + "%"; // Aligns the labels to the right of the data bars
+                        return ""; // Aligns the labels to the right of the data bars
                 },
                 
                 
@@ -111,7 +111,7 @@ export default function CommuneRadarChart({ communeName }: { communeName: any })
                 },
                 align: 'right',
                 formatter: function(value: string, context: any) {
-                    return value + "%"; // Aligns the labels to the right of the data bars
+                    return ""; // Aligns the labels to the right of the data bars
             },
         }
     },
