@@ -1,5 +1,5 @@
 'use client';
-import NationalAvgAltCostChart from "@/app/ui/dashboard/charts/national/nationalavgchart";
+import NationalAltCostChart from "@/app/ui/dashboard/charts/national/nationaltotalaltcostchart";
 import NationalScatterPlt from "../charts/national/scatterplot/nationalscattarplot";
 import ScatterPlot from "../charts/national/scatterplot/nationalscattarplot";
 import NationalAvgPenGradeChart from "../charts/national/nationalavgpenchart";
@@ -13,7 +13,7 @@ export default function NationalOverlay() {
           <NationalAvgPenGradeChart />
           </div>
           <div className="flex h-96 w-full bg-blue-100 rounded gap-3">
-          <NationalAvgAltCostChart />
+          <NationalAltCostChart />
           </div>
       </div>
           <div className="flex h-dvh w-full bg-blue-100 rounded gap-3">

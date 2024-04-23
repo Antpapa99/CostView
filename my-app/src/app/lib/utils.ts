@@ -193,7 +193,8 @@ export async function calculateNationalAverage(communeData: any[]): Promise<Comm
     Object.keys(techAverages).forEach(techName => {
         const avgData = techAverages[techName];
         const penCost = ((avgData.Antal_installationer_sum / avgData.Mojliga_installationer_sum) * 100) //Du kan ha glömt att ta med delat med avgData.count eftersom 
-        const alternativCost = ((avgData.Mojliga_installationer_sum - avgData.Antal_installationer_sum) * (avgData.Arlig_besparing_per_installation_SEK_sum / avgData.count));
+        const alternativCost = ((avgData.Mojliga_installationer_sum - avgData.Antal_installationer_sum) * (avgData.Arlig_besparing_per_installation_SEK_sum) / (avgData.count));
+        const totalAlternativCost = (avgData.Mojliga_installationer_sum - avgData.Antal_installationer_sum) * (avgData.Arlig_besparing_per_installation_SEK_sum)
         const totalKostnad = ((avgData.Mojliga_installationer_sum - avgData.Antal_installationer_sum) * (avgData.Kostnad_per_installation_sum / avgData.count));
         const avgBesparing = avgData.Arlig_besparing_per_installation_SEK_sum/avgData.count
 
@@ -201,6 +202,7 @@ export async function calculateNationalAverage(communeData: any[]): Promise<Comm
             techName: techName,
             penCost: penCost,
             alternativCost: alternativCost,
+            totalAlternativCost: totalAlternativCost,
             totalKostnad: totalKostnad,
             besparing: avgBesparing,  
         };
