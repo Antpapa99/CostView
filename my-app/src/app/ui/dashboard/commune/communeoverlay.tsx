@@ -32,7 +32,7 @@ export default function ChartBox({selectedCommune}: any ) {
         
         </div>
       </div>
-      <div className="flex-1 px-1 bg-blue-200"> Besparing per person och hur mycket Potentiel</div>
+      <div className="flex-1 px-1 bg-blue-200"> Något här</div>
       <div className="flex-1 px-1 bg-blue-200"></div>
       <div className="flex-1 px-2 justify-center md:w-auto bg-white">
         <div className="flex-1 h-full px-2 justify-center">
