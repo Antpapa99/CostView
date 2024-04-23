@@ -59,7 +59,7 @@ export default function SavingsPotetialChart({ communeName }: { communeName: any
                display: true,
                color: 'white',
                formatter: (value: any, context: { dataset: { label: string; }; }) => {
-                    if (context.dataset.label === "Total alternativkonstnad per år") {
+                    if (context.dataset.label === "Total alternativkonstnad SEK/år") {
                         // Om det är datalabel för "Total Alternativ Cost"
                         return savingsPotential[0]["savingPotential"].toFixed(0) + '%'; // Kontrollera om det finns ett värde för savingPotential innan du formaterar det
                     } else {
@@ -75,14 +75,14 @@ export default function SavingsPotetialChart({ communeName }: { communeName: any
         labels: savingsPotential.map(data => data.communeName),
         datasets: [
             {
-                label: "Total alternativkonstnad per år", // Labeln för datasetet
+                label: "Total alternativkonstnad SEK/år", // Labeln för datasetet
                 data: savingsPotential.map(data => data.totalAlternativCost), // Data för staplarna
                 backgroundColor: 'rgba(186, 0, 0, 0.7',
                 borderWidth: 1,
                 stack: 'stack1' // Ange en stack-namn för detta dataset
             },
             {
-                label: "Omslutning per år",
+                label: "Omslutning SEK/år",
                 data: savingsPotential.map(data => data.cost),
                 backgroundColor: 'rgba(0, 186, 176, 0.7)',
                 borderWidth: 1,
