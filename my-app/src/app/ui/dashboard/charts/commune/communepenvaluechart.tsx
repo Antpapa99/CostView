@@ -43,6 +43,7 @@ export default function PenValueChart({ communeName }: { communeName: any }) {
         const penCost = await getSpecficCommuneCost(communeName); /* Await vänter när den första funktionen är färdig med sitt syfte */
         const avgCost = await getSpecficCommuneAvg(communeName);
         avgCost[0]["techName"] = "Genomsnittlig penetration";
+        console.log(avgCost[0], "Hejeheejhfakhfasohfasdiudhaphdpahds");
         penCost.push(avgCost[0]);
         
         setCommuneCost(penCost); /*denna variablen unppdatera sidan med det nya */

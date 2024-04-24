@@ -10,7 +10,7 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js/auto';
-import { calculateNationalAverage } from '@/app/lib/utils'; // Importera calculateNationalAverage
+import { calculateNationalAverage, calculateNationalAverageAlternativCost, calculateCostAllCommunes } from '@/app/lib/utils'; // Importera calculateNationalAverage
 import { fetchCommune } from '@/app/lib/data';
 import { DataLabel } from '@syncfusion/ej2-react-charts';
 const barColors = ["#1f77b4", "#ff7f0e", "#2ca02c"]
@@ -32,8 +32,9 @@ export default function NationalAltCostChart() {
         const fetchNationalAltCost = async () => {
             try {
                 const communeData = await fetchCommune(); // Hämta datan för alla kommuner
-                const communeCost = await calculateNationalAverage(communeData); // Beräkna det nationella genomsnittet
-                setNationalAltCost(communeCost); // Uppdatera state med det nationella genomsnittet
+                const communeCost = await calculateCostAllCommunes(communeData);
+                const avgData = await calculateNationalAverageAlternativCost(communeCost); // Beräkna det nationella genomsnittet
+                setNationalAltCost(avgData); // Uppdatera state med det nationella genomsnittet
             } catch (error) {
                 console.error('Error fetching national average:', error);
             }
@@ -50,7 +51,7 @@ export default function NationalAltCostChart() {
         datasets: [
             {
                 label: "Nationell alternativkostnad SEK/år",
-                data: nationalAverage.map(data => data.totalAlternativCost), // Använd alternativCost från det nationella genomsnittet för data
+                data: nationalAverage.map(data => data.alternativCost), // Använd alternativCost från det nationella genomsnittet för data
                 backgroundColor: backgroundColor,
                 borderWidth: 1,
                 datalabels: 
