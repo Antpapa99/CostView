@@ -96,7 +96,7 @@ export default function ScatterPlot() {
     
         const nationalCommuneAverageData = alternativCost.map(data => ({
             x: data.penCost,
-            y: data.alternativCost,
+            y: (data.alternativCost/data.population),
             communeName: data.communeName
         }));
         

@@ -13,7 +13,8 @@ interface CommuneCostData {
     oppositePenGrade: number,
     alternativCost: number,
     totalKostnad: number,
-    besparing: number 
+    besparing: number,
+    roiPotentiel: number,
 }
 
 /* kalkylerar alla kommuner på en gång */
@@ -134,17 +135,20 @@ export async function calculateCostSpecificCommune(communeData: any[string], nat
             let penCost = 0;
             let oppositePenGrade = 0;
             let totalKostnad = 0;
+            let roiPotentiel = 0;
 
             if (antalInstallationer >= 0 && mojligaInstallationer >= 0) { //kanske ska vara större än 0 så det inte blir /0
                 penCost = (antalInstallationer / mojligaInstallationer) * 100;
                 oppositePenGrade = ((mojligaInstallationer - antalInstallationer) / mojligaInstallationer) * 100;
                 alternativCost = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * arligBesparing);
                 totalKostnad = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * kostnadPerInstallation);
+                roiPotentiel = ((((arligBesparing+kostnadPerInstallation)-kostnadPerInstallation)/kostnadPerInstallation)*100)
             } else {
                 penCost = 0;
                 oppositePenGrade = 100;
                 alternativCost = 0;
                 totalKostnad = 0;
+                roiPotentiel = 0;
             }
             
             
@@ -162,8 +166,9 @@ export async function calculateCostSpecificCommune(communeData: any[string], nat
                 alternativCost: alternativCost,
                 totalKostnad: totalKostnad,
                 besparing: arligBesparing,
+                roiPotentiel: roiPotentiel,
         });
-        //console.log(communeCostArrayCalculator, "el finale")
+        console.log(communeCostArrayCalculator, "el finale")
     });
     return communeCostArrayCalculator;
 }
@@ -401,6 +406,7 @@ export async function calculateAvgPenetrationPerCommune(communeData: any[string]
         oppositePenGrade: averageOppositePenGrade, 
         totalKostnad: 0, // You can set this to 0 or calculate if needed
         besparing: 0,
+        roiPotentiel: 0,
     });
 
     return  communeAvgArrayCalculator;
@@ -440,6 +446,7 @@ export async function calculateAvgPerCommune(communeData: any[string]): Promise<
         oppositePenGrade: averageOppositePenGrade, 
         totalKostnad: 0, // You can set this to 0 or calculate if needed
         besparing: 0,
+        roiPotentiel: 0,
         
     });
 
