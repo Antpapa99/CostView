@@ -59,7 +59,7 @@ export default function NationalAltCostChart() {
                 {
                     color: "black",
                     formatter: function(value: number, context: any) {
-                        return value.toFixed(0); // Aligns the labels to the right of the data bars
+                        return value.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); // Aligns the labels to the right of the data bars
                 }
             },
             },

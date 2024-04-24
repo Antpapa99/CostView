@@ -124,7 +124,7 @@ const backgroundColor = communeCost.map(data => {
                     },
                     align: 'right',
                     formatter: function(value: string, context: any) {
-                        return communeCost[context.dataIndex].alternativCost; // Vill försöka få in potentiel besparing som label här
+                        return communeCost[context.dataIndex].alternativCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); // Vill försöka få in potentiel besparing som label här
                 },
                 stack: "stack1"
             },

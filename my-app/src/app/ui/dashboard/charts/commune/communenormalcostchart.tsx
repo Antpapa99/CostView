@@ -13,6 +13,7 @@ import {
 import { fetchSpecificCommune } from '@/app/lib/data';
 import { calculateCostSpecificCommune, getSpecficCommuneCost } from '@/app/lib/utils';
 const barColors = ["#1f77b4", "#ff7f0e", "#2ca02c"]
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 ChartJS.register (
     CategoryScale,
@@ -48,8 +49,16 @@ export default function TotalCostChart({ communeName }: { communeName: any }) {
                 label: "Kostnad för breddinförande",
                 data: communeCost.map(data => data.totalKostnad),
                 backgroundColor: backgroundColor,
-                borderWidth: 1
-            }
+                borderWidth: 1,
+                datalabels: 
+                {
+                    color: "black",
+                    formatter: function(value: number, context: any) {
+                        return value.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); // Aligns the labels to the right of the data bars
+                }
+            },
+            },
+         
         ]
     }
 

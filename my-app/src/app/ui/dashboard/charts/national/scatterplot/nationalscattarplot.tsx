@@ -56,10 +56,13 @@ export default function ScatterPlot() {
       scales: {
           x: {
               type: 'linear',
-              position: 'bottom'
+              position: 'bottom',
+              suggestedMin: 0,
+              suggestedMax: 100,
+              
           },
           y: {
-            reverse: true
+            reverse: false
           },
       },
       plugins: {
@@ -79,7 +82,7 @@ export default function ScatterPlot() {
                       const dataPoint = tooltipItem.dataset.data[tooltipItem.dataIndex];
                       
                       // Returnera texten med penCost och alternativCost
-                      return `genomsnitlig penetration: ${Math.round(dataPoint.x)}%, Total alternativkostnad: ${Math.round(dataPoint.y)}kr`;
+                      return `genomsnitlig penetration: ${Math.round(dataPoint.x)}%, Total alternativkostnad: ${Math.round(dataPoint.y).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}kr`;
                   }
               }
           },
