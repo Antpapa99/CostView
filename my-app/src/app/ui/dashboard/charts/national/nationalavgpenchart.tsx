@@ -10,11 +10,9 @@ export default function NationalAvgPenGradeChart() {
         const fetchNationalAverage = async () => {
             try {
                 const communeData = await fetchCommune(); // Hämta datan för alla kommuner
-                const nationalAvgData = await calculateNationalAverage(communeData);
-                const avgPenData = await calculateNationalAvgPenetration(communeData);
-                nationalAvgData.push(avgPenData[0]);  // Beräkna det nationella genomsnittet
+                const nationalAvgData = await calculateNationalAvgPenetration(communeData);
                 setNationalAverage(nationalAvgData); // Uppdatera state med det nationella genomsnittet
-                
+
             } catch (error) {
                 console.error('Error fetching national average:', error);
             }
@@ -176,9 +174,9 @@ export default function NationalAvgPenGradeChart() {
 //flex relative
     return (
         <>
-      <div className="relative flex min-w-0 w-full h-auto break-words bg-white mb-3 my-3 shadow-lg rounded">
-        <div className="p-4 flex-auto">
-        <Bar 
+      <div className="relative flex flex-col flex-grow w-auto h-96 break-words bg-white mb-3 my-3 mx-3 shadow-lg rounded">
+        <div className="w-full h-96">
+        <Bar className = "w-full mt-3"
             data={chartData}
             options = {options}
             plugins = {plugins}

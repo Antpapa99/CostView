@@ -10,8 +10,9 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js/auto';
-import { calculateCostSpecificCommune, getSpecficCommuneAvg, getSpecficCommuneCost} from '@/app/lib/utils';
+import { calculateCostSpecificCommune, getSpecficCommuneCost, calculateAvgPenetrationPerCommune} from '@/app/lib/utils';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { fetchSpecificCommune } from '@/app/lib/data';
 
 
 const barColors = ["#1f77b4", "#ff7f0e", "#2ca02c"]
@@ -41,10 +42,10 @@ export default function PenValueChart({ communeName }: { communeName: any }) {
     useEffect(() => {
       const fetchCommuneCost = async () => { /* Async är där så att webbsidan inte aktivera funktionen innan fetchingen är färdig */
         const penCost = await getSpecficCommuneCost(communeName); /* Await vänter när den första funktionen är färdig med sitt syfte */
-        const avgCost = await getSpecficCommuneAvg(communeName);
-        avgCost[0]["techName"] = "Genomsnittlig penetration";
-        penCost.push(avgCost[0]);
-        
+        const communeData = await fetchSpecificCommune(communeName);
+        const avgPenetration = await calculateAvgPenetrationPerCommune(communeData, penCost);
+        penCost.push(avgPenetration[0]);
+
         setCommuneCost(penCost); /*denna variablen unppdatera sidan med det nya */
       };
   

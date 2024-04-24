@@ -10,7 +10,7 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js/auto';
-import { calculateCostSpecificCommune, calculateNationalAverage, getSpecficCommuneAvg, getSpecficCommuneCost } from '@/app/lib/utils';
+import { calculateCostSpecificCommune, calculateNationalAverage, getSpecficCommuneCost } from '@/app/lib/utils';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { fetchCommune } from '@/app/lib/data';
 
