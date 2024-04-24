@@ -45,7 +45,7 @@ export async function calculateCostAllCommunes(communeData: any[]): Promise<any[
 
             let penCost: number = 0;
 
-            if (antalInstallationer > 0 && mojligaInstallationer > 0) {
+            if (antalInstallationer >= 0 && mojligaInstallationer >= 0) {
 
                 penCost = ((antalInstallationer / mojligaInstallationer) * 100);
                 alternativCost = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * arligBesparing)
@@ -112,7 +112,7 @@ export async function calculateCostSpecificCommune(communeData: any[string], nat
             let penCost = 0;
             let oppositePenGrade = 0;
             
-            if (antalInstallationer > 0 || mojligaInstallationer > 0) { //kanske ska vara större än 0 så det inte blir /0
+            if (antalInstallationer >= 0 || mojligaInstallationer >= 0) { //kanske ska vara större än 0 så det inte blir /0
                 penCost = (antalInstallationer / mojligaInstallationer) * 100;
                 oppositePenGrade = ((mojligaInstallationer - antalInstallationer) / mojligaInstallationer) * 100;
                 alternativCost = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * arligBesparing)
@@ -344,13 +344,17 @@ interface CommuneCostAvgData {
     Få medel från en specific kommun
   */
 
-export async function calculateAvgPenetrationPerCommune(communeData: any[string]): Promise<CommuneCostAvgData[]> {
+export async function calculateAvgPenetrationPerCommune(communeData: any[string], costData: any[]): Promise<CommuneCostAvgData[]> {
     const communeAvgArrayCalculator: CommuneCostData[] = []; /* Här defineras det som en lista eftersom vi samlar olika kommuners penettrationsgrad */
     const communeName: string = communeData.commune_name; 
     const technologies: any[] = communeData.technologies; /* Här defineras det som en lista eftersom det finns fler en teknologi objekt i varje kommun */
     let total_install = 0;
     let total_possible = 0;
-    
+    let totalAlternativCost = 0
+
+    costData.forEach(tech => {
+        totalAlternativCost += tech.alternativCost    
+    })
     
     technologies.forEach(tech => {
 
@@ -369,7 +373,7 @@ export async function calculateAvgPenetrationPerCommune(communeData: any[string]
         communeName: communeName,
         techName: "Genomsnittlig Penetration",
         penCost: averagePenCost,
-        alternativCost: 0,
+        alternativCost: totalAlternativCost,
         oppositePenGrade: averageOppositePenGrade, 
         totalKostnad: 0, // You can set this to 0 or calculate if needed
         besparing: 0,
@@ -416,10 +420,6 @@ export async function calculateAvgPerCommune(communeData: any[string]): Promise<
 
     return  communeAvgArrayCalculator;
 }
-
-/*
-    Få medel från alla kommuner
-  */
 
 export async function calculateAvgAllCommunes(communeData: any[string]): Promise<any[]> {
     const communeAvgArrayCalculator: any[] = [];
@@ -477,7 +477,6 @@ export async function getCommuneAvg() {
     
     console.log(costData, "Looks correct")
 
-  
     const savingPotentialArray: any[] = [];
     
     communeData.forEach(commune => {  

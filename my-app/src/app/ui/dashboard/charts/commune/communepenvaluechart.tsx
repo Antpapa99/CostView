@@ -43,7 +43,7 @@ export default function PenValueChart({ communeName }: { communeName: any }) {
       const fetchCommuneCost = async () => { /* Async är där så att webbsidan inte aktivera funktionen innan fetchingen är färdig */
         const penCost = await getSpecficCommuneCost(communeName); /* Await vänter när den första funktionen är färdig med sitt syfte */
         const communeData = await fetchSpecificCommune(communeName);
-        const avgPenetration = await calculateAvgPenetrationPerCommune(communeData);
+        const avgPenetration = await calculateAvgPenetrationPerCommune(communeData, penCost);
         penCost.push(avgPenetration[0]);
 
         setCommuneCost(penCost); /*denna variablen unppdatera sidan med det nya */
