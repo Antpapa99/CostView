@@ -4,13 +4,13 @@ import AltCostChart from "../charts/commune/altcostchart";
 import CommuneDropdownItem from "./communedropdown";
 import PenValueChart from "../charts/commune/communepenvaluechart"; 
 import TotalCostChart from "../charts/commune/communenormalcostchart"; 
-import CommuneAvgAltCostChart from "../charts/commune/communeavgchart";
 import SavingsPotetialChart from "../charts/commune/communesavingspotetialchart";
 import { useRouter } from "next/router";
 import { useSearchParams } from "next/navigation";
 import PerCapitaCard from "./percapitacard";
 import CommuneRadarChart from "../charts/commune/communeradarchart";
 import HteCard from "./htecard";
+import ReturnOfInvestmentCard from "./investmentcard";
 
 export default function ChartBox({selectedCommune}: any ) {
   
@@ -29,13 +29,16 @@ export default function ChartBox({selectedCommune}: any ) {
       {selectedCommune && <PerCapitaCard communeName={selectedCommune}/>}
       
       <div className="flex-1 h-full px-2 justify-center">
-        
         </div>
       </div>
-      <div className="flex-1 px-1 bg-blue-200"> Något här</div>
+      <div className="flex-1 px-1 bg-blue-200"> 
+      {selectedCommune && <ReturnOfInvestmentCard communeName={selectedCommune}/>}
+      </div>
       <div className="flex-1 px-1 bg-blue-200"></div>
       <div className="flex-1 px-2 justify-center md:w-auto bg-white">
+
         <div className="flex-1 h-full px-2 justify-center">
+          
 
         </div>
       </div>

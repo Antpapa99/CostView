@@ -15,6 +15,7 @@ interface CommuneCostData {
     totalKostnad: number,
     besparing: number,
     roiPotentiel: number,
+    kostnadPerInstallation: number,
 }
 
 /* kalkylerar alla kommuner på en gång */
@@ -142,7 +143,7 @@ export async function calculateCostSpecificCommune(communeData: any[string], nat
                 oppositePenGrade = ((mojligaInstallationer - antalInstallationer) / mojligaInstallationer) * 100;
                 alternativCost = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * arligBesparing);
                 totalKostnad = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * kostnadPerInstallation);
-                roiPotentiel = ((((arligBesparing+kostnadPerInstallation)-kostnadPerInstallation)/kostnadPerInstallation)*100)
+                roiPotentiel = ((arligBesparing/kostnadPerInstallation))
             } else {
                 penCost = 0;
                 oppositePenGrade = 100;
@@ -167,7 +168,9 @@ export async function calculateCostSpecificCommune(communeData: any[string], nat
                 totalKostnad: totalKostnad,
                 besparing: arligBesparing,
                 roiPotentiel: roiPotentiel,
+                kostnadPerInstallation: kostnadPerInstallation,
         });
+        console.log(kostnadPerInstallation)
         console.log(communeCostArrayCalculator, "el finale")
     });
     return communeCostArrayCalculator;
@@ -407,6 +410,7 @@ export async function calculateAvgPenetrationPerCommune(communeData: any[string]
         totalKostnad: 0, // You can set this to 0 or calculate if needed
         besparing: 0,
         roiPotentiel: 0,
+        kostnadPerInstallation: 0,
     });
 
     return  communeAvgArrayCalculator;
@@ -447,6 +451,7 @@ export async function calculateAvgPerCommune(communeData: any[string]): Promise<
         totalKostnad: 0, // You can set this to 0 or calculate if needed
         besparing: 0,
         roiPotentiel: 0,
+        kostnadPerInstallation: 0,
         
     });
 
@@ -582,5 +587,19 @@ export async function getCommuneAvg() {
 
 
 
-  /* Besparings kalkylator för specifika tekonologier i en kommun*/
+  /* hämta specifika roi för teknologier logik*/
+
+  export async function getSpecficTechnology(CostData: any[]) {
+    const roiArray: any = []
+    
+    CostData.forEach((data) => {
+        roiArray.push({
+            installation: data.kostnadPerInstallation,
+            technology: data.techName,
+            besparing: data.besparing,
+        })
+        console.log(roiArray, "line 600")
+    })
+    return roiArray;
+}
  
