@@ -112,7 +112,7 @@ export async function calculateCostSpecificCommune(communeData: any[string], nat
             let penCost = 0;
             let oppositePenGrade = 0;
             
-            if (antalInstallationer >= 0 || mojligaInstallationer >= 0) { //kanske ska vara större än 0 så det inte blir /0
+            if (antalInstallationer >= 0 && mojligaInstallationer >= 0) { //kanske ska vara större än 0 så det inte blir /0
                 penCost = (antalInstallationer / mojligaInstallationer) * 100;
                 oppositePenGrade = ((mojligaInstallationer - antalInstallationer) / mojligaInstallationer) * 100;
                 alternativCost = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * arligBesparing)
@@ -166,7 +166,7 @@ export async function calculateNationalTotalAlternativCost(communeData: any[]): 
 
         technologies.forEach(tech =>{
             if(tech["alternativCost"] >= 0){
-                console.log(commune.communeName, tech.techName, tech.alternativCost)
+
                 if (!techAverages[tech.techName]) {
                     techAverages[tech.techName] = {
                         alternativCost: 0
