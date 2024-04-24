@@ -158,7 +158,7 @@ export async function getSpecficCommuneCost(communeName: any[string]) {
     Få nationella värden
   */
 
-export async function calculateNationalAverageAlternativCost(communeData: any[]): Promise<CommuneCostData[]>{
+export async function calculateNationalTotalAlternativCost(communeData: any[]): Promise<CommuneCostData[]>{
     const techAverages: any = {};
 
     communeData.forEach(commune => {
@@ -166,18 +166,17 @@ export async function calculateNationalAverageAlternativCost(communeData: any[])
 
         technologies.forEach(tech =>{
             if(tech["alternativCost"] >= 0){
-
+                console.log(commune.communeName, tech.techName, tech.alternativCost)
                 if (!techAverages[tech.techName]) {
                     techAverages[tech.techName] = {
                         alternativCost: 0
                     };
-                    
-                    techAverages[tech.techName].alternativCost += tech["alternativCost"];
                 }
-            }
-        })
-    })
-    
+                techAverages[tech.techName].alternativCost += tech["alternativCost"];
+            };
+        });
+    });
+
     const nationalAverages: any[] = [];
     Object.keys(techAverages).forEach(techName => {
         const avgData = techAverages[techName];
@@ -234,6 +233,7 @@ export async function calculateNationalAverage(communeData: any[]): Promise<Comm
                 techAverages[tech.tech_name].Arlig_besparing_per_installation_SEK_sum += tech["Arlig_besparing_per_installation_SEK"];
                 techAverages[tech.tech_name].Kostnad_per_installation_sum += tech["Kostnad_per_installation"];
                 techAverages[tech.tech_name].count++;
+
             }
         });
     });
@@ -269,7 +269,7 @@ export async function calculateNationalAvgPenetration(communeData: any[]): Promi
     const techAverages: any = {};
     let antalSum = 0;
     let mojligSum = 0;
-
+    
     communeData.forEach(commune => {
         const technologies: any[] = commune.technologies;
 
@@ -287,7 +287,6 @@ export async function calculateNationalAvgPenetration(communeData: any[]): Promi
                         Antal_installationer_sum: 0,
                     };
                 }
-                
                 // Add values to the sums
                 techAverages[tech.tech_name].Mojliga_installationer_sum += tech["Mojliga_installationer"];
                 techAverages[tech.tech_name].Antal_installationer_sum += tech["Antal_installationer"];

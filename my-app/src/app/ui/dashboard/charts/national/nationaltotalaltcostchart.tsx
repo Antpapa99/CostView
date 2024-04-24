@@ -10,7 +10,7 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js/auto';
-import { calculateNationalAverage, calculateNationalAverageAlternativCost, calculateCostAllCommunes } from '@/app/lib/utils'; // Importera calculateNationalAverage
+import { calculateNationalAverage, calculateNationalTotalAlternativCost, calculateCostAllCommunes } from '@/app/lib/utils'; // Importera calculateNationalAverage
 import { fetchCommune } from '@/app/lib/data';
 import { DataLabel } from '@syncfusion/ej2-react-charts';
 const barColors = ["#1f77b4", "#ff7f0e", "#2ca02c"]
@@ -33,7 +33,8 @@ export default function NationalAltCostChart() {
             try {
                 const communeData = await fetchCommune(); // Hämta datan för alla kommuner
                 const communeCost = await calculateCostAllCommunes(communeData);
-                const avgData = await calculateNationalAverageAlternativCost(communeCost); // Beräkna det nationella genomsnittet
+                const avgData = await calculateNationalTotalAlternativCost(communeCost);
+                console.log(avgData, "avgData"); // Beräkna det nationella genomsnittet
                 setNationalAltCost(avgData); // Uppdatera state med det nationella genomsnittet
             } catch (error) {
                 console.error('Error fetching national average:', error);
