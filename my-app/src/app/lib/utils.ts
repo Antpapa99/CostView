@@ -463,15 +463,7 @@ export async function getCommuneAvg() {
     return completeData;
   }
     
-  /*
-    data pipelinen för att få medelkostnader kring en specific kommun
-  */
 
-export async function getSpecficCommuneAvg(communeName: any[string]) {
-    const communeData = await fetchSpecificCommune(communeName);
-    const communeAverage = await calculateAvgPerCommune(communeData);
-    return communeAverage;
-  }
 
   /*
     Detta är för att beräkna besparingspotential kalkyr 
