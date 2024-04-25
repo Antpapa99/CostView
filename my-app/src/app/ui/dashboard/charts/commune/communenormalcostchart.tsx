@@ -54,7 +54,7 @@ export default function TotalCostChart({ communeName }: { communeName: any }) {
                 borderWidth: 3,
                 datalabels: 
                 {
-                    color: "black",
+                    color: "rgba(209, 213, 219, 1)",
                     formatter: function(value: number, context: any) {
                         return value.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); // Aligns the labels to the right of the data bars
                 }
@@ -66,6 +66,25 @@ export default function TotalCostChart({ communeName }: { communeName: any }) {
 
     const options: any = {
         maintainAspectRatio: false,
+        scales: {
+            x: {
+                ticks: {
+                    color: "rgba(209, 213, 219, 1)"
+                },
+            },
+            y: {
+                ticks: {
+                    color: "rgba(209, 213, 219, 1)"
+                },
+            },
+        },
+        plugins: {
+            legend: {
+                labels: {
+                    color: "rgba(209, 213, 219, 1)"
+                },
+            },
+        },
     }
 
     

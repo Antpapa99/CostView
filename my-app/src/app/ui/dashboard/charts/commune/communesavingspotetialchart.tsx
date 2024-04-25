@@ -49,6 +49,18 @@ export default function SavingsPotetialChart({ communeName }: { communeName: any
     
     const options: any = {
         maintainAspectRatio: false,
+        scales: {
+            x: {
+                ticks: {
+                    color: "rgba(209, 213, 219, 1)"
+                },
+            },
+            y: {
+                ticks: {
+                    color: "rgba(209, 213, 219, 1)"
+                },
+            },
+        },
         indexAxis: 'y',
         elements: {
           bar: {},
@@ -57,7 +69,7 @@ export default function SavingsPotetialChart({ communeName }: { communeName: any
         plugins: {
             datalabels: {
                display: true,
-               color: 'white',
+               color: "rgba(209, 213, 219, 1)",
                formatter: (value: any, context: { dataset: { label: string; }; }) => {
                     if (context.dataset.label === "Total alternativkonstnad SEK/år") {
                         // Om det är datalabel för "Total Alternativ Cost"
@@ -67,7 +79,13 @@ export default function SavingsPotetialChart({ communeName }: { communeName: any
                         return "";
                     }
                }
-            }
+            },
+            legend: {
+                labels: {
+                    color: "rgba(209, 213, 219, 1)"
+                },
+            },
+
          }
          
     };

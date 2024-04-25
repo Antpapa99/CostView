@@ -13,6 +13,7 @@ import {
 import { calculateCostSpecificCommune, calculateNationalAverage, getSpecficCommuneCost } from '@/app/lib/utils';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { fetchCommune } from '@/app/lib/data';
+import { color } from 'chart.js/helpers';
 
 
 const barColors = ["#1f77b4", "#ff7f0e", "#2ca02c"]
@@ -138,19 +139,31 @@ export default function CommuneRadarChart({ communeName }: { communeName: any })
                 ticks: {
                     borderColor: "rgba(209, 213, 219, 1)",
                     backdropColor:"transparent",
-
-    
-                }
+                    color: "rgba(209, 213, 219, 1)",
+                    font: {
+                        color: "rgba(209, 213, 219, 1)"
+                    }
+                },
+                pointLabels: {
+                    color: "rgba(209, 213, 219, 1)"
+                },
             },
-
         },
+        plugins: {
+            legend: {
+                labels: {
+                    color: "rgba(209, 213, 219, 1)"
+                },
+            },
+        },
+        
     };
 
 
     return (
         <>
-      <div className="relative flex flex-col h-auto break-words bg-gray-800 w-full shadow-lg rounded">
-        <div className="p-4 flex-auto w-full">
+      <div className="relative flex flex-col h-auto break-words bg-gray-800 w-full rounded">
+        <div className="flex-auto w-full">
         <Radar
             data={chartData}
             options = {options}
