@@ -52,7 +52,11 @@ export default function SavingsPotetialChart({ communeName }: { communeName: any
         scales: {
             x: {
                 ticks: {
-                    color: "rgba(209, 213, 219, 1)"
+                    color: "rgba(209, 213, 219, 1)",
+                    rotation: 20,
+                    autoSkip: false, // This ensures all tick labels are displayed
+                    maxRotation: 20, // This specifies the maximum rotation in degrees
+                    minRotation: 20, // This specifies the minimum rotation in degrees
                 },
             },
             y: {
