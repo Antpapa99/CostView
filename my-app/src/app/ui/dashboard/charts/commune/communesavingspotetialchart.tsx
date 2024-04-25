@@ -52,7 +52,11 @@ export default function SavingsPotetialChart({ communeName }: { communeName: any
         scales: {
             x: {
                 ticks: {
-                    color: "rgba(209, 213, 219, 1)"
+                    color: "rgba(209, 213, 219, 1)",
+                    rotation: 20,
+                    autoSkip: false, // This ensures all tick labels are displayed
+                    maxRotation: 20, // This specifies the maximum rotation in degrees
+                    minRotation: 20, // This specifies the minimum rotation in degrees
                 },
             },
             y: {
@@ -94,7 +98,7 @@ export default function SavingsPotetialChart({ communeName }: { communeName: any
         datasets: [
             {
                 label: "Total alternativkonstnad SEK/år", // Labeln för datasetet
-                data: savingsPotential.map(data => data.totalAlternativCost), // Data för staplarna
+                data: savingsPotential.map(data => data.totalAlternativCost.toFixed(0)), // Data för staplarna
                 backgroundColor: 'rgba(186, 0, 0, 0.5)',
                 borderColor: 'rgba(186, 0, 0)',
                 borderWidth: 3,
@@ -114,10 +118,9 @@ export default function SavingsPotetialChart({ communeName }: { communeName: any
     
     
     return (
-        <div className = "flex items-center h-auto bg-gray-800">
             <Bar 
             data={chartData}
             options = {options}
-            /> </div>
+            />
     )
 };

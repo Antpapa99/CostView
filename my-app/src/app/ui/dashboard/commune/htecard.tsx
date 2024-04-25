@@ -23,14 +23,13 @@ export default function HteCard({ communeName }: { communeName: any } ) {
     let HTE: any = rawHTE/322
     const realHTE = (HTE/2080).toFixed(2)
     
-    return (
-      <div className="flex items-center justify-center bg-gray-800 shadow-lg shadow- h-full w-full">
-        <div className="flex-1 h-auto ">
-          <div className="flex flex-col items-center justify-center h-full">
-            <p className="text-gray-300 text-lg font-semibold mb-4">Sparad HTE</p>
-            <p className="text-4xl font-bold text-green-400">{realHTE}</p>
-          </div>
-        </div>
-      </div>
-    )
+    return (realHTE)
+
 }
+
+/*
+<>
+<p className="text-gray-300 text-lg font-semibold mb-4">Sparad HTE</p>
+<p className="text-4xl font-bold text-green-400">{realHTE}</p>
+</>
+*/

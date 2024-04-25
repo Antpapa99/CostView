@@ -121,7 +121,7 @@ const backgroundColor = communeCost.map(data => {
                     },
                     align: 'right',
                     formatter: function(value: string, context: any) {
-                        return communeCost[context.dataIndex].alternativCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); // Vill försöka få in potentiel besparing som label här
+                        return communeCost[context.dataIndex].alternativCost.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); // Vill försöka få in potentiel besparing som label här
                 },
                 stack: "stack1"
             },
@@ -238,19 +238,14 @@ const backgroundColor = communeCost.map(data => {
       const plugins = [progressBar];
 
 
-
     return (
         <>
-      <div className="relative flex flex-col flex-grow w-auto h-96 break-words bg-gray-800 shadow-lg rounded">
-        <div className="w-full h-96">
-        <Bar className = "w-full mt-3"
+        <Bar className = "mt-3"
             data={chartData}
             options = {options}
             plugins = {plugins}
             /> 
-        </div>
-      </div>
-    </>
+        </>
     )
 };
 
