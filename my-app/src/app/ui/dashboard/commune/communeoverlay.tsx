@@ -16,39 +16,43 @@ export default function ChartBox({selectedCommune}: any ) {
   
   return (
     <>
-    <section className="flex flex-grow w-1/2 h-40 md:flex-row gap-2">
-    <div className="flex-1 flex-grow px-2 justify-center md:w-auto bg-gray-800 rounded">
-    {selectedCommune && <HteCard communeName={selectedCommune}/>}
-      
-      <div className="flex-1 h-full px-2 justify-center">
+    <section className="flex flex-grow w-full h-96 md:flex-col gap-2">
+      <section className="flex w-full h-40 md:flex-row gap-2">
+        <div className="flex w-1/2 flex-row md:flex-row gap-2"> 
+          <div className="flex-1 w-2 justify-center md:w-auto bg-gray-800 rounded">
+          {selectedCommune && <HteCard communeName={selectedCommune}/>}
+          </div>
+            
+          <div className="flex-1 w-2 justify-center md:w-auto bg-gray-800 rounded">
+            {selectedCommune && <PerCapitaCard communeName={selectedCommune}/>}
+            
+          </div>
+          <div className="flex-1 bg-gray-800 rounded"> 
+            {selectedCommune && <ReturnOfInvestmentCard communeName={selectedCommune}/>}
+          </div>
+        </div>
+        <div className="flex flex-grow h-96 justify-center md:w-auto bg-gray-800 rounded">
+          {selectedCommune && <TotalCostChart communeName={selectedCommune}/>}
+            </div>
         
+    
+        </section>
+        <section className="flex flex-grow w-1/2 h-46 md:flex-row gap-2">
+        <div className="flex-1 flex-grow justify-center md:w-auto bg-gray-800 rounded">
+        {selectedCommune && <SavingsPotetialChart communeName={selectedCommune}/>}
+          
         </div>
-    </div>
-      
-      <div className="flex-1 flex-grow px-2 justify-center md:w-auto bg-gray-800 rounded">
-      {selectedCommune && <PerCapitaCard communeName={selectedCommune}/>}
-      
-      <div className="flex-1 h-full px-2 justify-center">
-        </div>
-      </div>
-      <div className="flex-1 px-1 bg-gray-800 rounded"> 
-      {selectedCommune && <ReturnOfInvestmentCard communeName={selectedCommune}/>}
-      </div>
-  
+          
+        
+    
+        </section>
+        
     </section>
-    <section className="flex my-4 md:flex-row gap-2"> {/*Dem tre nedra lådorna */}
-      <div className="flex-1 w-full items-center h-56  bg-gray-800 rounded">
-      {selectedCommune && <SavingsPotetialChart communeName={selectedCommune}/>}
-      </div>
-      <div className="flex-1 h-56 bg-gray-800 items-center rounded">
-      {selectedCommune && <TotalCostChart communeName={selectedCommune}/>}
-      </div>
-    </section>
-    <section className= "flex my-4 md:flex-row gap-2"> 
-    <div className="flex h-105 w-full bg-gray-800 rounded gap-3">
+    <section className= "flex my-4 justify-center w-full md:flex-row gap-2"> 
+    <div className="flex w-1/2 bg-gray-800 rounded">
     {selectedCommune &&  <PenValueChart communeName={selectedCommune}/> }
     </div>
-      <div className="flex justify-center w-full  bg-gray-800 rounded gap-3">
+      <div className="flex w-1/2  bg-gray-800 rounded">
       {selectedCommune &&  <CommuneRadarChart communeName={selectedCommune}/> }
 
       </div>

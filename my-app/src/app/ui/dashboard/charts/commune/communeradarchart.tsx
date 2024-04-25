@@ -149,7 +149,7 @@ export default function CommuneRadarChart({ communeName }: { communeName: any })
 
     return (
         <>
-      <div className="relative flex flex-col h-auto break-words bg-gray-800 w-full mb-3 my-3 shadow-lg rounded outline-solid outline-2 outline-offset-2">
+      <div className="relative flex flex-col h-auto break-words bg-gray-800 w-full shadow-lg rounded">
         <div className="p-4 flex-auto w-full">
         <Radar
             data={chartData}
