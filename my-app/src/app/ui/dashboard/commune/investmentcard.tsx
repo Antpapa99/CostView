@@ -8,7 +8,7 @@ export default function ReturnOfInvestmentCard({ communeName }: { communeName: a
     // State används för att hantera data som ändras över tid i en react komponent vilket är det över
     // Genom att ge penetrationCost, setPenetrationCost tuples en useState så kan UI uppdatera
     const [getTechnology, setCommuneCost] = useState<any[]>([]);
-    let [index, setindex] = useState(0);
+    let [index, setIndex] = useState(0);
     
     /* UseEffect hook som du ser här nere kan användas för att utföra data  fetching eller ändringar i DOM, 
     useEffecten hooken tar en funktion som argument som kommer att aktiveras efter rendering i DOM */
