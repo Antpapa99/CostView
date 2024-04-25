@@ -105,7 +105,7 @@ export default function CommuneRadarChart({ communeName }: { communeName: any })
             barPercentage: 0.5,
             categoryPercentage: 0.8,
             datalabels: {
-                color: "white",
+                
                 font: {
                     weight: "bold",
                 },
@@ -127,15 +127,22 @@ export default function CommuneRadarChart({ communeName }: { communeName: any })
         scales: {
             r: {
                 angleLines: {
-                    display: false
+                    display: false,
                 },
                 suggestedMin: 0,
-                //suggestedMax: 100,
-                //steps: 1
-            }
-        }
-    
-    }
+                grid: {
+                    color: "rgba(209, 213, 219, 1)", // Adjust the interval line color as needed
+                    
+                },
+                ticks: {
+                    color: "rgba(209, 213, 219, 1)",
+                    backdrop: {
+                        display: false,
+                    }
+                }
+            },
+        },
+    };
 
 
     return (
