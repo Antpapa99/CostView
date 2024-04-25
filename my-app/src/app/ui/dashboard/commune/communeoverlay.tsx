@@ -34,26 +34,21 @@ export default function ChartBox({selectedCommune}: any ) {
         <div className="flex h-96 justify-center flex-grow bg-gray-800 rounded">
           {selectedCommune && <TotalCostChart communeName={selectedCommune}/>}
             </div>
-        
-    
         </section>
-        <section className="flex w-1/2 flex-grow">
-        <div className="flex-1 flex-grow justify-center h:56 md:w-auto bg-gray-800 rounded">
+
+      <section className="flex w-1/2 flex-grow">
+        <div className="flex-1 flex-grow justify-center md:w-auto bg-gray-800 rounded">
         {selectedCommune && <SavingsPotetialChart communeName={selectedCommune}/>}
         </div>
-          
-        
-    
         </section>
-        
     </section>
+
     <section className= "flex my-4 justify-center w-full md:flex-row gap-2"> 
     <div className="flex w-1/2 bg-gray-800 rounded">
     {selectedCommune &&  <PenValueChart communeName={selectedCommune}/> }
     </div>
       <div className="flex w-1/2 bg-gray-800 rounded">
       {selectedCommune &&  <CommuneRadarChart communeName={selectedCommune}/> }
-
       </div>
     </section>
       

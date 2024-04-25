@@ -244,14 +244,12 @@ const backgroundColor = communeCost.map(data => {
 
     return (
         <>
-      <div className="relative flex flex-col flex-grow w-auto h-96 break-words bg-gray-800 shadow-lg rounded">
-        <div className="w-full h-96">
+      <div className="relative flex flex-col flex-grow w-auto break-words bg-gray-800 shadow-lg rounded">
         <Bar className = "w-full mt-3"
             data={chartData}
             options = {options}
             plugins = {plugins}
             /> 
-        </div>
       </div>
     </>
     )
