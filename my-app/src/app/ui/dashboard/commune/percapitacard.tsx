@@ -23,10 +23,6 @@ export default function PerCapitaCard({ communeName }: { communeName: any } ) {
 
     console.log(perCapita)
     
-    return (
-        <>
-            <p className="text-gray-300 text-lg font-semibold mb-4">Alternativkostnad per person</p>
-            <p className="text-4xl font-bold text-green-400">{perCapita} kr</p>
-        </>  
+    return (perCapita
     )
 }
