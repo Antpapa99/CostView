@@ -37,8 +37,8 @@ export default function ChartBox({selectedCommune}: any ) {
         
     
         </section>
-        <section className="flex w-1/2">
-        <div className="flex-1 flex-grow justify-center h-56 md:w-auto bg-gray-800 rounded">
+        <section className="flex w-1/2 flex-grow">
+        <div className="flex-1 flex-grow justify-center h:56 md:w-auto bg-gray-800 rounded">
         {selectedCommune && <SavingsPotetialChart communeName={selectedCommune}/>}
         </div>
           
