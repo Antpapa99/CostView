@@ -25,8 +25,8 @@ export function ComparisonCommuneData({alternativCost, onDataChange}: any) {
 
 
     return (
-        <div className="flex justify-center">
-            <select onChange={handleDataChange} className="w-24	 px-2 justify-center text-white text-center bg-gray-800 border border-gray-600 rounded-md focus:outline-none  focus:border-blue-300">
+        <div className="">
+            <select onChange={handleDataChange}>
             <option value="Top 3">Top 5</option>
             <option value="Bottom 3">Bottom 5</option> 
             </select>
