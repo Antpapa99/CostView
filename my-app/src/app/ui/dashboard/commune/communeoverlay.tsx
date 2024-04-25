@@ -13,7 +13,12 @@ import HteCard from "./htecard";
 import ReturnOfInvestmentCard from "./investmentcard";
 
 export default function ChartBox({selectedCommune}: any ) {
-  
+
+    // Destructure returned data from ReturnOfInvestmentCard
+    const { currentTechnology, currentROI, handleClick } = selectedCommune
+        ? ReturnOfInvestmentCard({ communeName: selectedCommune })
+        : { currentTechnology: null, currentROI: null, handleClick: () => {} };
+        
   return (
     <>
     <section className="flex w-full h-full md:flex-col gap-2">
@@ -22,7 +27,6 @@ export default function ChartBox({selectedCommune}: any ) {
 
 
           <div className="flex-1 w-2 justify-center md:w-auto bg-gray-800 rounded">
-
             <div className="flex items-center justify-center bg-gray-800 shadow-lg shadow- h-full w-full">
               <div className="flex-1 h-auto ">
                 <div className="flex flex-col items-center justify-center h-full">
@@ -31,12 +35,10 @@ export default function ChartBox({selectedCommune}: any ) {
                 </div>
               </div>
             </div>
-
           </div>
             
 
           <div className="flex-1 w-2 justify-center md:w-auto bg-gray-800 rounded">
-
             <div className="flex items-center justify-center bg-gray-800 h-full w-full">
               <div className="flex-1 px-2 h-auto ">
                 <div className="flex flex-col items-center justify-center h-full">
@@ -48,11 +50,24 @@ export default function ChartBox({selectedCommune}: any ) {
           </div>
 
 
-          <div className="flex-1 bg-gray-800 rounded"> 
-            {selectedCommune && <ReturnOfInvestmentCard communeName={selectedCommune}/>}
-          </div>
-        </div>
+          <div className="flex-1 bg-gray-800 rounded">
+              <div className="flex flex-col items-center justify-center h-full">
+                  <p className="text-gray-300 text-lg font-semibold mb-4">
+                      {currentTechnology}
+                  </p>
+                  <p className="text-gray-300 text-lg font-semibold mb-4">
+                      ROI: {currentROI}
+                  </p>
+                  <button
+                      className="w-32 px-2 justify-center text-gray-300 text-center bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:border-blue-300"
+                      onClick={handleClick}
+                            >
+                            Switch Technology
+                  </button>
+                </div>
+            </div>
 
+          </div>
           <div className="flex h-96 flex-grow justify-center bg-gray-800 rounded">
             <div className = "flex-1 h-auto w-dvh bg-gray-800 rounded">
               {selectedCommune && <TotalCostChart communeName={selectedCommune}/>}
