@@ -96,7 +96,7 @@ const backgroundColor = communeCost.map(data => {
                 barPercentage: 0.5,
                 categoryPercentage: 0.8,
                 datalabels: {
-                    color: "white",
+                    color: "rgba(209, 213, 219, 1)",
                     font: {
                         weight: "bold",
                     },
@@ -118,7 +118,7 @@ const backgroundColor = communeCost.map(data => {
                 barPercentage: 0.5,
                 categoryPercentage: 0.8,
                 datalabels: {
-                    color: "white",
+                    color: "rgba(209, 213, 219, 1)",
                     font: {
                         weight: "bold",
                     },
@@ -153,7 +153,7 @@ const backgroundColor = communeCost.map(data => {
             data.datasets[0].data.forEach((datapoint: number, index: number) => {
                 const fontSizeLabel = 12;
                 ctx.font = `${fontSizeLabel}px sans-serif`;
-                ctx.fillStyle ='rgba(0, 0, 0, 1)'; /* text colour */
+                ctx.fillStyle ="rgba(209, 213, 219, 1)"; /* text colour */
                ctx.textAlign = 'left';
                 ctx.textBaseline = 'middle';
 
@@ -244,7 +244,7 @@ const backgroundColor = communeCost.map(data => {
 
     return (
         <>
-      <div className="relative flex flex-col flex-grow w-auto h-96 break-words bg-white mb-3 my-3 mx-3 shadow-lg rounded">
+      <div className="relative flex flex-col flex-grow w-auto h-96 break-words bg-gray-800 mb-3 my-3 mx-3 shadow-lg rounded">
         <div className="w-full h-96">
         <Bar className = "w-full mt-3"
             data={chartData}

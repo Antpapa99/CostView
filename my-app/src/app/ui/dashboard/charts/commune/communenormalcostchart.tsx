@@ -69,7 +69,7 @@ export default function TotalCostChart({ communeName }: { communeName: any }) {
     
 
     return (
-        <div className = "flex-1 h-44 w-dvh mb-3 my-3 mx-3 bg-white ">
+        <div className = "flex-1 h-44 w-dvh mb-3 my-3 mx-3 bg-gray-800 ">
             <Bar 
             data={chartData}
             options={options}

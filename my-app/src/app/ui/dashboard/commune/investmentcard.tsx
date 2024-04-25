@@ -41,11 +41,11 @@ export default function ReturnOfInvestmentCard({ communeName }: { communeName: a
 
     
     return (
-        <div className="w-full">
+        <div className="w-full text-gray-300">
             <p>
                {technologies[index]}: {roi[index]}
             </p>
-            <button className = "w-32	px-2 justify-center text-white text-center bg-gray-800 border border-gray-600 rounded-md focus:outline-none  focus:border-blue-300" onClick={handleClick}>Switch Technology</button>
+            <button className = "w-32	px-2 justify-center text-gray-300 text-center bg-gray-800 border border-gray-600 rounded-md focus:outline-none  focus:border-blue-300" onClick={handleClick}>Switch Technology</button>
     </div>
 
     )
