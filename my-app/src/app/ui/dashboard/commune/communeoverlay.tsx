@@ -31,14 +31,14 @@ export default function ChartBox({selectedCommune}: any ) {
             {selectedCommune && <ReturnOfInvestmentCard communeName={selectedCommune}/>}
           </div>
         </div>
-        <div className="flex h-96 justify-center bg-gray-800 rounded">
+        <div className="flex h-96 justify-center flex-grow bg-gray-800 rounded">
           {selectedCommune && <TotalCostChart communeName={selectedCommune}/>}
             </div>
         
     
         </section>
         <section className="flex w-1/2">
-        <div className="flex-1 flex-grow justify-center md:w-auto bg-gray-800 rounded">
+        <div className="flex-1 flex-grow justify-center h-56 md:w-auto bg-gray-800 rounded">
         {selectedCommune && <SavingsPotetialChart communeName={selectedCommune}/>}
         </div>
           

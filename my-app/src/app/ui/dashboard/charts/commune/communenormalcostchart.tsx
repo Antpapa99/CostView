@@ -39,8 +39,9 @@ export default function TotalCostChart({ communeName }: { communeName: any }) {
       fetchCommuneCost(); /* säger till att funktionen körs på DOM, alltså sidan uppdateras */
     }, [communeName]);
 
-    const backgroundColor = ['rgba(186, 0, 0, 0.7',
-    'rgba(184, 186, 0, 0.7)', 'rgba(0, 186, 176, 0.7)', 'rgba(80, 0, 186, 0.7)', 'rgba(33, 186, 0, 0.7)']
+    const backgroundColor = ['rgba(27, 163, 156, 0.5)']
+
+    const borderColor = ['rgba(27, 163, 156)']
 
     const chartData = {
         labels: communeCost.map(data => data.techName), // Tänk map som en foreach
@@ -49,7 +50,8 @@ export default function TotalCostChart({ communeName }: { communeName: any }) {
                 label: "Kostnad för breddinförande",
                 data: communeCost.map(data => data.totalKostnad),
                 backgroundColor: backgroundColor,
-                borderWidth: 1,
+                borderColor: borderColor,
+                borderWidth: 3,
                 datalabels: 
                 {
                     color: "black",
