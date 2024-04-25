@@ -16,6 +16,7 @@ const barColors = ["#1f77b4", "#ff7f0e", "#2ca02c"]
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 ChartJS.register (
+    ChartDataLabels,
     CategoryScale,
     LinearScale,
     BarElement,
@@ -39,9 +40,9 @@ export default function TotalCostChart({ communeName }: { communeName: any }) {
       fetchCommuneCost(); /* säger till att funktionen körs på DOM, alltså sidan uppdateras */
     }, [communeName]);
 
-    const backgroundColor = ['rgba(27, 163, 156, 0.5)']
+    const backgroundColor = ['rgba(252, 137, 7, 0.5)']
 
-    const borderColor = ['rgba(27, 163, 156)']
+    const borderColor = ['rgba(252, 137, 7)']
 
     const chartData = {
         labels: communeCost.map(data => data.techName), // Tänk map som en foreach
@@ -49,7 +50,25 @@ export default function TotalCostChart({ communeName }: { communeName: any }) {
             {
                 label: "Kostnad för breddinförande",
                 data: communeCost.map(data => data.totalKostnad),
-                backgroundColor: backgroundColor,
+                backgroundColor: (context: { chart: any; }) => {
+                    // Retrieve the chart instance and the context (canvas)
+                    const chart = context.chart;
+                    const ctx = chart?.canvas?.getContext('2d');
+                    
+                    if (ctx) {
+                        // Create a linear gradient from top to bottom
+                        const gradient = ctx.createLinearGradient(0, 0, 0, chart.height);
+                        gradient.addColorStop(0, 'rgba(255,155,2,0.5)');
+                        gradient.addColorStop(0.6, "rgba(247,168,46,0.5)");
+                        gradient.addColorStop(1, 'rgba(31,41,55,0.5)');
+                        
+                        // Return the gradient as the background color
+                        return gradient;
+                    } else {
+                        // Fall back to a default color if ctx is not available
+                        return 'rgba(31,41,55,0.5)';
+                    }
+                },
                 borderColor: borderColor,
                 borderWidth: 3,
                 datalabels: 
