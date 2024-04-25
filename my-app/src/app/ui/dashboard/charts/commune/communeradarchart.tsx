@@ -162,14 +162,10 @@ export default function CommuneRadarChart({ communeName }: { communeName: any })
 
     return (
         <>
-      <div className="relative flex flex-col h-auto break-words bg-gray-800 w-full rounded">
-        <div className="flex-auto w-full">
         <Radar
             data={chartData}
             options = {options}
             /> 
-        </div>
-      </div>
     </>
     )
 };

@@ -241,17 +241,14 @@ const backgroundColor = communeCost.map(data => {
       const plugins = [progressBar];
 
 
-
     return (
         <>
-      <div className="relative flex flex-col flex-grow w-auto break-words bg-gray-800 shadow-lg rounded">
-        <Bar className = "w-full mt-3"
+        <Bar className = "mt-3"
             data={chartData}
             options = {options}
             plugins = {plugins}
             /> 
-      </div>
-    </>
+        </>
     )
 };
 
