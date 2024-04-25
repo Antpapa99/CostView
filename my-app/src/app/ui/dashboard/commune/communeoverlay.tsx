@@ -16,7 +16,7 @@ export default function ChartBox({selectedCommune}: any ) {
   
   return (
     <>
-    <section className="flex flex-grow h-40 m-2 gap-2">
+    <section className="flex flex-grow w-1/2 h-40 md:flex-row gap-2">
     <div className="flex-1 flex-grow px-2 justify-center md:w-auto bg-gray-800 rounded">
     {selectedCommune && <HteCard communeName={selectedCommune}/>}
       
@@ -34,22 +34,17 @@ export default function ChartBox({selectedCommune}: any ) {
       <div className="flex-1 px-1 bg-gray-800 rounded"> 
       {selectedCommune && <ReturnOfInvestmentCard communeName={selectedCommune}/>}
       </div>
-      <div className="flex-1 px-1 bg-gray-800"></div>
-      <div className="flex-1 px-2 justify-center md:w-auto bg-gray-800 rounded">
-
-      </div>
-      <div className="flex-1 px-1 bg-gray-800 rounded"></div>
   
     </section>
-    <section className="flex my-4 px-4 md:flex-row gap-3"> {/*Dem tre nedra lådorna */}
+    <section className="flex my-4 md:flex-row gap-2"> {/*Dem tre nedra lådorna */}
       <div className="flex-1 w-full items-center h-56  bg-gray-800 rounded">
       {selectedCommune && <SavingsPotetialChart communeName={selectedCommune}/>}
       </div>
-      <div className="flex-1 h-56   bg-gray-800 items-center rounded">
+      <div className="flex-1 h-56 bg-gray-800 items-center rounded">
       {selectedCommune && <TotalCostChart communeName={selectedCommune}/>}
       </div>
     </section>
-    <section className= "flex my-4 px-4 md:flex-row gap-3"> 
+    <section className= "flex my-4 md:flex-row gap-2"> 
     <div className="flex h-105 w-full bg-gray-800 rounded gap-3">
     {selectedCommune &&  <PenValueChart communeName={selectedCommune}/> }
     </div>
