@@ -14,8 +14,7 @@ export default function ReturnOfInvestmentCard({ communeName }: { communeName: a
     useEffecten hooken tar en funktion som argument som kommer att aktiveras efter rendering i DOM */
     useEffect(() => {
       const fetchCommuneCost = async () => { /* Async är där så att webbsidan inte aktivera funktionen innan fetchingen är färdig */
-        const getCommuneCost = await getSpecficCommuneCost(communeName);
-        const getTechnology = await getSpecficTechnology(getCommuneCost)
+        const getTechnology = await getSpecficTechnology(communeName)
         /* Await vänter när den första funktionen är färdig med sitt syfte */
 
         setCommuneCost(getTechnology); /*denna variablen unppdatera sidan med det nya */

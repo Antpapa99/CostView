@@ -8,8 +8,8 @@ export default function CommuneDropdownItem({ onCommuneChange }: { onCommuneChan
     const [kommuner, setKommuner] = useState([]);
     useEffect(() => {
         const getCommuneList = async () => {
-            const data = fetchCommune()
-            setKommuner(await data)
+            const data = await fetchCommune()
+            setKommuner(data)
         }
         getCommuneList()
     }, [])

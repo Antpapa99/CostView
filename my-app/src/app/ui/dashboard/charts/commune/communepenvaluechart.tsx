@@ -10,7 +10,7 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js/auto';
-import { calculateCostSpecificCommune, getSpecficCommuneCost, calculateAvgPenetrationPerCommune} from '@/app/lib/utils';
+import { calculateCostSpecificCommune, getSpecficCommuneCost, calculateAvgPenetrationPerCommune, penGradeValuePipeline} from '@/app/lib/utils';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { fetchSpecificCommune } from '@/app/lib/data';
 
@@ -41,10 +41,7 @@ export default function PenValueChart({ communeName }: { communeName: any }) {
     useEffecten hooken tar en funktion som argument som kommer att aktiveras efter rendering i DOM */
     useEffect(() => {
       const fetchCommuneCost = async () => { /* Async är där så att webbsidan inte aktivera funktionen innan fetchingen är färdig */
-        const penCost = await getSpecficCommuneCost(communeName); /* Await vänter när den första funktionen är färdig med sitt syfte */
-        const communeData = await fetchSpecificCommune(communeName);
-        const avgPenetration = await calculateAvgPenetrationPerCommune(communeData, penCost);
-        penCost.push(avgPenetration[0]);
+        const penCost = await penGradeValuePipeline(communeName)
 
         setCommuneCost(penCost); /*denna variablen unppdatera sidan med det nya */
       };

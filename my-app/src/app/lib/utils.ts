@@ -589,10 +589,11 @@ export async function getCommuneAvg() {
 
   /* hämta specifika roi för teknologier logik*/
 
-  export async function getSpecficTechnology(CostData: any[]) {
+  export async function getSpecficTechnology(communeName: any[]) {
+    const getCommuneCost = await getSpecficCommuneCost(communeName);
     const roiArray: any = []
     
-    CostData.forEach((data) => {
+    getCommuneCost.forEach((data) => {
         roiArray.push({
             installation: data.kostnadPerInstallation,
             technology: data.techName,
@@ -601,5 +602,13 @@ export async function getCommuneAvg() {
         console.log(roiArray, "line 600")
     })
     return roiArray;
+}
+
+export async function penGradeValuePipeline(communeName: string) {
+    const communeData = await fetchSpecificCommune(communeName);
+    const penCost = await getSpecficCommuneCost(communeName); /* Await vänter när den första funktionen är färdig med sitt syfte */
+    const avgPenetration = await calculateAvgPenetrationPerCommune(communeData, penCost);
+    penCost.push(avgPenetration[0]);
+    return penCost;
 }
  
