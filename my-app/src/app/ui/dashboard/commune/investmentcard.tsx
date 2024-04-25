@@ -41,7 +41,7 @@ export default function ReturnOfInvestmentCard({ communeName }: { communeName: a
 
     
     return (
-        <div className="w-full text-gray-300">
+        <div className=" text-gray-300">
             <p>
                {technologies[index]}: {roi[index]}
             </p>
