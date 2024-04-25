@@ -76,6 +76,7 @@ export default function CommuneRadarChart({ communeName }: { communeName: any })
                 data: communeCost.map(data => data.penCost.toFixed(2)),
                 backgroundColor: 'rgba(27, 163, 156, 0.7)',
                 borderColor: 'rgba(27, 163, 156)',
+                backdropColor: 'rgba(0, 0, 0, 1)',
                 borderWidth: 1,
                 borderSkipped: false,
                 borderRadius: 0,
@@ -135,12 +136,13 @@ export default function CommuneRadarChart({ communeName }: { communeName: any })
                     
                 },
                 ticks: {
-                    color: "rgba(209, 213, 219, 1)",
-                    backdrop: {
-                        display: false,
-                    }
+                    borderColor: "rgba(209, 213, 219, 1)",
+                    backdropColor:"transparent",
+
+    
                 }
             },
+
         },
     };
 
