@@ -103,6 +103,27 @@ export default function TotalCostChart({ communeName }: { communeName: any }) {
                     color: "rgba(209, 213, 219, 1)"
                 },
             },
+            tooltip: {
+                callbacks: {
+                // Customize the label text for each tooltip item
+                label: function(context: any) {
+                    // Check which dataset is being hovered over
+                    if (context.dataset.label === "Kostnad för breddinförande") {
+                        
+                        return [
+                            `Kostnad för breddinförande: ${context.raw.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}kr`,
+                            `Beräknas utifrån:\n(antal möjliga installationer - antal installationer) * kostnad per installation`,
+                            "\nOm konstnad per installation inte angetts används ett nationellt genomsnitt för beräkningarna"
+                        ];
+
+                    } 
+                    // Default behavior (optional)
+                    return `${context.dataset.label}: ${context.raw}`;
+                },
+                    
+                },
+               
+            }
         },
     }
 
