@@ -1,5 +1,5 @@
 import { fetchCommune } from "@/app/lib/data";
-import { calculateNationalAverage, calculateNationalAvgPenetration } from "@/app/lib/utils";
+import { calculateNationalAverage, penGradeValuePipelineNational } from "@/app/lib/utils";
 import { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 
@@ -9,8 +9,7 @@ export default function NationalAvgPenGradeChart() {
     useEffect(() => {
         const fetchNationalAverage = async () => {
             try {
-                const communeData = await fetchCommune(); // Hämta datan för alla kommuner
-                const nationalAvgData = await calculateNationalAvgPenetration(communeData);
+                const nationalAvgData = await penGradeValuePipelineNational();
                 setNationalAverage(nationalAvgData); // Uppdatera state med det nationella genomsnittet
 
             } catch (error) {
@@ -21,57 +20,89 @@ export default function NationalAvgPenGradeChart() {
         fetchNationalAverage(); // Köra funktionen för att hämta det nationella genomsnittet
     }, []);
     
-    function generateGradientColor(penCost: number) {
-        // Färgen baserat på procent
-        const percentage = penCost / 100;
-        
-        // Tar in färgerna
-        const red = Math.round(255 * (1 - percentage));
-        const green = Math.round(255 * percentage);
-        
-        // generarar färgen koderna
-        return `rgba(${red}, ${green}, 0, 0.7)`;
+
+
+function generateGradientColor(penCost: number) {
+    // Färgen baserat på procent
+    const percentage = penCost / 100;
+    
+    // Tar in färgerna
+    const red = Math.round(255 * (1 - percentage));
+    const green = Math.round(255 * percentage);
+    
+    // generarar färgen koderna
+    return `rgba(${red}, ${green}, 0, 0.7)`;
+}
+
+// Create the backgroundColor array dynamically based on penCost values
+const backgroundColor = nationalAverage.map(data => {
+    // If penCost is 0, return dark red, if penCost is 100, return dark green
+    if (data.penCost === 0) {
+        return 'rgba(186, 0, 0, 0.7)'; // Dark red
+    } else if (data.penCost === 100) {
+        return 'rgba(0, 186, 0, 0.7)'; // Dark green
+    } else {
+        // Generate gradient color based on penCost value
+        return generateGradientColor(data.penCost);
     }
+});
+
+
     
-    // Create the backgroundColor array dynamically based on penCost values
-    const backgroundColor = nationalAverage.map(data => {
-        // If penCost is 0, return dark red, if penCost is 100, return dark green
-        if (data.penCost === 0) {
-            return 'rgba(186, 0, 0, 0.7)'; // Dark red
-        } else if (data.penCost === 100) {
-            return 'rgba(0, 186, 0, 0.7)'; // Dark green
-        } else {
-            // Generate gradient color based on penCost value
-            return generateGradientColor(data.penCost);
-        }
-    });
-        
-    
-        const chartData: any = {
-            labels: nationalAverage.map(data => data.techName), // Tänk map som en foreach
-            datasets: [
-                {
-                    label: "Penetrationsgrad",
-                    data: nationalAverage.map(data => data.penCost.toFixed(2)),
-                    backgroundColor: backgroundColor,
-                    borderColor: 'rgba(239, 239, 240, 07)',
-                    borderWidth: 1,
-                    borderSkipped: false,
-                    borderRadius: 0,
-                    barPercentage: 0.5,
-                    categoryPercentage: 0.8,
-                    datalabels: {
-                        color: "white",
-                        font: {
-                            weight: "bold",
-                        },
-                        align: 'right',
-                        formatter: function(value: string, context: any) {
-                            return value + "%"; // Aligns the labels to the right of the data bars
-                    }
-                }
+
+    const chartData: any = {
+        labels: nationalAverage.map(data => data.techName), // Tänk map som en foreach
+        datasets: [
+            {
+                label: "Penetrationsgrad",
+                data: nationalAverage.map(data => data.penCost.toFixed(2)),
+                backgroundColor: backgroundColor,
+                borderColor: 'rgba(239, 239, 240, 0.7)',
+                borderWidth: 1,
+                borderSkipped: false,
+                borderRadius: 0,
+                barPercentage: 0.5,
+                categoryPercentage: 0.8,
+                datalabels: {
+                    color: "rgba(209, 213, 219, 1)",
+                    font: {
+                        weight: "bold",
+                    },
+                    align: 'right',
+                    formatter: function(value: string, context: any) {
+                        return value + "%"; // Aligns the labels to the right of the data bars
+                },
+                stack: "stack1"
             },
-        ]
+        },
+            {
+                label: "Potentiel",
+                data: nationalAverage.map(data => data.oppositePenGrade.toFixed(2)),
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                borderColor: 'rgba(0, 0, 0, 0.1)',
+                borderWidth: 1,
+                borderSkipped: false,
+                borderRadius: 0,
+                barPercentage: 0.5,
+                categoryPercentage: 0.8,
+                datalabels: {
+                    color: "rgba(209, 213, 219, 1)",
+                    font: {
+                        weight: "bold",
+                    },
+                    align: 'right',
+                    formatter: function(value: string, context: any) {
+                        return nationalAverage[context.dataIndex].alternativCost.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); // Vill försöka få in potentiel besparing som label här
+                },
+                stack: "stack1"
+            },
+        },
+    ]
+}
+
+    // floating labels
+    const floatingLabels = {
+
     }
 
     const progressBar = {
@@ -90,26 +121,26 @@ export default function NationalAvgPenGradeChart() {
             data.datasets[0].data.forEach((datapoint: number, index: number) => {
                 const fontSizeLabel = 12;
                 ctx.font = `${fontSizeLabel}px sans-serif`;
-                ctx.fillStyle ='rgba(0, 0, 0, 1)'; /* text colour */
-                ctx.textAlign = 'left';
+                ctx.fillStyle ="rgba(209, 213, 219, 1)"; /* text colour */
+               ctx.textAlign = 'left';
                 ctx.textBaseline = 'middle';
 
-                ctx.fillText(data.labels[index], left, y.getPixelForValue(index) - fontSizeLabel - 5);
+            ctx.fillText(data.labels[index], left, y.getPixelForValue(index) - fontSizeLabel - 5);
 
                 // valuetext
 
-                /* const fontSizeDatapoint = 15;
+                 const fontSizeDatapoint = 15;
                 ctx.font = `bolder ${fontSizeDatapoint}px sans-serif`;
-                ctx.fillStyle ='rgba(102, 102, 102, 1)'; /* progress bar colour 
+                ctx.fillStyle ='rgba(102, 102, 102, 1)';   
                 ctx.textAlign = 'right';
                 ctx.textBaseline = 'middle';
 
-                ctx.fillText(datapoint, right, y.getPixelForValue(index) - fontSizeDatapoint - 5); */
+                //ctx.fillText(datapoint, right, y.getPixelForValue(index) - fontSizeDatapoint - 5); 
 
                 
 
                 // bg color progress bar
-                ctx.fillStyle ='rgba(102, 102, 102, 1)'
+                ctx.fillStyle ='rgba(102, 102, 102, 0)'
                 ctx.beginPath();
                 ctx.fillStyle = data.datasets[0].borderColor[index];
                 ctx.fillRect(left, y.getPixelForValue(index) - barHeight/2, width, barHeight);
@@ -120,20 +151,23 @@ export default function NationalAvgPenGradeChart() {
             
         }
     }
+    
 
+    //våra options
     const options: any = {
         maintainAspectRatio: false, 
         indexAxis: 'y' as 'y',
-        plugins: {
-            legend: {
+        plugins: 
+            {legend: {
                 display: false,
-            },
-            datalabels: {
+                },
+                datalabels: {
                 display: true,
-             },
-        },
+                 },
+            },
         scales: {
             y: {
+                stacked: true,
                 border: {
                     display: false,
                   },
@@ -148,8 +182,10 @@ export default function NationalAvgPenGradeChart() {
                     display: false,
                     
                 }
+                
             },
             x: {
+                stacked: true,
                 border: {
                     display: false,
                   },
@@ -167,23 +203,19 @@ export default function NationalAvgPenGradeChart() {
                 suggestedMax: 100,
             },
         },
-        responsive: true
+        responsive: true,
       };
       // våra plugins
       const plugins = [progressBar];
-//flex relative
+
+
     return (
         <>
-      <div className="relative flex flex-col flex-grow w-auto h-96 break-words bg-white mb-3 my-3 mx-3 shadow-lg rounded">
-        <div className="w-full h-96">
-        <Bar className = "w-full mt-3"
+        <Bar className = "mt-3"
             data={chartData}
             options = {options}
             plugins = {plugins}
             /> 
-        </div>
-      </div>
-    </>
+        </>
     )
-
-}
+};

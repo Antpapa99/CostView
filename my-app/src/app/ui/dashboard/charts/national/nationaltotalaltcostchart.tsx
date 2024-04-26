@@ -53,11 +53,30 @@ export default function NationalAltCostChart() {
             {
                 label: "Nationell alternativkostnad SEK/år",
                 data: nationalAverage.map(data => data.alternativCost), // Använd alternativCost från det nationella genomsnittet för data
-                backgroundColor: backgroundColor,
+                backgroundColor: (context: { chart: any; }) => {
+                    // Retrieve the chart instance and the context (canvas)
+                    const chart = context.chart;
+                    const ctx = chart?.canvas?.getContext('2d');
+                    
+                    if (ctx) {
+                        // Create a linear gradient from top to bottom
+                        const gradient = ctx.createLinearGradient(0, 0, 0, chart.height);
+                        gradient.addColorStop(0, 'rgba(255,155,2,0.5)');
+                        gradient.addColorStop(0.6, "rgba(247,168,46,0.5)");
+                        gradient.addColorStop(1, 'rgba(31,41,55,0.5)');
+                        
+                        // Return the gradient as the background color
+                        return gradient;
+                    } else {
+                        // Fall back to a default color if ctx is not available
+                        return 'rgba(31,41,55,0.5)';
+                    }
+                },
                 borderWidth: 1,
                 datalabels: 
+
                 {
-                    color: "black",
+                    color: "rgba(209, 213, 219, 1)",
                     formatter: function(value: number, context: any) {
                         return value.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); // Aligns the labels to the right of the data bars
                 }
@@ -69,17 +88,35 @@ export default function NationalAltCostChart() {
     };
 
     const options: any = {
-        maintainAspectRatio: false}
+        maintainAspectRatio: false,
+        scales: {
+            x: {
+                ticks: {
+                    color: "rgba(209, 213, 219, 1)"
+                },
+            },
+            y: {
+                ticks: {
+                    color: "rgba(209, 213, 219, 1)"
+                },
+            },
+        },
+        plugins: {
+            legend: {
+                labels: {
+                    color: "rgba(209, 213, 219, 1)"
+                },
+            },
+        },
+    }
     
 
     return (
-        <div className= "w-full h-96 break-words bg-white mb-3 my-3 shadow-lg rounded">
-            <div className="h-96">
+
                 <Bar 
                     data={nationalAltCostChart}
                     options={options}
                 /> 
-            </div>
-        </div>
+
     );
 }
