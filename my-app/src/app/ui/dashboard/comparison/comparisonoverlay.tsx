@@ -24,7 +24,9 @@ export default function ComparisonOverlay({alternativCost}: any) {
       </section>
       <section className="grid grid-rows-1 grid-cols-3 gap-4 row-span-3 w-full bg-gray-800">
         <div className= "h-96 w-54 bg-gray-700">
+          <div className = "flex items-center"> 
         <ComparisonCommuneData alternativCost={alternativCost} onDataChange={handleDataChange}/>
+        </div>
         <PenGradeTopChart dataFilter={changedData}/>
         </div>
         <div className="h-96 w-54 bg-gray-700">
