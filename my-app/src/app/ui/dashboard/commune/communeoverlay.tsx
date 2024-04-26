@@ -56,8 +56,6 @@ export default function ChartBox({ selectedCommune }) {
     </div>
 </div>
 
-
-
             {/* Top right part */}
             <div className="bg-gray-800 rounded p-4" style={{ gridArea: "topRight" }}>
                 {selectedCommune && <TotalCostChart communeName={selectedCommune} />}

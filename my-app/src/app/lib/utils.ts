@@ -425,6 +425,7 @@ export async function calculateAvgPerCommune(communeData: any[string]): Promise<
     let total_install = 0;
     let total_possible = 0;
     let totalAlternativCost = 0;
+    let total_besparing = 0;
     
     
     technologies.forEach(tech => {
@@ -611,4 +612,6 @@ export async function penGradeValuePipeline(communeName: string) {
     penCost.push(avgPenetration[0]);
     return penCost;
 }
+
+
  

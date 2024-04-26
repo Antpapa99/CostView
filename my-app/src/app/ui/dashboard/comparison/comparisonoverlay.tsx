@@ -1,41 +1,40 @@
+'use client';
 import { fetchCommune } from "@/app/lib/data";
 import PenGradeTopChart from "../charts/comparison/pengradetopchart";
 import { useEffect, useState } from "react";
-import { getCommuneAvg } from "@/app/lib/utils";
+import { calculateSavingPotential, getCommuneAvg } from "@/app/lib/utils";
 import { ComparisonCommuneData } from "./comparisonbuttons";
+import SavingsComparePotetialChart from "../charts/comparison/besparingchart";
 
 export default function ComparisonOverlay({alternativCost}: any) {
 
   const [changedData, setDataChange] = useState<any[]>([]);
+
   
     const handleDataChange = (alternativCost: any) => {
         setDataChange(alternativCost)};
     
-    return (
-      <>
-      <section className="grid grid-cols-3 gap-10 bg-white h-44">
-      
-      <div className="grid grid-cols-3 gap-5 bg-red-100 h-40"></div>
-
-      <div className="grid grid-cols-3 gap-5 bg-red-100 h-40"></div>
-
-      <div className="grid grid-cols-3 gap-5 bg-red-100 h-40"></div>
-
+  return (
+    <section className="grid grid-cols-1 grid-flow-rows-1 gap-4 h-full w-full">
+      <section className="grid grid-rows-1 gap-4 row-span-1 w-full bg-gray-800">
       </section>
+      <section className="grid grid-rows-1 grid-cols-3 gap-4 row-span-3 w-full bg-gray-800">
+        <div className="flex flex-grow h-full">
+        <ComparisonCommuneData alternativCost={alternativCost} onDataChange={handleDataChange}/>
+        <PenGradeTopChart dataFilter={changedData}/>
+        <SavingsComparePotetialChart dataFilter={changedData}/>
 
-      <section className="grid grid-cols-2 gap-10 bg-white h-96">
-
-      <div className="grid grid-cols-3 gap-5 bg-red-100">
-      <div className="flex">
-        <ComparisonCommuneData alternativCost={alternativCost} onDataChange={handleDataChange} ></ComparisonCommuneData>
-        <PenGradeTopChart dataFilter={changedData} ></PenGradeTopChart>
         </div>
-      </div>
-
-
-      <div className="grid grid-cols-3 gap-5 bg-red-100"></div>
-
+        <div>
+          
+          
+        </div>
+        <div>
+          
+        </div>
       </section>
-      </>
-    );
+      
+    </section>
+
+  )
 }

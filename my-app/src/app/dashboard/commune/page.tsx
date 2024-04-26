@@ -28,7 +28,7 @@ export default function Page({ children }: PageProps) {
       <div className="w-full h-full md:w-150"> {/* Size of boxes */}
       <ChartBox selectedCommune = {selectedCommune} />
       </div>
-      <div className="grow p-6 md:overflow-y-auto md:p-12">{children}</div>
+      <div className="grow p-1 md:overflow-y-auto md:p-1">{children}</div>
     </div>
   );
 }
