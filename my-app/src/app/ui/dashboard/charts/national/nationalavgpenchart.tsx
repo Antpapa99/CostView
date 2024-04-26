@@ -21,7 +21,6 @@ export default function NationalAvgPenGradeChart() {
     }, []);
     
 
-
 function generateGradientColor(penCost: number) {
     // Färgen baserat på procent
     const percentage = penCost / 100;

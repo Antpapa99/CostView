@@ -3,6 +3,7 @@ import Link from 'next/link';
 import NavLinks from '@/app/ui/dashboard/nav-links';
 import Image from 'next/image'
 import logo from '/public/costviewlogo.png'
+
 export default function SideNav() {
   return (
     <div className="bg-black-600 flex h-full flex-col px-3 py-4 md:px-2">
