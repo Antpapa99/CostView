@@ -3,7 +3,6 @@ import ChartBox from '@/app/ui/dashboard/commune/communeoverlay';
 import { useState, useEffect } from 'react';
 import CommuneDropdownItem from '@/app/ui/dashboard/commune/communedropdown';
 import "@/app/globals.css";
-import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
 interface PageProps {
