@@ -61,8 +61,8 @@ export default function NationalAltCostChart() {
                     if (ctx) {
                         // Create a linear gradient from top to bottom
                         const gradient = ctx.createLinearGradient(0, 0, 0, chart.height);
-                        gradient.addColorStop(0, 'rgba(255,155,2,0.5)');
-                        gradient.addColorStop(0.6, "rgba(247,168,46,0.5)");
+                        gradient.addColorStop(0, 'rgba(255, 0, 0, 0.5)');
+                        gradient.addColorStop(0.6, 'rgba(159, 0, 0, 0.5)');
                         gradient.addColorStop(1, 'rgba(31,41,55,0.5)');
                         
                         // Return the gradient as the background color
@@ -72,7 +72,8 @@ export default function NationalAltCostChart() {
                         return 'rgba(31,41,55,0.5)';
                     }
                 },
-                borderWidth: 1,
+                borderWidth: 3,
+                borderColor: 'rgba(255, 0, 0, 0.5)',
                 datalabels: 
 
                 {

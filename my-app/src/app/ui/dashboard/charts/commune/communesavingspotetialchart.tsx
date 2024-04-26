@@ -126,16 +126,16 @@ export default function SavingsPotetialChart({ communeName }: { communeName: any
             {
                 label: "Total alternativkonstnad SEK/år", // Labeln för datasetet
                 data: savingsPotential.map(data => data.totalAlternativCost.toFixed(0)), // Data för staplarna
-                backgroundColor: 'rgba(186, 0, 0, 0.5)',
-                borderColor: 'rgba(186, 0, 0)',
+                backgroundColor: 'rgba(255, 0, 0, 0.5)',
+                borderColor: 'rgba(255, 0, 0)',
                 borderWidth: 3,
                 stack: 'stack1' // Ange en stack-namn för detta dataset
             },
             {
                 label: "Omslutning SEK/år",
                 data: savingsPotential.map(data => data.cost),
-                backgroundColor: 'rgba(27, 163, 156, 0.5)',
-                borderColor: 'rgba(27, 163, 156)',
+                backgroundColor: 'rgba(108, 201, 247, 0.5)',
+                borderColor: 'rgba(108, 201, 247)',
                 borderWidth: 3,
                 stack: 'stack1' // Ange samma stack-namn som det föregående datasetet
             }
