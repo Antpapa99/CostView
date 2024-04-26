@@ -186,14 +186,44 @@ const backgroundColor = communeCost.map(data => {
     const options: any = {
         maintainAspectRatio: false, 
         indexAxis: 'y' as 'y',
-        plugins: 
-            {legend: {
+        plugins: {
+            legend: {
                 display: false,
-                },
-                datalabels: {
-                display: true,
-                 },
             },
+            datalabels: {
+                display: true,
+            },
+            tooltip: {
+                callbacks: {
+                // Customize the label text for each tooltip item
+                label: function(context: any) {
+                    // Check which dataset is being hovered over
+                    if (context.dataset.label === "Penetrationsgrad") {
+                        // Return the text "hej" for the "Penetrationsgrad" dataset
+                        return [
+                            `Penetrationsgrad: ${context.raw}%`,
+                            `Beräknas utifrån:\n(antal möjliga installationer / antal installationer) * 100`
+
+                        ];
+
+                    } else if (context.dataset.label === "Potentiel") {
+                        // Return the text "hejdå" for the "Potentiel" dataset
+                        return [
+                            `AlternativKostnad: ${communeCost[context.dataIndex].alternativCost.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} kr`,
+                            `Beräknas utifrån:\n(antal möjliga installationer / antal installationer) * besparing per år`
+                        ];
+                    }
+                    // Default behavior (optional)
+                    return `${context.dataset.label}: ${context.raw}`;
+                },
+                    
+                },
+               
+            }
+
+            
+            },
+
         scales: {
             y: {
                 stacked: true,
