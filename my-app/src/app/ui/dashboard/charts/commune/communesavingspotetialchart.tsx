@@ -89,7 +89,34 @@ export default function SavingsPotetialChart({ communeName }: { communeName: any
                     color: "rgba(209, 213, 219, 1)"
                 },
             },
+            tooltip: {
+                callbacks: {
+                // Customize the label text for each tooltip item
+                label: function(context: any) {
+                    // Check which dataset is being hovered over
+                    if (context.dataset.label === "Total alternativkonstnad SEK/år") {
+                        
+                        return [
+                            `Alternativkostnad: ${context.raw.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} SEK/år`,
+                            `Besparingspotential: \n${savingsPotential[0]["savingPotential"].toFixed(0) + '%'}`,
+                            `Alternativkostnad beräknas utifrån:\n(antal möjliga installationer / antal installationer) * besparing per installation(SEK/år)`,
+                            `Besparingspotential beräknas utifrån:\n(alternativkostnad/omslutning) * 100`,
+                            "\nOm besparing per installation inte angetts används ett nationellt genomsnitt för beräkningarna"
+                        ];
 
+                    }else if (context.dataset.label === "Omslutning SEK/år") {                      
+                        return [
+                            `Omslutning: ${context.raw.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} SEK/år`,
+                            `Hämtad från SCB: \nKostnad eget åtagande för kommunens omsorg om äldre och personer med funktionsnedsätting (2022)`,                         
+                        ];
+                    } 
+                    // Default behavior (optional)
+                    return `${context.dataset.label}: ${context.raw}`;
+                },
+                    
+                },
+               
+            }
          }
          
     };

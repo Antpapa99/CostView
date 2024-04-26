@@ -209,8 +209,9 @@ const backgroundColor = communeCost.map(data => {
                     } else if (context.dataset.label === "Potentiel") {
                         // Return the text "hejdå" for the "Potentiel" dataset
                         return [
-                            `AlternativKostnad: ${communeCost[context.dataIndex].alternativCost.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} kr`,
-                            `Beräknas utifrån:\n(antal möjliga installationer / antal installationer) * besparing per år`
+                            `AlternativKostnad: ${communeCost[context.dataIndex].alternativCost.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} SEK/år`,
+                            `Beräknas utifrån:\n(antal möjliga installationer / antal installationer) * besparing per installation(SEK/år)`,
+                            "\nOm besparing per installation inte angetts används ett nationellt genomsnitt för beräkningarna"
                         ];
                     }
                     // Default behavior (optional)
