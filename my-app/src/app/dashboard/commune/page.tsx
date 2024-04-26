@@ -18,7 +18,7 @@ export default function Page({ children }: PageProps) {
 
     useEffect(() => {
       localStorage.setItem('selectedCommune', selectedCommune || '');
-    }, [selectedCommune]);
+    }, []);
   
 
   return (
