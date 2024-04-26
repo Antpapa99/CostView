@@ -11,7 +11,7 @@ import {
     Legend,
     plugins,
 } from 'chart.js/auto';
-import { calculateAvgAllCommunes, calculateAvgPerCommune, calculateCostAllCommunes, calculateCostSpecificCommune, calculateNationalAverage, calculateSavingPotential, getSpecficCommuneCost } from '@/app/lib/utils';
+import { calculateAvgAllCommunes, calculateCostAllCommunes, calculateCostSpecificCommune, calculateNationalAverage, calculateSavingPotential, getSpecficCommuneCost } from '@/app/lib/utils';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { fetchCommune } from '@/app/lib/data';
 import { reverse } from 'dns';
@@ -96,8 +96,13 @@ export default function ScatterPlot() {
                   }
               }
           },
-          datalabels: {
-              display: false // Om du vill dölja datalabels
+        datalabels: {
+            color: "rgba(209, 213, 219, 1)",
+            display: true, // Om du vill dölja datalabels
+            align: 'right',
+            formatter: function(value: string, context: any) {
+                return nationalCommuneAverageData[context.dataIndex].communeName; // Aligns the labels to the right of the data bars
+            },
           },
           
         legend: {
