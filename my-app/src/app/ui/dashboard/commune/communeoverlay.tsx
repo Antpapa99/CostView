@@ -28,26 +28,26 @@ export default function ChartBox({ selectedCommune }: any) {
 <div className="grid grid-rows-2 grid-cols-1 gap-4 bg-gray-800" style={{ gridArea: 'topLeft' }}>
     {/* Row with the three cards */}
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-gray-700 p-4 rounded">
-            <p className="text-gray-300 text-lg font-semibold mb-2">Sparad HTE</p>
-            <p className="text-4xl font-bold text-green-400">{selectedCommune && <HteCard communeName={selectedCommune} />}</p>
+        <div className="bg-gray-700 p-4 rounded flex flex-col justify-center items-center">
+            <p className="text-gray-300 text-lg font-semibold mb-2 text-center">Sparad HTE</p>
+            <p className="text-4xl font-bold text-green-400 text-center">{selectedCommune && <HteCard communeName={selectedCommune} />}</p>
         </div>
 
-        <div className="bg-gray-700 p-4 rounded">
-            <p className="text-gray-300 text-lg font-semibold mb-2">Alternativkostnad per person</p>
-            <p className="text-4xl font-bold text-green-400">{selectedCommune && <PerCapitaCard communeName={selectedCommune} />} kr</p>
+        <div className="bg-gray-700 p-4 rounded flex flex-col justify-center items-center">
+            <p className="text-gray-300 text-lg font-semibold mb-2 text-center">Alternativkostnad per person</p>
+            <p className="text-4xl font-bold text-green-400 text-center">{selectedCommune && <PerCapitaCard communeName={selectedCommune} />} kr</p>
         </div>
 
-        <div className="bg-gray-700 p-4 rounded">
-            <p className="text-gray-300 text-lg font-semibold mb-4">{currentTechnology}</p>
-            <p className="text-gray-300 text-lg font-semibold mb-4">ROI: {currentROI}</p>
-            <button
-                className="w-32 px-2 text-gray-300 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:border-blue-300"
-                onClick={handleClick}
-            >
-                Switch Technology
-            </button>
-        </div>
+        <div className="bg-gray-700 p-4 rounded flex flex-col justify-center items-center">
+    <p className="text-gray-300 text-lg font-semibold mb-4 text-center">{currentTechnology}</p>
+    <p className="text-gray-300 text-lg font-semibold mb-4 text-center">ROI: {currentROI}</p>
+    <button
+        className="flex w-32 px-2 text-gray-300 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:border-blue-300"
+        onClick={handleClick}
+    >
+        Switch Technology
+    </button>
+</div>
     </div>
 
     {/* Row with the SavingsPotentialChart */}
