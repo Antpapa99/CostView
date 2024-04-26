@@ -4,8 +4,6 @@ import { useState, useEffect } from 'react';
 import CommuneDropdownItem from '@/app/ui/dashboard/commune/communedropdown';
 import "@/app/globals.css";
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
-import { Suspense } from 'react';
 
 interface PageProps {
   children: React.ReactNode;
@@ -14,7 +12,7 @@ interface PageProps {
 
 export default function Page({ children }: PageProps) {
   const [selectedCommune, setSelectedCommune] = useState(null);
-  const searchParams = useSearchParams()
+  console.log("Test")
   
 
 
@@ -24,7 +22,7 @@ export default function Page({ children }: PageProps) {
 
 
     useEffect(() => {
-      const savedValue = window.localStorage.getItem('selectedCommune');
+      const savedValue: any = window.localStorage.getItem('selectedCommune');
       setSelectedCommune(savedValue)
       
     },[])
@@ -40,7 +38,6 @@ export default function Page({ children }: PageProps) {
   
 
   return (
-    <Suspense>
     <div className="flex h-screen flex-col md:flex-col md:overflow-hidden">
       <CommuneDropdownItem onCommuneChange={handleCommuneChange} />
       <div className="w-full h-full md:w-150"> {/* Size of boxes */}
@@ -48,7 +45,6 @@ export default function Page({ children }: PageProps) {
       </div>
       <div className="grow p-1 md:overflow-y-auto md:p-1">{children}</div>
     </div>
-    </Suspense>
   );
 };
 

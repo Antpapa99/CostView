@@ -6,13 +6,12 @@ import PenValueChart from "../charts/commune/communepenvaluechart";
 import TotalCostChart from "../charts/commune/communenormalcostchart"; 
 import SavingsPotetialChart from "../charts/commune/communesavingspotetialchart";
 import { useRouter } from "next/router";
-import { useSearchParams } from "next/navigation";
 import PerCapitaCard from "./percapitacard";
 import CommuneRadarChart from "../charts/commune/communeradarchart";
 import HteCard from "./htecard";
 import ReturnOfInvestmentCard from "./investmentcard";
 
-export default function ChartBox({ selectedCommune }) {
+export default function ChartBox({ selectedCommune }:any) {
     const { currentTechnology, currentROI, handleClick } = selectedCommune
         ? ReturnOfInvestmentCard({ communeName: selectedCommune })
         : { currentTechnology: null, currentROI: null, handleClick: () => {} };
