@@ -7,4 +7,10 @@ const nextConfig = {typescript: {
     ignoreBuildErrors: true,
   },};
 
+  module.exports = {
+    experimental: {
+      missingSuspenseWithCSRBailout: false,
+    },
+  }
+
 export default nextConfig;
