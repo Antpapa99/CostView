@@ -27,20 +27,19 @@ export default function Page({ children }: PageProps) {
       const savedValue = window.localStorage.getItem('selectedCommune');
       setSelectedCommune(savedValue)
       
-    })
+    },[])
     
     useEffect(() => {
       if(typeof selectedCommune === 'string') {
       window.localStorage.setItem('selectedCommune', selectedCommune || '');
     }
-    }, []);
+    }, [selectedCommune]);
 
     
   
   
 
   return (
-    <>
     <Suspense>
     <div className="flex h-screen flex-col md:flex-col md:overflow-hidden">
       <CommuneDropdownItem onCommuneChange={handleCommuneChange} />
@@ -50,7 +49,6 @@ export default function Page({ children }: PageProps) {
       <div className="grow p-1 md:overflow-y-auto md:p-1">{children}</div>
     </div>
     </Suspense>
-    </>
   );
 };
 
