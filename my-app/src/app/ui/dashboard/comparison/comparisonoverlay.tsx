@@ -23,11 +23,13 @@ export default function ComparisonOverlay({alternativCost}: any) {
         </div>
       </section>
       <section className="grid grid-rows-1 grid-cols-3 gap-4 row-span-3 w-full bg-gray-800">
-        <div className= "h-96 w-54 bg-gray-700">
-          <div className = "flex items-center"> 
+        <div className= "h-full w-54 bg-gray-700">
+          <div className = "grid place-items-center"> 
         <ComparisonCommuneData alternativCost={alternativCost} onDataChange={handleDataChange}/>
         </div>
+          <div className = "h-96">
         <PenGradeTopChart dataFilter={changedData}/>
+          </div>
         </div>
         <div className="h-96 w-54 bg-gray-700">
         <SavingsComparePotetialChart />
