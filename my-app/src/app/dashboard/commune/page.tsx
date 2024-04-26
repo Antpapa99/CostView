@@ -11,19 +11,27 @@ interface PageProps {
 }
 
 export default function Page({ children }: PageProps) {
-  if (typeof window !== 'undefined') { 
-
-    
-  
-  const [selectedCommune, setSelectedCommune] = useState(() => localStorage.getItem('selectedCommune'));
+  const [selectedCommune, setSelectedCommune] = useState(null);
 
 
   const handleCommuneChange = (kommun: any) => {
-    setSelectedCommune(kommun)};
+    setSelectedCommune(kommun); }
+
 
     useEffect(() => {
-      localStorage.setItem('selectedCommune', selectedCommune || '');
+      const savedValue = window.localStorage.getItem('selectedCommune');
+      setSelectedCommune(savedValue)
+      
+    })
+    
+    useEffect(() => {
+      if(typeof selectedCommune === 'string') {
+      window.localStorage.setItem('selectedCommune', selectedCommune || '');
+    }
     }, []);
+
+    
+  
   
 
   return (
@@ -37,7 +45,7 @@ export default function Page({ children }: PageProps) {
     </div>
   );
 };
-}
+
 
 
 
