@@ -59,12 +59,22 @@ export default function ScatterPlot() {
               position: 'bottom',
               suggestedMin: 0,
               suggestedMax: 100,
+              ticks: {
+                color: "rgba(209, 213, 219, 1)"
+                },
               
           },
           y: {
-            reverse: false
+            reverse: false,
+            ticks: {
+                color: "rgba(209, 213, 219, 1)"
+            },
           },
       },
+      
+
+
+    
       plugins: {
           tooltip: {
               callbacks: {
@@ -88,7 +98,14 @@ export default function ScatterPlot() {
           },
           datalabels: {
               display: false // Om du vill dölja datalabels
-          }
+          },
+          
+        legend: {
+                labels: {
+                    color: "rgba(209, 213, 219, 1)"
+                },
+            },
+        
       }
   };
   
@@ -120,14 +137,10 @@ export default function ScatterPlot() {
 
     return (
       <>
-      <div className="w-full h-full break-words bg-white mb-3 my-3 shadow-lg rounded">
-        <div className="p-4 flex-auto h-full">
         <Scatter 
             data={chartData}
             options = {options}
             /> 
-        </div>
-      </div>
     </>
     )
 
