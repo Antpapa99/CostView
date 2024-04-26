@@ -5,12 +5,11 @@ const nextConfig = {typescript: {
     // your project has type errors.
     // !! WARN !!
     ignoreBuildErrors: true,
-  },};
+  },
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  }};
 
-  module.exports = {
-    experimental: {
-      missingSuspenseWithCSRBailout: false,
-    },
-  }
+ 
 
 export default nextConfig;
