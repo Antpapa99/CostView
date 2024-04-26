@@ -2,6 +2,7 @@
 import { fetchCommune, fetchSpecificCommune, getServerSideKommunpopgruppData, getServerSideOmslutningData } from '@/app/lib/data';
 import { promises as fs } from "fs";
 import { comment } from 'postcss';
+import SavingsPotetialChart from '../ui/dashboard/charts/commune/communesavingspotetialchart';
 /* let penCost = (installationer/möjliga installationer)*100
 Alternativkostnad = (möjliga installationer-installationer)*Arlig_besparing_per_installation_SEK
 Total kostnad = (möjliga installationer-installationer) * Kostnad_per_installation
@@ -649,6 +650,13 @@ export async function penGradeValuePipelineNational() {
     const communeData = await fetchCommune();
     const avgPenetration = await calculateNationalAvgPenetration(communeData);
     return avgPenetration;
+}
+
+export async function SavingPotentialPipelineAllCommune() {
+    const communeData = await fetchCommune();
+    const costData = await calculateCostAllCommunes(communeData);
+    const savingData = await calculateSavingPotentialAllCommunes(costData);
+    return savingData;
 }
 
 

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { calculateSavingPotential, getCommuneAvg } from "@/app/lib/utils";
 import { ComparisonCommuneData } from "./comparisonbuttons";
 import SavingsComparePotetialChart from "../charts/comparison/besparingchart";
+import AltCostCompareChart from "../charts/comparison/alternativkostnaderchart";
 
 export default function ComparisonOverlay({alternativCost}: any) {
 
@@ -22,13 +23,11 @@ export default function ComparisonOverlay({alternativCost}: any) {
         <div className="flex flex-grow h-full">
         <ComparisonCommuneData alternativCost={alternativCost} onDataChange={handleDataChange}/>
         <PenGradeTopChart dataFilter={changedData}/>
-        <SavingsComparePotetialChart dataFilter={changedData}/>
-
         </div>
         <div>
-          
-          
+        <SavingsComparePotetialChart />
         </div>
+        <AltCostCompareChart />
         <div>
           
         </div>
