@@ -12,7 +12,7 @@ import CommuneRadarChart from "../charts/commune/communeradarchart";
 import HteCard from "./htecard";
 import ReturnOfInvestmentCard from "./investmentcard";
 
-export default function ChartBox({ selectedCommune }) {
+export default function ChartBox({ selectedCommune }: any) {
     const { currentTechnology, currentROI, handleClick } = selectedCommune
         ? ReturnOfInvestmentCard({ communeName: selectedCommune })
         : { currentTechnology: null, currentROI: null, handleClick: () => {} };
