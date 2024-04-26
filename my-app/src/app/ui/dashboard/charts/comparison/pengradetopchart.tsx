@@ -173,13 +173,11 @@ export default function PenGradeTopChart({dataFilter}: any) {
 
     return (
         <>
-            <div className="flex-1 h-96 bg-red-100 mb-3 my-3 shadow-lg rounded">
                     <Bar className=""
                         data={chartData}
                         options={options}
                         plugins={plugins}
-                    />
-            </div>
+                        />
         </>
     );
 };
