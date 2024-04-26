@@ -11,8 +11,13 @@ interface PageProps {
 }
 
 export default function Page({ children }: PageProps) {
-  const [selectedCommune, setSelectedCommune] = useState(() => localStorage.getItem('selectedCommune'));
+  if (typeof window !== 'undefined') { 
+
+    
   
+  const [selectedCommune, setSelectedCommune] = useState(() => localStorage.getItem('selectedCommune'));
+
+
   const handleCommuneChange = (kommun: any) => {
     setSelectedCommune(kommun)};
 
@@ -31,6 +36,7 @@ export default function Page({ children }: PageProps) {
       <div className="grow p-1 md:overflow-y-auto md:p-1">{children}</div>
     </div>
   );
+};
 }
 
 
