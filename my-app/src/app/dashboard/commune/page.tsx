@@ -13,6 +13,7 @@ interface PageProps {
 export default function Page({ children }: PageProps) {
   const [selectedCommune, setSelectedCommune] = useState(null);
   console.log("Test")
+  console.log("mac is weird")
   
 
 
