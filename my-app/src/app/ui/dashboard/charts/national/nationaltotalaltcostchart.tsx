@@ -107,6 +107,26 @@ export default function NationalAltCostChart() {
                     color: "rgba(209, 213, 219, 1)"
                 },
             },
+            tooltip: {
+                callbacks: {
+                // Customize the label text for each tooltip item
+                label: function(context: any) {
+                    // Check which dataset is being hovered over
+                    if (context.dataset.label === "Nationell alternativkostnad SEK/år") {
+                        
+                        return [
+                            `Nationell alternativkostnad: ${context.raw.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} SEK/år`,
+                            `Beräknas utifrån:\n(totala antalet möjliga installationer - totala antalet installationer) * genomsnittlig kostnad per installation`,
+                        ];
+
+                    } 
+                    // Default behavior (optional)
+                    return `${context.dataset.label}: ${context.raw}`;
+                },
+                    
+                },
+               
+            }
         },
     }
     

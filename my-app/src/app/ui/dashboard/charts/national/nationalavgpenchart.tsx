@@ -163,6 +163,35 @@ const backgroundColor = nationalAverage.map(data => {
                 datalabels: {
                 display: true,
                  },
+                 tooltip: {
+                    callbacks: {
+                    // Customize the label text for each tooltip item
+                    label: function(context: any) {
+                        // Check which dataset is being hovered over
+                        if (context.dataset.label === "Penetrationsgrad") {
+                            // Return the text "hej" for the "Penetrationsgrad" dataset
+                            return [
+                                `Penetrationsgrad: ${context.raw}%`,
+                                `Beräknas utifrån:\n(antal möjliga installationer / antal installationer) * 100`
+    
+                            ];
+    
+                        } else if (context.dataset.label === "Potentiel") {
+                            // Return the text "hejdå" for the "Potentiel" dataset
+                            return [
+                                `AlternativKostnad: ${nationalAverage[context.dataIndex].alternativCost.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} SEK/år`,
+                                `Beräknas utifrån:\n(antal möjliga installationer / antal installationer) * besparing per installation(SEK/år)`,
+                                "\nOm besparing per installation inte angetts används ett nationellt genomsnitt för beräkningarna"
+                            ];
+                        }
+                        // Default behavior (optional)
+                        return `${context.dataset.label}: ${context.raw}`;
+                    },
+                        
+                    },
+                   
+                }                 
+
             },
         scales: {
             y: {
