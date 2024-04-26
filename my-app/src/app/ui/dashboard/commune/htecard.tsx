@@ -26,10 +26,3 @@ export default function HteCard({ communeName }: { communeName: any } ) {
     return (realHTE)
 
 }
-
-/*
-<>
-<p className="text-gray-300 text-lg font-semibold mb-4">Sparad HTE</p>
-<p className="text-4xl font-bold text-green-400">{realHTE}</p>
-</>
-*/
