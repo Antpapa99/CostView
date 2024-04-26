@@ -24,20 +24,20 @@ export default function ChartBox({ selectedCommune }: any) {
 
 
 {/* Top left part */}
-<div className="grid grid-rows-2 grid-cols-1 gap-4 bg-gray-800" style={{ gridArea: 'topLeft' }}>
+<div className="grid grid-rows-2 grid-cols-1 gap-4" style={{ gridArea: 'topLeft' }}>
     {/* Row with the three cards */}
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-gray-700 p-4 rounded flex flex-col justify-center items-center">
+        <div className="bg-gray-800 p-4 rounded flex flex-col justify-center items-center">
             <p className="text-gray-300 text-lg font-semibold mb-2 text-center">Sparad HTE</p>
             <p className="text-4xl font-bold text-green-400 text-center">{selectedCommune && <HteCard communeName={selectedCommune} />}</p>
         </div>
 
-        <div className="bg-gray-700 p-4 rounded flex flex-col justify-center items-center">
+        <div className="bg-gray-800 p-4 rounded flex flex-col justify-center items-center">
             <p className="text-gray-300 text-lg font-semibold mb-2 text-center">Alternativkostnad per person</p>
             <p className="text-4xl font-bold text-green-400 text-center">{selectedCommune && <PerCapitaCard communeName={selectedCommune} />} kr</p>
         </div>
 
-        <div className="bg-gray-700 p-4 rounded flex flex-col justify-center items-center">
+        <div className="bg-gray-800 p-4 rounded flex flex-col justify-center items-center">
     <p className="text-gray-300 text-lg font-semibold mb-4 text-center">{currentTechnology}</p>
     <p className="text-gray-300 text-lg font-semibold mb-4 text-center">ROI: {currentROI}</p>
     <button
@@ -50,7 +50,7 @@ export default function ChartBox({ selectedCommune }: any) {
     </div>
 
     {/* Row with the SavingsPotentialChart */}
-    <div className="grid justify-center items-center">
+    <div className="grid justify-center bg-gray-800 items-center">
         {selectedCommune && <SavingsPotetialChart communeName={selectedCommune} />}
     </div>
 </div>
