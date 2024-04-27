@@ -126,6 +126,7 @@ export default function CommuneRadarChart({ communeName }: { communeName: any })
     //våra options
     const options: any = {
         maintainAspectRatio: false,
+        responsive: true,
         scales: {
             r: {
                 angleLines: {

@@ -271,7 +271,7 @@ const backgroundColor = communeCost.map(data => {
 
     return (
         <>
-        <Bar className = "mt-3"
+        <Bar className = ""
             data={chartData}
             options = {options}
             plugins = {plugins}
