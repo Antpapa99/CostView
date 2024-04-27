@@ -186,6 +186,12 @@ const backgroundColor = communeCost.map(data => {
     const options: any = {
         maintainAspectRatio: false, 
         indexAxis: 'y' as 'y',
+        layout: {
+            padding: {
+                top: 25,
+            }
+            
+        },
         plugins: {
             legend: {
                 display: false,
