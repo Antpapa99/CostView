@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import useSWR, { Fetcher } from 'swr';
 
 
-export default function CommuneDropdownItem({ onCommuneChange }: { onCommuneChange: Function }){
+export default function CommuneDropdownItem({ onCommuneChange, selectedCommune }: { onCommuneChange: Function, selectedCommune: any }){
     const [kommuner, setKommuner] = useState([])
     const router = useRouter()
     const searchParams = useSearchParams()
@@ -24,13 +24,13 @@ export default function CommuneDropdownItem({ onCommuneChange }: { onCommuneChan
         onCommuneChange(selectedKommun);
     }
 
- 
+    console.log(selectedCommune);
 
     return(
     <div className="flex justify-center">
     <select className="w-64	px-2 justify-center text-white text-center bg-gray-800 border border-gray-600 rounded-md focus:outline-none  focus:border-blue-300"
     onChange={handleCommuneChange}>
-                <option>Välj en kommun</option>
+                <option>{selectedCommune}</option>
                 {kommuner.map((item: any, index: any) => (
                 <option key={index} value={item.commune_name}>{item.display_name} </option>
             ))}
@@ -38,6 +38,7 @@ export default function CommuneDropdownItem({ onCommuneChange }: { onCommuneChan
             
   
     </select>
+    
     </div>
     )
 }

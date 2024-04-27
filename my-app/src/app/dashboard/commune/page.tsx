@@ -34,13 +34,13 @@ export default function Page({ children }: PageProps) {
     }
     }, [selectedCommune]);
 
-    
+  console.log(selectedCommune, "Line 37")
   
   
 
   return (
     <div className="flex h-screen flex-col md:flex-col md:overflow-hidden gap-3">
-      <CommuneDropdownItem onCommuneChange={handleCommuneChange} />
+      <CommuneDropdownItem selectedCommune={selectedCommune} onCommuneChange={handleCommuneChange} />
       <div className="w-full h-full md:w-150"> {/* Size of boxes */}
       <ChartBox selectedCommune = {selectedCommune} />
       </div>
