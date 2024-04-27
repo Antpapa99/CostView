@@ -17,7 +17,7 @@ export default function ChartBox({ selectedCommune }: any) {
         : { currentTechnology: null, currentROI: null, handleClick: () => {} };
 
     return (
-        <section className="grid h-full grid-rows-4 md:grid-rows-2 md:grid-cols-2 gap-4 overflow-scroll md:overflow-hidden md:w-full md:h-full" style={{ gridTemplateAreas: `
+        <section className="grid h-full md:grid-rows-2 md:grid-cols-2 gap-4 overflow-scroll md:overflow-hidden md:w-full md:h-full" style={{ gridTemplateAreas: `
                 "topLeft topRight"
                 "bottomLeft bottomRight"
             `}}>
