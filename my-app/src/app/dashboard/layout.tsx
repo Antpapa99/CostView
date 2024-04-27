@@ -7,11 +7,11 @@ interface PageProps {
 
 export default function Layout({ children }: PageProps) {
   return (
-    <div className="bg-gray-900 flex">
+    <div className="flex h-screen flex-col bg-gray-900 md:flex-row md:overflow-auto">
       <div className="bg-gradient-to-r from-violet-600 to-indigo-600 w-full flex-relative md:w-64 shadow rounded ">
         <SideNav  />
       </div>
-      <div className="md:container md:mx-auto px-4">{children}</div>
+      <div className="flex-grow p-1 md:overflow-y-auto md:p-1">{children}</div>
     </div>
   );
 }
