@@ -27,14 +27,14 @@ export default function ComparisonOverlay({alternativCost}: any) {
           <div className = "grid place-items-center"> 
         <ComparisonCommuneData alternativCost={alternativCost} onDataChange={handleDataChange}/>
         </div>
-          <div className = "h-96">
+          <div className = "flex">
         <PenGradeTopChart dataFilter={changedData}/>
           </div>
         </div>
-        <div className="h-96 w-54 bg-gray-700">
-        <SavingsComparePotetialChart />
+        <div className="flex bg-gray-700">
+        <SavingsComparePotetialChart></SavingsComparePotetialChart>
         </div>
-        <div className="h-96 w-54 bg-gray-700">
+        <div className="flex bg-gray-700">
         <AltCostCompareChart />
         </div>
         <div>

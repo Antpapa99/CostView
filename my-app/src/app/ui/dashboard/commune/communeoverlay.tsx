@@ -37,15 +37,17 @@ export default function ChartBox({ selectedCommune }: any) {
             <p className="text-4xl font-bold text-green-400 text-center">{selectedCommune && <PerCapitaCard communeName={selectedCommune} />} kr</p>
         </div>
 
-        <div className="bg-gray-800 p-4 rounded justify-center items-center  flex-relative">
+        <div className="bg-gray-800 p-4 rounded justify-center  items-center flex-relative">
     <p className="text-gray-300 text-lg font-semibold mb-4 text-center">{currentTechnology}</p>
     <p className="text-gray-300 text-lg font-semibold mb-4 text-center">ROI: {currentROI}</p>
     <button
-        className="flex w-32 px-2 text-gray-300 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:border-blue-300"
+        className="flex items-center text-gray-300 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:border-blue-300"
         onClick={handleClick}
     >
-        Switch Technology
+         <p className="flex-1 text-gray-300 text-sm font-semibold mb-4 text-center">Switch Technology</p>
     </button>
+    <select>
+    </select>
 </div>
     </div>
 
