@@ -58,17 +58,17 @@ export default function ChartBox({ selectedCommune }: any) {
 </div>
 
             {/* Top right part */}
-            <div className="bg-gray-800 h-96 rounded p-4" style={{ gridArea: "topRight" }}>
+            <div className="bg-gray-800 h-96 w-fit md:w-full rounded p-4" style={{ gridArea: "topRight" }}>
                 {selectedCommune && <TotalCostChart communeName={selectedCommune} />}
             </div>
 
             {/* Bottom left part */}
-            <div className="bg-gray-800 h-96 rounded p-4" style={{ gridArea: "bottomLeft" }}>
+            <div className="bg-gray-800 h-96 w-fit md:w-full rounded p-4" style={{ gridArea: "bottomLeft" }}>
                 {selectedCommune && <PenValueChart communeName={selectedCommune} />}
             </div>
 
             {/* Bottom right part */}
-            <div className="bg-gray-800 h-96 rounded p-4" style={{ gridArea: "bottomRight" }}>
+            <div className="bg-gray-800 h-96 w-fit md:w-full rounded p-4" style={{ gridArea: "bottomRight" }}>
                 {selectedCommune && <CommuneRadarChart communeName={selectedCommune} />}
             </div>
         </section>

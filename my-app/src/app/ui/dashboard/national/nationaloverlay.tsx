@@ -23,7 +23,7 @@ export default function NationalOverlay() {
 
         </section>
 
-          <div className="flex-auto h-full w-1/2 rounded bg-gray-800">         
+          <div className="flex-auto  w-screen h-full rounded bg-gray-800">         
                 <ScatterPlot/>               
           </div>
       </section>
