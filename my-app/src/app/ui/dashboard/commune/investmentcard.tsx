@@ -40,6 +40,7 @@ export default function ReturnOfInvestmentCard({ communeName }: { communeName: a
 
     return () => clearInterval(interval);
 }, [index]);
+
   // Function to handle index change for cycling through technologies
   function handleClick() {
       if (index < technologies.length - 1) {
