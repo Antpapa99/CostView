@@ -17,7 +17,7 @@ export default function ChartBox({ selectedCommune }: any) {
         : { currentTechnology: null, currentROI: null, handleClick: () => {} };
 
     return (
-        <section className="grid h-full w-full md:grid-rows-2 md:grid-cols-2 gap-4 md:overflow-hidden md:w-full md:h-full" style={{ gridTemplateAreas: `
+        <section className="grid h-full w-full grid-rows-2 md:grid-rows-2 md:grid-cols-2 gap-4 md:overflow-hidden md:w-full md:h-full" style={{ gridTemplateAreas: `
                 "topLeft topRight"
                 "bottomLeft bottomRight"
             `}}>
@@ -26,7 +26,7 @@ export default function ChartBox({ selectedCommune }: any) {
 {/* Top left part */}
 <div className="h-full grid grid-rows-2 w-full grid-cols-1 gap-4" style={{ gridArea: 'topLeft' }}>
     {/* Row with the three cards */}
-    <div className="grid  grid-rows-col md:grid-cols-3 overflow-scroll outline-dotted md:outline-none md:overflow-hidden gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-3 overflow-scroll outline-dotted md:outline-none md:overflow-hidden gap-4">
         <div className="bg-gray-800 p-4 rounded justify-center items-center flex-relative">
             <p className="text-gray-300 md:text-lg font-semibold mb-2 text-center">Sparad HTE</p>
             <p className="text-4xl font-bold text-green-400 text-center">{selectedCommune && <HteCard communeName={selectedCommune} />}</p>
@@ -39,15 +39,13 @@ export default function ChartBox({ selectedCommune }: any) {
 
         <div className="bg-gray-800 p-4 rounded justify-center  items-center flex-relative">
     <p className="text-gray-300 text-lg font-semibold mb-4 text-center">{currentTechnology}</p>
-    <p className="text-gray-300 text-lg font-semibold mb-4 text-center">ROI: {currentROI}</p>
+    <p className="text-gray-300 text-lg font-semibold mb-4 text-center">Avkastning inom 10år: {currentROI}</p>
     <button
-        className="flex items-center text-gray-300 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:border-blue-300"
+        className="flex items-center text-gray-300 bg-gray-900 border border-gray-600 rounded-md focus:outline-none focus:border-blue-300"
         onClick={handleClick}
     >
-         <p className="flex-1 text-gray-300 text-sm font-semibold mb-4 text-center">Switch Technology</p>
+         <p className="flex-1 items-center text-gray-300 text-sm font-semibold mb-4 text-center">Switch Technology</p>
     </button>
-    <select>
-    </select>
 </div>
     </div>
 
@@ -63,12 +61,12 @@ export default function ChartBox({ selectedCommune }: any) {
             </div>
 
             {/* Bottom left part */}
-            <div className="bg-gray-800 h-full w-full md:w-full rounded p-4" style={{ gridArea: "bottomLeft" }}>
+            <div className="bg-gray-800 grow h-full w-full md:w-full rounded p-4" style={{ gridArea: "bottomLeft" }}>
                 {selectedCommune && <PenValueChart communeName={selectedCommune} />}
             </div>
 
             {/* Bottom right part */}
-            <div className="bg-gray-800 h-full w-full md:w-full rounded p-4" style={{ gridArea: "bottomRight" }}>
+            <div className="bg-gray-800 grow h-full w-full md:w-full rounded p-4" style={{ gridArea: "bottomRight" }}>
                 {selectedCommune && <CommuneRadarChart communeName={selectedCommune} />}
             </div>
         </section>

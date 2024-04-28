@@ -6,6 +6,7 @@ import { calculateSavingPotential, getCommuneAvg } from "@/app/lib/utils";
 import { ComparisonCommuneData } from "./comparisonbuttons";
 import SavingsComparePotetialChart from "../charts/comparison/besparingchart";
 import AltCostCompareChart from "../charts/comparison/alternativkostnaderchart";
+import SavingsPotetialChart from "../charts/commune/communesavingspotetialchart";
 
 export default function ComparisonOverlay({alternativCost}: any) {
 
@@ -16,33 +17,45 @@ export default function ComparisonOverlay({alternativCost}: any) {
         setDataChange(alternativCost)};
     
   return (
-    <section className="grid grid-cols-1 grid-flow-rows-1 gap-4 h-full w-full">
-      <section className="grid grid-rows-1 gap-4 row-span-1 w-full bg-gray-800">
-        <div className="h-44">
-
-        </div>
-      </section>
-      <section className="grid grid-rows-1 grid-cols-3 gap-4 row-span-3 w-full bg-gray-800">
-        <div className= "h-full w-54 bg-gray-700">
-          <div className = "grid place-items-center"> 
-        <ComparisonCommuneData alternativCost={alternativCost} onDataChange={handleDataChange}/>
-        </div>
-          <div className = "flex">
-        <PenGradeTopChart dataFilter={changedData}/>
+    <>
+      <section>
+        <div className="flex h-44 m-4 gap-2">
+          <div className="flex-1 px-2 justify-center w-16 bg-gray-700 shadow rounded h-300px">
+            <div className="">
+              <p className="text-gray-900 font-bold">Bäst Kommun i digitalisering</p>
+            </div>
+          </div>
+          <div className="flex-1 px-2 justify-center w-16 bg-gray-700 shadow rounded max-h-300px">
+            <div className="">
+              <p className="text-gray-900 font-bold">Kommun som kan vinna mest på digitalisering</p>
+            </div>
+          </div>
+          <div className="flex-1 px-2 justify-center w-16  bg-gray-700 shadow rounded max-h-300px">
+            <div className="">
+              <p className="text-gray-900 font-bold">Kommun med högst sparad HTE </p>
+            </div>
           </div>
         </div>
-        <div className="flex bg-gray-700">
-        <SavingsComparePotetialChart></SavingsComparePotetialChart>
+      </section>
+
+      <section className="flex h-96 my-4 px-4 gap-3">
+        <div className="w-1/2 h-96 bg-gray-700 rounded">
+          <SavingsComparePotetialChart/>
         </div>
-        <div className="flex bg-gray-700">
-        <AltCostCompareChart />
-        </div>
-        <div>
-          
+
+        <div className="w-1/2 h-96 bg-gray-700 rounded">
+        <PenGradeTopChart dataFilter={alternativCost} />
         </div>
       </section>
-      
-    </section>
+      <section>
+
+        Filter section
+        
+        
+        
+        
+      </section>
+    </>
 
   )
 }

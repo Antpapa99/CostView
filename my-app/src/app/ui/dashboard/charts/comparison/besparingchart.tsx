@@ -21,8 +21,8 @@ export default function SavingsComparePotetialChart(){
         labels: allCommune.map((data: { communeName: any; }) => data.communeName), // Tänk map som en foreach
         datasets: [
             {
-                label: "Top Penetrationsgrad bland kommuner",
-                data: allCommune.map((data: { cost: number; population: number }) => (data.cost/data.population).toFixed(2)),
+                label: "Top nuvarande alt kostnader bland invånare i kommuner",
+                data: allCommune.map((data: { perCapita: number }) => (data.perCapita).toFixed(2)),
                 backgroundColor: (context: { chart: any; }) => {
                     // Retrieve the chart instance and the context (canvas)
                     const chart = context.chart;
@@ -54,17 +54,66 @@ export default function SavingsComparePotetialChart(){
                     },
                     align: 'center',
                     formatter: function (value: string, context: any) {
-                        return value + "%"; // Aligns the labels to the right of the data bars
+                        return value; // Aligns the labels to the right of the data bars
                     },
                     stack: "stack1"
                 },
             },
         ]
     }
+
+    const options: any = {
+        maintainAspectRatio: false,
+        indexAxis: 'y' as 'y',
+        plugins: {
+            legend: {
+                display: false,
+            },
+            datalabels: {
+                display: true,
+            },
+        },
+        scales: {
+            y: {
+                border: {
+                    display: false,
+                },
+                beginAtZero: false,
+                grid: {
+                    display: false,
+                    drawBorder: false,
+
+                },
+                ticks: {
+                    color: "blue",
+                    display: false,
+
+                },
+            },
+            x: {
+                border: {
+                    display: false,
+                },
+                grace: 0,
+                beginAtZero: true,
+                grid: {
+                    display: false,
+                    drawBorder: false,
+                },
+                ticks: {
+                    color: "black",
+                    display: true,
+                },
+            },
+        },
+        responsive: true
+    };
+
     return (
         <>
         <Bar
         data={chartData}
+        options={options}
         >
             
         </Bar>
