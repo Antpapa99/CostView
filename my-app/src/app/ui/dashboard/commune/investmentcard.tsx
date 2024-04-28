@@ -23,10 +23,19 @@ export default function ReturnOfInvestmentCard({ communeName }: { communeName: a
       fetchCommuneCost();
   }, [communeName]);
 
+    
+
   // Calculate technologies and ROI values
   const technologies = getTechnology.map(data => data.technology);
   const roi = getTechnology.map(data => (((data.besparing * 10) / data.installation).toFixed(2)));
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+        setIndex(index + 1);
+    }, 5000);
+
+    return () => clearInterval(interval);
+}, [index]);
   // Function to handle index change for cycling through technologies
   function handleClick() {
       if (index < technologies.length - 1) {
@@ -44,13 +53,13 @@ export default function ReturnOfInvestmentCard({ communeName }: { communeName: a
       handleClick
   }; */
   return (
-    <div className="text-gray-300 text-lg font-semibold mb-2 text-center">
-        <p>{technologies[index]}</p>
-        <p>{roi[index]}</p>
+    <div className="text-gray-300 text-lg font-semibold mb-2 text-center gap-2">
+        <p className="text-gray-300">För varje krona du spendear nu på en {technologies[index]} får du tillbaka</p>
+        <p className="text-green-400">{roi[index]}kr inom 10 år</p>
     <button className = "h-8 w-22 px-2 justify-center text-white text-center bg-gray-800 border border-gray-600 rounded-md focus:outline-none  focus:border-blue-300"
     onClick={handleClick}>
         <p className =""
-        > Select Technology</p>
+        > Switch Technology</p>
         
     </button>
 
