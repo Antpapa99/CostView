@@ -18,6 +18,7 @@ export default function ComparisonOverlay({alternativCost}: any) {
     
   return (
     <>
+    <section className="flex flex-col h-full">
       <section>
         <div className="flex h-44 m-4 gap-2">
           <div className="flex-1 px-2 justify-center w-16 bg-gray-700 shadow rounded h-300px">
@@ -38,21 +39,19 @@ export default function ComparisonOverlay({alternativCost}: any) {
         </div>
       </section>
 
-      <section className="flex h-96 my-4 px-4 gap-3">
-        <div className="w-1/2 h-96 bg-gray-700 rounded">
+      <section className="flex h-full my-4 px-4 gap-3">
+        <div className="w-1/2 bg-gray-700 rounded">
           <SavingsComparePotetialChart/>
         </div>
 
-        <div className="w-1/2 h-96 bg-gray-700 rounded">
+        <div className="w-1/2 bg-gray-700 rounded">
         <PenGradeTopChart dataFilter={alternativCost} />
         </div>
       </section>
       <section>
-
-        Filter section
+    </section>
         
-        
-        
+     
         
       </section>
     </>

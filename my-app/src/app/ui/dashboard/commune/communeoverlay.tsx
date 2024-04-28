@@ -12,9 +12,6 @@ import HteCard from "./htecard";
 import ReturnOfInvestmentCard from "./investmentcard";
 
 export default function ChartBox({ selectedCommune }: any) {
-    const { currentTechnology, currentROI, handleClick } = selectedCommune
-        ? ReturnOfInvestmentCard({ communeName: selectedCommune })
-        : { currentTechnology: null, currentROI: null, handleClick: () => {} };
 
     return (
         <section className="grid h-full w-full grid-rows-2 md:grid-rows-2 md:grid-cols-2 gap-4 md:overflow-hidden md:w-full md:h-full" style={{ gridTemplateAreas: `
@@ -38,14 +35,7 @@ export default function ChartBox({ selectedCommune }: any) {
         </div>
 
         <div className="bg-gray-800 p-4 rounded justify-center  items-center flex-relative">
-    <p className="text-gray-300 text-lg font-semibold mb-4 text-center">{currentTechnology}</p>
-    <p className="text-gray-300 text-lg font-semibold mb-4 text-center">Avkastning inom 10år: {currentROI}</p>
-    <button
-        className="flex items-center text-gray-300 bg-gray-900 border border-gray-600 rounded-md focus:outline-none focus:border-blue-300"
-        onClick={handleClick}
-    >
-         <p className="flex-1 items-center text-gray-300 text-sm font-semibold mb-4 text-center">Switch Technology</p>
-    </button>
+        {selectedCommune && <ReturnOfInvestmentCard communeName={selectedCommune} />}
 </div>
     </div>
 

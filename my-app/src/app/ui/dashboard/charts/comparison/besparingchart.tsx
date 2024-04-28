@@ -62,9 +62,41 @@ export default function SavingsComparePotetialChart(){
         ]
     }
 
+    const textLabel = {
+        id: 'progressBar',
+        beforeDatasetsDraw(chart: any, args: any, pluginOptions: any) {
+            const {ctx, data, chartArea: {top, bottom, left, right, center, width, height}, scales: {x, y}} = chart;
+
+            ctx.save();
+
+            const barHeight = height / y.ticks.length * data.datasets[0].barPercentage * 
+            data.datasets[0].categoryPercentage -1;
+            
+
+            //labeltext
+
+            data.datasets[0].data.forEach((datapoint: number, index: number) => {
+                const fontSizeLabel = 12;
+                ctx.font = `${fontSizeLabel}px sans-serif`;
+                ctx.fillStyle ="rgba(209, 213, 219, 1)"; /* text colour */
+               ctx.textAlign = 'left';
+                ctx.textBaseline = 'middle'; 
+
+            ctx.fillText(data.labels[index], left, y.getPixelForValue(index) - fontSizeLabel - 5)})
+        }} 
+    
+            
+        
+
     const options: any = {
         maintainAspectRatio: false,
         indexAxis: 'y' as 'y',
+        layout: {
+            padding: {
+                top: 25,
+            }
+            
+        },
         plugins: {
             legend: {
                 display: false,
@@ -109,11 +141,14 @@ export default function SavingsComparePotetialChart(){
         responsive: true
     };
 
+    const plugins = [textLabel]
+
     return (
         <>
         <Bar
         data={chartData}
         options={options}
+        plugins={plugins}
         >
             
         </Bar>

@@ -25,7 +25,7 @@ export default function ReturnOfInvestmentCard({ communeName }: { communeName: a
 
   // Calculate technologies and ROI values
   const technologies = getTechnology.map(data => data.technology);
-  const roi = getTechnology.map(data => ((data.besparing * 10) / data.installation).toFixed(2));
+  const roi = getTechnology.map(data => (((data.besparing * 10) / data.installation).toFixed(2)));
 
   // Function to handle index change for cycling through technologies
   function handleClick() {
@@ -35,11 +35,26 @@ export default function ReturnOfInvestmentCard({ communeName }: { communeName: a
           setIndex(0);
       }
   }
+  console.log(index, "line 38")
 
   // Return an object containing the current technology, ROI, and handleClick function
-  return {
+  /* return {
       currentTechnology: technologies[index],
       currentROI: roi[index],
       handleClick
-  };
+  }; */
+  return (
+    <div className="text-gray-300 text-lg font-semibold mb-2 text-center">
+        <p>{technologies[index]}</p>
+        <p>{roi[index]}</p>
+    <button className = "h-8 w-22 px-2 justify-center text-white text-center bg-gray-800 border border-gray-600 rounded-md focus:outline-none  focus:border-blue-300"
+    onClick={handleClick}>
+        <p className =""
+        > Select Technology</p>
+        
+    </button>
+
+    </div>
+
+  ) 
 }
