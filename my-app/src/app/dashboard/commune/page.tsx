@@ -39,12 +39,12 @@ export default function Page({ children }: PageProps) {
   
 
   return (
-    <div className="flex h-screen flex-col md:flex-col md:overflow-hidden gap-3">
+    <div className="flex h-screen flex-col md:overflow-hidden">
       <CommuneDropdownItem selectedCommune={selectedCommune} onCommuneChange={handleCommuneChange} />
-      <div className="w-full h-full md:w-full"> {/* Size of boxes */}
+      <div className="h-full flex flex-col pt-4 pb-4 md:pt-8 md:pb-8"> {/* Size of boxes */}
       <ChartBox selectedCommune = {selectedCommune} />
       </div>
-      <div className="grow p-1 md:overflow-y-auto md:p-1">{children}</div>
+      <div className="grow p-1 md:overflow-hidden md:p-1">{children}</div>
     </div>
   );
 };

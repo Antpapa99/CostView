@@ -17,16 +17,16 @@ export default function ChartBox({ selectedCommune }: any) {
         : { currentTechnology: null, currentROI: null, handleClick: () => {} };
 
     return (
-        <section className="grid h-fit w-screen md:grid-rows-2 md:grid-cols-2 gap-4 md:overflow-hidden md:w-full md:h-fit" style={{ gridTemplateAreas: `
+        <section className="grid h-full w-full md:grid-rows-2 md:grid-cols-2 gap-4 md:overflow-hidden md:w-full md:h-full" style={{ gridTemplateAreas: `
                 "topLeft topRight"
                 "bottomLeft bottomRight"
             `}}>
 
 
 {/* Top left part */}
-<div className="grid grid-rows-2 w-full grid-cols-1 gap-4 h-96" style={{ gridArea: 'topLeft' }}>
+<div className="h-full grid grid-rows-2 w-full grid-cols-1 gap-4" style={{ gridArea: 'topLeft' }}>
     {/* Row with the three cards */}
-    <div className="grid grid-rows-col md:grid-cols-3 overflow-scroll outline-dotted md:outline-none md:overflow-hidden gap-4">
+    <div className="grid  grid-rows-col md:grid-cols-3 overflow-scroll outline-dotted md:outline-none md:overflow-hidden gap-4">
         <div className="bg-gray-800 p-4 rounded justify-center items-center flex-relative">
             <p className="text-gray-300 md:text-lg font-semibold mb-2 text-center">Sparad HTE</p>
             <p className="text-4xl font-bold text-green-400 text-center">{selectedCommune && <HteCard communeName={selectedCommune} />}</p>
@@ -58,17 +58,17 @@ export default function ChartBox({ selectedCommune }: any) {
 </div>
 
             {/* Top right part */}
-            <div className="bg-gray-800 h-96 w-full md:w-full rounded p-4" style={{ gridArea: "topRight" }}>
+            <div className="bg-gray-800 h-full w-full md:w-full rounded p-4" style={{ gridArea: "topRight" }}>
                 {selectedCommune && <TotalCostChart communeName={selectedCommune} />}
             </div>
 
             {/* Bottom left part */}
-            <div className="bg-gray-800 h-96 w-full md:w-full rounded p-4" style={{ gridArea: "bottomLeft" }}>
+            <div className="bg-gray-800 h-full w-full md:w-full rounded p-4" style={{ gridArea: "bottomLeft" }}>
                 {selectedCommune && <PenValueChart communeName={selectedCommune} />}
             </div>
 
             {/* Bottom right part */}
-            <div className="bg-gray-800 h-96 w-full md:w-full rounded p-4" style={{ gridArea: "bottomRight" }}>
+            <div className="bg-gray-800 h-full w-full md:w-full rounded p-4" style={{ gridArea: "bottomRight" }}>
                 {selectedCommune && <CommuneRadarChart communeName={selectedCommune} />}
             </div>
         </section>

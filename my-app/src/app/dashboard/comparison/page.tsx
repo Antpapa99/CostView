@@ -35,7 +35,7 @@ export default function Page({ children }: PageProps) {
             <div className="w-full h-full md:w-150"> {/* Size of boxes */}
             <ComparisonOverlay alternativCost={alternativCost}/>
             </div>
-            <div className="grow p-1 md:overflow-y-auto md:p-1">{children}</div>
+            <div className="grow p-1 md:overflow-hidden md:p-1">{children}</div>
         </div>
     );
 };
