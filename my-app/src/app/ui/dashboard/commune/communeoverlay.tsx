@@ -17,7 +17,7 @@ export default function ChartBox({ selectedCommune }: any) {
         : { currentTechnology: null, currentROI: null, handleClick: () => {} };
 
     return (
-        <section className="grid h-fit md:grid-rows-2 md:grid-cols-2 gap-4 md:overflow-hidden md:w-full md:h-fit" style={{ gridTemplateAreas: `
+        <section className="grid h-fit w-screen md:grid-rows-2 md:grid-cols-2 gap-4 md:overflow-hidden md:w-full md:h-fit" style={{ gridTemplateAreas: `
                 "topLeft topRight"
                 "bottomLeft bottomRight"
             `}}>
@@ -26,9 +26,9 @@ export default function ChartBox({ selectedCommune }: any) {
 {/* Top left part */}
 <div className="grid grid-rows-2 w-full grid-cols-1 gap-4 h-96" style={{ gridArea: 'topLeft' }}>
     {/* Row with the three cards */}
-    <div className="grid grid-cols-3  md:grid-cols-3 overflow-scroll md:overflow-hidden gap-4">
+    <div className="grid grid-rows-col md:grid-cols-3 overflow-scroll outline-dotted md:outline-none md:overflow-hidden gap-4">
         <div className="bg-gray-800 p-4 rounded justify-center items-center flex-relative">
-            <p className="text-gray-300 text-lg font-semibold mb-2 text-center">Sparad HTE</p>
+            <p className="text-gray-300 md:text-lg font-semibold mb-2 text-center">Sparad HTE</p>
             <p className="text-4xl font-bold text-green-400 text-center">{selectedCommune && <HteCard communeName={selectedCommune} />}</p>
         </div>
 
