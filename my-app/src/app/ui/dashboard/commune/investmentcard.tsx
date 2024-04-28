@@ -31,7 +31,11 @@ export default function ReturnOfInvestmentCard({ communeName }: { communeName: a
 
   useEffect(() => {
     const interval = setInterval(() => {
-        setIndex(index + 1);
+        if (index < technologies.length - 1) {
+        setIndex(index + 1)}
+        else {
+            setIndex(0)
+        }
     }, 5000);
 
     return () => clearInterval(interval);
