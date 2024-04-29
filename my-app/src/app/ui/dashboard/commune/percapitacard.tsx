@@ -19,7 +19,7 @@ export default function PerCapitaCard({ communeName }: { communeName: any } ) {
       fetchCommuneCost(); /* säger till att funktionen körs på DOM, alltså sidan uppdateras */
     }, [communeName]);
 
-    const perCapita = savingsPotential.map(data => data.perCapita.toFixed(2))
+    const perCapita = savingsPotential.map(data => data.perCapita.toFixed(0))
 
     console.log(perCapita)
     

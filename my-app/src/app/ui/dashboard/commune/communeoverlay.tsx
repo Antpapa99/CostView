@@ -22,21 +22,22 @@ export default function ChartBox({ selectedCommune }: any) {
 
 {/* Top left part */}
 <div className="h-full grid grid-rows-2 w-full grid-cols-1 gap-4" style={{ gridArea: 'topLeft' }}>
+
     {/* Row with the three cards */}
     <div className="grid grid-cols-1 md:grid-cols-3 overflow-scroll outline-dotted md:outline-none md:overflow-hidden gap-4">
         <div className="bg-gray-800 p-4 rounded justify-center items-center flex-relative">
-            <p className="text-gray-300 md:text-lg font-semibold mb-2 text-center">Sparad HTE</p>
-            <p className="text-4xl font-bold text-green-400 text-center">{selectedCommune && <HteCard communeName={selectedCommune} />}</p>
+            <p className="text-gray-300 md:text-lg font-semibold mb-2 text-center">Överanställning: </p>
+            <p className="text-4xl font-bold text-green-400 text-center">{selectedCommune && <HteCard communeName={selectedCommune} />} HTE</p>
         </div>
 
         <div className="bg-gray-800 p-4 rounded justify-center items-center  flex-relative">
-            <p className="text-gray-300 text-lg font-semibold mb-2 text-center">Alternativkostnad per person</p>
-            <p className="text-4xl font-bold text-green-400 text-center">{selectedCommune && <PerCapitaCard communeName={selectedCommune} />} kr</p>
+            <p className="text-gray-300 text-lg font-semibold mb-2 text-center">Er totala alternativkostnad motsvarar:</p>
+            <p className="text-4xl font-bold text-green-400 text-center">{selectedCommune && <PerCapitaCard communeName={selectedCommune} />} kr/invånare</p>
         </div>
 
         <div className="bg-gray-800 p-4 rounded justify-center  items-center flex-relative">
-        {selectedCommune && <ReturnOfInvestmentCard communeName={selectedCommune} />}
-</div>
+            {selectedCommune && <ReturnOfInvestmentCard communeName={selectedCommune} />}
+        </div>
     </div>
 
     {/* Row with the SavingsPotentialChart */}
@@ -59,6 +60,8 @@ export default function ChartBox({ selectedCommune }: any) {
             <div className="bg-gray-800 grow h-full w-full md:w-full rounded p-4" style={{ gridArea: "bottomRight" }}>
                 {selectedCommune && <CommuneRadarChart communeName={selectedCommune} />}
             </div>
+
+
         </section>
     );
 }
