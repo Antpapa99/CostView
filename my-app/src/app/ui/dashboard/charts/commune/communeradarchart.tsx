@@ -67,14 +67,15 @@ export default function CommuneRadarChart({ communeName }: { communeName: any })
 
 
 
-    
+    const mappedData = communeCost.map(data => data.penCost.toFixed(2))
+    console.log(mappedData, "line 71")
 
     const chartData: any = {
         labels: communeCost.map(data => data.techName), // Tänk map som en foreach
         datasets: [
             {
                 label: "Penetrationsgrad",
-                data: communeCost.map(data => data.penCost.toFixed(2)),
+                data: mappedData.map(n => n === "0.00" ? null : n),
                 backgroundColor: 'rgba(27, 163, 156, 0.7)',
                 borderColor: 'rgba(27, 163, 156)',
                 backdropColor: 'rgba(0, 0, 0, 1)',
@@ -127,6 +128,7 @@ export default function CommuneRadarChart({ communeName }: { communeName: any })
     const options: any = {
         maintainAspectRatio: false,
         responsive: true,
+        spanGaps: true,
         scales: {
             r: {
                 angleLines: {
