@@ -145,7 +145,7 @@ export default function SavingsPotetialChart({ communeName }: { communeName: any
     
     
     return (
-            <Bar className= ""
+            <Bar
             data={chartData}
             options = {options}
             />

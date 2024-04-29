@@ -30,7 +30,7 @@ export default function ChartBox({ selectedCommune }: any) {
         </div>
 
         <div className="bg-gray-800 p-4 rounded justify-center items-center  flex-relative">
-            <p className="text-gray-300 text-lg font-semibold mb-2 text-center">Alternativkostnad per person</p>
+            <p className="text-gray-300 text-lg font-semibold mb-2 text-center">Just nu förlorar varje invånare</p>
             <p className="text-4xl font-bold text-green-400 text-center">{selectedCommune && <PerCapitaCard communeName={selectedCommune} />} kr</p>
         </div>
 
