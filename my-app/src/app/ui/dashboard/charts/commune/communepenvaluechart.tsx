@@ -84,7 +84,7 @@ const backgroundColor = communeCost.map(data => {
         datasets: [
             {
                 label: "Penetrationsgrad",
-                data: communeCost.map(data => data.penCost.toFixed(2)),
+                data: communeCost.map(data => (data.penCost.toFixed(2))),
                 backgroundColor: backgroundColor,
                 borderColor: 'rgba(239, 239, 240, 0.7)',
                 borderWidth: 1,

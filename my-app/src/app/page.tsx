@@ -10,7 +10,7 @@ import router from "next/router";
 export default function Home() {
   return (
     <>
-    <div>
+    <div className="flex grow h-screen bg-gray-900">
     <div>
       <Link href={'/dashboard/commune'} >To dashboard</Link>
     </div>
