@@ -28,9 +28,9 @@ ChartJS.register(
 
 
 
-export default function PenGradeTopChart({dataFilter}: any) {
+export default function PenGradeTopChart() {
 
-    console.log(dataFilter, "Line 33 pentopgradechart")
+    console.log( "Line 33 pentopgradechart")
 
     function generateGradientColor(penCost: number) {
         // Färgen baserat på procent

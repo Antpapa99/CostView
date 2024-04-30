@@ -7,10 +7,10 @@ import { ComparisonCommuneData } from "./comparisonbuttons";
 import SavingsComparePotetialChart from "../charts/comparison/besparingchart";
 import AltCostCompareChart from "../charts/comparison/alternativkostnaderchart";
 import SavingsPotetialChart from "../charts/commune/communesavingspotetialchart";
-import TopPenCard from "./comparisoncards";
-import TopAltCard  from "./topaltcard";
+import  TopPenCard from "./comparisoncards";
+import  TopAltCard   from "./topaltcard";
 
-export default function ComparisonOverlay({alternativCost}: any) {
+export default function ComparisonOverlay() {
 
   const [changedData, setDataChange] = useState<any[]>([]);
 
@@ -25,10 +25,10 @@ export default function ComparisonOverlay({alternativCost}: any) {
       <section>
         <div className="flex h-44 m-4 gap-2">
           <div className="flex-1 px-2 justify-center w-16 bg-gray-700 shadow rounded h-300px">
-          <TopPenCard topData={alternativCost}/>
+          
           </div>
           <div className="flex-1 px-2 justify-center w-16 bg-gray-700 shadow rounded max-h-300px">
-          <TopAltCard topData={alternativCost}/>
+          
           </div>
           <div className="flex-1 px-2 justify-center w-16  bg-gray-700 shadow rounded max-h-300px">
             <div className="">
@@ -40,11 +40,10 @@ export default function ComparisonOverlay({alternativCost}: any) {
 
       <section className="flex h-full my-4 px-4 gap-3">
         <div className="w-1/2 bg-gray-700 rounded">
-          <SavingsComparePotetialChart/>
+          
         </div>
 
         <div className="w-1/2 bg-gray-700 rounded">
-        <PenGradeTopChart dataFilter={alternativCost} />
         </div>
       </section>
       <section>

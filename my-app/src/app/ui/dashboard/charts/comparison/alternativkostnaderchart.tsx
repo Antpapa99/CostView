@@ -15,7 +15,7 @@ export default function AltCostCompareChart(){
         fetchCommuneCost(); /* säger till att funktionen körs på DOM, alltså sidan uppdateras */
       }, []);
     
-    console.log(allCommune)
+    console.log()
 
     const chartData: any = {
         labels: allCommune.map((data: { communeName: any; }) => data.communeName), // Tänk map som en foreach
