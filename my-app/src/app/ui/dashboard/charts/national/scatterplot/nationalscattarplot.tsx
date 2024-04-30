@@ -130,7 +130,7 @@ export default function ScatterPlot() {
       const chartData: any = {
         datasets: [{
           
-            label: "Kommun",
+            label: "Total alternativkostnad SEK/år och penetration per kommun",
           
           data: nationalCommuneAverageData ,
           
