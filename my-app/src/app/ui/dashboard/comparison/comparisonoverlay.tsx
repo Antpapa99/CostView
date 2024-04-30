@@ -7,6 +7,8 @@ import { ComparisonCommuneData } from "./comparisonbuttons";
 import SavingsComparePotetialChart from "../charts/comparison/besparingchart";
 import AltCostCompareChart from "../charts/comparison/alternativkostnaderchart";
 import SavingsPotetialChart from "../charts/commune/communesavingspotetialchart";
+import {TopPenCard} from "./comparisoncards";
+import { TopAltCard } from "./topaltcard";
 
 export default function ComparisonOverlay({alternativCost}: any) {
 
@@ -22,14 +24,10 @@ export default function ComparisonOverlay({alternativCost}: any) {
       <section>
         <div className="flex h-44 m-4 gap-2">
           <div className="flex-1 px-2 justify-center w-16 bg-gray-700 shadow rounded h-300px">
-            <div className="">
-              <p className="text-gray-900 font-bold">Bäst Kommun i digitalisering</p>
-            </div>
+          <TopPenCard topData={alternativCost}/>
           </div>
           <div className="flex-1 px-2 justify-center w-16 bg-gray-700 shadow rounded max-h-300px">
-            <div className="">
-              <p className="text-gray-900 font-bold">Kommun som kan vinna mest på digitalisering</p>
-            </div>
+          <TopAltCard topData={alternativCost}/>
           </div>
           <div className="flex-1 px-2 justify-center w-16  bg-gray-700 shadow rounded max-h-300px">
             <div className="">
