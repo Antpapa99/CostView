@@ -41,7 +41,7 @@ export default function ComparisonOverlay({alternativCost}: any) {
 
       <section className="flex h-full my-4 px-4 gap-3">
         <div className="w-1/2 bg-gray-700 rounded">
-          /<ComparisonSavingsPotetialChart/>
+          <ComparisonSavingsPotetialChart/>
         </div>
 
         <div className="w-1/2 bg-gray-700 rounded">

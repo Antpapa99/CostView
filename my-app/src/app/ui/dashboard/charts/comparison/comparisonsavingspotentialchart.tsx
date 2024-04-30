@@ -51,10 +51,6 @@ export default function ComparisonSavingsPotetialChart() {
             x: {
                 ticks: {
                     color: "rgba(209, 213, 219, 1)",
-                    rotation: 20,
-                    autoSkip: false, // This ensures all tick labels are displayed
-                    maxRotation: 20, // This specifies the maximum rotation in degrees
-                    minRotation: 20, // This specifies the minimum rotation in degrees
                 },
             },
             y: {
@@ -63,10 +59,7 @@ export default function ComparisonSavingsPotetialChart() {
                 },
             },
         },
-        indexAxis: 'y',
-        elements: {
-          bar: {},
-        },
+
         responsive: true,
         plugins: {
             datalabels: {
@@ -74,7 +67,7 @@ export default function ComparisonSavingsPotetialChart() {
                color: "rgba(209, 213, 219, 1)",
                formatter: (value: any, context: {
                    dataIndex: any; dataset: { label: string; }; }) => {
-                    if (context.dataset.label === "Total alternativkonstnad SEK/år") {
+                    if (context.dataset.label === "Besparingspotential") {
                         // Om det är datalabel för "Total Alternativ Cost"
                         return savingsPotential[context.dataIndex]["savingPotential"].toFixed(2) + '%'; // Kontrollera om det finns ett värde för savingPotential innan du formaterar det
                     } else {
@@ -93,22 +86,19 @@ export default function ComparisonSavingsPotetialChart() {
                 // Customize the label text for each tooltip item
                 label: function(context: any) {
                     // Check which dataset is being hovered over
-                    if (context.dataset.label === "Total alternativkonstnad SEK/år") {
+                    if (context.dataset.label === "Besparingspotential") {
                         
                         return [
                             `Alternativkostnad: ${savingsPotential[context.dataIndex]["totalAlternativCost"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} SEK/år`,
                             `Besparingspotential: \n${savingsPotential[context.dataIndex]["savingPotential"].toFixed(2) + '%'}`,
+                            `Omslutning: \n${savingsPotential[context.dataIndex]["cost"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} SEK/år`,
                             `Alternativkostnad beräknas utifrån:\n(antal möjliga installationer / antal installationer) * besparing per installation(SEK/år)`,
                             `Besparingspotential beräknas utifrån:\n(alternativkostnad/omslutning) * 100`,
+                            `Omslutning hämtad från SCB: \nKostnad eget åtagande för kommunens omsorg om äldre och personer med funktionsnedsätting (2022)`,
                             "\nOm besparing per installation inte angetts används ett nationellt genomsnitt för beräkningarna"
                         ];
 
-                    }else if (context.dataset.label === "Omslutning SEK/år") {                      
-                        return [
-                            `Omslutning: ${savingsPotential[context.dataIndex]["cost"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} SEK/år`,
-                            `Hämtad från SCB: \nKostnad eget åtagande för kommunens omsorg om äldre och personer med funktionsnedsätting (2022)`,                         
-                        ];
-                    } 
+                    }
                     // Default behavior (optional)
                     return `${context.dataset.label}: ${context.raw}`;
                 },
@@ -123,24 +113,15 @@ export default function ComparisonSavingsPotetialChart() {
         labels: savingsPotential.map(data => data.communeName),
         datasets: [
             {
-                label: "Total alternativkonstnad SEK/år", // Labeln för datasetet
-                data: savingsPotential.map(data => data.totalAlternativCost.toFixed(0)), // Data för staplarna
+                label: "Besparingspotential", // Labeln för datasetet
+                data: savingsPotential.map(data => data.savingPotential.toFixed(2)), // Data för staplarna
                 backgroundColor: 'rgba(255, 0, 0, 0.5)',
                 borderColor: 'rgba(255, 0, 0)',
                 borderWidth: 3,
                 stack: 'stack1' // Ange en stack-namn för detta dataset
             },
-            {
-                label: "Omslutning SEK/år",
-                data: savingsPotential.map(data => data.cost),
-                backgroundColor: 'rgba(108, 201, 247, 0.5)',
-                borderColor: 'rgba(108, 201, 247)',
-                borderWidth: 3,
-                stack: 'stack1' // Ange samma stack-namn som det föregående datasetet
-            }
         ]
     }
-    
     
     
     return (
