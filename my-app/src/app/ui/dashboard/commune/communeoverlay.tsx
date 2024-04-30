@@ -10,6 +10,8 @@ import PerCapitaCard from "./percapitacard";
 import CommuneRadarChart from "../charts/commune/communeradarchart";
 import HteCard from "./htecard";
 import ReturnOfInvestmentCard from "./investmentcard";
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css'
 
 export default function ChartBox({ selectedCommune }: any) {
 
@@ -25,10 +27,23 @@ export default function ChartBox({ selectedCommune }: any) {
 
     {/* Row with the three cards */}
     <div className="grid grid-cols-1 md:grid-cols-3 overflow-scroll outline-dotted md:outline-none md:overflow-hidden gap-4">
+
+        <Tippy content={(
+            <div>
+                <p>
+                HTE beräknas utifrån: (alternativkostnad/timkostnad) / antal timmar heltid per år (2080h)
+                </p>
+                <p>
+                Timkostnad: 322kr (medellön undersköterska, hemtjänst, hemskjukvård och äldreboende 2022 (SCB))
+                </p>
+            </div>
+        )}>
+             
         <div className="bg-gray-800 p-4 rounded justify-center items-center flex-relative">
             <p className="text-gray-300 md:text-lg font-semibold mb-2 text-center">Överanställning: </p>
             <p className="text-4xl font-bold text-green-400 text-center">{selectedCommune && <HteCard communeName={selectedCommune} />} HTE</p>
         </div>
+        </Tippy>
 
         <div className="bg-gray-800 p-4 rounded justify-center items-center  flex-relative">
             <p className="text-gray-300 text-lg font-semibold mb-2 text-center">Er totala alternativkostnad motsvarar:</p>
