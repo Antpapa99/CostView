@@ -7,10 +7,12 @@ import { ComparisonCommuneData } from "./comparisonbuttons";
 import SavingsComparePotetialChart from "../charts/comparison/besparingchart";
 import AltCostCompareChart from "../charts/comparison/alternativkostnaderchart";
 import SavingsPotetialChart from "../charts/commune/communesavingspotetialchart";
+import ComparisonSavingsPotetialChart from "../charts/comparison/comparisonsavingspotentialchart";
+import ComparisonPenValueChart from "../charts/comparison/comparisonpenvaluechart";
 import  TopPenCard from "./comparisoncards";
 import  TopAltCard   from "./topaltcard";
 
-export default function ComparisonOverlay() {
+export default function ComparisonOverlay({alternativCost}: any) {
 
   const [changedData, setDataChange] = useState<any[]>([]);
 
@@ -40,10 +42,11 @@ export default function ComparisonOverlay() {
 
       <section className="flex h-full my-4 px-4 gap-3">
         <div className="w-1/2 bg-gray-700 rounded">
-          
+          <ComparisonSavingsPotetialChart/>
         </div>
 
         <div className="w-1/2 bg-gray-700 rounded">
+        <ComparisonPenValueChart/>
         </div>
       </section>
       <section>

@@ -13,14 +13,15 @@ interface PageProps {
 }
 
 export default function Page({ children }: PageProps) {
-     // Empty dependency array to run the effect only once when the component mounts
+
+    
 
     
     return (
         <Suspense fallback={<p>Loading dashboard...</p>}>
         <div className="flex h-screen flex-col md:flex-col md:overflow-hidden">
             <div className="h-full flex flex-col pt-4 pb-4 md:pt-8 md:pb-8"> {/* Size of boxes */}
-            <ComparisonOverlay />
+            <ComparisonOverlay/>
             </div>
             <div className="grow p-1 md:overflow-hidden md:p-1">{children}</div>
         </div>
