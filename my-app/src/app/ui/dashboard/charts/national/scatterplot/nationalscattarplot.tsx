@@ -11,7 +11,7 @@ import {
     Legend,
     plugins,
 } from 'chart.js/auto';
-import { calculateAvgAllCommunes, calculateCostAllCommunes, calculateCostSpecificCommune, calculateNationalAverage, calculateSavingPotential, getSpecficCommuneCost } from '@/app/lib/utils';
+import { AveregePipelineAllCommune, calculateAvgAllCommunes, calculateCostAllCommunes, calculateCostSpecificCommune, calculateNationalAverage, calculateSavingPotential, getSpecficCommuneCost } from '@/app/lib/utils';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { fetchCommune } from '@/app/lib/data';
 import { reverse } from 'dns';
@@ -35,10 +35,7 @@ export default function ScatterPlot() {
     useEffect(() => {
         const fetchCommuneAlternativCost = async () => {
             try {
-                const communeData = fetchCommune();
-                console.log(communeData, "line 50")
-                const nationalCostData = await calculateCostAllCommunes(await communeData);
-                const communePlot = await calculateAvgAllCommunes(nationalCostData);
+                const communePlot = await AveregePipelineAllCommune();
                 console.log(communePlot, "line 56")
                 setAlternativCost(communePlot);
             } catch (error) {

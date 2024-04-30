@@ -8,13 +8,9 @@ import SavingsComparePotetialChart from "../charts/comparison/besparingchart";
 import AltCostCompareChart from "../charts/comparison/alternativkostnaderchart";
 import SavingsPotetialChart from "../charts/commune/communesavingspotetialchart";
 import ComparisonSavingsPotetialChart from "../charts/comparison/comparisonsavingspotentialchart";
-export default function ComparisonOverlay({alternativCost}: any) {
+import ComparisonPenValueChart from "../charts/comparison/comparisonpenvaluechart";
 
-  const [changedData, setDataChange] = useState<any[]>([]);
-
-  
-    const handleDataChange = (alternativCost: any) => {
-        setDataChange(alternativCost)};
+export default function ComparisonOverlay() {
     
   return (
     <>
@@ -45,7 +41,7 @@ export default function ComparisonOverlay({alternativCost}: any) {
         </div>
 
         <div className="w-1/2 bg-gray-700 rounded">
-        <PenGradeTopChart dataFilter={alternativCost} />
+        <ComparisonPenValueChart/>
         </div>
       </section>
       <section>

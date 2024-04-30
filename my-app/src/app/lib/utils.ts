@@ -675,5 +675,12 @@ export async function SavingPotentialPipelineAllCommune() {
     return savingData;
 }
 
+export async function AveregePipelineAllCommune() {
+    const communeData = await fetchCommune();
+    const costData = await calculateCostAllCommunes(communeData);
+    const avgData = await calculateAvgAllCommunes(costData);
+    return avgData;
+}
+
 
  
