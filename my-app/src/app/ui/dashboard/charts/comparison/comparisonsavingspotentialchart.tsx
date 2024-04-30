@@ -110,7 +110,7 @@ export default function ComparisonSavingsPotetialChart() {
          
     };
     const chartData = {
-        labels: savingsPotential.map(data => data.communeName),
+        labels: savingsPotential.map(data => data.displayName),
         datasets: [
             {
                 label: "Besparingspotential", // Labeln för datasetet

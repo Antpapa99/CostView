@@ -122,7 +122,7 @@ export default function ScatterPlot() {
         const nationalCommuneAverageData = alternativCost.map(data => ({
             x: data.penCost,
             y: data.alternativCost,
-            communeName: data.communeName
+            communeName: data.displayName
         }));
         
     console.log(nationalCommuneAverageData , "Line 84")

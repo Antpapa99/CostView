@@ -120,8 +120,9 @@ export default function SavingsPotetialChart({ communeName }: { communeName: any
          }
          
     };
+    
     const chartData = {
-        labels: savingsPotential.map(data => data.communeName),
+        labels: savingsPotential.map(data => data.displayName),
         datasets: [
             {
                 label: "Total alternativkonstnad SEK/år", // Labeln för datasetet
