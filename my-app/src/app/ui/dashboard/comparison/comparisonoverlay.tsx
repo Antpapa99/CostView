@@ -1,14 +1,14 @@
 'use client';
 import { fetchCommune } from "@/app/lib/data";
 import PenGradeTopChart from "../charts/comparison/pengradetopchart";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { calculateSavingPotential, getCommuneAvg } from "@/app/lib/utils";
 import { ComparisonCommuneData } from "./comparisonbuttons";
 import SavingsComparePotetialChart from "../charts/comparison/besparingchart";
 import AltCostCompareChart from "../charts/comparison/alternativkostnaderchart";
 import SavingsPotetialChart from "../charts/commune/communesavingspotetialchart";
-import {TopPenCard} from "./comparisoncards";
-import { TopAltCard } from "./topaltcard";
+import TopPenCard from "./comparisoncards";
+import TopAltCard  from "./topaltcard";
 
 export default function ComparisonOverlay({alternativCost}: any) {
 
@@ -19,6 +19,7 @@ export default function ComparisonOverlay({alternativCost}: any) {
         setDataChange(alternativCost)};
     
   return (
+    <Suspense fallback = {<p>Loading card...</p>}> 
     <>
     <section className="flex flex-col h-full">
       <section>
@@ -53,6 +54,6 @@ export default function ComparisonOverlay({alternativCost}: any) {
         
       </section>
     </>
-
+    </Suspense>
   )
 }
