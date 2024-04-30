@@ -545,18 +545,18 @@ export async function getCommuneAvg() {
     // Läs kostnadsdata från omslutning2022.json
     const rawData = await moreCommuneData();
     let costData = rawData
-    let totalAlternativCost = 0;
+    
     //console.log(costData, "Looks correct")
 
     const savingPotentialArray: any[] = [];
     
     communeData.forEach(commune => {  
       const communeName: string = commune.communeName;
-  
+      let totalAlternativCost = 0;
       // Hitta matchande kostnad för den aktuella kommunen
       const communeCost = costData.find((data: { commune_name: string; }) => data.commune_name === communeName);
       if (!communeCost) {
-        console.error(`Cost data not found for commune: ${communeName}`);
+        //console.error(`Cost data not found for commune: ${communeName}`);
         return; // Hoppa över om kostnadsdata inte hittas
       }
       
@@ -582,6 +582,7 @@ export async function getCommuneAvg() {
           population: population,
           perCapita: totalAlternativCost/population
         });
+        //console.log(savingPotentialArray);
       }
       //console.log(savingPotentialArray, "The final line to see if the data is correct")
     });    
