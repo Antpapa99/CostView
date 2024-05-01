@@ -11,6 +11,7 @@ import ComparisonSavingsPotetialChart from "../charts/comparison/comparisonsavin
 import ComparisonPenValueChart from "../charts/comparison/comparisonpenvaluechart";
 import TopPenCard from "./comparisoncards";
 import TopAltCard from "./topaltcard";
+import CompareHteCard from "./comparehtecard";
 
 export default function ComparisonOverlay() {
     
@@ -31,7 +32,7 @@ export default function ComparisonOverlay() {
           </div>
           <div className="flex-1 px-2 justify-center w-16  bg-gray-700 shadow rounded max-h-300px">
             <div className="">
-              <p className="text-gray-900 font-bold">Kommun med högst sparad HTE </p>
+            <CompareHteCard />
             </div>
           </div>
         </div>
