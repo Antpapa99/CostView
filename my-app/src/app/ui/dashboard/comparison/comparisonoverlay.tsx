@@ -9,8 +9,8 @@ import AltCostCompareChart from "../charts/comparison/alternativkostnaderchart";
 import SavingsPotetialChart from "../charts/commune/communesavingspotetialchart";
 import ComparisonSavingsPotetialChart from "../charts/comparison/comparisonsavingspotentialchart";
 import ComparisonPenValueChart from "../charts/comparison/comparisonpenvaluechart";
-import TopPenCard from "./comparisoncards";
-import TopAltCard from "./topaltcard";
+import TopPenCard from "./comparepencard";
+import TopAltCard from "./comparealtcard";
 import CompareHteCard from "./comparehtecard";
 
 export default function ComparisonOverlay() {
