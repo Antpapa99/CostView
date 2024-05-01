@@ -41,7 +41,7 @@ export default function ComparisonSavingsPotetialChart() {
       fetchCommuneCost(); /* säger till att funktionen körs på DOM, alltså sidan uppdateras */
     }, []);
 
-    
+    savingsPotential.sort((a, b) => b.savingPotential - a.savingPotential)
     const backgroundColor = ['rgba(186, 0, 0, 0.7',
     'rgba(184, 186, 0, 0.7)', 'rgba(0, 186, 176, 0.7)', 'rgba(80, 0, 186, 0.7)', 'rgba(33, 186, 0, 0.7)']
     

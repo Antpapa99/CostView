@@ -42,7 +42,7 @@ export default function ComparisonPenValueChart() {
     }, []);
 
     
-    
+    avgData.sort((a, b) => b.penCost - a.penCost)
     const options: any = {
         maintainAspectRatio: false,
         scales: {
