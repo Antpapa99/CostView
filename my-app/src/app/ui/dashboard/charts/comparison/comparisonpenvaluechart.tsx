@@ -39,7 +39,7 @@ export default function ComparisonPenValueChart() {
       };
       
       fetchCommuneCost(); /* säger till att funktionen körs på DOM, alltså sidan uppdateras */
-    }, [avgData]);
+    }, []);
 
     
     

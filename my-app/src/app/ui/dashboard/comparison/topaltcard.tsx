@@ -19,22 +19,30 @@ export default function TopAltCard() {
         fetchCommuneAlternativCost();
     }, []);
 
-    console.log(topData, "line 4")
-    const sortedData = [...topData]
-    const sort = sortedData.sort((a, b) => parseFloat(b.alternativCost) - parseFloat(a.alternativCost));
-    const best = sort.map(data => ({altCost: data.alternativCost, name: data.communeName}));
+    if (topData.length > 1) {
+        let best = topData.map(data => ({
+            totalAlternativCost: data.alternativCost,
+            name: data.communeName
+        
+            
+        }
+        )
+    )
+    best = best.sort((a, b) => b.totalAlternativCost - a.totalAlternativCost)
     console.log(best)
-    
-    /*return (
-        <Suspense fallback = {<p>Loading card...</p>}> 
-    <>
-    
-        <p className="text-center"> kommun som skulle tjäna mest på införnade av välfärdsteknik är:</p>
-        {best && <p className="text-center font-extrabold text-gray-500"> {best[0].name} </p>}
-        <p className="text-center"> med en total alternativkostnad av</p>
-        <p className="font-bold text-green-400 text-center"> {best[0].altCost}kr</p>
-    
-    </>
-        </Suspense>
-    ) */
-}
+        return (
+            <>
+                <p className="text-center"> Kommun som kan tjäna mest på digitalisering:</p>
+                <p className="text-center font-extrabold text-gray-500"> {best[0].name} </p>
+                <p className="text-center"> beräknad av alternativkostnad</p>
+                <p className="font-bold text-green-400 text-center"> {best[0].totalAlternativCost}kr</p>
+                
+            </>
+            ) } else
+            return (
+                <>
+                <p> Hello </p>
+                </>
+            )
+       
+    }

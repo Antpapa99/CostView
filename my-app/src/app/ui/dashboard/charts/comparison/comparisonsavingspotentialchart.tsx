@@ -39,7 +39,7 @@ export default function ComparisonSavingsPotetialChart() {
       };
       
       fetchCommuneCost(); /* säger till att funktionen körs på DOM, alltså sidan uppdateras */
-    }, [savingsPotential]);
+    }, []);
 
     
     const backgroundColor = ['rgba(186, 0, 0, 0.7',
