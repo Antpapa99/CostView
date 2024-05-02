@@ -658,6 +658,7 @@ export async function penGradeValuePipeline(communeName: string) {
     const communeData = await fetchSpecificCommune(communeName);
     const penCost = await getSpecficCommuneCost(communeName); /* Await vänter när den första funktionen är färdig med sitt syfte */
     const avgPenetration = await calculateAvgPenetrationPerCommune(communeData, penCost);
+    penCost.sort((a,b) => a.penCost - b.pencost)
     penCost.push(avgPenetration[0]);
     return penCost;
 }

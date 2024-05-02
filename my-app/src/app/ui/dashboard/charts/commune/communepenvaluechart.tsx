@@ -50,7 +50,7 @@ export default function PenValueChart({ communeName }: { communeName: any }) {
     }, [communeName]);
 
 
-communeCost.sort((a,b) => b.penCost - a.penCost)
+
 function generateGradientColor(penCost: number) {
     // Färgen baserat på procent
     const percentage = penCost / 100;
