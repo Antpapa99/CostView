@@ -27,7 +27,7 @@ export default function CompareHteCard () {
             <>
                 <p className="text-center font-semibold text-gray-300"> Kommun med högst överanställning:</p>
                 <p className="text-center font-extrabold text-gray-300"> {best[0].name} </p>
-                <p className="text-center font-semibold text-gray-300"> beräknad HTE</p>
+                <p className="text-center font-semibold text-gray-300"> beräknad HTE:</p>
                 <p className="font-bold text-green-400 text-center"> {bestKommun} HTE</p>
                 
             </>
