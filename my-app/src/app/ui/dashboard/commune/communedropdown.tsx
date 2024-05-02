@@ -30,9 +30,8 @@ export default function CommuneDropdownItem({ onCommuneChange, selectedCommune }
     <div className="flex justify-center">
     <select className="w-64	px-2 justify-center text-white text-center bg-gray-800 border border-gray-600 rounded-md focus:outline-none  focus:border-blue-300"
     onChange={handleCommuneChange}>
-                <option>{selectedCommune}</option>
                 {kommuner.map((item: any, index: any) => (
-                <option key={index} value={item.commune_name}>{item.display_name} </option>
+                <option key={index} value={item.commune_name} selected={item.display_name}>{item.display_name} </option>
             ))}
     
             
