@@ -54,7 +54,7 @@ export default function ReturnOfInvestmentCard({ communeName }: { communeName: a
     <button className = "h-8 w-22 px-2 justify-center text-white text-center bg-gray-800 border border-gray-600 rounded-md focus:outline-none  focus:border-blue-300"
     onClick={handleClick}>
         <p className =""
-        > Switch Technology</p>
+        > Byt teknik</p>
         
     </button>
 

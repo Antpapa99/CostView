@@ -23,7 +23,7 @@ export default function TopPenCard() {
     if (topData.length > 1) {
     let best = topData.map(data => ({
         procent: data.penCost.toFixed(2),
-        name: data.communeName
+        name: data.displayName
     
         
     }
@@ -33,9 +33,9 @@ best = best.sort((a, b) => b.procent - a.procent)
 console.log(best)
     return (
         <>
-            <p className="text-center"> Bäst kommun i digitalisering är:</p>
-            <p className="text-center font-extrabold text-gray-500"> {best[0].name} </p>
-            <p className="text-center"> med en bereddinförandegrad av</p>
+            <p className="text-center font-semibold text-gray-300"> Bäst kommun i digitalisering är:</p>
+            <p className="text-center font-extrabold text-gray-300"> {best[0].name} </p>
+            <p className="text-center font-semibold text-gray-300"> med en bereddinförandegrad av</p>
             <p className="font-bold text-green-400 text-center"> {best[0].procent}%</p>
             
         </>

@@ -22,7 +22,7 @@ export default function TopAltCard() {
     if (topData.length > 1) {
         let best = topData.map(data => ({
             totalAlternativCost: data.alternativCost,
-            name: data.communeName
+            name: data.displayName
         
             
         }
@@ -32,10 +32,10 @@ export default function TopAltCard() {
     console.log(best)
         return (
             <>
-                <p className="text-center"> Kommun som kan tjäna mest på digitalisering:</p>
-                <p className="text-center font-extrabold text-gray-500"> {best[0].name} </p>
-                <p className="text-center"> beräknad av alternativkostnad</p>
-                <p className="font-bold text-green-400 text-center"> {best[0].totalAlternativCost}kr</p>
+                <p className="text-center font-semibold text-gray-300"> Kommun som kan tjäna mest på digitalisering:</p>
+                <p className="text-center font-extrabold text-gray-300"> {best[0].name} </p>
+                <p className="text-center font-semibold text-gray-300"> med en alternativkostnad på:</p>
+                <p className="font-bold text-green-400 text-center"> {best[0].totalAlternativCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} SEK/år</p>
                 
             </>
             ) } else

@@ -17,7 +17,7 @@ export default function CompareHteCard () {
         fetchCommuneData()})
     if (topData.length > 1) {
         let best = topData.map(data => ({
-            name: data.communeName,
+            name: data.displayName,
             alternativ: data.alternativCost
         }))
         best = best.sort((a, b) => b.alternativ - a.alternativ)
@@ -25,9 +25,9 @@ export default function CompareHteCard () {
 
         return (
             <>
-                <p className="text-center"> Kommun med högst överanställning:</p>
-                <p className="text-center font-extrabold text-gray-500"> {best[0].name} </p>
-                <p className="text-center"> beräknad HTE</p>
+                <p className="text-center font-semibold text-gray-300"> Kommun med högst överanställning:</p>
+                <p className="text-center font-extrabold text-gray-300"> {best[0].name} </p>
+                <p className="text-center font-semibold text-gray-300"> beräknad HTE</p>
                 <p className="font-bold text-green-400 text-center"> {bestKommun} HTE</p>
                 
             </>
