@@ -107,7 +107,7 @@ export default function SavingsPotetialChart({ communeName }: { communeName: any
                     }else if (context.dataset.label === "Omslutning SEK/år") {                      
                         return [
                             `Omslutning: ${context.raw.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} SEK/år`,
-                            `Hämtad från SCB: \nKostnad eget åtagande för kommunens omsorg om äldre och personer med funktionsnedsätting (2022)`,                         
+                            `Hämtad från SCB: \nKostnad eget åtagande för kommunens omsorg om äldre och personer med funktionsnedsättning (2022)`,                         
                         ];
                     } 
                     // Default behavior (optional)
