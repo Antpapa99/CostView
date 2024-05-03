@@ -487,6 +487,7 @@ export async function calculateAvgAllCommunes(communeData: any[string]): Promise
             alternativCost: totalAlternativCost,
             totalKostnad: 0, // You can set this to 0 or calculate if needed
             besparing: 0,
+            cost: communeCost.cost,
             population: communeCost.population,
             scale: communeCost.population/1000,
             displayName: displayName,
