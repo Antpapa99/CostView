@@ -119,8 +119,7 @@ export default function ScatterPlot() {
         const nationalCommuneAverageData = alternativCost.map(data => ({
             x: data.penCost,
             y: data.alternativCost/data.population,
-            r: data.cost/data.population, //omslutning/population
-            
+
             communeName: data.displayName
         }));
         
@@ -141,7 +140,7 @@ export default function ScatterPlot() {
 
     return (
       <>
-        <Bubble 
+        <Scatter 
             data={chartData}
             options = {options}
             /> 
