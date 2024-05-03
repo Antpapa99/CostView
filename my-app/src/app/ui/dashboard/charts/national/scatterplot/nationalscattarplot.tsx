@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react';
-import { Bar, Scatter } from 'react-chartjs-2';
+import { Bar, Bubble, Scatter } from 'react-chartjs-2';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -118,7 +118,8 @@ export default function ScatterPlot() {
     
         const nationalCommuneAverageData = alternativCost.map(data => ({
             x: data.penCost,
-            y: data.alternativCost,
+            y: data.alternativCost/data.population,
+            r: data.scale/10,
             communeName: data.displayName
         }));
         
@@ -139,7 +140,7 @@ export default function ScatterPlot() {
 
     return (
       <>
-        <Scatter 
+        <Bubble 
             data={chartData}
             options = {options}
             /> 

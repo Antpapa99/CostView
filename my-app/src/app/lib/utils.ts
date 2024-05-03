@@ -452,13 +452,22 @@ export async function calculateAvgPenetrationPerCommune(communeData: any[string]
 
 export async function calculateAvgAllCommunes(communeData: any[string]): Promise<any[]> {
     const communeAvgArrayCalculator: any[] = [];
+    const rawData = await moreCommuneData();
+    let costData = rawData
     
     communeData.forEach((commune: {
         displayName: string; communeName: string; technologies: any[]; 
 }) => {
         
-        const displayName: string = commune.displayName
         const communeName: string = commune.communeName; 
+        const communeCost: any = costData.find((data: { commune_name: string; }) => data.commune_name === communeName);
+        if (!communeCost) {
+            //console.error(`Cost data not found for commune: ${communeName}`);
+            return; // Hoppa över om kostnadsdata inte hittas
+        }
+        
+        const displayName: string = commune.displayName
+        
         const technologies: any[] = commune.technologies; /* Här defineras det som en lista eftersom det finns fler en teknologi objekt i varje kommun */
         let totalPenCost = 0;
         let totalAlternativCost = 0;
@@ -470,15 +479,19 @@ export async function calculateAvgAllCommunes(communeData: any[string]): Promise
     
         const averagePenCost = totalPenCost / technologies.length;
     
-        communeAvgArrayCalculator.push({
+        if(!communeAvgArrayCalculator.some(item => item.communeName === communeName)) {
+            communeAvgArrayCalculator.push({
             communeName: communeName,
             techName: "Combined",
             penCost: averagePenCost,
             alternativCost: totalAlternativCost,
             totalKostnad: 0, // You can set this to 0 or calculate if needed
             besparing: 0,
+            population: communeCost.population,
+            scale: communeCost.population/1000,
             displayName: displayName,
-        });
+        })};
+        console.log(communeAvgArrayCalculator, "line 491")
     })
     
     return  communeAvgArrayCalculator;
