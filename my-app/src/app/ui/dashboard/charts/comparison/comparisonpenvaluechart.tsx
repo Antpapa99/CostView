@@ -41,10 +41,14 @@ export default function ComparisonPenValueChart() {
       fetchCommuneCost(); /* säger till att funktionen körs på DOM, alltså sidan uppdateras */
     }, []);
 
-    
+    // Check if avgData is empty, return a loading indicator if it is
+    if (avgData.length === 0) {
+        return <div>Loading...</div>;
+    }
+
     avgData.sort((a, b) => b.penCost - a.penCost)
 
-    if (avgData.length > 0) {
+    
     const chartData = {
         labels: avgData.map(data => data.displayName),
         datasets: [
@@ -123,4 +127,4 @@ export default function ComparisonPenValueChart() {
             options = {options}
             />
     )
-}};
+};

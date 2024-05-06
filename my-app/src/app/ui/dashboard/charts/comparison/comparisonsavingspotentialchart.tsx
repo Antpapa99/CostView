@@ -41,10 +41,12 @@ export default function ComparisonSavingsPotetialChart() {
       fetchCommuneCost(); /* säger till att funktionen körs på DOM, alltså sidan uppdateras */
     }, []);
 
+    if (savingsPotential.length === 0) {
+        return <div>Loading...</div>;
+    }
     savingsPotential.sort((a, b) => b.savingPotential - a.savingPotential)
     
     
-    if (savingsPotential.length > 0) {
     const chartData = {
         labels: savingsPotential.map(data => data.displayName),
         datasets: [
@@ -132,4 +134,4 @@ export default function ComparisonSavingsPotetialChart() {
             options = {options}
             />
     )
-}};
+};
