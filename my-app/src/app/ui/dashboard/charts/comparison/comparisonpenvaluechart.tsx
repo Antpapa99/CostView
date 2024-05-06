@@ -44,7 +44,7 @@ export default function ComparisonPenValueChart() {
     
     avgData.sort((a, b) => b.penCost - a.penCost)
 
-    if (avgData.legnth > 0) {
+    if (avgData.length > 0) {
     const chartData = {
         labels: avgData.map(data => data.displayName),
         datasets: [
