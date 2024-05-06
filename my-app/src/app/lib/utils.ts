@@ -18,6 +18,7 @@ interface CommuneCostData {
     besparing: number,
     roiPotentiel: number,
     kostnadPerInstallation: number,
+    arligKostnadPerInstallation: number
 }
 
 /* kalkylerar alla kommuner på en gång */
@@ -174,6 +175,7 @@ export async function calculateCostSpecificCommune(communeData: any[string], nat
                 totalKostnad: totalKostnad,
                 besparing: arligBesparing,
                 roiPotentiel: roiPotentiel,
+                arligKostnadPerInstallation: tech.Arlig_kostnad_per_installation,
                 kostnadPerInstallation: kostnadPerInstallation,
                 displayName: displayName
         });
@@ -536,7 +538,6 @@ export async function getCommuneAvg() {
     communeData.forEach(commune => {  
       const communeName: string = commune.communeName;
       const displayName: string = commune.displayName;
-
       // Hitta matchande kostnad för den aktuella kommunen
       const communeCost = costData.find((data: { commune_name: string; }) => data.commune_name === communeName);
       if (!communeCost) {
@@ -615,6 +616,7 @@ export async function getCommuneAvg() {
           cost: cost * 1000,
           totalAlternativCost: totalAlternativCost,
           population: population,
+          
           perCapita: totalAlternativCost/population,
           displayName: displayName
         });
@@ -669,6 +671,7 @@ export async function getCommuneAvg() {
             installation: data.kostnadPerInstallation,
             technology: data.techName,
             besparing: data.besparing,
+            arligKostnadPerInstallation: data.arligKostnadPerInstallation
         })
         console.log(roiArray, "line 600")
     })

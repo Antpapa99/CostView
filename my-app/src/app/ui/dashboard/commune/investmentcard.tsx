@@ -27,7 +27,7 @@ export default function ReturnOfInvestmentCard({ communeName }: { communeName: a
 
   // Calculate technologies and ROI values
   const technologies = getTechnology.map(data => data.technology);
-  const roi = getTechnology.map(data => (((data.besparing * 10) / data.installation).toFixed(2)));
+  const roi = getTechnology.map(data => (((data.besparing - data.arligKostnadPerInstallation)* 10) / data.installation).toFixed(2));
 
   // Function to handle index change for cycling through technologies
   function handleClick() {
