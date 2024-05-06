@@ -117,7 +117,9 @@ export default function NationalAltCostChart() {
                         
                         return [
                             `Nationell alternativkostnad: ${context.raw.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} SEK/år`,
-                            `Beräknas utifrån:\n(totala antalet möjliga installationer - totala antalet installationer) * genomsnittlig kostnad per installation`,
+                            `\nBeräknas utifrån: \nGenomsnittlig alternativkostnad * 290`,
+                            `\nGenomsnittlig alternativkostnad beräknas utifrån:`, 
+                            `\n(totala antalet möjliga installationer - totala antalet installationer) * genomsnittlig kostnad per installation`,
                         ];
 
                     } 

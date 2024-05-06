@@ -179,9 +179,10 @@ const backgroundColor = nationalAverage.map(data => {
                         } else if (context.dataset.label === "Potentiel") {
                             // Return the text "hejdå" for the "Potentiel" dataset
                             return [
-                                `AlternativKostnad: ${nationalAverage[context.dataIndex].alternativCost.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} SEK/år`,
-                                `Beräknas utifrån:\n(antal möjliga installationer / antal installationer) * besparing per installation(SEK/år)`,
-                                "\nOm besparing per installation inte angetts används ett nationellt genomsnitt för beräkningarna"
+                                `Nationell AlternativKostnad: ${nationalAverage[context.dataIndex].alternativCost.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} SEK/år`,
+                                `\nBeräknas utifrån:\nGenomsnittlig alternativkostnad * 290`,
+                                `\nGenomsnittlig alternativkostnad beräknas utifrån:`,
+                                `\n(totala antalet möjliga installationer / totala antalet installationer) * genomsnittlig besparing per installation(SEK/år)`,
                             ];
                         }
                         // Default behavior (optional)
