@@ -490,7 +490,8 @@ export async function calculateAvgAllCommunes(communeData: any[string]): Promise
         displayName: string; communeName: string; technologies: any[]; 
 }) => {
         
-        const communeName: string = commune.communeName; 
+        const communeName: string = commune.communeName;
+         
         const communeCost: any = costData.find((data: { commune_name: string; }) => data.commune_name === communeName);
         if (!communeCost) {
             //console.error(`Cost data not found for commune: ${communeName}`);
@@ -498,6 +499,7 @@ export async function calculateAvgAllCommunes(communeData: any[string]): Promise
         }
         
         const displayName: string = commune.displayName
+        
         
         const technologies: any[] = commune.technologies; /* Här defineras det som en lista eftersom det finns fler en teknologi objekt i varje kommun */
         let totalPenCost = 0;
@@ -521,6 +523,7 @@ export async function calculateAvgAllCommunes(communeData: any[string]): Promise
             cost: communeCost.cost,
             population: communeCost.population,
             scale: communeCost.population/1000,
+            group: communeCost.typeGroup,
             displayName: displayName,
         })};
         console.log(communeAvgArrayCalculator, "line 491")
@@ -667,11 +670,13 @@ export async function getCommuneAvg() {
       return; // Hoppa över om kostnadsdata inte hittas
     } 
     const population: number = communePopCost.population;
+    const typeGroup: string = communePopCost.group;
    
     if (!combinedArray.some((item: { communeName: string; }) => item.communeName === communeName)) {
         combinedArray.push({
           commune_name: communeName,
           cost: commune.cost,
+          typeGroup: typeGroup,
           population: population,
         });
       }

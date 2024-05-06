@@ -25,11 +25,11 @@ ChartJS.register (
 )
 
 
-export default function ComparisonPenValueChart() {
+export default function ComparisonPenValueChart(filteredCommune: any) {
     // State används för att hantera data som ändras över tid i en react komponent vilket är det över
     // Genom att ge penetrationCost, setPenetrationCost tuples en useState så kan UI uppdatera
     const [avgData, setCommuneCost] = useState<any[]>([]); 
-
+    console.log(filteredCommune, "line 32")
     /* UseEffect hook som du ser här nere kan användas för att utföra data  fetching eller ändringar i DOM, 
     useEffecten hooken tar en funktion som argument som kommer att aktiveras efter rendering i DOM */
     useEffect(() => {

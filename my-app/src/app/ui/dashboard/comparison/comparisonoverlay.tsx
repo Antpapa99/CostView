@@ -1,19 +1,11 @@
 'use client';
-import { fetchCommune } from "@/app/lib/data";
-import PenGradeTopChart from "../charts/comparison/pengradetopchart";
-import { useEffect, useState } from "react";
-import { calculateSavingPotential, getCommuneAvg } from "@/app/lib/utils";
-import { ComparisonCommuneData } from "./comparisonbuttons";
-import SavingsComparePotetialChart from "../charts/comparison/besparingchart";
-import AltCostCompareChart from "../charts/comparison/alternativkostnaderchart";
-import SavingsPotetialChart from "../charts/commune/communesavingspotetialchart";
 import ComparisonSavingsPotetialChart from "../charts/comparison/comparisonsavingspotentialchart";
 import ComparisonPenValueChart from "../charts/comparison/comparisonpenvaluechart";
 import TopPenCard from "./comparepencard";
 import TopAltCard from "./comparealtcard";
 import CompareHteCard from "./comparehtecard";
 
-export default function ComparisonOverlay() {
+export default function ComparisonOverlay(filteredCommune: any) {
     
   return (
     <>
