@@ -3,12 +3,14 @@ import NationalAltCostChart from "@/app/ui/dashboard/charts/national/nationaltot
 import NationalScatterPlt from "../charts/national/scatterplot/nationalscattarplot";
 import ScatterPlot from "../charts/national/scatterplot/nationalscattarplot";
 import NationalAvgPenGradeChart from "../charts/national/nationalavgpenchart";
+import NationalAltCostCard from "./nationalaltcostcard";
 
 export default function NationalOverlay() {
   return (
     <>
   
       <section className="flex h-full gap-3">
+
         <section  className="w-1/2 h-full flex flex-col gap-3"> 
 
 
@@ -22,10 +24,17 @@ export default function NationalOverlay() {
 
 
         </section>
+        <section  className="w-1/2 h-full flex flex-col gap-3"> 
 
-          <div className="flex-auto  w-screen h-full rounded bg-gray-800">         
+        <div className="bg-gray-800 p-4 rounded justify-center items-center flex-relative">
+            <p className="text-gray-300 md:text-lg font-semibold mb-2 text-center">Total Alternativkostnad: </p>
+            <p className="text-4xl font-bold text-green-400 text-center">{NationalAltCostCard()} SEK/år</p>
+        </div>
+
+          <div className="flex-auto  w-full h-3/4 rounded bg-gray-800">         
                 <ScatterPlot/>               
           </div>
+          </section>
       </section>
     </>
   );
