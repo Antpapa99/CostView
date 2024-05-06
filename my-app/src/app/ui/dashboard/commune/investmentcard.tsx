@@ -47,9 +47,9 @@ export default function ReturnOfInvestmentCard({ communeName }: { communeName: a
   }; */
   return (
     <div className="text-gray-300 text-lg font-semibold mb-2 text-center gap-2">
-        <p className="font-extrabold text-gray-500">{technologies[index]} </p>
+        <p className="font-extrabold text-green-400">{technologies[index]} </p>
         <p className="text-gray-300">För varje krona du spenderar får du tillbaka</p>
-        <p className="text-gray-300">{roi[index]}kr inom 10 år</p>
+        <p className="text-green-400">{roi[index]}SEK efter 10 år</p>
         <p className="text-gray-300">{index+1}/{technologies.length} </p>
     <button className = "h-8 w-22 px-2 justify-center text-white text-center bg-gray-800 border border-gray-600 rounded-md focus:outline-none  focus:border-blue-300"
     onClick={handleClick}>

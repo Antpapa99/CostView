@@ -4,6 +4,7 @@ import NationalScatterPlt from "../charts/national/scatterplot/nationalscattarpl
 import ScatterPlot from "../charts/national/scatterplot/nationalscattarplot";
 import NationalAvgPenGradeChart from "../charts/national/nationalavgpenchart";
 import NationalAltCostCard from "./nationalaltcostcard";
+import Tippy from "@tippyjs/react";
 
 export default function NationalOverlay() {
   return (
@@ -26,11 +27,19 @@ export default function NationalOverlay() {
         </section>
         <section  className="w-1/2 h-full flex flex-col gap-3"> 
 
+        <Tippy content={(
+            <div>
+                <p>
+                Total nationell alternativkostnad: Genomsnittlig total alternativkostnad * 290
+                </p>
+            </div>
+        )}>
         <div className="bg-gray-800 p-4 rounded justify-center items-center flex-relative">
-            <p className="text-gray-300 md:text-lg font-semibold mb-2 text-center">Total Alternativkostnad: </p>
+            <p className="text-gray-300 md:text-lg font-semibold mb-2 text-center">Total Nationell Alternativkostnad: </p>
             <p className="text-4xl font-bold text-green-400 text-center">{NationalAltCostCard()} SEK/år</p>
         </div>
-
+        </Tippy>
+        
           <div className="flex-auto  w-full h-3/4 rounded bg-gray-800">         
                 <ScatterPlot/>               
           </div>

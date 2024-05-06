@@ -40,21 +40,40 @@ export default function ChartBox({ selectedCommune }: any) {
         )}>
              
         <div className="bg-gray-800 p-4 rounded justify-center items-center flex-relative">
-            <p className="text-gray-300 md:text-lg font-semibold mb-2 text-center">Överanställning: </p>
+            <p className="text-gray-300 md:text-lg font-semibold mb-2 text-center">Omfördelningspotential: </p>
             <p className="text-4xl font-bold text-green-400 text-center">{selectedCommune && <HteCard communeName={selectedCommune} />} HTE</p>
         </div>
         </Tippy>
 
+        <Tippy content={(
+            <div>
+                <p>
+                SEK/invånare: (Total alternativkostnad/population)
+                </p>
+                <p>
+                Population: hämtad från SKR:s kommungruppsindelning 2023 
+                </p>
+            </div>
+        )}>
         <div className="bg-gray-800 p-4 rounded justify-center items-center  flex-relative">
             <p className="text-gray-300 text-lg font-semibold mb-2 text-center">Er totala alternativkostnad motsvarar:</p>
-            <p className="text-4xl font-bold text-green-400 text-center">{selectedCommune && <PerCapitaCard communeName={selectedCommune} />} kr/invånare</p>
+            <p className="text-4xl font-bold text-green-400 text-center">{selectedCommune && <PerCapitaCard communeName={selectedCommune} />} SEK/invånare</p>
         </div>
+        </Tippy>
 
+        <Tippy content={(
+            <div>
+                <p>
+                Beräknas utifrån: (besparing per år - årlig kosntad per installation) * 10 / initial kostnad per installation
+                </p>
+            </div>
+        )}>
         <div className="bg-gray-800 p-4 rounded justify-center  items-center flex-relative">
             {selectedCommune && <ReturnOfInvestmentCard communeName={selectedCommune} />}
         </div>
-    </div>
+    </Tippy>
 
+    </div>
     {/* Row with the SavingsPotentialChart */}
     <div className="grid justify-center bg-gray-800 items-center rounded p-4">
         {selectedCommune && <SavingsPotetialChart communeName={selectedCommune} />}

@@ -89,7 +89,7 @@ export default function ScatterPlot() {
                       const dataPoint = tooltipItem.dataset.data[tooltipItem.dataIndex];
                       
                       // Returnera texten med penCost och alternativCost
-                      return `genomsnitlig penetration: ${Math.round(dataPoint.x)}%, Total alternativkostnad: ${Math.round(dataPoint.y).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}kr`;
+                      return `Genomsnitlig penetration: ${Math.round(dataPoint.x)}%, Alternativkostnad per invånare: ${Math.round(dataPoint.y).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} SEK/invånare`;
                   }
               }
           },
@@ -128,7 +128,7 @@ export default function ScatterPlot() {
       const chartData: any = {
         datasets: [{
           
-            label: "Total alternativkostnad SEK/år och penetration per kommun",
+            label: "Total alternativkostnad per invånare SEK/år och penetration per kommun",
           
           data: nationalCommuneAverageData ,
           
