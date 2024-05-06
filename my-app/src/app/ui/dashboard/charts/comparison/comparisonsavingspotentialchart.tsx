@@ -42,9 +42,23 @@ export default function ComparisonSavingsPotetialChart() {
     }, []);
 
     savingsPotential.sort((a, b) => b.savingPotential - a.savingPotential)
-    const backgroundColor = ['rgba(186, 0, 0, 0.7',
-    'rgba(184, 186, 0, 0.7)', 'rgba(0, 186, 176, 0.7)', 'rgba(80, 0, 186, 0.7)', 'rgba(33, 186, 0, 0.7)']
     
+    
+    if (savingsPotential.length > 0) {
+    const chartData = {
+        labels: savingsPotential.map(data => data.displayName),
+        datasets: [
+            {
+                label: "Besparingspotential", // Labeln för datasetet
+                data: savingsPotential.map(data => data.savingPotential.toFixed(2)), // Data för staplarna
+                backgroundColor: 'rgba(255, 0, 0, 0.5)',
+                borderColor: 'rgba(255, 0, 0)',
+                borderWidth: 3,
+                stack: 'stack1' // Ange en stack-namn för detta dataset
+            },
+        ]
+    }
+
     const options: any = {
         maintainAspectRatio: false,
         scales: {
@@ -109,19 +123,7 @@ export default function ComparisonSavingsPotetialChart() {
          }
          
     };
-    const chartData = {
-        labels: savingsPotential.map(data => data.displayName),
-        datasets: [
-            {
-                label: "Besparingspotential", // Labeln för datasetet
-                data: savingsPotential.map(data => data.savingPotential.toFixed(2)), // Data för staplarna
-                backgroundColor: 'rgba(255, 0, 0, 0.5)',
-                borderColor: 'rgba(255, 0, 0)',
-                borderWidth: 3,
-                stack: 'stack1' // Ange en stack-namn för detta dataset
-            },
-        ]
-    }
+    
     
     
     return (
@@ -130,4 +132,4 @@ export default function ComparisonSavingsPotetialChart() {
             options = {options}
             />
     )
-};
+}};

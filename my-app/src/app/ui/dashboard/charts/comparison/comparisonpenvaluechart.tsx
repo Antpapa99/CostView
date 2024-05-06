@@ -43,6 +43,22 @@ export default function ComparisonPenValueChart() {
 
     
     avgData.sort((a, b) => b.penCost - a.penCost)
+
+    if (avgData.legnth > 0) {
+    const chartData = {
+        labels: avgData.map(data => data.displayName),
+        datasets: [
+            {
+                label: "Genomsnittlig penetrationsgrad", // Labeln för datasetet
+                data: avgData.map(data => data.penCost.toFixed(2)), // Data för staplarna
+                backgroundColor: 'rgba(27, 163, 156, 0.7)',
+                borderColor: 'rgba(27, 163, 156)',
+                borderWidth: 3,
+                stack: 'stack1' // Ange en stack-namn för detta dataset
+            },
+        ]
+    }
+
     const options: any = {
         maintainAspectRatio: false,
         scales: {
@@ -98,19 +114,7 @@ export default function ComparisonPenValueChart() {
          }
          
     };
-    const chartData = {
-        labels: avgData.map(data => data.displayName),
-        datasets: [
-            {
-                label: "Genomsnittlig penetrationsgrad", // Labeln för datasetet
-                data: avgData.map(data => data.penCost.toFixed(2)), // Data för staplarna
-                backgroundColor: 'rgba(27, 163, 156, 0.7)',
-                borderColor: 'rgba(27, 163, 156)',
-                borderWidth: 3,
-                stack: 'stack1' // Ange en stack-namn för detta dataset
-            },
-        ]
-    }
+    
     
     
     return (
@@ -119,4 +123,4 @@ export default function ComparisonPenValueChart() {
             options = {options}
             />
     )
-};
+}};
