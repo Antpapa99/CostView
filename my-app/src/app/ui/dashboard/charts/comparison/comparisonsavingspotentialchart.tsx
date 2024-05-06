@@ -123,11 +123,15 @@ export default function ComparisonSavingsPotetialChart() {
         ]
     }
     
-    
+    if (savingsPotential.length > 0) {
     return (
-            <Bar
+        <Bar
             data={chartData}
-            options = {options}
-            />
-    )
+            options={options}
+        />
+    );
+    } else {
+        // Render a loading indicator or return null if data is not yet available
+        return null;
+    }
 };

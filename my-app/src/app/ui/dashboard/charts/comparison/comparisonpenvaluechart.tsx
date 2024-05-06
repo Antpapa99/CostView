@@ -112,11 +112,13 @@ export default function ComparisonPenValueChart() {
         ]
     }
     
-    
+    if (avgData.length > 0) {
     return (
             <Bar
             data={chartData}
             options = {options}
             />
-    )
+    ) } else {
+        return null
+    }
 };
