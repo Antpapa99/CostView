@@ -48,7 +48,7 @@ export default function ChartBox({ selectedCommune }: any) {
         <Tippy content={(
             <div>
                 <p>
-                SEK/invånare: (Tptal alternativkostnad/population)
+                SEK/invånare: (Total alternativkostnad/population)
                 </p>
                 <p>
                 Population: hämtad från SKR:s kommungruppsindelning 2023 
@@ -64,7 +64,7 @@ export default function ChartBox({ selectedCommune }: any) {
         <Tippy content={(
             <div>
                 <p>
-                Beräknas utifrån: (besparing per år - kostnad per år) * 10 / initial kostnad
+                Beräknas utifrån: (besparing per år - årlig kosntad per installation) * 10 / initial kostnad per installation
                 </p>
             </div>
         )}>
