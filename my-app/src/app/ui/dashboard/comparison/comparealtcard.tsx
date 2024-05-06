@@ -5,7 +5,7 @@ export default function TopAltCard() {
 
     const [topData, setAlternativCost] = useState<any[]>([]);
     
-
+    
     useEffect(() => {
         const fetchCommuneAlternativCost = async () => {
             try {
@@ -18,7 +18,7 @@ export default function TopAltCard() {
 
         fetchCommuneAlternativCost();
     }, []);
-
+    
     if (topData.length > 1) {
         let best = topData.map(data => ({
             totalAlternativCost: data.alternativCost,
