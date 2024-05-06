@@ -5,7 +5,7 @@ import TopPenCard from "./comparepencard";
 import TopAltCard from "./comparealtcard";
 import CompareHteCard from "./comparehtecard";
 
-export default function ComparisonOverlay(filteredCommune: any) {
+export default function ComparisonOverlay({filteredCommune}: any) {
     
   return (
     <>
@@ -33,12 +33,12 @@ export default function ComparisonOverlay(filteredCommune: any) {
       <section className="flex h-full my-4 px-4 gap-3">
         <div className="w-1/2 bg-gray-800 rounded">
          
-         <ComparisonSavingsPotetialChart/> 
+        {filteredCommune && <ComparisonSavingsPotetialChart filteredCommune={filteredCommune}/>}
          
         </div>
 
         <div className="w-1/2 bg-gray-800 rounded">
-        <ComparisonPenValueChart/>
+       {filteredCommune && <ComparisonPenValueChart filteredCommune={filteredCommune}/>}
         </div>
       </section>
       <section>

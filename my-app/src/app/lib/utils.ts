@@ -26,12 +26,19 @@ interface CommuneCostData {
 export async function calculateCostAllCommunes(communeData: any[]): Promise<any[]> {
     const communeCostArrayCalculator: any[] = []; /* Här defineras det som en lista eftersom vi samlar olika kommuners penettrationsgrad */
     const nationaldata = await calculateNationalAverage(communeData);
+    const rawData = await moreCommuneData();
+    let costData = rawData
 
     communeData.forEach(commune => {
         const communeName: string = commune.commune_name; 
         const technologies: any[] = commune.technologies; /* Här defineras det som en lista eftersom det finns fler en teknologi objekt i varje kommun */
         const displayName: string = commune.display_name
-
+        const communeCost = costData.find((data: { commune_name: string; }) => data.commune_name === communeName);
+        if (!communeCost) {
+            //console.error(`Cost data not found for commune: ${communeName}`);
+            return; // Hoppa över om kostnadsdata inte hittas
+        }
+    
         const technologiesCostCalculator: any[] = [];
 
         technologies.forEach(async tech => {
@@ -90,6 +97,7 @@ export async function calculateCostAllCommunes(communeData: any[]): Promise<any[
         });
         communeCostArrayCalculator.push({
             communeName: communeName,
+            group: communeCost.typeGroup,
             technologies: technologiesCostCalculator,
             displayName: displayName
         });

@@ -13,7 +13,6 @@ interface PageProps {
 }
 
 export default function Page({ children }: PageProps) {
-
     const [filteredCommune, setFilteredCommune] = useState(null);
     console.log("Test")
     console.log("mac is weird")
@@ -28,7 +27,7 @@ export default function Page({ children }: PageProps) {
     return (
         <Suspense fallback={<p>Loading dashboard...</p>}>
         <div className="flex h-screen flex-col md:flex-col md:overflow-hidden">
-            <ComparisonCommuneFilter onCommuneChange={handleCommuneChange} />
+            <ComparisonCommuneFilter onDataChange={handleCommuneChange} />
             <div className="h-full flex flex-col pt-4 pb-4 md:pt-8 md:pb-8"> {/* Size of boxes */}
             <ComparisonOverlay filteredCommune = {filteredCommune} />
             </div>

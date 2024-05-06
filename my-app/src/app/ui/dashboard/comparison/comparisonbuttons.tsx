@@ -1,20 +1,23 @@
 'use client';
 import { fetchCommune } from "@/app/lib/data";
-import { AveregePipelineAllCommune, getCommuneAvg } from "@/app/lib/utils";
+import { AveregePipelineAllCommune, calculateCostAllCommunes, getCommuneAvg } from "@/app/lib/utils";
 import { useEffect, useState } from "react";
 
 export function ComparisonCommuneFilter({onDataChange}: any) {
     const [kommuner, setKommuner] = useState<any>([]);
-    const [filteredKommuner, setFilteredKommuner] = useState<any>([]);
-    
     
     useEffect(() => {
         const getCommuneList = async () => {
-            const data = await AveregePipelineAllCommune()
+            const getCommune = await fetchCommune();
+            const data = await calculateCostAllCommunes(getCommune);
             setKommuner(data)
         }
         getCommuneList()
     }, [])
+
+    if (kommuner.length < 1) {
+        return <div> loading... </div>
+    }
 
     console.log(kommuner, "7 line to check if it actually gets the data correctly")
     
@@ -27,10 +30,12 @@ export function ComparisonCommuneFilter({onDataChange}: any) {
             let filteredData  = sortedData.filter((data) => data.group === selectedValue)
             const top3 = filteredData.splice(0, 5); // dem 3 lägsta arrays
             console.log(top3, "line 28")
-            setFilteredKommuner(top3);
+            onDataChange(top3);
+        } else {
+            onDataChange(kommuner)
         }}
 
-    console.log(filteredKommuner, "line 33")
+    
     return (
         <div className="">
             <select onChange={handleDataChange}>

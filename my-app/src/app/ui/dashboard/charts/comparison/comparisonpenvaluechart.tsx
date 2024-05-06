@@ -11,7 +11,7 @@ import {
     Legend,
 } from 'chart.js/auto';
 import { fetchSpecificCommune } from '@/app/lib/data';
-import { AveregePipelineAllCommune, SavingPotentialPipelineAllCommune, calculateCostSpecificCommune, calculateSavingPotentialAllCommunes, getSpecficCommuneCost } from '@/app/lib/utils';
+import { AveregePipelineAllCommune, SavingPotentialPipelineAllCommune, calculateAvgAllCommunes, calculateCostSpecificCommune, calculateSavingPotentialAllCommunes, getSpecficCommuneCost } from '@/app/lib/utils';
 import { calculateSavingPotential } from '@/app/lib/utils';
 const barColors = ["#1f77b4", "#ff7f0e", "#2ca02c"]
 
@@ -25,16 +25,17 @@ ChartJS.register (
 )
 
 
-export default function ComparisonPenValueChart(filteredCommune: any) {
+export default function ComparisonPenValueChart({filteredCommune}: any) {
     // State används för att hantera data som ändras över tid i en react komponent vilket är det över
     // Genom att ge penetrationCost, setPenetrationCost tuples en useState så kan UI uppdatera
     const [avgData, setCommuneCost] = useState<any[]>([]); 
-    console.log(filteredCommune, "line 32")
+    console.log(avgData)
     /* UseEffect hook som du ser här nere kan användas för att utföra data  fetching eller ändringar i DOM, 
     useEffecten hooken tar en funktion som argument som kommer att aktiveras efter rendering i DOM */
+    
     useEffect(() => {
       const fetchCommuneCost = async () => { /* Async är där så att webbsidan inte aktivera funktionen innan fetchingen är färdig */
-        const avgData = await AveregePipelineAllCommune();
+        const avgData = await calculateAvgAllCommunes(filteredCommune);
         setCommuneCost(avgData); /*denna variablen unppdatera sidan med det nya */
       };
       
@@ -45,6 +46,8 @@ export default function ComparisonPenValueChart(filteredCommune: any) {
     if (avgData.length === 0) {
         return <div>Loading...</div>;
     }
+
+    
 
     avgData.sort((a, b) => b.penCost - a.penCost)
 
