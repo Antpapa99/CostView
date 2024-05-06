@@ -64,7 +64,7 @@ export default function ChartBox({ selectedCommune }: any) {
         <Tippy content={(
             <div>
                 <p>
-                Beräknas utifrån: (besparing per år - årlig kosntad per installation) * 10 / initial kostnad per installation
+                Beräknas utifrån: (besparing per år * 10 ) / (initial kostnad per installation +(årlig kosntad per installation * 9))
                 </p>
             </div>
         )}>
