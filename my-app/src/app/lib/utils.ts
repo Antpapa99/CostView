@@ -206,6 +206,7 @@ export async function getSpecficCommuneCost(communeName: any[string]) {
 
 export async function calculateNationalTotalAlternativCost(communeData: any[]): Promise<CommuneCostData[]>{
     const techAverages: any = {};
+    const antalKommuner = 290;
 
     communeData.forEach(commune => {
         const technologies: any[] = commune.technologies
@@ -215,10 +216,12 @@ export async function calculateNationalTotalAlternativCost(communeData: any[]): 
 
                 if (!techAverages[tech.techName]) {
                     techAverages[tech.techName] = {
-                        alternativCost: 0
+                        alternativCost: 0,
+                        techCount: 0
                     };
                 }
                 techAverages[tech.techName].alternativCost += tech["alternativCost"];
+                techAverages[tech.techName].techCount += 1;
             };
         });
     });
@@ -231,7 +234,7 @@ export async function calculateNationalTotalAlternativCost(communeData: any[]): 
         const average = {
             techName: techName,
             penCost: 0,
-            alternativCost: alternativCost,
+            alternativCost: (alternativCost/avgData.techCount) * 290,
             totalAlternativCost: 0,
             totalKostnad: 0,
             besparing: 0,  
@@ -322,10 +325,10 @@ export async function calculateNationalAvgPenetration(communeData: any[]): Promi
     let oppositePenGrade = 0;
     let alternativCost = 0;
     let totalAlternativCost = 0;
-    
-    communeData.forEach(commune => {
-        const technologies: any[] = commune.technologies;
 
+    communeData.forEach(commune => {
+        
+        const technologies: any[] = commune.technologies;
         technologies.forEach(tech => {
             // Check if any of the values are -1, if so, ignore them
             if (
@@ -338,6 +341,7 @@ export async function calculateNationalAvgPenetration(communeData: any[]): Promi
                     techAverages[tech.tech_name] = {
                         Mojliga_installationer_sum: 0,
                         Antal_installationer_sum: 0,
+                        
                     };
                 }
                 // Add values to the sums
@@ -345,6 +349,8 @@ export async function calculateNationalAvgPenetration(communeData: any[]): Promi
                 techAverages[tech.tech_name].Antal_installationer_sum += tech["Antal_installationer"];
             }
         });
+        
+
     });
 
     // Calculate averages
@@ -355,7 +361,8 @@ export async function calculateNationalAvgPenetration(communeData: any[]): Promi
         antalSum += avgData.Antal_installationer_sum
         mojligSum += avgData.Mojliga_installationer_sum
         oppositePenGrade = 100 - penCost;
-
+        
+        console.log(techName, avgData.techCount, "Tech count");
         avgAlternativCost.forEach(element => {
             if(element.techName == techName){
                 alternativCost = element.alternativCost;
