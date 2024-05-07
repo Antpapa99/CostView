@@ -1,7 +1,7 @@
-import { getCommuneAvg } from "@/app/lib/utils";
+import { calculateAvgAllCommunes, getCommuneAvg } from "@/app/lib/utils";
 import { useEffect, useState } from "react";
 
-export default function CompareHteCard () {
+export default function CompareHteCard ({filteredCommune}: any) {
 
     const [topData, setTopData] = useState<any[]>([]);
     
@@ -9,17 +9,17 @@ export default function CompareHteCard () {
     useEffect(() => {
         const fetchCommuneAlternativCost = async () => {
             try {
-                const communePlot = await getCommuneAvg()
-                setTopData(communePlot);
+                const avgData = await calculateAvgAllCommunes(filteredCommune);
+                setTopData(avgData);
             } catch (error) {
                 console.error('Error fetching national average:', error);
             }
         }
 
         fetchCommuneAlternativCost();
-    }, []);
+    }, [filteredCommune]);
     
-    if (topData.length > 1) {
+    if (topData.length >= 1) {
         let best = topData.map(data => ({
             name: data.displayName,
             alternativ: data.alternativCost

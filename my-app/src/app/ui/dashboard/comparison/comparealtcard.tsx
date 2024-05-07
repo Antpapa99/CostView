@@ -1,7 +1,7 @@
-import { getCommuneAvg } from "@/app/lib/utils";
+import { calculateAvgAllCommunes, getCommuneAvg } from "@/app/lib/utils";
 import { Suspense, useEffect, useState } from "react";
 
-export default function TopAltCard() {
+export default function TopAltCard({filteredCommune}: any) {
 
     const [topData, setAlternativCost] = useState<any[]>([]);
     
@@ -9,17 +9,17 @@ export default function TopAltCard() {
     useEffect(() => {
         const fetchCommuneAlternativCost = async () => {
             try {
-                const communePlot = await getCommuneAvg()
-                setAlternativCost(communePlot);
+                const avgData = await calculateAvgAllCommunes(filteredCommune);
+                setAlternativCost(avgData);
             } catch (error) {
                 console.error('Error fetching national average:', error);
             }
         }
 
         fetchCommuneAlternativCost();
-    }, []);
+    }, [filteredCommune]);
     
-    if (topData.length > 1) {
+    if (topData.length >= 1) {
         let best = topData.map(data => ({
             totalAlternativCost: data.alternativCost,
             name: data.displayName

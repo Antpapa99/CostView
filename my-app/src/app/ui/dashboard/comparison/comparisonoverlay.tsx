@@ -14,17 +14,17 @@ export default function ComparisonOverlay({filteredCommune}: any) {
         <div className="flex h-44 m-4 gap-2">
           <div className="flex-1 px-2 justify-center w-16 bg-gray-800 shadow rounded h-300px">
             <div className="">
-              <TopPenCard />
+            {filteredCommune &&  <TopPenCard filteredCommune={filteredCommune}/>}
             </div>
           </div>
           <div className="flex-1 px-2 justify-center w-16 bg-gray-800 shadow rounded max-h-300px">
             <div className="">
-            <TopAltCard />
+            {filteredCommune &&  <TopAltCard filteredCommune={filteredCommune}/>}
             </div>
           </div>
           <div className="flex-1 px-2 justify-center w-16 bg-gray-800 shadow rounded max-h-300px">
             <div className="">
-            <CompareHteCard />
+            {filteredCommune &&  <CompareHteCard filteredCommune={filteredCommune}/>}
             </div>
           </div>
         </div>

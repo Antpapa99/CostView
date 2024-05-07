@@ -1,7 +1,7 @@
-import { AveregePipelineAllCommune, getCommuneAvg } from "@/app/lib/utils";
+import { AveregePipelineAllCommune, calculateAvgAllCommunes, getCommuneAvg } from "@/app/lib/utils";
 import { useEffect, useState } from "react";
 
-export default function TopPenCard() {
+export default function TopPenCard({filteredCommune}: any) {
 
     const [topData, setAlternativCost] = useState<any[]>([]);
     
@@ -9,18 +9,18 @@ export default function TopPenCard() {
     useEffect(() => {
         const fetchCommuneAlternativCost = async () => {
             try {
-                const communePlot = await AveregePipelineAllCommune()
-                setAlternativCost(communePlot);
+                const avgData = await calculateAvgAllCommunes(filteredCommune);
+                setAlternativCost(avgData);
             } catch (error) {
                 console.error('Error fetching national average:', error);
             }
         }
 
         fetchCommuneAlternativCost();
-    }, []);
+    }, [filteredCommune]);
     
    
-    if (topData.length > 1) {
+    if (topData.length >= 1) {
     let best = topData.map(data => ({
         procent: data.penCost.toFixed(2),
         name: data.displayName
