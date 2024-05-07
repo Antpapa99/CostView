@@ -11,7 +11,7 @@ import {
     Legend,
 } from 'chart.js/auto';
 import { fetchSpecificCommune } from '@/app/lib/data';
-import { SavingPotentialPipelineAllCommune, calculateCostSpecificCommune, calculateSavingPotentialAllCommunes, getSpecficCommuneCost } from '@/app/lib/utils';
+import { SavingPotentialPipelineAllCommune, calculateAvgAllCommunes, calculateCostSpecificCommune, calculateSavingPotentialAllCommunes, getSpecficCommuneCost } from '@/app/lib/utils';
 import { calculateSavingPotential } from '@/app/lib/utils';
 const barColors = ["#1f77b4", "#ff7f0e", "#2ca02c"]
 
@@ -25,7 +25,7 @@ ChartJS.register (
 )
 
 
-export default function ComparisonSavingsPotetialChart(filteredCommune: any) {
+export default function ComparisonSavingsPotetialChart({filteredCommune}: any) {
     // State används för att hantera data som ändras över tid i en react komponent vilket är det över
     // Genom att ge penetrationCost, setPenetrationCost tuples en useState så kan UI uppdatera
     const [savingsPotential, setCommuneCost] = useState<any[]>([]); 
@@ -34,12 +34,13 @@ export default function ComparisonSavingsPotetialChart(filteredCommune: any) {
     useEffecten hooken tar en funktion som argument som kommer att aktiveras efter rendering i DOM */
     useEffect(() => {
       const fetchCommuneCost = async () => { /* Async är där så att webbsidan inte aktivera funktionen innan fetchingen är färdig */
-        const savingsPotential = await SavingPotentialPipelineAllCommune();
+        const data = await calculateAvgAllCommunes(filteredCommune);
+        const savingsPotential = await calculateSavingPotentialAllCommunes(data);
         setCommuneCost(savingsPotential); /*denna variablen unppdatera sidan med det nya */
       };
       
       fetchCommuneCost(); /* säger till att funktionen körs på DOM, alltså sidan uppdateras */
-    }, []);
+    }, [filteredCommune]);
 
     if (savingsPotential.length === 0) {
         return <div>Loading...</div>;

@@ -16,11 +16,13 @@ export default function Page({ children }: PageProps) {
     const [filteredCommune, setFilteredCommune] = useState(null);
     console.log("Test")
     console.log("mac is weird")
+    console.log(filteredCommune, "line 19")
     
 
 
 
   const handleCommuneChange = (kommun: any) => {
+    console.log(kommun, "line 24")
     setFilteredCommune(kommun); }
 
     

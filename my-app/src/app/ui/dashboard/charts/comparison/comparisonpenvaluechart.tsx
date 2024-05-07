@@ -40,7 +40,7 @@ export default function ComparisonPenValueChart({filteredCommune}: any) {
       };
       
       fetchCommuneCost(); /* säger till att funktionen körs på DOM, alltså sidan uppdateras */
-    }, []);
+    }, [filteredCommune]);
 
     // Check if avgData is empty, return a loading indicator if it is
     if (avgData.length === 0) {
