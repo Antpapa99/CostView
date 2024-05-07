@@ -27,7 +27,7 @@ export default function NationalOverlay() {
         </section>
         <section  className="w-1/2 h-full flex flex-col gap-3"> 
 
-        <Tippy content={(
+        <Tippy className= "bg-gray-800 text-gray-300" content={(
             <div>
                 <p>
                 Total nationell alternativkostnad: Genomsnittlig total alternativkostnad * 290

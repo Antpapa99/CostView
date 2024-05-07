@@ -182,7 +182,7 @@ const backgroundColor = nationalAverage.map(data => {
                                 `Nationell AlternativKostnad: ${nationalAverage[context.dataIndex].alternativCost.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} SEK/år`,
                                 `\nBeräknas utifrån:\nGenomsnittlig alternativkostnad * 290`,
                                 `\nGenomsnittlig alternativkostnad beräknas utifrån:`,
-                                `\n(totala antalet möjliga installationer / totala antalet installationer) * genomsnittlig besparing per installation(SEK/år)`,
+                                `\n(totala antalet möjliga installationer - totala antalet installationer) * genomsnittlig besparing per installation(SEK/år)`,
                             ];
                         }
                         // Default behavior (optional)

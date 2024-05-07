@@ -28,7 +28,7 @@ export default function ChartBox({ selectedCommune }: any) {
     {/* Row with the three cards */}
     <div className="grid grid-cols-1 md:grid-cols-3 overflow-scroll outline-dotted md:outline-none md:overflow-hidden gap-4">
 
-        <Tippy content={(
+        <Tippy className= "bg-gray-800 text-gray-300" content={(
             <div>
                 <p>
                 HTE beräknas utifrån: (alternativkostnad/timkostnad) / antal timmar heltid per år (2080h)
@@ -45,7 +45,7 @@ export default function ChartBox({ selectedCommune }: any) {
         </div>
         </Tippy>
 
-        <Tippy content={(
+        <Tippy className= "bg-gray-800 text-gray-300" content={(
             <div>
                 <p>
                 SEK/invånare: (Total alternativkostnad/population)
@@ -61,7 +61,7 @@ export default function ChartBox({ selectedCommune }: any) {
         </div>
         </Tippy>
 
-        <Tippy content={(
+        <Tippy className= "bg-gray-800 text-gray-300" content={(
             <div>
                 <p>
                 Beräknas utifrån: (besparing per år * 10 ) / (initial kostnad per installation +(årlig kosntad per installation * 9))
