@@ -517,6 +517,8 @@ export async function calculateAvgAllCommunes(communeData: any[string]): Promise
             totalPenCost += tech.penCost;
             totalAlternativCost += tech.alternativCost;
         });
+
+        const savingPotential = (totalAlternativCost / (communeCost.cost * 1000)) * 100;
     
         const averagePenCost = totalPenCost / technologies.length;
     
@@ -526,6 +528,7 @@ export async function calculateAvgAllCommunes(communeData: any[string]): Promise
             techName: "Combined",
             penCost: averagePenCost,
             alternativCost: totalAlternativCost,
+            savingPotential: savingPotential,
             totalKostnad: 0, // You can set this to 0 or calculate if needed
             besparing: 0,
             cost: communeCost.cost,
@@ -633,7 +636,7 @@ export async function getCommuneAvg() {
       const population: number = communeCost.population;
       
       const technologies: any[] = commune.technologies
-
+      console.log(commune, "line 636")
       technologies.forEach(tech => {
         totalAlternativCost += tech.alternativCost;
       })

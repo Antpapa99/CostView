@@ -33,14 +33,13 @@ export default function ComparisonSavingsPotetialChart({filteredCommune}: any) {
     /* UseEffect hook som du ser här nere kan användas för att utföra data  fetching eller ändringar i DOM, 
     useEffecten hooken tar en funktion som argument som kommer att aktiveras efter rendering i DOM */
     useEffect(() => {
-      const fetchCommuneCost = async () => { /* Async är där så att webbsidan inte aktivera funktionen innan fetchingen är färdig */
-        const data = await calculateAvgAllCommunes(filteredCommune);
-        const savingsPotential = await calculateSavingPotentialAllCommunes(data);
-        setCommuneCost(savingsPotential); /*denna variablen unppdatera sidan med det nya */
-      };
-      
-      fetchCommuneCost(); /* säger till att funktionen körs på DOM, alltså sidan uppdateras */
-    }, [filteredCommune]);
+        const fetchCommuneCost = async () => { /* Async är där så att webbsidan inte aktivera funktionen innan fetchingen är färdig */
+          const savingsPotential = await calculateAvgAllCommunes(filteredCommune);
+          setCommuneCost(savingsPotential); /*denna variablen unppdatera sidan med det nya */
+        };
+        
+        fetchCommuneCost(); /* säger till att funktionen körs på DOM, alltså sidan uppdateras */
+      }, [filteredCommune]);
 
     if (savingsPotential.length === 0) {
         return <div>Loading...</div>;
@@ -106,7 +105,7 @@ export default function ComparisonSavingsPotetialChart({filteredCommune}: any) {
                     if (context.dataset.label === "Besparingspotential") {
                         
                         return [
-                            `Alternativkostnad: ${savingsPotential[context.dataIndex]["totalAlternativCost"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} SEK/år`,
+                            `Alternativkostnad: ${savingsPotential[context.dataIndex]["alternativCost"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} SEK/år`,
                             `Besparingspotential: \n${savingsPotential[context.dataIndex]["savingPotential"].toFixed(2) + '%'}`,
                             `Omslutning: \n${savingsPotential[context.dataIndex]["cost"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} SEK/år`,
                             `Alternativkostnad beräknas utifrån:\n(antal möjliga installationer / antal installationer) * besparing per installation(SEK/år)`,
