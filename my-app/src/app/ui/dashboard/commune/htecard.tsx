@@ -21,7 +21,7 @@ export default function HteCard({ communeName }: { communeName: any } ) {
 
     let rawHTE: any = savingsPotential.map(data => (data.totalAlternativCost))
     let HTE: any = rawHTE/322
-    const realHTE = (HTE/2080).toFixed(2)
+    const realHTE = (HTE/1700).toFixed(2)
     
     return (realHTE)
 
