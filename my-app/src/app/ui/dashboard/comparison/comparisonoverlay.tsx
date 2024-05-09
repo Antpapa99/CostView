@@ -46,15 +46,15 @@ export default function ComparisonOverlay({filteredCommune}: any) {
           </div>
 
           <div className="flex-1 px-2 justify-center w-16 bg-gray-800 shadow rounded max-h-300px">
-            
+
             <Tippy className= "bg-gray-800 text-gray-300" content={(
               <div>
-                  <p>
-                  HTE beräknas utifrån: (alternativkostnad/timkostnad) / antal timmar heltid per år (2080h)
-                  </p>
-                  <p>
-                  Timkostnad: 322kr (medellön undersköterska, hemtjänst, hemskjukvård och äldreboende 2022 (SCB))
-                  </p>
+                <p>
+                HTE beräknas utifrån: (alternativkostnad/timkostnad) / antal timmar heltid per år (1700h)
+                </p>
+                <p>
+                Timkostnad: 322kr (medellön undersköterska, hemtjänst, hemskjukvård och äldreboende 2022 (Inera nyttokalkyl))
+                </p>
               </div>
             )}>
               <div className="">

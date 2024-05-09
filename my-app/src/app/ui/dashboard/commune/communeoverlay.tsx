@@ -31,10 +31,10 @@ export default function ChartBox({ selectedCommune }: any) {
         <Tippy className= "bg-gray-800 text-gray-300" content={(
             <div>
                 <p>
-                HTE beräknas utifrån: (alternativkostnad/timkostnad) / antal timmar heltid per år (2080h)
+                HTE beräknas utifrån: (alternativkostnad/timkostnad) / antal timmar heltid per år (1700h)
                 </p>
                 <p>
-                Timkostnad: 322kr (medellön undersköterska, hemtjänst, hemskjukvård och äldreboende 2022 (SCB))
+                Timkostnad: 322kr (medellön undersköterska, hemtjänst, hemskjukvård och äldreboende 2022 (Inera nyttokalkyl))
                 </p>
             </div>
         )}>
