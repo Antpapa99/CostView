@@ -11,3 +11,7 @@ This project was developed as a part of our bachelors assignment in information 
 my-app folder is where the dashboard webbapplication is in
 
 data-extraction folder is where there is a Python file that fetches data about population and group categorisation of Swedish municipalities and sends a json output to my-app/data  
+
+Current link to site
+https://alternativet.vercel.app/dashboard/commune
+
