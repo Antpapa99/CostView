@@ -34,13 +34,16 @@ export function ComparisonCommuneFilter({ onDataChange }: any) {
         onDataChange(filteredData);
     }};
 
+    // Creates unique categories for each muncipality group
+    const uniqueGroups = Array.from(new Set(kommuner.map((item: any) => item.group)));
+    
     return (
         <div className="flex justify-center">
             <select className="w-100 px-2 justify-center text-white text-center bg-gray-800 border border-gray-600 rounded-md focus:outline-none  focus:border-blue-300" onChange={handleDataChange}>
                 <option value="Visa Alla">Visa Alla</option>
-                {kommuner.map((item: any, index: any) => (
-                    <option key={index} value={item.group}>
-                        {item.group}
+                {uniqueGroups.map((group: any, index: any) => (
+                    <option key={index} value={group}>
+                        {group}
                     </option>
                 ))}
             </select>
