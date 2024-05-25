@@ -13,7 +13,7 @@ interface CommuneCostData {
     techName: string,
     penCost: number,
     oppositePenGrade: number,
-    alternativCost: number,
+    opportunityCost: number,
     totalKostnad: number,
     besparing: number,
     roiPotentiel: number,
@@ -45,7 +45,7 @@ export async function calculateCostAllCommunes(communeData: any[]): Promise<any[
             const antalInstallationer = tech["Antal_installationer"];
             const mojligaInstallationer = tech["Mojliga_installationer"];
             let arligBesparing = 0
-            let alternativCost = 0
+            let opportunityCost = 0
             let kostnadPerInstallation = 0;
 
             if(tech["Arlig_besparing_per_installation_SEK"] < 0){
@@ -77,11 +77,11 @@ export async function calculateCostAllCommunes(communeData: any[]): Promise<any[
             if (antalInstallationer >= 0 && mojligaInstallationer >= 0) {
                 
                 penCost = ((antalInstallationer / mojligaInstallationer) * 100);
-                alternativCost = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * arligBesparing)
+                opportunityCost = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * arligBesparing)
                 totalKostnad = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * kostnadPerInstallation)
             } else {
                 penCost = 0;
-                alternativCost = 0;
+                opportunityCost = 0;
                 totalKostnad = 0;
             }
 
@@ -89,7 +89,7 @@ export async function calculateCostAllCommunes(communeData: any[]): Promise<any[
             technologiesCostCalculator.push({
                 techName: tech.tech_name,
                 penCost: penCost,
-                alternativCost: alternativCost,
+                opportunityCost: opportunityCost,
                 totalKostnad: totalKostnad,
                 besparing: arligBesparing,
             });
@@ -121,7 +121,7 @@ export async function calculateCostSpecificCommune(communeData: any[string], nat
             const antalInstallationer = tech["Antal_installationer"];
             const mojligaInstallationer = tech["Mojliga_installationer"];
             let arligBesparing = 0;
-            let alternativCost = 0;
+            let opportunityCost = 0;
             let kostnadPerInstallation = 0;
             let arligKostnadPerInstallation = 0;
             if(tech["Arlig_besparing_per_installation_SEK"] < 0){
@@ -171,13 +171,13 @@ export async function calculateCostSpecificCommune(communeData: any[string], nat
             if (antalInstallationer >= 0 && mojligaInstallationer >= 0) { //kanske ska vara större än 0 så det inte blir /0
                 penCost = (antalInstallationer / mojligaInstallationer) * 100;
                 oppositePenGrade = ((mojligaInstallationer - antalInstallationer) / mojligaInstallationer) * 100;
-                alternativCost = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * arligBesparing);
+                opportunityCost = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * arligBesparing);
                 totalKostnad = ((tech["Mojliga_installationer"] - tech["Antal_installationer"]) * kostnadPerInstallation);
                 roiPotentiel = ((arligBesparing/kostnadPerInstallation))
             } else {
                 penCost = 0;
                 oppositePenGrade = 100;
-                alternativCost = 0;
+                opportunityCost = 0;
                 totalKostnad = 0;
                 roiPotentiel = 0;
             }
@@ -194,7 +194,7 @@ export async function calculateCostSpecificCommune(communeData: any[string], nat
                 techName: tech.tech_name,
                 penCost: penCost,
                 oppositePenGrade: oppositePenGrade,
-                alternativCost: alternativCost,
+                opportunityCost: opportunityCost,
                 totalKostnad: totalKostnad,
                 besparing: arligBesparing,
                 roiPotentiel: roiPotentiel,
@@ -237,15 +237,15 @@ export async function calculateNationalTotalAlternativCost(communeData: any[]): 
         const technologies: any[] = commune.technologies
 
         technologies.forEach(tech =>{
-            if(tech["alternativCost"] >= 0){
+            if(tech["opportunityCost"] >= 0){
 
                 if (!techAverages[tech.techName]) {
                     techAverages[tech.techName] = {
-                        alternativCost: 0,
+                        opportunityCost: 0,
                         techCount: 0
                     };
                 }
-                techAverages[tech.techName].alternativCost += tech["alternativCost"];
+                techAverages[tech.techName].opportunityCost += tech["opportunityCost"];
                 techAverages[tech.techName].techCount += 1;
             };
         });
@@ -254,12 +254,12 @@ export async function calculateNationalTotalAlternativCost(communeData: any[]): 
     const nationalAverages: any[] = [];
     Object.keys(techAverages).forEach(techName => {
         const avgData = techAverages[techName];
-        const alternativCost = avgData.alternativCost;
+        const opportunityCost = avgData.opportunityCost;
 
         const average = {
             techName: techName,
             penCost: 0,
-            alternativCost: (alternativCost/avgData.techCount) * 290,
+            opportunityCost: (opportunityCost/avgData.techCount) * 290,
             totalAlternativCost: 0,
             totalKostnad: 0,
             besparing: 0,  
@@ -321,7 +321,7 @@ export async function calculateNationalAverage(communeData: any[]): Promise<any[
     Object.keys(techAverages).forEach(techName => {
         const avgData = techAverages[techName];
         const penCost = ((avgData.Antal_installationer_sum / avgData.Mojliga_installationer_sum) * 100) //Du kan ha glömt att ta med delat med avgData.count eftersom 
-        const alternativCost = ((avgData.Mojliga_installationer_sum - avgData.Antal_installationer_sum) * (avgData.Arlig_besparing_per_installation_SEK_sum) / (avgData.count));
+        const opportunityCost = ((avgData.Mojliga_installationer_sum - avgData.Antal_installationer_sum) * (avgData.Arlig_besparing_per_installation_SEK_sum) / (avgData.count));
         const totalAlternativCost = (avgData.Mojliga_installationer_sum - avgData.Antal_installationer_sum) * (avgData.Arlig_besparing_per_installation_SEK_sum)
         const totalKostnad = (((avgData.Mojliga_installationer_sum - avgData.Antal_installationer_sum) * (avgData.Kostnad_per_installation_sum)) / avgData.count);
         const avgBesparing = avgData.Arlig_besparing_per_installation_SEK_sum/avgData.count
@@ -331,7 +331,7 @@ export async function calculateNationalAverage(communeData: any[]): Promise<any[
         const average = {
             techName: techName,
             penCost: penCost,
-            alternativCost: alternativCost,
+            opportunityCost: opportunityCost,
             totalAlternativCost: totalAlternativCost,
             totalKostnad: totalKostnad,
             besparing: avgBesparing,
@@ -355,7 +355,7 @@ export async function calculateNationalAvgPenetration(communeData: any[]): Promi
     let antalSum = 0;
     let mojligSum = 0;
     let oppositePenGrade = 0;
-    let alternativCost = 0;
+    let opportunityCost = 0;
     let totalAlternativCost = 0;
 
     communeData.forEach(commune => {
@@ -397,16 +397,16 @@ export async function calculateNationalAvgPenetration(communeData: any[]): Promi
         console.log(techName, avgData.techCount, "Tech count");
         avgAlternativCost.forEach(element => {
             if(element.techName == techName){
-                alternativCost = element.alternativCost;
+                opportunityCost = element.opportunityCost;
             }
         });
 
-        totalAlternativCost += alternativCost;
+        totalAlternativCost += opportunityCost;
 
         const average = {
             techName: techName,
             penCost: penCost,
-            alternativCost: alternativCost,
+            opportunityCost: opportunityCost,
             totalAlternativCost: 0,
             totalKostnad: 0,
             besparing: 0,
@@ -420,7 +420,7 @@ export async function calculateNationalAvgPenetration(communeData: any[]): Promi
     const genomsnittligPenetration = {
         techName: "Genomsnittlig penetration",
         penCost: (antalSum/mojligSum) * 100,
-        alternativCost: totalAlternativCost,
+        opportunityCost: totalAlternativCost,
         totalAlternativCost: 0,
         totalKostnad: 0,
         besparing: 0,
@@ -437,7 +437,7 @@ interface CommuneCostAvgData {
     communeName: string;
     techName: string;
     penCost: number;
-    alternativCost: number;
+    opportunityCost: number;
     totalKostnad: number;
 }
 
@@ -455,7 +455,7 @@ export async function calculateAvgPenetrationPerCommune(communeData: any[string]
     let totalAlternativCost = 0
 
     costData.forEach(tech => {
-        totalAlternativCost += tech.alternativCost    
+        totalAlternativCost += tech.opportunityCost    
     })
     
     technologies.forEach(tech => {
@@ -475,7 +475,7 @@ export async function calculateAvgPenetrationPerCommune(communeData: any[string]
         communeName: communeName,
         techName: "Genomsnittlig Penetration",
         penCost: averagePenCost,
-        alternativCost: totalAlternativCost,
+        opportunityCost: totalAlternativCost,
         oppositePenGrade: averageOppositePenGrade, 
         totalKostnad: 0, // You can set this to 0 or calculate if needed
         besparing: 0,
@@ -515,7 +515,7 @@ export async function calculateAvgAllCommunes(communeData: any[string]): Promise
         
         technologies.forEach(tech => {
             totalPenCost += tech.penCost;
-            totalAlternativCost += tech.alternativCost;
+            totalAlternativCost += tech.opportunityCost;
         });
 
         const savingPotential = (totalAlternativCost / (communeCost.cost * 1000)) * 100;
@@ -527,7 +527,7 @@ export async function calculateAvgAllCommunes(communeData: any[string]): Promise
             communeName: communeName,
             techName: "Combined",
             penCost: averagePenCost,
-            alternativCost: totalAlternativCost,
+            opportunityCost: totalAlternativCost,
             savingPotential: savingPotential,
             totalKostnad: 0, // You can set this to 0 or calculate if needed
             besparing: 0,
@@ -588,7 +588,7 @@ export async function getCommuneAvg() {
       // Beräkna totala alternativa kostnader för kommunen
       let totalAlternativCost = 0;
       communeData.forEach(commune => {
-        totalAlternativCost += commune.alternativCost;
+        totalAlternativCost += commune.opportunityCost;
       });
   
       // Beräkna besparingspotentialen med hjälp av formeln
@@ -638,7 +638,7 @@ export async function getCommuneAvg() {
       const technologies: any[] = commune.technologies
       console.log(commune, "line 636")
       technologies.forEach(tech => {
-        totalAlternativCost += tech.alternativCost;
+        totalAlternativCost += tech.opportunityCost;
       })
       
       // Beräkna besparingspotentialen med hjälp av formeln
