@@ -52,7 +52,7 @@ export default function NationalAltCostChart() {
         datasets: [
             {
                 label: "Nationell alternativkostnad SEK/år",
-                data: nationalAverage.map(data => data.alternativCost), // Använd alternativCost från det nationella genomsnittet för data
+                data: nationalAverage.map(data => data.opportunityCost), // Använd opportunityCost från det nationella genomsnittet för data
                 backgroundColor: (context: { chart: any; }) => {
                     // Retrieve the chart instance and the context (canvas)
                     const chart = context.chart;

@@ -30,7 +30,7 @@ ChartJS.register (
 
 
 export default function ScatterPlot() {
-    const [alternativCost, setAlternativCost] = useState<any[]>([]);
+    const [opportunityCost, setAlternativCost] = useState<any[]>([]);
 
     useEffect(() => {
         const fetchCommuneAlternativCost = async () => {
@@ -88,7 +88,7 @@ export default function ScatterPlot() {
                   label: function(tooltipItem: { dataset: { data: { [x: string]: any; }; }; dataIndex: string | number; }) {
                       const dataPoint = tooltipItem.dataset.data[tooltipItem.dataIndex];
                       
-                      // Returnera texten med penCost och alternativCost
+                      // Returnera texten med penCost och opportunityCost
                       return `Genomsnitlig penetration: ${Math.round(dataPoint.x)}%, Alternativkostnad per invånare: ${Math.round(dataPoint.y).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} SEK/invånare`;
                   }
               }
@@ -113,12 +113,12 @@ export default function ScatterPlot() {
   
 
 
-      console.log(alternativCost.map(data =>
+      console.log(opportunityCost.map(data =>
         data.penCost))
     
-        const nationalCommuneAverageData = alternativCost.map(data => ({
+        const nationalCommuneAverageData = opportunityCost.map(data => ({
             x: data.penCost,
-            y: data.alternativCost/data.population,
+            y: data.opportunityCost/data.population,
 
             communeName: data.displayName
         }));

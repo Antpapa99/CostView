@@ -50,7 +50,7 @@ export default function AltCostChart({ communeName }: { communeName: string }) {
         datasets: [
             {
                 label: "Alternativ kostnad",
-                data: communeCost.map(data => data.alternativCost),
+                data: communeCost.map(data => data.opportunityCost),
                 backgroundColor: backgroundColor,
                 borderWidth: 1
             }

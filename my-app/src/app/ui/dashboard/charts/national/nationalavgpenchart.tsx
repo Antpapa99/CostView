@@ -91,7 +91,7 @@ const backgroundColor = nationalAverage.map(data => {
                     },
                     align: 'right',
                     formatter: function(value: string, context: any) {
-                        return nationalAverage[context.dataIndex].alternativCost.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); // Vill försöka få in potentiel besparing som label här
+                        return nationalAverage[context.dataIndex].opportunityCost.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); // Vill försöka få in potentiel besparing som label här
                 },
                 stack: "stack1"
             },
@@ -179,7 +179,7 @@ const backgroundColor = nationalAverage.map(data => {
                         } else if (context.dataset.label === "Potentiel") {
                             // Return the text "hejdå" for the "Potentiel" dataset
                             return [
-                                `Nationell AlternativKostnad: ${nationalAverage[context.dataIndex].alternativCost.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} SEK/år`,
+                                `Nationell AlternativKostnad: ${nationalAverage[context.dataIndex].opportunityCost.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} SEK/år`,
                                 `\nBeräknas utifrån:\nGenomsnittlig alternativkostnad * 290`,
                                 `\nGenomsnittlig alternativkostnad beräknas utifrån:`,
                                 `\n(totala antalet möjliga installationer - totala antalet installationer) * genomsnittlig besparing per installation(SEK/år)`,

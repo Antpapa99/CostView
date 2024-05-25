@@ -105,7 +105,7 @@ export default function ComparisonSavingsPotetialChart({filteredCommune}: any) {
                     if (context.dataset.label === "Besparingspotential") {
                         
                         return [
-                            `Alternativkostnad: ${savingsPotential[context.dataIndex]["alternativCost"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} SEK/år`,
+                            `Alternativkostnad: ${savingsPotential[context.dataIndex]["opportunityCost"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} SEK/år`,
                             `Besparingspotential: \n${savingsPotential[context.dataIndex]["savingPotential"].toFixed(2) + '%'}`,
                             `Omslutning: \n${savingsPotential[context.dataIndex]["cost"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} SEK/år`,
                             `Alternativkostnad beräknas utifrån:\n(antal möjliga installationer / antal installationer) * besparing per installation(SEK/år)`,

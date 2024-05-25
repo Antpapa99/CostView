@@ -22,7 +22,7 @@ export default function CompareHteCard ({filteredCommune}: any) {
     if (topData.length >= 1) {
         let best = topData.map(data => ({
             name: data.displayName,
-            alternativ: data.alternativCost
+            alternativ: data.opportunityCost
         }))
         best = best.sort((a, b) => b.alternativ - a.alternativ)
         let bestKommun = (((best[0].alternativ)/322)/2080).toFixed(2)

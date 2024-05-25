@@ -21,7 +21,7 @@ export default function TopAltCard({filteredCommune}: any) {
     
     if (topData.length >= 1) {
         let best = topData.map(data => ({
-            totalAlternativCost: data.alternativCost,
+            totalAlternativCost: data.opportunityCost,
             name: data.displayName
         
             

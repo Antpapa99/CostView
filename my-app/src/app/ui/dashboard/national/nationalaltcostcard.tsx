@@ -23,7 +23,7 @@ export default function NationalAltCostCard() {
     }, []);
     
       nationalAverage.forEach(tech => {
-        alternativCostSum += tech.alternativCost
+        alternativCostSum += tech.opportunityCost
       });
       
       return (alternativCostSum.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "))
